@@ -1,0 +1,30 @@
+-mngmtConsole
+-svcs.database.neptune
+-svcs.database.neptune.clusters
+-svcs.database.neptune.clusters.["DB cluster identifier"]
+-svcs.database.neptune.clusters.engine
+-svcs.database.neptune.clusters.["engine version"]
+-svcs.database.neptune.clusters.status
+-svcs.database.neptune.clusters.size
+-svcs.database.neptune.instances
+-svcs.database.neptune.snapshots
+-svcs.database.neptune.["subnet groups"]
+-svcs.database.neptune.["subnet groups"].[specific grp nm]
+-svcs.database.neptune.["subnet groups"].[specific grp nm].["subnet group details"]
+-svcs.database.neptune.["subnet groups"].[specific grp nm].["subnet group details"].[VPC ID]
+-svcs.database.neptune.["subnet groups"].[specific grp nm].["subnet group details"].arn
+-svcs.database.neptune.["subnet groups"].[specific grp nm].subnets.["availability zone"]
+-svcs.database.neptune.["subnet groups"].[specific grp nm].subnets.["subnet ID"]
+-svcs.database.neptune.["subnet groups"].[specific grp nm].tags
+-svcs.database.neptune.["subnet groups"].[specific grp nm].tags.["tag key"]
+-svcs.database.neptune.["subnet groups"].[specific grp nm].tags.value
+-svcs.database.neptune.["parameter groups"]
+-svcs.database.neptune.["parameter groups"].name
+-svcs.database.neptune.["parameter groups"].family
+-svcs.database.neptune.events
+-svcs.database.neptune.events.src
+-svcs.database.neptune.events.type
+-svcs.database.neptune.events.time
+-svcs.database.neptune.["support forums"]: https://forums.aws.amazon.com/forum.jspa?forumID=253
+-svcs.database.neptune.["Click here to see the latest pricing"]
+-svcs.database.neptune.["Launch Amazon Neptune"]
