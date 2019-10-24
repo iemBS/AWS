@@ -1,0 +1,7 @@
+Set Validation in Task
+Notes:
+  -Compares source and target records and reports any mismatches
+  -Data validation requires additional time
+  -Data validation is optional
+Main Success Scenario:
+  1. xxx: need to fill in
