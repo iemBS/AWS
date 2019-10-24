@@ -1,0 +1,10 @@
+Set Events and Notifications
+Notes:
+  -SNS = Simple Notification Service
+  -SNS provides notifications when an event occurs
+  -Events are grouped into categories that can be subscribed to
+  -You can create multiple subscriptions for different types of events
+  -Event notifications can be sent by email or by SMS
+  -Availability of SMS is dependent upon the region your DMS instance is in
+Main Success Scenario:
+  1. xxx: need to fill in
