@@ -1,0 +1,22 @@
+Create Subscription for Event
+Notes:
+  -When specifying a topic as a target you can choose:
+    -existing topics
+    -create a new email topic
+    -create new SMS topic
+  -If choosing an existing topic, then a Topic ARN will need to be chosen
+  -Event source type
+    -replication-instance
+    -replication-task
+      -creation
+      -configuration change
+      -failure
+      -deletion
+      -state change
+Main Success Scenario:
+  1. Specify name
+  2. Choose enabled/disabled
+  3. Specify a topic as a target
+  4. Choose event source type
+  5. For the event source type, choose an event category
+  6. Specify replication tasks to do
