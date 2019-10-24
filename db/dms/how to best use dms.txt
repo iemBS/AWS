@@ -1,0 +1,14 @@
+How to Best use DMS
+Notes:
+  -AZ = Availability Zone
+  -xxx:provide more guidance on points 1 and 4
+Main Success Scenario:
+  1. Check on the number of tables you are migrating in parallel
+  2. Reduce the load on your source database
+  3. Disable backups and transaction logging
+  4. Use a Multi-AZ deployment when performing ongoing replication
+  5. Maximize resources available on the source
+  6. Maximize available network throughput
+  7. Maximize capacity of your replication server
+  8. Reduce number of objects to be migrated
+  9. Determine how to best handle the type and distribution of source data
