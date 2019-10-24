@@ -1,0 +1,20 @@
+Create Service Task
+Notes:
+  -Service task is used to move a set of data from source to target
+  -Service task is the last step required before performing a migration
+  -Migration Types
+    -Full Load: Migrates existing data from source to target
+    -Full load + CDC: Migrates existing data plus ongoing changes (Change Data Capture)
+    -CDC only: Replicate data changes only, copy existing data using another method
+  -Data Validation: Compares data on target and source
+  -Table Mapping: Transformations, soure schema etc. to be used during migration
+  -Monitoring: Console, Logs and CloudWatch
+  -Reloading Tables: If there is an error during the task
+Main Success Scenario:
+  1. Choose a replication instance
+  2. Choose source and target end points
+  3. Choose a migration type
+  4. Specify Data Validation
+  5. Specify Table Mapping
+  6. Specify Monitoring
+  7. Specify Table Reloading
