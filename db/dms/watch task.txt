@@ -1,0 +1,15 @@
+Watch Task
+Notes:
+  -Task Status: Indicates the condition of the task
+  -Tasks Control Table: Information about the AWS DMS task
+  -Table state: Indicates the table state
+  -DMS servcie metrics: Host, task, and table metrics
+  -DMS task logs: CloudWatch logs used to track migrations
+Main Success Scenario:
+  1. Use Task Status
+  2. Use Tasks Control Table
+  3. Use Table state
+  4. Use Amazon CloudWatch
+  5. Use DMS service metrics
+  6. Use DMS task logs
+  
