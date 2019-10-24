@@ -1,0 +1,8 @@
+Troubleshoot DMS
+Notes:
+  -Amazon RDS connection issues could be with user name, password, port number, security group, or endpoint
+Main Success Scenario:
+  1. Networking issues
+  2. Slow running migration tasks
+  3. Task status bar not moving
+  4. Amazon RDS connection issues
