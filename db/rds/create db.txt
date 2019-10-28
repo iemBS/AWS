@@ -4,7 +4,7 @@ Preconditions:
 Main Success Scenario:
   1. Choose engine
   2. Choose Use Case and view cost of options
-  3. Specify DB details
+  3. Choose instance specifications
   4. See estimated monthly costs update as you change options
   5. Configure advance settings
   6. Configure DB options
