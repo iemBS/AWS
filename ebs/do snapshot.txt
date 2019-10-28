@@ -1,0 +1,5 @@
+Do EBS snapshot
+Notes:
+  -EBS snapshot is a snapshot of a volume. 
+Main Success Scenario:
+  1.xxx:fill in
