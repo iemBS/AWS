@@ -1,0 +1,10 @@
+Choose EC2 instance
+Notes:
+  -You only see instances for the region you selected 
+  -instance types are called models or sizes
+  -each availability zone is made up of 1 or 2 data centers
+Main Success Scenario:
+  1. Select a region
+  2. xxx:fill in
+Alternatives:
+  1a. Use Amazon reserved instance market place
