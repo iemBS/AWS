@@ -1,0 +1,5 @@
+Use Faster Connection
+Main Success Scenario:
+  1. Enable s3 transfer acceleration services on a bucket. No new hardware is needed to do this.
+Alternatives:
+  1a. Enable direct connect that lets you skip the internet and connect directly to amazon. 
