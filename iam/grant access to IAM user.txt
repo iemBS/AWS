@@ -1,0 +1,5 @@
+Grant Access to IAM User
+Notes:
+  -Guidance @ https://aws.amazon.com/iam/features/manage-permissions/?audit=2019q1
+Main Success
+  1. xxx:fill in
