@@ -1,0 +1,3 @@
+What is cloud watch
+  -2 or categories of metrics in cloud watch. You need to pay for the 2nd category of metrics. They are request metrics. 
+  
