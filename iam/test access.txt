@@ -1,0 +1,6 @@
+Test Access
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html
+Main Success Scenario:
+  1.  Go to IAM Policy Simulator Console at: https://policysim.aws.amazon.com/
+  2.xxx:fill in
