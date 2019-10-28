@@ -1,0 +1,6 @@
+Create IAM Policy
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html
+  -Guidance @ https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand.html
+Main Success Scenario:
+  1.xxx:fill in
