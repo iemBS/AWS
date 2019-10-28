@@ -1,0 +1,5 @@
+Connect to Instance
+Main Success Scenario:
+  1. can use ssh for connection and scp for file transfer 
+
+Xxx:fill in
