@@ -1,5 +1,6 @@
 Grant Access to Federated Users
 Notes:
   -Guidance @ https://aws.amazon.com/identity/federation/
+  -Federated user is a person that has their non-AWS IAM user mapped to an IAM user
 Main Success
   1. xxx:fill in
