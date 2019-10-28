@@ -1,0 +1,12 @@
+Choose Engine
+Notes:
+  -Choice of engines: Amazon Aurora, MySQL, MariaDB, PostgressSQL, Oracle, Microsoft SQL Server
+  -"Only enable options eliglble for RDS Free Usage Tier" checkbox not available in all regions
+  -Use Cases try to do some config for you to provide you a faster setup
+  -xxx:fill in more
+Main Success Scenario:
+  1. See engine choices
+  2. See brief description of selected engine
+  3. Check "Only enable options eliglble for RDS Free Usage Tier" checkbox
+
+  
