@@ -1,0 +1,6 @@
+Inherit Tag
+Notes:
+  -Objects in 
+Main Success Scenario:
+  1. Objects in a bucket do not inherit tags that are on the bucket. 
+  2.xxx:need to fill in
