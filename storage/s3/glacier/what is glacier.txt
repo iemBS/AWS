@@ -1,0 +1,4 @@
+What is Glacier
+-Class of S3 that is used for archival (meaning infrequently accessed)
+-Glacier contains vaults and vaults contain archives
+-xxx:fill in
