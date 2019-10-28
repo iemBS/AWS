@@ -1,0 +1,6 @@
+Create IAM user
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.IAM
+  -IAM = AWS Identity and Access Management
+Main Success Scenario:
+  1. xxx:fill in
