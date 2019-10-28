@@ -1,0 +1,3 @@
+What is DMS
+-A DMS instance is an EC2 instance deployed to VPC
+-xxx:need to fill in
