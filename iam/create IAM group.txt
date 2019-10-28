@@ -1,0 +1,10 @@
+Create IAM Group
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html
+  -Add users to or remove them from a group.
+  -A user can belong to multiple groups.
+  -Groups cannot belong to other groups.
+  -Groups can be granted permissions using access control policies. This makes it easier to manage permissions for a collection of users, rather than having to manage permissions for each individual user.
+  -Groups do not have security credentials, and cannot access web services directly; they exist solely to make it easier to manage user permissions. 
+Main Success Scenario:
+ 1.xxx:fill in
