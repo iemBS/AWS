@@ -1,0 +1,8 @@
+Create AMI
+Notes:
+-AMI uses ec2
+-AMI = Amazon Machine Image
+-AMI will boot up a VM, with OS, with software, uses launch permissions
+-volume is drive space for an ec2 instance. You can config volumes for an ec2 instance
+Main Success Scenario:
+  1.xxx:fill in 
