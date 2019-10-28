@@ -1,5 +1,16 @@
 Use Faster Connection
+Notes:
+  -Two versions of snowball: Snowball & Snowball H. Snowball H is programmable.
+  -Snowball is rugged and does not damage easy. Snowball is heavy.
 Main Success Scenario:
   1. Enable s3 transfer acceleration services on a bucket. No new hardware is needed to do this.
 Alternatives:
   1a. Enable direct connect that lets you skip the internet and connect directly to amazon. 
+    1a1. xxx:fill in
+  1b. Use Snowball external drive
+    1b1. Amazon sends you drive
+    1b2. You copy your files to the drive
+    1b3. You send it back to Amazon
+    1b4. Amazon plugs the drive into their network and copies the files to an S3 bucket
+  1c. Use Snowmobile external drive (pulled with a trailer)
+    1c1. xxx:fill in
