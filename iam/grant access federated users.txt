@@ -1,0 +1,5 @@
+Grant Access to Federated Users
+Notes:
+  -Guidance @ https://aws.amazon.com/identity/federation/
+Main Success
+  1. xxx:fill in
