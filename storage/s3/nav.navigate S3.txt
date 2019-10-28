@@ -1,4 +1,4 @@
-Navigate s3
+Navigate S3
 Main Success Scenario:
   1. see navigation below
   
