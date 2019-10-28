@@ -1,0 +1,5 @@
+Tag Bucket
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-object-tags.html
+Main Success Scenario:
+  1. xxx:fill in
