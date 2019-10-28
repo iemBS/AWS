@@ -1,0 +1,5 @@
+Find AMI
+Notes:
+  -xxx:fill in
+Main Success Scenario:
+  1.some AMIs are free, some in Amazon market place, some offered by companies like MS, and you can make your own public for others to use. 
