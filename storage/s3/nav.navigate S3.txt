@@ -1,5 +1,30 @@
 Navigate S3
 Main Success Scenario:
-  1. see navigation below
+  1. see navigation belo
   
-xxx: need to fill in
+-bucket
+  -name
+  -region
+  -version
+  -log
+    -access
+    -object
+  -encryption (at rest)
+    -AES-256
+    -AWS-KMS
+    -client side
+    -server side
+  -encryption (in transit)
+     -ssl (aka https)
+     -tsl (new version of SSL)
+  -access control list (AWS suggests use only @ object level)
+  -policy (use @ bucket level)
+    -json generator
+  -properties
+  -permissions
+  -version
+    -enable
+    -ID
+  -rule
+  
+  xxx:need to fill in more
