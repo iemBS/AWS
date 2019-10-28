@@ -1,0 +1,4 @@
+What is IAM
+-Guidance @ https://aws.amazon.com/iam/faqs/
+-IAM = Identity and Access Management
+-Use to control individual and group access to AWS resources
