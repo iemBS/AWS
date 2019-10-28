@@ -1,0 +1,5 @@
+Enable RDS free usage tier
+Note:
+  -Provided this checkbox when choosing an engine
+Main Success Scenario:
+  1. xxx:fill in
