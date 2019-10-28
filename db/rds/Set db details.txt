@@ -1,0 +1,18 @@
+Set DB Details
+Notes:
+  -Choosing "Multi-AZ deployment" doubles the cost
+  -Choosing a burstable DB instance class increases price
+Main Success Scenario:
+  1. DB Engine
+  2. License Model
+  3. DB Engine Version
+  4. Enable RDS Free Usage Tier
+  5. DB instance class
+  6. Multi-AZ deployment
+  7. Storage Type
+  8. Allocated Storage
+  9. Choose region
+  10. Choose availability zone
+Alternatives:
+  5a. Choose a burstable DB instance class
+    5a1. xxx:fill in
