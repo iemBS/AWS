@@ -1,0 +1,6 @@
+Manage Event
+Notes:
+  -Cloud Trail allows you to track a person's usage of AWS services
+  -Guidance @ https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events
+Main Success Scenario:
+  1.xxx:fill in
