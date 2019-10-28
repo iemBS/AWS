@@ -4,6 +4,7 @@ Notes:
   -IAM = AWS Identity and Access Management
   -Guidance @ https://aws.amazon.com/cli/
   -IAM Console @ https://console.aws.amazon.com/iam/home
+  -Guidance @ https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html
 Preconditions:
   -Must be using at least one of the AWS services that is integrated with IAM
   -Must use IAM API, AWS CLI, or IAM console to create user
