@@ -1,0 +1,7 @@
+Query S3
+Notes:
+  -Guidance @ https://aws.amazon.com/athena/
+  -Guidance @ https://aws.amazon.com/blogs/big-data/analyzing-data-in-s3-using-amazon-athena/
+Main Success Scenario:
+  1. xxx:fill in
+  
