@@ -1,0 +1,5 @@
+What is ec2
+-VM in Amazon cloud
+-AMI will boot up a VM, with OS, with software, uses launch permissions, 
+-volume is drive space for an ec2 instance. You can config volumes for an ec2 instance.
+-some AMIs are free, some in Amazon market place, some offered by companies like MS, and you can make your own public for others to use. 
