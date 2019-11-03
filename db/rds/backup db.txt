@@ -1,5 +1,7 @@
 Backup DB
 Notes:
   -xxx:fill in
+Preconditions:
+  -"Backup retention period" must be greater than zero days
 Main Success Scenario:
   1. 
