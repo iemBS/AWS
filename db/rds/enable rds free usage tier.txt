@@ -1,5 +1,6 @@
 Enable RDS free usage tier
 Note:
+  -Guidance @ https://aws.amazon.com/rds/free/
   -Provided this checkbox when choosing an engine
 Main Success Scenario:
   1. xxx:fill in
