@@ -21,4 +21,11 @@ Main Success Scenario:
   2. Click on your db name
   3. press "Actions" menu
   4. Choose "Create read replica" on the menu
-  5. xxx:fill in
+  5. Specify "Destination region"
+  6. Specify "Destination DB Subnet Group"
+  7. Specify "Availability zone"
+  8. Specify "Publicly Accessible"
+  9. 
+  X. On "Databases" screen, see "Creating" in "Status" column
+  
+  
