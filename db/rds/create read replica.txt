@@ -1,0 +1,23 @@
+Create Read Replica
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
+  -Asynchronus replication
+  -Cross-Region support
+  -read only
+  -can take several replicas
+  -reasons to create a read replica
+    -Offload a read-heavy workload to another instance
+    -Continued read-only access during maintenance of the source
+    -Incorporated into the upgrade pipeline (MySQL, Maria DB only)
+    -Faileover disaster discovery
+  -Read Replica vs Multi-AZ
+    -Manual Disaster Recovery vs Automated Disaster Recovery
+    -Read Only vs Not Accessible
+    -Asynchronous vs Synchronous
+    -Cross-region support vs Single Region
+Main Success Scenario:
+  1. Go to "Databases" on the left side bar
+  2. Click on your db name
+  3. press "Actions" menu
+  4. Choose "Create read replica" on the menu
+  5. xxx:fill in
