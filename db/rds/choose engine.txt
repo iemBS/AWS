@@ -1,5 +1,6 @@
 Choose Engine
 Notes:
+  -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#Concepts.DBInstanceClass.Support
   -Choice of engines: Amazon Aurora, MySQL, MariaDB, PostgressSQL, Oracle, Microsoft SQL Server
   -"Only enable options eliglble for RDS Free Usage Tier" checkbox not available in all regions
   -Use Cases try to do some config for you to provide you a faster setup
