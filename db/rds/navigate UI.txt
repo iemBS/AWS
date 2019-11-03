@@ -1,0 +1,33 @@
+Navigate UI
+-"Databases" on left side bar
+  -"Connectivity & security" tab
+  -"Monitoring" tab
+    -"CloudWatch"
+      -"CPU Utilization" chart
+      -"DB Connections" chart
+      -"Free Storage Space" chart
+      -"Freeable Memory" chart
+  -"Log & events" tab
+    -"CloudWatch alarms"
+      -"Edit alarm" button
+      -"Create alarm" button
+        -"Settings"
+          -"Send Notifications"
+          -"Send Notifications to"
+          -"ARN"
+          -"Metric"
+          "Threshold"
+          "Evaluation period"
+          "Name of alarm"
+    -"Recent events"
+      -"Time" column
+      -"System notes" column
+    -"Logs"
+      -"View" button
+      -"Watch" button
+      -"Download" button
+  -"Configuration" tab
+  -"Maintenance & backups" tab
+  -"Tags" tab
+  
+  xxx:fill in
