@@ -15,6 +15,7 @@ Notes:
     -Read Only vs Not Accessible
     -Asynchronous vs Synchronous
     -Cross-region support vs Single Region
+  -Settings for replica will default to those that match the original
 Main Success Scenario:
   1. Go to "Databases" on the left side bar
   2. Click on your db name
