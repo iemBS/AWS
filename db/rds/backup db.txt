@@ -1,5 +1,6 @@
 Backup DB
 Notes:
+  -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html
   -xxx:fill in
 Preconditions:
   -"Backup retention period" must be greater than zero days
