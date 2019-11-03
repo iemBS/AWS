@@ -1,5 +1,9 @@
 Take DB Snapshot
 Notes:
   -xxx:fill in
+  -Used for known scenarios, while backups used for unexpected scenarios
 Main Success Scenario:
-  1. 
+  1. Go to "Snapshots" screen
+  2. Click "Take snapshot" button at top right
+  3. Specify "Snapshot name"
+  4. 
