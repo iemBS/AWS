@@ -1,4 +1,4 @@
-Take DB Snapshot
+Snapshot DB
 Notes:
   -xxx:fill in
   -Used for known scenarios, while backups used for unexpected scenarios
