@@ -1,1 +1,3 @@
+Guidance @ https://aws.amazon.com/athena/resources/
+
 xxx:fill in
