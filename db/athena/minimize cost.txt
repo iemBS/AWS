@@ -1,4 +1,4 @@
-Reduce Cost
+Minimize Cost
 Notes:
   -Guidance @ https://aws.amazon.com/athena/pricing/?nc=sn&loc=3
 Main Success Scenario:
