@@ -12,3 +12,6 @@ No Cost
 -Data Definition Language (DDL) statements like CREATE/ALTER/DROP TABLE
 -statements for managing partitions
 -failed queries.
+
+Question
+-If failure of a query occurs due to lack of access, are you still charged?
