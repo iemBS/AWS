@@ -1,0 +1,6 @@
+Reduce Cost
+Notes:
+  -Guidance @ https://aws.amazon.com/athena/pricing/?nc=sn&loc=3
+Main Success Scenario:
+  1. Partitioning your data also allows Athena to restrict the amount of data scanned.
+  2.xxx:fill in
