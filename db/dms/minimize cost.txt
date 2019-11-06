@@ -1,3 +1,5 @@
 Minimize Cost
+Notes
+  -Guidance @ https://aws.amazon.com/dms/pricing/?nc=sn&loc=3
 Main Success Scenario:
   1.xxx:fill in
