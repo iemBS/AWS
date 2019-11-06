@@ -1,0 +1,14 @@
+Guidance:
+-https://aws.amazon.com/athena/
+-https://aws.amazon.com/athena/pricing/?nc=sn&loc=3
+
+Cost
+-5$ / terabyte of data scanned, scanning occurs when a query is run
+-You are charged for the number of bytes scanned by Amazon Athena, rounded up to the nearest megabyte, with a 10MB minimum per query. 
+-Cancelled queries are charged based on the amount of data scanned.
+-You are charged standard S3 rates for storage, requests, and data transfer. By default, query results are stored in an S3 bucket of your choice and are also billed at standard Amazon S3 rates.
+
+No Cost
+-Data Definition Language (DDL) statements like CREATE/ALTER/DROP TABLE
+-statements for managing partitions
+-failed queries.
