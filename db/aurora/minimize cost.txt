@@ -1,1 +1,8 @@
-xxx:fill in
+Minimize Cost
+Notes:
+  -xxx:fill in
+Main Success Scenario:
+  1.Minimize logging (uses drive space)
+  2.
+  
+
