@@ -2,8 +2,15 @@ Minimize Cost
 Notes:
   -xxx:fill in
 Main Success Scenario:
-  1.Minimize logging (uses drive space)
-  2.Minimize # of read replicas 
-  3.
+  1.Minimize logging (drive space)
+  2.Minimize # of read replicas (drive space)
+  3.Minimize backtracking (drive space)
+  4.Minimize auto back up (drive space)
+  5.Minimize manual snapshot (drive space)
+  6.Reserve instead of on-demand 
+  7.Make larger time reservation commitment in advance
+  8.Minimize data transfer frequency
+  9.Choose lower cost destination during data transfer
+  10. 
   
 
