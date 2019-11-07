@@ -3,6 +3,7 @@ Notes:
   -xxx:fill in
 Main Success Scenario:
   1.Minimize logging (uses drive space)
-  2.
+  2.Minimize # of read replicas 
+  3.
   
 
