@@ -12,5 +12,4 @@ Main Success Scenario:
   8.Minimize data transfer frequency
   9.Choose lower cost destination during data transfer
   10.Just use default VPC (CPU, drive space)
-  
-
+  11. Remove deletion protection.
