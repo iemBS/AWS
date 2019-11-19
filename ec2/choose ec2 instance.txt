@@ -1,8 +1,10 @@
 Choose EC2 instance
 Notes:
-  -You only see instances for the region you selected 
   -instance types are called models or sizes
   -each availability zone is made up of 1 or 2 data centers
+  -Guidance @ https://aws.amazon.com/blogs/aws/choosing-the-right-ec2-instance-type-for-your-application/
+Preconditions:
+  -You only see instances for the region you selected 
 Main Success Scenario:
   1. Select a region
   2. xxx:fill in
