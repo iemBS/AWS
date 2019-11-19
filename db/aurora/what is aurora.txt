@@ -1,1 +1,6 @@
-xxx:fill in
+What is Aurora?
+-MySQL & PostgreSQL compatible
+-Amazon built for the cloud
+-One of the DB engines offered in AWS RDS
+-May be the lowest cost DB engine offered in AWS RDS
+-https://aws.amazon.com/rds/aurora/
