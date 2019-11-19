@@ -14,3 +14,4 @@ Main Success Scenario:
   10.Just use default VPC (CPU, drive space)
   11. Remove deletion protection.
   12.use public instead of private subnets
+  13.Minimize table scanning
