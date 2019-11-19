@@ -1,3 +1,19 @@
-Guidance @ https://aws.amazon.com/athena/resources/
-
-xxx:fill in
+Minimize Cost
+Notes
+  -Guidance @ https://aws.amazon.com/athena/resources/
+  -Guidance @ https://aws.amazon.com/redshift/pricing/
+  -Guidance @ https://aws.amazon.com/redshift/pricing/#Reserved_Instance_Pricing
+  -Redshift Spectrum only scans columns needed by the query
+  -Guidance @ https://aws.amazon.com/glue/pricing/
+Main Success Scenario:
+  1.Use instances that are reserved rather than on-demand
+  2.The longer time you reserve, the better deal you get
+  3.Use Redshift Spectrum to compress data
+  4.Store data in columnar format (Parquet, ORC)
+  5.Minimize use of AWS Glue Data Catalog
+  6.Minimize use of AWS Key Management Service (KMS)
+  7.Use Pricing Calculator @ https://aws.amazon.com/redshift/pricing/#Pricing_calculator
+  8.Minimize time held & # of backups
+  9.Minimize time held and # of snapshots
+  10.Minimize amount of data movement to other AWS services
+ 
