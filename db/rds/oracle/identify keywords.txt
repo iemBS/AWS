@@ -1,3 +1,5 @@
 Identify Keywords
+Notes:
+  -Guidance @ https://docs.oracle.com/cd/B10501_01/appdev.920/a42525/apb.htm
 Main Success Scenario:
-  1. xxx:fill in
+  1. Look at the lists @ https://docs.oracle.com/cd/B10501_01/appdev.920/a42525/apb.htm
