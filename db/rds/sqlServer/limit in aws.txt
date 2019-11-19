@@ -1,3 +1,28 @@
 Limit in AWS
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport.Limits
 Main Success Scenario:
-  1. xxx:fill in
+  1. Max # of DBs on a DB instance depends on the instance class type and the availability mode
+  2. Some ports are reserved for Amazon RDS, and you can't use them when you create a DB instance. 
+  3. Client connections from IP addresses within the range 169.254.0.0/16 are not permitted. This is the Automatic Private IP Addressing Range (APIPA), which is used for local-link addressing.
+  4. SQL Server Standard Edition will use only a subset of the available processors if the DB instance has more processors than the software limits (24 cores, 4 sockets, and 128GB RAM).
+  5. Amazon RDS for SQL Server doesn't support importing data into the msdb database. 
+  6. You can't rename databases on a DB instance in a SQL Server Multi-AZ deployment. 
+  7. The min storage size for SQL Server DB instances is the following:
+      General Purpose (SSD) storage – 20 GiB for Enterprise, Standard, Web, and Express editions
+      Provisioned IOPS storage – 20 GiB for Enterprise and Standard editions, 100 GiB for Web and Express editions
+      Magnetic storage – 200 GiB for Enterprise and Standard editions, 20 GiB for Web and Express editions
+  8.Amazon RDS doesn't support running these services on the same server as your Amazon RDS DB instance: SQL Server Analysis Services, SQL Server Integration Services, SQL Server Reporting Services, Data Quality Services, Master Data Services
+  9.The following server-level roles are not currently available in Amazon RDS:
+      bulkadmin
+      dbcreator
+      diskadmin
+      securityadmin
+      serveradmin
+      sysadmin
+  10.Some server-level permissions are not available on SQL Server DB instances
+  11. Limited to specific versions as noted @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport
+  12. Features Not Supported or with limited support @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureNonSupport
+
+
+
