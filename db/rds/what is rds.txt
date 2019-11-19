@@ -1,3 +1,7 @@
 What is RDS
 -Amazon relational database service
--xxx:fill in
+-Choice of DB engine to use
+-Limited to Oracle, SQL Server, MariaDB, MySQL, PostgreSQL, and Aurora DB engines
+-Can easily configure your software
+-Can configure your hardware using preset templates and with ease
+-https://aws.amazon.com/rds/
