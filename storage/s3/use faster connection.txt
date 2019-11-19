@@ -6,7 +6,7 @@ Main Success Scenario:
   1. Enable s3 transfer acceleration services on a bucket. No new hardware is needed to do this.
 Alternatives:
   1a. Enable direct connect that lets you skip the internet and connect directly to amazon. 
-    1a1. xxx:fill in
+    1a1. "Enable Direct Connect"
   1b. Use Snowball external drive
     1b1. Amazon sends you drive
     1b2. You copy your files to the drive
@@ -14,3 +14,20 @@ Alternatives:
     1b4. Amazon plugs the drive into their network and copies the files to an S3 bucket
   1c. Use Snowmobile external drive (pulled with a trailer)
     1c1. xxx:fill in
+
+Enable Direct Connect
+Notes:
+  -Guidance @ https://aws.amazon.com/directconnect/features/
+  -Guidance @ https://aws.amazon.com/directconnect/faqs/
+Preconditions:
+  -Direct Connect is available in the AWS regions where you need it. See https://aws.amazon.com/directconnect/features/#AWS_Direct_Connect_Geographic_Regions
+  -"Enable Access to Direct Connect"
+Main Success Scenario:
+  1.xxx:fill in
+  
+Enable Access to Direct Connect
+Notes:
+  -Guidance @ https://aws.amazon.com/directconnect/partners/
+  -Guidance @ https://docs.aws.amazon.com/directconnect/latest/UserGuide/create-connection.html
+Main Success Scenario:
+  1.Have AWS Direct Connect partner provide network and hardware
