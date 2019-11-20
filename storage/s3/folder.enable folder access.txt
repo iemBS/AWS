@@ -1,4 +1,4 @@
-Grant Access to Folder
+Enable Folder Access
 Notes:
   -Guidance @ https://aws.amazon.com/premiumsupport/knowledge-center/s3-folder-user-access/
 Main Success Scenario:
