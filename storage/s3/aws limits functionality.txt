@@ -1,5 +1,6 @@
 AWS limits functionality
 Notes:
   -Guidance @ https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html
+  -Guidance @ https://stackoverflow.com/questions/3980968/s3-limit-to-objects-in-a-bucket/9028483
 Main Success Scenario:
   1.xxx:fill in
