@@ -1,0 +1,6 @@
+Minimize Cost
+Notes:
+  -Guidance @ https://aws.amazon.com/s3/pricing/
+  -Guidance @ https://aws.amazon.com/premiumsupport/knowledge-center/s3-find-bucket-cost/
+Main Success Scenario:
+   1.xxx:fill in
