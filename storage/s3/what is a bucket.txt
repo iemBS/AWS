@@ -1,0 +1,8 @@
+What is a Bucket?
+-Every object in Amazon S3 is stored in a bucket. 
+-Bucket needs to be in a region
+-Similar to file folders
+-Can hold data
+-Has descriptive meta data
+-Can have folders within buckets
+-Cannot have buckets within buckets
