@@ -1,0 +1,5 @@
+AWS limits functionality
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html
+Main Success Scenario:
+  1.xxx:fill in
