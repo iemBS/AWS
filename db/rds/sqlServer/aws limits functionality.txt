@@ -1,4 +1,4 @@
-Limit in AWS
+AWS limits functionality
 Notes:
   -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport.Limits
 Main Success Scenario:
