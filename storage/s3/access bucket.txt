@@ -1,0 +1,24 @@
+
+Access Bucket
+Notes:
+  -Guidance @ https://stackoverflow.com/questions/23939179/ftp-sftp-access-to-an-amazon-s3-bucket
+  -Guidance @ https://aws.amazon.com/blogs/aws/new-aws-transfer-for-sftp-fully-managed-sftp-service-for-amazon-s3/
+  -Guidance @ https://console.aws.amazon.com/transfer/
+Main Success Scenario:
+  1. Use "Access Bucket with a Managed SFTP Service" or "Access Bucket with Mounting Bucket to Linux Server" or "Access Bucket with a S3 Client"
+  
+Access Bucket with a Managed SFTP Service
+Notes:
+  -
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Access Bucket with Mounting Bucket to Linux Server
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Access Bucket with a S3 Client
+Main Success Scenario:
+  1. xxx:fill in
