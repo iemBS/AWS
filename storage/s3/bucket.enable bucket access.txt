@@ -1,0 +1,5 @@
+Enable Bucket Access
+Notes:
+  -Guidance @ https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-bucket-permissions.html
+Main Success Scenario:
+  1.xxx:fill in
