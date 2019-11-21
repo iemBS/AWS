@@ -1,0 +1,8 @@
+What is Storage Gateway?
+  -Guidance @ https://aws.amazon.com/storagegateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc
+  -seamlessly connect on-premises applications to cloud storage
+  -the service provides three different types of gateways – Tape Gateway, File Gateway, and Volume Gateway
+  -Your applications connect to the service through a virtual machine or hardware gateway appliance using standard storage protocols, such as NFS, SMB, and iSCSI.
+  -The gateway connects to AWS storage services, such as Amazon S3, Amazon S3 Glacier, Amazon S3 Glacier Deep Archive, Amazon EBS, and AWS Backup.
+  -Providing storage for files, volumes, snapshots, and virtual tapes in AWS
+  -The service includes a highly-optimized data transfer mechanism, with bandwidth management, automated network resilience, and efficient data transfer.
