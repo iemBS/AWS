@@ -1,0 +1,2 @@
+What Storage is Available at?
+  -Guidance @ https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html
