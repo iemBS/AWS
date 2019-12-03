@@ -1,0 +1,5 @@
+communicate between AWS services 
+Notes:
+  -Comm between Svcs done w lambda functions, roles, policies, & parameter groups
+Main Success Scenario:
+  1.xxx:fill in
