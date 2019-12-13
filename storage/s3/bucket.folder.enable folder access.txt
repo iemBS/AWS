@@ -1,5 +1,39 @@
 Enable Folder Access
 Notes:
   -Guidance @ https://aws.amazon.com/premiumsupport/knowledge-center/s3-folder-user-access/
+  -Can use AWS policy generator to help: https://awspolicygen.s3.amazonaws.com/policygen.html
 Main Success Scenario:
-  1.xxx:fill in
+  1."Enable Read & Download Access"
+  2."Enable Write Access"
+  
+  
+Enable Read & Download Folder Access
+Note:
+  -Access works via AWS console, S3 API, or AWS CLI
+Main Success Scenario:
+  1. Use policy below
+    {
+     "Version":"2019-12-13",
+     "Statement": [
+      {
+         "Sid": "myAwsBucket_console_seeFolderContents",
+         "Effect": "Allow",
+         "Action": ["s3:ListBucket"],
+         "Resource": ["arn:aws:s3:::myAwsBucket"],
+         "Condition":{"StringEquals":{"s3:prefix":["","myAwsFolder"],"s3:delimiter":["/"]}}
+        },  
+       {
+         "Sid": "myAwsBucket_console_filesDownload",
+         "Effect": "Allow",
+         "Action": ["s3:GetObject"],
+         "Resource": ["arn:aws:s3:::myAwsBucket/myAwsFolder/*"]
+       }
+     ]
+    }
+  
+Enable Write & Upload Folder Access
+Note:
+  -Access works via AWS console, S3 API, or AWS CLI
+Main Success Scenario:
+  1. xxx:fill in
+  
