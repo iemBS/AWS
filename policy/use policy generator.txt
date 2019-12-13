@@ -1,0 +1,5 @@
+Use Policy Generator
+Note:
+  -Guidance @ https://awspolicygen.s3.amazonaws.com/policygen.html
+Main Success Scenario:
+  1.xxx:fill in
