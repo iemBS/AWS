@@ -1,7 +1,80 @@
 Minimize Cost
 Notes:
+  -Guidance @ https://aws.amazon.com/s3/faqs/?nc=sn&loc=7
   -Guidance @ https://aws.amazon.com/s3/pricing/
   -Guidance @ https://aws.amazon.com/premiumsupport/knowledge-center/s3-find-bucket-cost/
   -Guidance @ https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketBilling.html
+  -Billed for data transfer out of S3 and not for the data transfer you receive at the destination
+  -Amazon S3 storage usage is calculated in binary gigabytes (GB), where 1GB is 230 bytes. This unit of measurement is also known as a gibibyte (GiB), defined by the International Electrotechnical Commission (IEC). Similarly, 1TB is 240 bytes, i.e. 1024 GBs.
+  -Tax Impact: https://aws.amazon.com/c-tax-faqs/
+  -S3 has no min fee
+  -Use simple monthly calculator
+  -Free Tier: https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc
 Main Success Scenario:
-   1.xxx:fill in
+   1.Minimize amount of data hosted
+   2.Make file access predictable
+   3.Reduce # of access times
+   4."Minimize distance between accessors and S3"
+   5.Choose output data to go to another AWS services instead of the internet
+   6.Check for Tax impact
+   7.See if the Free Tier can be used
+   8."Minimize S3 Features"
+   9."Minimize use of other AWS services on your S3 objects"
+   10.Avoid renaming folders
+
+Minimize distance between accessors and S3
+Main Success Scenario:
+  1.Find geo location of source data
+  2.Find geo location of the data consumer
+  3.Find the AWS region closes to the source and consumer
+  
+Minimize S3 Features
+Note:
+  -Requester Pays bucket = the requester will pay the cost of requests and downloads of your Amazon S3 data
+  -Guidance @ https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
+  -S3 Inventory: The S3 Inventory report provides a scheduled alternative to Amazon S3’s synchronous List API.
+  -Does use of S3 Dual Stack Endpoints cost? https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html
+Main Success Scenario:
+   1.Avoid S3 Analytics Storage Class Analysis
+   2.Avoid S3 Inventory
+   3."Minimize use of S3 Transfer Acceleration"
+   4.Avoid S3 Replication
+   5."Miniimize S3 Batch Operations"
+   6.Choose a lower cost S3 storage class
+   7.Enable "Requester Pays bucket" to have other parties pay for downloading
+   8.Aviod versioning
+   9.Avoid Intelligent-Tiering
+   10.Use Lifecycle Management
+
+Minimize use of S3 Transfer Acceleration
+Main Success Scenario:
+   1.Do not use S3 Transfer Acceleration into S3 if normal source to S3 connection is weaker
+   2.Do not use S2 Transfer Acceleration out of S3 if normal S3 to destination connection is weaker
+   3.Do not use S3 Transfer Acceleration if you do not need the extra speed
+   
+Miniimize S3 Batch Operations
+Note:
+  -You are charged for S3 Batch Operations jobs, objects, and requests in addition to any charges associated with the operation that S3 Batch Operations performs on your behalf, including data transfer, requests, and other charges.
+Main Success Scenario:
+  1.Minimize # of jobs you have
+  2.Minimize # of object operations performed
+   
+Minimize use of other AWS services on your S3 objects
+Note:
+  -CloudWatch pricing: https://aws.amazon.com/cloudwatch/pricing/
+  -CloudTrail pricing: https://aws.amazon.com/cloudtrail/pricing/
+  -S3 Encryption client: https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3EncryptionClient.html
+  -Key Management Service (KMS): https://aws.amazon.com/kms/
+  -Macie: https://aws.amazon.com/macie/
+Main Success Scenario:
+   1.Avoid object tagging
+   2.Avoid using CloudWatch
+   3.Avoid using CloudTrail
+   4.Avoid using Server-Side Encryption (SSE) and encrypt yourself before uploading to S3
+   5.Avoid using S3 Encryption client
+   6.Avoid using Key Management Service (KMS) for Encryption keys
+   7.Avoid using Macie
+   
+
+   
+   
