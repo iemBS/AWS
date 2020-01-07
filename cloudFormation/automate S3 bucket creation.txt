@@ -1,0 +1,5 @@
+Automate S3 Bucket Creation
+Note:
+  -Guidance @ https://aws.amazon.com/cloudformation/
+Main Success Scenario:
+  1.xxx:fill in
