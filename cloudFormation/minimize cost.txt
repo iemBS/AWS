@@ -1,0 +1,5 @@
+Minimize Cost
+Note:
+  -Guidance @ https://aws.amazon.com/cloudformation/pricing/
+Main Success Scenario:
+  1.xxx:fill in
