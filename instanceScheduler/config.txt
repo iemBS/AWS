@@ -1,0 +1,17 @@
+Config
+Note:
+  -Guidance @ https://s3.amazonaws.com/solutions-reference/aws-instance-scheduler/latest/instance-scheduler.pdf
+  -Schedule name must be unique
+  -Schedule name becomes the tag value for the key value that represents the schedule you want to apply to the tagged resource
+Main Success Scenario:
+  1. Set "name" 
+  2. Set "periods"
+  3. Set Time zone
+  4. Set "hibernate"
+  5. Set "enforced"
+  6. Set "retain_running"
+  7. Set "ssm-maintenance-window"
+  8. Set "override_status"
+  9. Set "use_maintenance_window"
+  10. Set "use_metrics"
+  11. Set "description" (optional)
