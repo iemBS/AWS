@@ -1,0 +1,5 @@
+Deploy
+Note:
+  -Guidance @ https://docs.aws.amazon.com/solutions/latest/instance-scheduler/deployment.html
+Main Success Scenario:
+  1.xxx:fill in
