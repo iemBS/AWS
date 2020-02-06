@@ -1,0 +1,4 @@
+What is instance scheduler?
+-leverages AWS resource tags and AWS Lambda
+-automatically stops and restarts instances 
+-instance can be across multiple AWS Regions and accounts 
