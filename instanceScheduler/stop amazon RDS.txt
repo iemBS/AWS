@@ -1,0 +1,21 @@
+Stop Amazon RDS
+Note:
+  -Guidance @ https://aws.amazon.com/solutions/instance-scheduler/
+  -Guidance @ https://s3.amazonaws.com/solutions-reference/aws-instance-scheduler/latest/instance-scheduler.pdf
+  - when an Amazon RDS instance is stopped, the cache is cleared which might lead
+  -There are limits on stopping an RDS instances temporarily
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html#USER_StopInstance.Limitations
+to slower performance when the instance is restarted.
+Main Success Scenario:
+  1. Enter the following into the AWS CLI
+      stop-db-instance --db-instance-identifier mydbinstance
+Alternatives:
+  1a. Stop RDS with the console instead
+    1a1. Sign in to the AWS Management Console and open the Amazon RDS console at https://console.aws.amazon.com/rds/.
+    1a2. In the navigation pane, choose Databases, and then choose the DB instance that you want to stop.
+    1a3. For Actions, choose Stop.
+    1a4. (Optional) In the Stop DB Instance window, choose Yes for Create Snapshot? and enter the snapshot name for Snapshot name. Choose Yes if you want to create a snapshot of the DB instance before stopping it.
+    1a5. Choose Yes, Stop Now to stop the DB instance, or choose Cancel to cancel the operation.
+ 1b. Stop RDS with the RDS API
+   1b1. Call the StopDBInstance operation with the following parameter:
+          DBInstanceIdentifier – the name of the DB instance.
