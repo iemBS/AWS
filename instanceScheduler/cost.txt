@@ -1,0 +1,4 @@
+Cost
+-As of the date of publication, the cost for running this solution with default
+settings in the US East (N. Virginia) Region is approximately $5.00 per month in AWS
+Lambda charges, or less if you have Lambda free tier monthly usage credit. 
