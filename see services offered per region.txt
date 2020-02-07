@@ -1,0 +1,5 @@
+See Services Offered per Region
+Note:
+  -Guidance @ https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
+Main Success Scenario:
+ 1.Go to https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
