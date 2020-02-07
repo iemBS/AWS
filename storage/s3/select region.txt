@@ -1,0 +1,5 @@
+Select Region
+Main success Scenario:
+  1. Go to S3 dashboard
+  2. Go to menu on top right of the screen
+  3. Clicking "Global" shows a message of "S3 does not require region selection"
