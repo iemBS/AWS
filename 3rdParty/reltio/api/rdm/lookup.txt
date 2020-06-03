@@ -1,0 +1,3 @@
+Lookup 
+Main Success Scenario:
+  1.Managed Lookup data
