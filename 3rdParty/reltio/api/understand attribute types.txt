@@ -1,0 +1,15 @@
+Simple: Has a 1:1 relationship with the entity
+  -Ex: 
+    -First Name
+    -Last Name
+    -Suffix
+
+Nested: A collection of simple attributes
+  -Ex:
+    -Phone
+      -Area Code
+      -Phone Number
+
+Reference: Shares attributes across entity types
+  -Ex:
+    -attributes on an entity type
