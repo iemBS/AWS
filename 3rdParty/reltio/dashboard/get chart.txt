@@ -1,0 +1,5 @@
+Heat Map
+  -Counts by State in US
+  -Counts by Country
+  -Counts of Missing of specific types of data
+Location data quality
