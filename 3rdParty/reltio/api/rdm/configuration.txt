@@ -1,0 +1,5 @@
+Configuration
+Main Success Scenario:
+  1. List of tentants assigned to user
+  2. Create Lookup types
+  3. Add Sources
