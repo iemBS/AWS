@@ -4,6 +4,7 @@ Note:
   -L1 is Reltio Core
   -L2 is Reltio Industry Specific Verticals, where accelerators are implemented
   -L3 are Customer Extensions that are extended by customer
+  -inheritance across the layers using JSON. Use "extendsTypeURI" name in the JSON to extend. 
 Pre-conditions:
   -Only the L3 level of Reltio is configuratable via the Configuration API
 Main Success Scenario:
