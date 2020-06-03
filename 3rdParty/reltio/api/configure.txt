@@ -1,3 +1,7 @@
 Configure
+Note:
+  -Guidance @ https://docs.reltio.com/configapi/configurationapi.html?hl=configuration%2Capi
+Pre-conditions:
+  -Only the L3 level of Reltio is configuratable via the Configuration API
 Main Success Scenario:
   1.xxx:fill in
