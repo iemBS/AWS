@@ -1,0 +1,8 @@
+Counts
+  -New Records
+  -Updated Records
+  -Deleted Records
+  -Matched Records
+  -Auto-merged Records
+  -Unmerged Records
+  -Not a Match Records
