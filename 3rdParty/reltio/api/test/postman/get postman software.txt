@@ -2,5 +2,6 @@ Get Postman Software
 Note:
   -Guidance @ https://www.postman.com/downloads/
   -Postman  is a REST client that makes it easy to access any REST API. Reltio uses Postman’s application and recommends it for development and testing but does not maintain, support, or resell it.
+  -Chrome Text Editor @ http://jsoneditoronline.org/inde x.html
 Main Success Scenario:
   1. xxx:fill in
