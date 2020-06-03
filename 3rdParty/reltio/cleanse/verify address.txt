@@ -1,0 +1,5 @@
+Verify Address
+Note:
+  -Guidance @ o	https://support.loqate.com/documentation/reportcodes/address-verification-code/
+Main Success Scenario:
+  1.xxx:fill in
