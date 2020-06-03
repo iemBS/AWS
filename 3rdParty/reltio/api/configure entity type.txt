@@ -10,3 +10,23 @@ Main Success Scenario:
   6. Set typeColor
   7. Set typeIcon
   8. Set typeImage
+  9. "Set Attributes"
+  
+Set Attributes
+Note:
+  -This is the "attributes" name in JSON 
+Main Success Scenario:
+  1. Set label
+  2. Set name
+  3. Set description
+  4. Set type
+  5. Set hidden
+  6. Set important
+  7. Set system
+  8. Set faceted
+  9. Set searchable
+  10. Set attributeOrdering
+  11. Set uri
+  12. Set skipInDataAccess
+  
+
