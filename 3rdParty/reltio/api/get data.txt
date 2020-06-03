@@ -1,0 +1,17 @@
+Get Data 
+Main Success Scenario:
+  1. "Get Small Amount of Entity data"
+  2. "Get Small Amount of Relation data"
+  
+  
+Get Small Amount of Entity data
+Note:
+  -Use Entities API
+Main Success Scenario:
+  1.xxx:fill in
+  
+Get Small Amount of Relation data
+Note:
+  -Use Relations API
+Main Success Scenario:
+  1.xxx:fill in
