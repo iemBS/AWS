@@ -1,0 +1,17 @@
+Get Error Message
+Main Success Scenario:
+  1. Error response has "error" and "error_description" names like below
+  
+    {
+      "error":"invalid_grant",
+      "error_description":"Invalid Username or Password"
+    }
+
+Get Bad Tenant URL Error Message
+Main Success Scenario:
+  1. xxx:fill in
+  
+Get Bad Credentials Error Message
+Main Success Scenario:
+  1. xxx:fill in
+  
