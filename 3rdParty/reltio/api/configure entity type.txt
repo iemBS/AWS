@@ -1,0 +1,12 @@
+Configure Entity Type
+Pre-conditions: 
+  -These are key properties of the entity type
+Main Success Scenario:
+  1. Set uri
+  2. Set label
+  3. Set dataLabelPattern
+  4. Set secondaryLabelPattern
+  5. Set abstract
+  6. Set typeColor
+  7. Set typeIcon
+  8. Set typeImage
