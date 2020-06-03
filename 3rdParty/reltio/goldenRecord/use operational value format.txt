@@ -1,0 +1,5 @@
+Use Operational Value Format
+Note
+  -Allows for different golden record perspectives
+Main Success Scenario:
+  1.xxx:fill in
