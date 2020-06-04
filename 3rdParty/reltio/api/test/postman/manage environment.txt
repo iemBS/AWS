@@ -1,0 +1,26 @@
+Manage Environment
+Main Success Scenario:
+  1. Click on gear icon on top right of Postman GUI
+  2. See environments in the Manage Environments window. 
+  3. "Share Environment"
+  4. "Duplicate Environment"
+  5. "Download Environment"
+  6. "Delete Environment"
+  7. "Remove Environment from Workspace"
+  8. "Edit Environment"
+  
+Edit Environment
+Main Success Scenario:
+  1. Click on environment name link
+  2. "Update Environment Variable"
+  
+  
+Update Environment Variable
+Note:
+  -xxx:fill in
+Main Success Scenario:
+  1. Change variable value
+  2. Click "Update" button
+  3. Click "X" at top right of Manage Environments window
+  
+xxx:fill in
