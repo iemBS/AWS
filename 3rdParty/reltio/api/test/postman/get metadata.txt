@@ -1,0 +1,11 @@
+Get Metadata
+Main Success Scenario:
+  1. Run the below GET request
+    {{tenantURL}}/configuration/_noInheritance
+  2. See the below response
+    [not noted here because it is large]
+Alternatives:
+  2a. Invalid credentials
+    2a1. see the below response
+       xxx:fill in
+      
