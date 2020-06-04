@@ -1,0 +1,18 @@
+Send POST Request
+Note:
+  -"access_token" is a GUID that xxx:fill in
+  -"token_type" is xxx:fill in
+  -"refresh_token" is a GUID that xxx:fill in
+  -"expires_in" is xxx:fill in
+  -"scope" is xxx:fill in
+Main Success Scenario:
+  1. Send the below request
+      {{urlAuth}}/token?username={{login}}&password={{password}}&grant_type=password
+  2. See a response like
+      {
+          "access_token": "",
+          "token_type": "",
+          "refresh_token": "",
+          "expires_in": 3599,
+          "scope": "graphs_api entities_api groups_api relations_api users_api configuration_api interactions_api clients_api"
+      }
