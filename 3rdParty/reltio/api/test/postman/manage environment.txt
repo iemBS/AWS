@@ -13,6 +13,10 @@ Edit Environment
 Main Success Scenario:
   1. Click on environment name link
   2. "Update Environment Variable"
+Alternatives:
+  1a. Update Globals Environment
+    1a1. Click "Globals" button at bottom right 
+    1a2. "Update Environment Variable"
   
   
 Update Environment Variable
@@ -22,5 +26,11 @@ Main Success Scenario:
   1. Change variable value
   2. Click "Update" button
   3. Click "X" at top right of Manage Environments window
+  
+Add Environment Variable
+Note:
+  -xxx:fill in
+Main Success Scenario:
+  1. xxx:fill in
   
 xxx:fill in
