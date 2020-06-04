@@ -1,0 +1,10 @@
+Access MDM Tentant GUI
+Pre-conditions:
+  -URL will have a format of https://{{env}}.reltio.com/ui/{{mdmTentant}}
+    where 
+      {{env}} is the environment name
+      {{mdmTentant}} is the tentant name
+Main Success Scenario:
+  1. If not already logged in, you will be prompted for your credentials
+  
+ 
