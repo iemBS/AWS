@@ -1,4 +1,4 @@
-Get Metadata
+Get Tentant Metadata Model
 Main Success Scenario:
   1. Run the below GET request
     {{tenantURL}}/configuration/_noInheritance
