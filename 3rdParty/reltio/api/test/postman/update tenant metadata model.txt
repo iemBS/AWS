@@ -1,0 +1,7 @@
+Update Tenant Metadata Model
+Main Success Scenario:
+  1. "Get Tenant Metadata Model"
+  2. Make changes to Tentant Metadata Model
+  3. Update body of PUT request to use the updated Tentant Metadata Model
+  4. Sent PUT request (may take few minutes)
+  5. Search response to see that your changes are in there
