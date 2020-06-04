@@ -16,3 +16,10 @@ Main Success Scenario:
           "expires_in": 3599,
           "scope": "graphs_api entities_api groups_api relations_api users_api configuration_api interactions_api clients_api"
       }
+Alternatives:
+  2a. Error in tentant URL or credentials
+    2a1. See response below
+      {
+          "error": "invalid_grant",
+          "error_description": "Invalid Username or Password"
+      }
