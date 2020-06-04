@@ -1,0 +1,7 @@
+Select Environment
+Pre-conditions:
+  -Has "No Environment" if no others exist
+Main Success Scenario:
+  1. Go to drop down at top right of Postman GUI
+  2. Click drop down to choose an environment 
+  
