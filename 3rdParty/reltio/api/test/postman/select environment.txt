@@ -1,4 +1,6 @@
 Select Environment
+Note:
+  -Guidance @ https://learning.postman.com/docs/postman/variables-and-environments/managing-environments/
 Pre-conditions:
   -Has "No Environment" if no others exist
 Main Success Scenario:
