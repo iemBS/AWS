@@ -1,4 +1,12 @@
 Add Relationship
+Note: 
+  -The "POST {{tenantURL}}/entities?options=partialOverride" uses the partialOverride option to ensure the existing “Contact” entity is only updated and not completely replaced.
+  -“refEntity” specifies the crosswalk for the related “Product” entity.Be sure to include the dataProvider = false property to prevent the attributes on the “Product” entity being set to NULL.
+  -“refRelation” specifies the crosswalk for the relationship between the “Contact” and “Product” entities.
+  -“crosswalks” specifies the crosswalk of the “Contact” entity to be updated.
+  -The request operates on the “Contact” entity type, which is where the reference attribute is defined.
+  -The values for the “ContactProduct” relation type “Status” and
+  -“purchaseDate” attributes are defined inside the “Product” collection.
 Main Success Scenario:
   1.See JSON below
 
