@@ -1,0 +1,13 @@
+Define Crosswalk
+Note:
+  -"type" notes the source
+  -"value" notes the unique ID of the record in the source
+Main Success Scenario:
+  1.See JSON below
+
+    "crosswalks": [
+    {
+    "type": "configuration/sources/CRM",
+    "value": "CON_1000300"
+    }
+    ]
