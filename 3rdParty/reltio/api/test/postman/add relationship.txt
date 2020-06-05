@@ -1,0 +1,50 @@
+Add Relationship
+Main Success Scenario:
+  1.See JSON below
+
+      [
+        {
+          "type": "configuration/entityTypes/Contact",
+          "attributes": {
+            "Product": [
+              {
+                "value": {
+                  "Status": [
+                    {
+                      "value": "Active"
+                    }
+                  ],
+                  "purchaseDate": [
+                    {
+                      "value": "2019-03-15"
+                    }
+                  ]
+                },
+                "refEntity": {
+                  "crosswalks": [
+                    {
+                      "type": "configuration/sources/CRM",
+                      "value": "PRD_1000300",
+                      "dataProvider": false
+                    }
+                  ]
+                },
+                "refRelation": {
+                  "crosswalks": [
+                    {
+                      "type": "configuration/sources/CRM",
+                      "value": "CON_PRD_1000300"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "crosswalks": [
+            {
+              "type": "configuration/sources/CRM",
+              "value": "CON_1000300"
+            }
+          ]
+        }
+      ]
