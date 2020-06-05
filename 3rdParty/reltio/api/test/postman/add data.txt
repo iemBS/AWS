@@ -1,0 +1,142 @@
+Add Data
+Main Success Scenario:
+  1.See JSON below
+  
+      [
+        {
+          "type": "configuration/entityTypes/Contact",
+          "attributes": {
+            "Addresses": [
+              {
+                "value": {
+                  "AddressLine1": [
+                    {
+                      "value": "800 Curran Memorial Hwy"
+                    }
+                  ],
+                  "StateProvince": [
+                    {
+                      "value": "MA "
+                    }
+                  ],
+                  "Country": [
+                    {
+                      "value": "US"
+                    }
+                  ],
+                  "City": [
+                    {
+                      "value": " North Adams"
+                    }
+                  ],
+                  "AddressType": [
+                    {
+                      "value": "Mailing"
+                    }
+                  ],
+                  "Zip5": [
+                    {
+                      "value": "1247"
+                    }
+                  ]
+                }
+              }
+            ],
+            "Phone": [
+              {
+                "value": {
+                  "Type": [
+                    {
+                      "value": "Phone"
+                    }
+                  ],
+                  "Number": [
+                    {
+                      "value": "1-415-555-1212"
+                    }
+                  ]
+                }
+              }
+            ],
+            "FirstName": [
+              {
+                "value": "James"
+              }
+            ],
+            "LastName": [
+              {
+                "value": "Smith"
+              }
+            ]
+          },
+          "crosswalks": [
+            {
+              "type": "configuration/sources/CRM",
+              "value": "CON_1000300"
+            }
+          ]
+        },
+        {
+          "type": "configuration/entityTypes/Product",
+          "attributes": {
+            "Name": [
+              {
+                "type": "configuration/entityTypes/Product/attributes/Name",
+                "value": "Pen"
+              }
+            ],
+            "SKU": [
+              {
+                "type": "configuration/entityTypes/Product/attributes/SKU",
+                "value": "PEN-0004"
+              }
+            ],
+            "productID": [
+              {
+                "type": "configuration/entityTypes/Product/attributes/productID",
+                "value": "10300"
+              }
+            ],
+            "productProperties": [
+              {
+                "value": {
+                  "Type": [
+                    {
+                      "type": "configuration/entityTypes/Product/attributes/productProperties/attributes/Type",
+                      "value": "Style"
+                    }
+                  ],
+                  "Value": [
+                    {
+                      "type": "configuration/entityTypes/Product/attributes/productProperties/attributes/Value",
+                      "value": "Fountain"
+                    }
+                  ]
+                }
+              },
+              {
+                "value": {
+                  "Type": [
+                    {
+                      "type": "configuration/entityTypes/Product/attributes/productProperties/attributes/Type",
+                      "value": "Ink Color"
+                    }
+                  ],
+                  "Value": [
+                    {
+                      "type": "configuration/entityTypes/Product/attributes/productProperties/attributes/Value",
+                      "value": "Blue"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "crosswalks": [
+            {
+              "type": "configuration/sources/CRM",
+              "value": "PRD_1000300"
+            }
+          ]
+        }
+      ]
