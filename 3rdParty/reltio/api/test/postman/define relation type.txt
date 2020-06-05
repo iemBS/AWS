@@ -1,0 +1,39 @@
+Define Relation Type
+Note:
+  -Each relation type is added to "relationTypes"
+  -"startObject" and "endObject" note the entities that are being connected
+  -"attributes" notes the attributes assoicated to the relation type
+  -What is "implicit" for?
+Main Success Scenario:
+  1. See JSON below
+  
+    "relationTypes": [
+        {
+            "uri": "configuration/relationTypes/HasAddress",
+            "label": "has address",
+            "description": "Types of relationships between Parties (Individuals and Organizations) and Location",
+            "typeColor": "#663344",
+            "startObject": {
+                "uri": "configuration/relationTypes/HasAddress/startObject",
+                "directionalContext": [
+                    {
+                        "uri": "configuration/relationTypes/HasAddress/startObject/directionalContext",
+                        "labelPattern": "has address"
+                    }
+                ],
+                "objectTypeURI": "configuration/entityTypes/Party"
+            },
+            "endObject": {
+                "uri": "configuration/relationTypes/HasAddress/endObject",
+                "directionalContext": [
+                    {
+                        "uri": "configuration/relationTypes/HasAddress/endObject/directionalContext",
+                        "labelPattern": "locates"
+                    }
+                ],
+                "objectTypeURI": "configuration/entityTypes/Location"
+            },
+            "implicit": false,
+            "attributes": []
+      }
+      ]
