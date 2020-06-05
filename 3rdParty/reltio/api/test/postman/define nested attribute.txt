@@ -1,0 +1,27 @@
+Define Nested Attribute
+Main Success Scenario:
+  1. See JSON below
+      {
+        "label":"Product Properties",
+        "name":"productProperties",
+        "type":"Nested",
+        "hidden":false,
+        "uri":"configuration/entityTypes/ProductX/attributes/productProperties",
+        "dataLabelPattern":"{Type}: {Value}",
+        "attributes":[
+          {
+            "label":"Type",
+            "name":"Type",
+            "type":"String",
+            "hidden":false,
+            "uri":"configuration/entityTypes/ProductX/attributes/productProperties/attributes/Type"
+          },
+          {
+            "label":"Type",
+            "name":"Type",
+            "type":"String",
+            "hidden":false,
+            "uri":"configuration/entityTypes/ProductX/attributes/productProperties/attributes/Value"
+          }
+        ]
+      }
