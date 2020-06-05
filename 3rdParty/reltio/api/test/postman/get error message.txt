@@ -15,3 +15,11 @@ Get Bad Credentials Error Message
 Main Success Scenario:
   1. xxx:fill in
   
+Get Invalid Token Error Message
+Main Success Scenario:
+  1. See below JSON
+      {
+          "error": "invalid_token",
+          "error_description": "Token is invalid: GUID here"
+      }
+
