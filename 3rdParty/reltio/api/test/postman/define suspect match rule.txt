@@ -2,6 +2,7 @@ Define Suspect Match Rule
 Note:
   -This uses an exact match on the Organization “City” and “StateProvince”. 
   -This uses a fuzzy match on the Organization “Name” and “AddressLine1”.
+  -Comparator Class Guidance @ https://help.reltio.com/index.html#matchmergeconfig/comparatorclasses.html
 Main Success Scenario:
   1. See JSON below
   
