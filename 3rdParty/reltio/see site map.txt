@@ -1,6 +1,6 @@
 See Site Map
 
-MDM GUID @ https://{{env}}.reltio.com/ui/{{MDM Tentant ID}}
+MDM GUI @ https://{{env}}.reltio.com/ui/{{MDM Tentant ID}}
 -top bar
   -tenant name
   -More menu
@@ -32,6 +32,10 @@ MDM GUID @ https://{{env}}.reltio.com/ui/{{MDM Tentant ID}}
             -Potential Matches tab
             -Interactions tab
             -Sources tab
+              -Legend tab (hover over crosswalks to see source of each attribute)
+                -Crosswalk mode
+                -Contributor mode
+              -Ruleset tab
             -Activity Log tab
       -[Entity 2]
       -[Entity N]
@@ -50,9 +54,42 @@ MDM GUID @ https://{{env}}.reltio.com/ui/{{MDM Tentant ID}}
         -Search Results: Summary & Detail icon
         -Search Results: Summary & Map icon
         -Search Results: Table icon
+        -Search Results: Actions menu
+          -Bulk operation
+            -xxx:fill in
+          -Export
+            -CSV
+            -JSON
   -Profile tab
     -left side bar
       -Profile tab
+    -Potential Matches Facet (a default, but can be removed)
+      -Profile Name link
+      -Merge icon
+      -Not a Match icon
+      -See All... link
+        -Shows potential matches side by side
+          -main pain
+            -first column - profile you came from
+              -1st row
+                -source icons
+              -2nd row
+                -Merge All link
+              -3rd row 
+                -Match Rules
+              -4th row
+                -profile details
+            -second to nth column - to the right of the first
+              -1st row
+                -source icons
+              -2nd row
+                -Merge link
+                  -Main pane changes to show a single column. Another source icon may be added. 
+                -Not a Match link
+              -3rd row 
+                -Match Rules
+              -4th row
+                -profile details
   -Dashboard tab
     -right side bar
       -Activity Log
