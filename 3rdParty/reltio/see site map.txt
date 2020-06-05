@@ -2,6 +2,29 @@ See Site Map
 
 -top bar
   -tenant name
+  -More menu
+    -Create Profile
+      -[Entity 1]
+        -left side bar
+          -Profile tab
+            -right side bar
+              -Research tab
+                -xxx:fill in
+              -Network tab
+                -xxx:fill in
+              -History tab
+                -xxx:fill in
+              -Discussions tab
+                -xxx:fill in
+              -Workflows tab
+                -xxx:fill in
+            -Graph tab
+            -Potential Matches tab
+            -Interactions tab
+            -Sources tab
+            -Activity Log tab
+      -[Entity 2]
+      -[Entity N]
   -Search tab
     -left side bar
       -Advanced
