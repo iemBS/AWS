@@ -1,0 +1,30 @@
+See Site Map
+
+-top bar
+  -tenant name
+  -Search tab
+    -left side bar
+    -right pane
+      -search top bar
+        -Saved Searches
+          -Saved Searches window
+        -Search Results: Link icon
+        -Search Results: Summary icon
+        -Search Results: Summary & Detail icon
+        -Search Results: Summary & Map icon
+        -Search Results: Table icon
+  -Profile tab
+    -left side bar
+      -Profile tab
+  -Dashboard tab
+    -right side bar
+      -Activity Log
+  -filter icon
+  -vertical ellipses icon
+  -grid icon
+    -hub
+    -console
+    -RDM
+    -Inbox
+    -Reporting
+  -circle icon
