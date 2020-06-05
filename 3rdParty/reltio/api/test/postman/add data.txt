@@ -1,4 +1,10 @@
 Add Data
+Note:
+  -You get these properties in the response JSON
+    -"createdBy" is the Reltio user name
+    -"createdTime" is the time created in Reltio. It is in Unix timestamp units. https://www.unixtimestamp.com/index.php
+      "updatedBy" is the same as "createdBy" above
+      "updatedTime" is the same as the "createdTime" above
 Main Success Scenario:
   1.See JSON below
   
