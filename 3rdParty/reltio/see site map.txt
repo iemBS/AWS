@@ -8,6 +8,14 @@ MDM GUID @ https://{{env}}.reltio.com/ui/{{MDM Tentant ID}}
       -[Entity 1]
         -left side bar
           -Profile tab
+            -main pane
+              -top bar
+                -drop down menu
+                  -viewing
+                  -editing
+                  -delete
+                -comment icon
+                  -add comment
             -right side bar
               -Research tab
                 -xxx:fill in
@@ -80,7 +88,8 @@ Console @ https://console.reltio.com/
       -Properties tab 
         -[properties of selected facet]
     -Publish button
-      -Publish menu item
+      -Publish menu item (runs about 1 minute)
+        -You need to manually refresh browser to see changes
       -Publish As menu item
   -Reltio IQ tile
   -Data Modeler tile
