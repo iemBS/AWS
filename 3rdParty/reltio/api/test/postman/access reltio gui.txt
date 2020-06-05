@@ -1,0 +1,4 @@
+Access Reltio GUI
+Main Success Scenario:
+  1. Go to https://console.reltio.com
+  2. Specify credentials and Tenant ID
