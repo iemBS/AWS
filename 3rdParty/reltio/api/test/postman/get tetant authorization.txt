@@ -8,6 +8,7 @@ Note:
   -"refresh_token" is a GUID that xxx:fill in
   -"expires_in" is time in seconds till the authorization expires
   -"scope" is xxx:fill in
+  -Running this POST request again before the authorization expires will just return a response with an even smaller "expires_in" value
 Main Success Scenario:
   1. Send the below POST request
       {{urlAuth}}/token?username={{login}}&password={{password}}&grant_type=password
