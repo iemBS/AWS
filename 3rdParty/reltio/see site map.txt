@@ -6,7 +6,7 @@ See Site Map
     -left side bar
       -Advanced
         -xxx:fill in
-      -Entity Types filter
+      -Entity Types filter (any entities here without records will be grayed out)
         -xxx:fill in
     -right pane
       -search top bar
