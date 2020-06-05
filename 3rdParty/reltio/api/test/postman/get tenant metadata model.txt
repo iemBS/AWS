@@ -2,6 +2,8 @@ Get Tentant Metadata Model
 Pre-conditions:
   -Must run the below POST request at most 56 minutes before we run the GET request
     {{urlAuth}}/token?username={{login}}&password={{password}}&grant_type=password
+Note:
+  -The "_noInheritance" at the end of the request URL will prevent the L1 and L2 model from also being returned in the response body
 Main Success Scenario:
   1. Run the below GET request
     {{tenantURL}}/configuration/_noInheritance
