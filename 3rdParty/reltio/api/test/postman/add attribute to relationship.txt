@@ -1,0 +1,7 @@
+Add Attribute to Relationship
+Note:
+  -Each relation type is added to the "relationTypes" name in the metadata. 
+  -The "attributes" name exists in each relation type. You add new attributes to the "attributes" name.
+Main Success Scenario:
+  1.xxx:fill in
+  
