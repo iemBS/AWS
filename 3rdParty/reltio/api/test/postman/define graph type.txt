@@ -1,0 +1,25 @@
+Define Graph Type
+Note:
+  -What does "limitMemberToOneGraphInstance" mean?
+  -What does "type" mean?
+  -What does "layout" mean?
+  -What does "allowCycles" mean?
+  -What does "relationTypeURIs" mean?
+  -What does "graphStructure" mean?
+Main Success Scenario:
+  1. See JSON below
+
+    "graphTypes": [
+        {
+            "uri": "configuration/graphTypes/DnBHierarchy",
+            "label": "D&B Hierarchy",
+            "limitMemberToOneGraphInstance": false,
+            "type": "logical",
+            "layout": "hierarchy",
+            "allowCycles": false,
+            "relationshipTypeURIs": [
+                "configuration/relationTypes/DnBHierarchy"
+            ],
+            "graphStructure": "hierarchy"
+        }
+      ]
