@@ -1,0 +1,24 @@
+Define Auto Match Rule
+Note:
+  -A value of "automatic" for "type" defines it as an automatic match rule. 
+Main Success Scenario:
+  1. See JSON below
+  
+      {
+      "uri": "configuration/entityTypes/Contact/matchGroups/Rule1",
+      "label": "Exact FirstName, Last Name. ExactOrNull Email",
+      "type": "automatic",
+      "rule": {
+      "and": {
+      "exact": [
+      "configuration/entityTypes/Contact/attributes/FirstName",
+      "configuration/entityTypes/Contact/attributes/LastName"
+      ],
+      "exactOrNull": [
+      "configuration/entityTypes/Contact/attributes/Email/attributes/Email"
+      ]
+      }
+      },
+      "matchServiceClass":
+      "com.reltio.businesslogic.match.providers.internal.InternalMatchService"
+      }
