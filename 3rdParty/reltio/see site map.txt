@@ -18,6 +18,7 @@ See Site Map
                 -xxx:fill in
               -Workflows tab
                 -xxx:fill in
+            -Relationships tab (not all entities may show this on their profile page)
             -Graph tab
             -Potential Matches tab
             -Interactions tab
