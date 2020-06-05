@@ -4,6 +4,10 @@ See Site Map
   -tenant name
   -Search tab
     -left side bar
+      -Advanced
+        -xxx:fill in
+      -Entity Types filter
+        -xxx:fill in
     -right pane
       -search top bar
         -Saved Searches
