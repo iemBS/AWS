@@ -1,0 +1,13 @@
+Define Source
+Note:
+  -Can abbreviation have spaces?
+Main Success Scenario:
+  1. See JSON below
+
+    "sources": [
+        {
+            "uri": "configuration/sources/DnB",
+            "label": "Dun & Bradstreet",
+            "abbreviation": "D&B"
+        }
+      ]
