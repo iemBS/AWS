@@ -1,0 +1,18 @@
+Define Simple Attribute
+Note:
+  -"label" shows in the GUI
+  -"name" may be the name of the field in the data model
+  -"type" is the data type
+  -"hidden" indicates if the field is hidden in the GUI
+  -"uri" indicates that the attribute is defined under the ProductX entity
+Main Success Scenario:
+  1. See JSON below
+      "attributes":[
+        {
+          "label":"Name",
+          "name":"Name",
+          "type":"String",
+          "hidden":false,
+          "uri":"configuration/entityTypes/ProductX/attributes/Name"
+        }
+      ]
