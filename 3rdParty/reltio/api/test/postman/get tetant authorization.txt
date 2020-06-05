@@ -6,7 +6,7 @@ Note:
   -"access_token" is a GUID that xxx:fill in
   -"token_type" is xxx:fill in
   -"refresh_token" is a GUID that xxx:fill in
-  -"expires_in" is xxx:fill in
+  -"expires_in" is time in seconds till the authorization expires
   -"scope" is xxx:fill in
 Main Success Scenario:
   1. Send the below POST request
