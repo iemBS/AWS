@@ -1,6 +1,7 @@
 Define Auto Match Rule
 Note:
   -A value of "automatic" for "type" defines it as an automatic match rule. 
+  -The match rule will be triggered if there is an exact match between the “Contact” first and last names AND if the email addresses are an exact match, or one of them is NULL.
 Main Success Scenario:
   1. See JSON below
   
