@@ -4,6 +4,7 @@ Note:
   -"startObject" and "endObject" note the entities that are being connected
   -"attributes" notes the attributes assoicated to the relation type
   -What is "implicit" for?
+  -"direction" notes the direction of the relationship. What does a value of "directed" mean for this attribute?
 Main Success Scenario:
   1. See JSON below
   
@@ -35,5 +36,6 @@ Main Success Scenario:
             },
             "implicit": false,
             "attributes": []
-      }
+      },
+      "direction": "directed"
       ]
