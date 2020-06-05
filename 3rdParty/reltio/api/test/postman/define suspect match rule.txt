@@ -1,0 +1,47 @@
+Define Suspect Match Rule
+Main Success Scenario:
+  1. See JSON below
+  
+      {
+          "uri": "configuration/entityTypes/Organization/matchGroups/Rule4_Addresses",
+          "label": "Exact(City,  State)  Fuzzy (Name, Adl)",
+          "type": "suspect",
+          "rule": {
+              "matchTokenClasses": {
+                  "mapping": [
+                      {
+                          "attribute": "configuration/entityTypes/Organization/attributes/Name",
+                          "class": "com.reltio.match.token.BasicTokenizedOrganizationNameMatchToken"
+                      },
+                      {
+                          "attribute": "configuration/entityTypes/Organization/attributes/Addresses/attributes/AddressLine1",
+                          "class": "com.reltio.match.token.AddressLineMatchToken"
+                      }
+                  ]
+              },
+              "comparatorClasses": {
+                  "mapping": [
+                      {
+                          "attribute": "configuration/entityTypes/Organization/attributes/Name",
+                          "class": "com.reltio.match.comparator.BasicTokenizedOrganizationNameComparator"
+                      },
+                      {
+                          "attribute": "configuration/entityTypes/Organization/attributes/Addresses/attributes/AddressLine1",
+                          "class": "com.reltio.match.comparator.AddressLineComparator"
+                      }
+                  ]
+              },
+              "and": {
+                  "exact": [
+                      "configuration/entityTypes/Organization/attributes/Addresses/attributes/City",
+                      "configuration/entityTypes/Organization/attributes/Addresses/attributes/StateProvince"
+                  ],
+                  "fuzzy": [
+                      "configuration/entityTypes/Organization/attributes/Name",
+                      "configuration/entityTypes/Organization/attributes/Addresses/attributes/AddressLine1"
+                  ]
+              }
+          },
+          "scoreStandalone": 0,
+          "scoreIncremental": 0
+      }
