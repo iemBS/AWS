@@ -1,5 +1,6 @@
 See Site Map
 
+MDM GUID @ https://{{env}}.reltio.com/ui/{{MDM Tentant ID}}
 -top bar
   -tenant name
   -More menu
@@ -56,3 +57,40 @@ See Site Map
     -Inbox
     -Reporting
   -circle icon
+
+Console @ https://console.reltio.com/
+-Configuration section
+  -UI Modeler tile
+    -left side bar
+      -[Entity 1 Profile]
+      -[Entity 2 Profile]
+      -[Entity N Profile]
+    -right side bar
+      -Libraries tab
+        -Views (aka Facets)
+          -Hierarchy Tree
+          -Hierarchy Path View
+          -Attributes View
+          -Single Attribute View
+          -Image Attribute View
+          -Relations View
+          -Categories View
+          -Workflow View
+          -Potential Matches
+      -Properties tab 
+        -[properties of selected facet]
+    -Publish button
+      -Publish menu item
+      -Publish As menu item
+  -Reltio IQ tile
+  -Data Modeler tile
+  -Workflow Modeler tile
+-Tenant Management section
+  -Tenant Management tile
+  -Data Quality tile
+  -Data Loader tile
+  -Export tile
+  -Health Status tile
+-Security section
+  -SSO Configuration tile
+  -User Management tile
