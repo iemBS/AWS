@@ -154,6 +154,40 @@ Console @ https://console.reltio.com/
   -Tenant Management tile
   -Data Quality tile
   -Data Loader tile
+    -left side bar
+      -Job Definitions
+        -Job Status
+      -Settings
+    -main pane
+      -Job Definitions
+        -LOAD DATA link
+          -Entities menu item
+            -select file from My Computer, AWS S3, GCP, Azure, or SFTP
+            -continue button
+              -select mapping screen
+                -new mapping button
+                  -Create New Mapping screen
+                    -Create link
+                      -click file column name
+                        -click matching data model attribute in attributes tab of the right side bar
+                      -crosswalks tab in right side bar
+                        -define crosswalk
+                      -save button
+                      -continue button  
+         -view details
+         -load job button
+          -Relationships menu item
+        -DRAFTS tab
+        -COMPLETED tab
+      -Job Status
+        -PENDING tab
+          -watch job that loads CSV file
+        -COMPLETED tab
+          -see completed loads of CSV files
+      -Settings
+        -config data stored on AWS S3
+        -config data stored on SFTP
+        -config data stored on Azure
   -Export tile
   -Health Status tile
 -Security section
