@@ -22,7 +22,13 @@ MDM GUI @ https://{{env}}.reltio.com/ui/{{MDM Tentant ID}}
               -Network tab
                 -xxx:fill in
               -History tab
-                -xxx:fill in
+                -profile history details
+                  -dots on vertical line note sources contributing to profile during hover
+                  -selecting "Current View" shows the current profile state
+                  -selecting previous changes shows a previous profile state
+                    -down arrow menu
+                      -compare with current view
+                      -compare to previous state
               -Discussions tab
                 -xxx:fill in
               -Workflows tab
@@ -35,6 +41,19 @@ MDM GUI @ https://{{env}}.reltio.com/ui/{{MDM Tentant ID}}
               -Legend tab (hover over crosswalks to see source of each attribute)
                 -Crosswalk mode
                 -Contributor mode
+                -merge tree display
+                  -gray box
+                    -unmerge icon
+                      -unmerge screen
+                        -unmerge button
+                          -go back to Sources tab
+                -crosswalks
+                  -[crosswalk 1]
+                    -arrow
+                      -crosswalk details
+                  -[crosswalk N]
+                  -Add link
+                    -new crosswalk details
               -Ruleset tab
             -Activity Log tab
       -[Entity 2]
