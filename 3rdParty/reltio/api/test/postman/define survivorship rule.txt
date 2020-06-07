@@ -1,0 +1,21 @@
+Define Survivorship Rule
+Main Success Scenario:
+  1. See JSON below
+
+"survivorshipGroups":{
+  "mapping":[
+    {
+      "attribute": "configuration/entityTypes/Contact/attributes/FirstName",
+      "survivorshipStrategy": "Aggregation"
+    },
+    {
+      "attribute": "configuration/entityTypes/Contact/attributes/LastName",
+      "sourcesUriOrder": [
+      "configuration/sources/CRM",
+      "configuration/sources/Finance",
+      "configuration/sources/DnB"
+    ],
+      "survivorshipStrategy": "SRC_SYS"
+    }
+  ]
+}
