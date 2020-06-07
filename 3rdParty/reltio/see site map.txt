@@ -189,6 +189,15 @@ Console @ https://console.reltio.com/
         -config data stored on SFTP
         -config data stored on Azure
   -Export tile
+    -top bar
+      -new export job link
+        -define relationship or entity data to expor
+        -choose time window for data
+        -continue button
+          -define format of output file
+    -main pane
+      -pending tab
+      -completed tab
   -Health Status tile
 -Security section
   -SSO Configuration tile
