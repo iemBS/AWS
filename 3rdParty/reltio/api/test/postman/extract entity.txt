@@ -1,0 +1,3 @@
+Extract Entity
+Main Success Scenario:
+  1. POST https://sndbx.reltio.com/jobs/export/{tenantID}/entities?fileFormat=csv
