@@ -1,0 +1,16 @@
+Extract Relation
+Note:
+  -This uses the Relations API
+Main Success Scenario:
+  1. POST {{tenantURL}}/relations/getByObjectUris
+  2. use JSON body below
+      {
+      "objectUris": [
+      "entities/aErDvQp",
+      "entities/aErKned"
+      ]
+      }
+Alternative
+  1a. Export relations using Export API
+    1a1. POST https://sndbx.reltio.com/jobs/export/{tenantID}/relations?fileFormat=csv
+
