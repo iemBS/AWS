@@ -1,0 +1,10 @@
+Load Data
+Main Success Scenario:
+  1. Real-time or batch via REST API
+Alternatives:
+  1a. Want to use Reltio GUI
+    1a1. Use Reltio Console capabilities
+  1b. Want to integrate with an ETL. 
+    1b1. Use ETL tool with REST adapter
+  1c. Want to integrate with a Java method of doing this
+    1c1. Use Relatio Java utilities
