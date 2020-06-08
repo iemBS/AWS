@@ -1,0 +1,10 @@
+Extract Data
+Main Success Scenario:
+  1. Use Real-time or Batch Export API
+Alternatives:
+  1a. Want to integrate with an ETL
+    1a1. Use ETL with REST Adapter
+  1b. Want to use Reltio GUI
+    1b1. Use Export via MDM UI
+  1c. Want to use real-time via Amazon SQS Streaming API
+    1c1. Use Amazon SQS Streaming API
