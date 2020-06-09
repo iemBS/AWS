@@ -1,8 +1,12 @@
 Define Name and value pair
 
-abbreviation:
+abbreviation: Shortened form of a name of a source. Used to define a source. 
 abstract: 
+  -Has values of "true"
+  -Guidance @ https://docs.reltio.com/infoandconfig/entitytype.html?hl=abstract
 access_token:
+  -Access token that should be used for signing configuration and data API requests.
+  -Guidance @ https://docs.reltio.com/auth/gettoken.html?hl=access_token
 allValues:
 Ambiguous:
 analyticsAttributes:
