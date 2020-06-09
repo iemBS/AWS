@@ -8,19 +8,92 @@ access_token:
   -Access token that should be used for signing configuration and data API requests.
   -Guidance @ https://docs.reltio.com/auth/gettoken.html?hl=access_token
 allValues:
+  -def @ https://docs.reltio.com/datacleansenew/configcleansemapping.html?hl=mandatory
   -Has values of true or false
-Ambiguous:
+ambiguous:
 analyticsAttributes:
   -Guidance @ https://docs.reltio.com/infoandconfig/configuringanalytcattrs.html?hl=analyticsattributes
+attribute:
+  For Configuring Cleanse Mapping:
+    -def @ https://docs.reltio.com/datacleansenew/configcleansemapping.html?hl=mandatory
 attributeOrdering:
 attributes: A name that can exist within surrogateCrosswalks, [xxx:fill in].
 attributeTypes:
 chain:
+  -def @ https://docs.reltio.com/datacleansenew/configinfos.html
   -The purpose of defining a chain section is to gain the best cleansed result. 
   -The chain section of cleanseConfig specifies a list of cleanse functions that are applied one by one in a chain.
 class:
 cleanseAttribute:
+  -def @ https://docs.reltio.com/datacleansenew/configcleansemapping.html?hl=cleanseattribute
+  -guidance 
+    -https://docs.reltio.com/datacleansenew/configcleanserule.html?hl=cleanseattribute
+  -Has values of:
+    -For String Replacement Cleanser (https://docs.reltio.com/matchmergeconfig/replacecleanser.html?hl=cleanseattribute)
+      -configuration/entityTypes/HCO/attributes/Name
+    -For Name Cleanser (https://docs.reltio.com/matchmergeconfig/firstnamenormalize.html?hl=cleanseattribute)
+      -configuration/entityTypes/Individual/attributes/FirstName
+    -For S3 File Cleanser (https://docs.reltio.com/datacleansenew/sthreecleanser.html?hl=cleanseattribute)
+      -Name
+    -For Initials Cleanser (https://docs.reltio.com/datacleansenew/cleanselibinitialsnew.html?hl=cleanseattribute)
+      -Name
+      -Initial
+    -For Patter Based Cleanser (https://docs.reltio.com/datacleansenew/cleanselibpatternbasednew.html?hl=cleanseattribute)
+      -Name
+      -Organization
+      -Country
+      -OutputText
+    -For Identifier Cleanswer
+      -Identifiers.Type
+      -Identifiers.ID
+    -For Phone Cleanser (https://docs.reltio.com/datacleansenew/cleanselibphonenew.html?hl=cleanseattribute)
+      -Phone.Number
+      -Number
+      -Phone.Type
+      -Phone.CountryCode
+      -Phone.Extension
+      -Phone.FormatMask
+      -Phone.ValidationStatus
+      -Phone.GeoCountry
+      -Phone.GeoArea
+      -Phone.LocalNumber
+      -Phone.FormattedNumber
+      -Type
+      -CountryCode
+      -Extension
+      -FormatMask
+      -ValidationStatus
+      -GeoCountry
+      -GeoArea
+      -LocalNumber
+      -FormattedNumber
+    -For Full Name Cleanser (https://docs.reltio.com/datacleansenew/cleanselibfullnamenew.html?hl=cleanseattribute)
+      -First Name
+      -MiddleName
+      -LastName
+      -Iniital
+      -Name
+    -For String Cleanser (https://docs.reltio.com/datacleansenew/cleanselibstringnew.html?hl=cleanseattribute)
+      -InputText
+      -OutputText
+    -for Email Cleanser (https://docs.reltio.com/datacleansenew/cleanselibemailnew.html?hl=cleanseattribute)
+      -Email.Email
+      -Email
+      -Email.Active
+      -Email.Type
+      -Email.Rank
+      -Email.Domain
+      -Email.DomainType
+      -Email.ValidationStatus
+      -Email.Username
+      -Active
+      -Rank
+      -Domain
+      -DomainType
+      -Username
 cleanseFunction:
+  -def @ https://docs.reltio.com/datacleansenew/configinfos.html?hl=cleansefunction
+  -
 comparatorClass:
 Conflict:
 dataLabelPattern:
@@ -39,7 +112,11 @@ inputMapping:
 label:
 lookupCode:
 mandatory:
+  -def @ https://docs.reltio.com/datacleansenew/configcleansemapping.html?hl=mandatory
+  -Has values of: true, false
 mapping:
+mapping section:
+  -def @ https://docs.reltio.com/datacleansenew/configinfos.html
 matchFieldURIsExactOrNull:
 matchTokenClass:
 matchTokenClasses:
@@ -52,20 +129,24 @@ outputMappingRef
 params:
 Partially Verified:
 proceedOnFailure:
+  -def @ https://docs.reltio.com/datacleansenew/configinfos.html
 proceedOnSuccess:
+  -def @ https://docs.reltio.com/datacleansenew/configinfos.html
 rdmTenantId:
 referenceConfigurationURI:
 refresh_token:
 resultingValuesSourceTypeUri:
+  -def @ https://docs.reltio.com/datacleansenew/configinfos.html
 rule: 
-required
-Reverted
+required:
+Reverted:
 schemaVersion:
 scope:
 scoreIncremental:
 scoreStandalone:
 searchable:
 sequence:
+  -def @ https://docs.reltio.com/datacleansenew/configinfos.html
 skipInDataAccess:
 source: A name that can exist within surrogateCrosswalks, [xxx:fill in].
 sources: 
@@ -76,6 +157,7 @@ token_type:
 type:
 Unverified:
 useInCleansing:
+  -def @ https://docs.reltio.com/datacleansenew/configinfos.html?hl=cleansefunction
 uri: 
 useHash:
 values:
