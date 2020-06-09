@@ -11,6 +11,7 @@ allValues:
   -def @ https://docs.reltio.com/datacleansenew/configcleansemapping.html?hl=mandatory
   -Has values of true or false
 ambiguous:
+  -def @ https://docs.reltio.com/datacleansenew/understandavc.html
 analyticsAttributes:
   -Guidance @ https://docs.reltio.com/infoandconfig/configuringanalytcattrs.html?hl=analyticsattributes
 attribute:
@@ -19,6 +20,8 @@ attribute:
 attributeOrdering:
 attributes: A name that can exist within surrogateCrosswalks, [xxx:fill in].
 attributeTypes:
+cardinality:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 chain:
   -def @ https://docs.reltio.com/datacleansenew/configinfos.html
   -The purpose of defining a chain section is to gain the best cleansed result. 
@@ -96,21 +99,34 @@ cleanseFunction:
   -
 comparatorClass:
 Conflict:
+  -def @ https://docs.reltio.com/datacleansenew/understandavc.html
 dataLabelPattern:
+defaultFacetedAttributes:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
+defaultSearchableAttributes:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 description: 
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 enforce: A name in a surrogateCrosswalk object. It can have values of "true" or [xxx:fill in]
 exact:
 exactOrNull:
 expires_in:
+faceted:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 fieldURI:
 fuzzy: 
 hidden:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 icon:
-important:
+important (DEPRECATED):
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 infos:
 inputMapping:
 label:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 lookupCode:
+loqateLicensedCountry: 
+  -def @ https://docs.reltio.com/datacleansenew/addresscleansingprop.html
 mandatory:
   -def @ https://docs.reltio.com/datacleansenew/configcleansemapping.html?hl=mandatory
   -Has values of: true, false
@@ -120,31 +136,48 @@ mapping section:
 matchFieldURIsExactOrNull:
 matchTokenClass:
 matchTokenClasses:
+maxAttributesCombinations:
+  -def @ https://docs.reltio.com/datacleansenew/addresscleansingprop.html
 maxOccurs:
 name:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 nestedAttributeToCleanse:
+opts: 
+  -def @ https://docs.reltio.com/datacleansenew/addresscleansingprop.html
 orderingStrategy
 orderType:
 outputMappingRef
+ovOnly:
+  -def @ https://docs.reltio.com/datacleansenew/addresscleansingprop.html
 params:
 Partially Verified:
+  -def @ https://docs.reltio.com/datacleansenew/understandavc.html
 proceedOnFailure:
   -def @ https://docs.reltio.com/datacleansenew/configinfos.html
 proceedOnSuccess:
   -def @ https://docs.reltio.com/datacleansenew/configinfos.html
+process: 
+  -def @ https://docs.reltio.com/datacleansenew/addresscleansingprop.html
 rdmTenantId:
 referenceConfigurationURI:
 refresh_token:
 resultingValuesSourceTypeUri:
   -def @ https://docs.reltio.com/datacleansenew/configinfos.html
+returnDataByStatus: 
+  -def @ https://docs.reltio.com/datacleansenew/addresscleansingprop.html
+returnUnverifiedStatus:
+  -def @ https://docs.reltio.com/datacleansenew/addresscleansingprop.html
+  -Has values of: true, false
 rule: 
 required:
 Reverted:
+  -def @ https://docs.reltio.com/datacleansenew/understandavc.html
 schemaVersion:
 scope:
 scoreIncremental:
 scoreStandalone:
 searchable:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 sequence:
   -def @ https://docs.reltio.com/datacleansenew/configinfos.html
 skipInDataAccess:
@@ -155,12 +188,31 @@ surrogateCrosswalks: a collection of surrogateCrosswalk objects
 system:
 token_type:
 type:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
+  -Has values of:
+    -URL
+    -Blog URL
+    -Image URL
+    -SSN
+    -Id card (Passport)
+    -SIC-code
+    -NAICS-code
+    -Email domains
+    -Ticker symbol
+    -CIK id
+    -Stock exchange
+    -GeoLocation
 Unverified:
+  -def @ https://docs.reltio.com/datacleansenew/understandavc.html
 useInCleansing:
   -def @ https://docs.reltio.com/datacleansenew/configinfos.html?hl=cleansefunction
 uri: 
 useHash:
 values:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 valueType:
 verificationStatusMapping:
+  -def @ https://docs.reltio.com/datacleansenew/addresscleansingprop.html
+  -Has values of: Verified, Partially Verified, Unverified, Ambiguous, Conflict, and Reverted
 Verified:
+  -def @ https://docs.reltio.com/datacleansenew/understandavc.html
