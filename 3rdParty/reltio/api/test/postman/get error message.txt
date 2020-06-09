@@ -1,4 +1,6 @@
 Get Error Message
+Note:
+  -L3 Validation Errors guide @ https://docs.reltio.com/infoandconfig/l3validationerrors.html
 Main Success Scenario:
   1. Error response has "error" and "error_description" names like below
   
