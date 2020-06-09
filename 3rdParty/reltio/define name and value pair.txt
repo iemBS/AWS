@@ -133,7 +133,11 @@ mandatory:
 mapping:
 mapping section:
   -def @ https://docs.reltio.com/datacleansenew/configinfos.html
+matchFieldURIs:
 matchFieldURIsExactOrNull:
+matchFieldURIsExactOrAllNull:
+matchOvOnly:
+  -def @ https://docs.reltio.com/configapi/attrconfig.html
 matchTokenClass:
 matchTokenClasses:
 maxAttributesCombinations:
@@ -180,6 +184,9 @@ searchable:
   -def @ https://docs.reltio.com/configapi/attrconfig.html
 sequence:
   -def @ https://docs.reltio.com/datacleansenew/configinfos.html
+singleValue: 
+singleValueByCrosswalk:
+singleValueByCrosswalkSources:
 skipInDataAccess:
 source: A name that can exist within surrogateCrosswalks, [xxx:fill in].
 sources: 
