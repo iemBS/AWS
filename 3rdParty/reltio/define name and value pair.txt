@@ -8,12 +8,16 @@ access_token:
   -Access token that should be used for signing configuration and data API requests.
   -Guidance @ https://docs.reltio.com/auth/gettoken.html?hl=access_token
 allValues:
+  -Has values of true or false
 Ambiguous:
 analyticsAttributes:
+  -Guidance @ https://docs.reltio.com/infoandconfig/configuringanalytcattrs.html?hl=analyticsattributes
 attributeOrdering:
 attributes: A name that can exist within surrogateCrosswalks, [xxx:fill in].
 attributeTypes:
 chain:
+  -The purpose of defining a chain section is to gain the best cleansed result. 
+  -The chain section of cleanseConfig specifies a list of cleanse functions that are applied one by one in a chain.
 class:
 cleanseAttribute:
 cleanseFunction:
