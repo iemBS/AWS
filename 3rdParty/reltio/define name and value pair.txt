@@ -1,4 +1,5 @@
 Define Name and value pair
+-Guidance @ https://docs.reltio.com/datadrivenapps/consum360datamodel.html
 
 abbreviation: Shortened form of a name of a source. Used to define a source. 
 abstract: 
