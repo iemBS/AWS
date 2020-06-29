@@ -1,5 +1,9 @@
 Verify Address
 Note:
-  -Guidance @ o	https://support.loqate.com/documentation/reportcodes/address-verification-code/
+  -Guidance @ https://support.loqate.com/documentation/reportcodes/address-verification-code/
+  -Address Cleanse Result Guidance @ https://docs.reltio.com/datacleansenew/addresscleansingresult.html
 Main Success Scenario:
   1.xxx:fill in
+Alternatives:
+  1a. Address Invalid
+    1a1. xxx:fill in
