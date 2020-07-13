@@ -9,7 +9,7 @@ Note:
 Main Success Scenario:
   1. Choose to use the default of 3306 or define another 
 
-Access with MySQL Workbench
+Create Connection with MySQL Workbench
 Note:
   -Guidance @ https://www.mysql.com/products/workbench/
 Preconditions:
@@ -28,3 +28,11 @@ Main Success Scenario:
   10. Click "Test Connection" and see success message
   
   
+ Connnect MySQL Workbench to Aurora
+ Main Success Scenario:
+   1. Open MySQL Workbench
+   2. Go to "Database" menu
+   3. Click "Connect to Database..." menu option
+   4. Choose from "Stored Connection" drop down
+   5. Click "OK" button
+   6. See navigation options for the server appear in left side bar
