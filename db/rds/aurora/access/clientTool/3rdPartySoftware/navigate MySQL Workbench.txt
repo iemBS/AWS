@@ -1,0 +1,36 @@
+Navigate MySQL Workbench
+
+-Navigator left sidebar
+  -Administration tab
+  -Schemas tab
+    -Filter Objects textbox
+    -[database name]
+      -Tables
+        -[table name]
+          -Columns
+            -[column name]
+          -Indexes
+            -xxx:fill in
+          -Foreign Keys
+            -xxx:fill in
+          -Triggers
+            -xxx:fill in
+      -Views
+        -[view name]
+          -[column name]
+      -Stored Procedures
+        -xxx:fill in
+      -Functions
+        -xxx:fill in
+-Information left side bar
+  -Object Info tab
+    -[info for object selected in Navigator left side bar]
+  -Session tab
+    -Connction Details
+    -Server
+    -Connector
+-Edit menu
+  -Format option
+    -Beutify Query option
+-xxx:fill in
+      
