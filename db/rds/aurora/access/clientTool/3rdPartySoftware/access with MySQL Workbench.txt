@@ -19,9 +19,9 @@ Main Success Scenario:
   1. Download MySQL Workbench
   2. Go to "Database" menu 
   3. "Manage Connections..." menu option
-  4. See "Manage Server Connections" window
-  5. Set "Connection Name" to a meaningful name
-  6. See "Parameters" tab
+  4. See "Manage Server Connections" window and "Parameters" tab
+  5. Click "New" button
+  6. Set "Connection Name" to a meaningful name
   7. Set "Hostname" to [xxx:fill in how to find in AWS]
   8. Set "Port" to that defined for the Aurora instance with a MySQL driver
   9. Set "Username" and "Password"
