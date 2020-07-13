@@ -1,0 +1,30 @@
+Get Hostname from AWS
+Main Success Scenario: 
+  1.xxx:fill in
+
+Define Port to use
+Note:
+  -Guidance @ https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-methods-standard.html#:~:text=Port%3A%20The%20TCP%2FIP%20port,attempts%20to%20establish%20the%20connection.
+  -Default that MySQL listens on is port 3306. Another port can be defined though
+Main Success Scenario:
+  1. Choose to use the default of 3306 or define another 
+
+Access with MySQL Workbench
+Note:
+  -Guidance @ https://www.mysql.com/products/workbench/
+Preconditions:
+  -"Get Hostname from AWS"
+  -"Define Port to use"
+Main Success Scenario:
+  1. Download MySQL Workbench
+  2. Go to "Database" menu 
+  3. "Manage Connections..." menu option
+  4. See "Manage Server Connections" window
+  5. Set "Connection Name" to a meaningful name
+  6. See "Parameters" tab
+  7. Set "Hostname" to [xxx:fill in how to find in AWS]
+  8. Set "Port" to that defined for the Aurora instance with a MySQL driver
+  9. Set "Username" 
+  10. Set "Password"
+  
+  
