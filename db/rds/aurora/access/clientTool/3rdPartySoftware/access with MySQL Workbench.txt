@@ -24,7 +24,7 @@ Main Success Scenario:
   6. See "Parameters" tab
   7. Set "Hostname" to [xxx:fill in how to find in AWS]
   8. Set "Port" to that defined for the Aurora instance with a MySQL driver
-  9. Set "Username" 
-  10. Set "Password"
+  9. Set "Username" and "Password"
+  10. Click "Test Connection" and see success message
   
   
