@@ -1,0 +1,14 @@
+Run Simple Select Statement
+Note:
+  -Table name is within single quotes
+  -questions xxx:fill in
+    -Can double quotes be used?
+    -Does db name need to be specified?
+    -Are single quotes used here like square brackets in SQL server?
+    -Can double quotes be used on the db name?
+    -Is the semi-colon required?
+Main Success Scenario:
+  1. see query below
+
+      SELECT NAME
+      FROM `dbName`.`tableName`;
