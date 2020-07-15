@@ -4,4 +4,5 @@
 -how to filter data out
 -how to get top X records
 -can I get bottom X records
+-insert static values into table
 -
