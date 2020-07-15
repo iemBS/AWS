@@ -1,4 +1,4 @@
-Migrate from SQL Server to Aurora MySQL
+Functionality Change from SQL Server to Aurora MySQL
 Main Success Scenario:
   1. "Migrate from ANSI SQL Perspective"
   2. "Migrate from T-SQL Perspective"
