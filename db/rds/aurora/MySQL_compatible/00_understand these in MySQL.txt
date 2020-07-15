@@ -1,1 +1,7 @@
-xx
+-simple update statement
+-simple insert statement
+-simple delete statement
+-how to filter data out
+-how to get top X records
+-can I get bottom X records
+-
