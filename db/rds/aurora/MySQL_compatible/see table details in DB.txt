@@ -1,4 +1,6 @@
-See Tables in DB
+See Table Details in DB
+Note:
+  -Does this include views as well?
 Main Success Scenario:
  1. See query below
  
