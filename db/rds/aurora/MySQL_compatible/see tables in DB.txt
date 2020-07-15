@@ -1,4 +1,4 @@
-See DB Schema
+See Tables in DB
 Main Success Scenario:
  1. See query below
  
