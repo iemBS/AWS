@@ -1,0 +1,128 @@
+Migrate from SQL Server to Aurora MySQL
+Main Success Scenario:
+  1. "Migrate from ANSI SQL Perspective"
+  2. "Migrate from T-SQL Perspective"
+  3. "Migrate from Configuration Perspective"
+  4. "Migrate from High Availability and Disaster Recovery"
+  5. "Migrate from Indexes Perspective"
+  6. "Migrate from Management Perspective"
+  7. "Migrate from Performance Tuning Perspective"
+  8. "Migrate from Physical Storage Perspective"
+  9. "Migrate from Security Perspective"
+  
+Migrate from ANSI SQL Perspective
+Note:
+  -key differences
+    -Unsupported @table variables
+    -different temp table creation syntax
+    -primary keys are always 
+    -Rewrite non- recursive CTE to use views and derived tables
+    -redesign recursive CTE code
+    -Minor syntax and handlinkg differences for data typse
+    -No special UNICODE data types
+    -Basic table join syntax is compatible
+    -Outer and Apply table joins will need to be rewritten
+    -Indexes, Triggers,and temporary views not supported
+    -Rewrite window functions to use alternative SQL syntax
+Main Success Scenario:
+  1. Constraints OK
+  2. Creating tables OK
+  3. CTEs NOT OK
+  4. Data Types OK
+  5. Group By OK
+  6. Table Join OK
+  7. Views OK
+  8. Windows Functions NOT OK
+  
+Migrate from T-SQL Perspective
+Note:
+  -Only static, forward only, read-only cursors are supported in Aurora MySQL
+  -Schema and Database are synonymous
+  -No support for Table Valued Parametersfor sprocs
+  -Minimal XML support,extensive JSON support
+  -No XQUERY support, optionally convert to JSON
+  -Convert PERCENT and TIES in SQL Server to sub-queries in Aurora
+Main Success Scenario:
+ 1. Collations OK
+ 2. Cursors OK
+ 3. Date and Time Functions OK
+ 4. String functions OK
+ 5. Databases and Schemas NOT OK
+ 6. Transactions OK
+ 7. Delete and Update from OK
+ 8. Stored Procedures OK
+ 9. Error Handling MAYBE OK
+ 10. Full Text Search NOT OK
+ 11. XML NOT OK
+ 12. JSON OK
+ 13. Merge NOT OK
+ 14. Pivot NOT OK
+ 15. Triggers OK
+ 16. User Defined Functions MAYBE OK
+ 17. USER Defined Types OK
+ 18. Sequences and Identity MAYBE OK
+ 19. Synonyms NOT OK
+ 20. TOP and FETCH OK
+ 
+Migrate from Configuration Perspective
+Note:
+  -SQL Server's database options are inapplicable to Aurora MySQL
+Main Success Scenario:
+ 1. Session Options NOT OK
+ 2. Database options NOT OK
+ 3. Server Options NOT OK
+
+Migrate from High Availability and Disaster Recovery
+Note:
+  -
+Main Success Scenario:
+  1. Backup and Restore OK
+  2. High Availability Essentials OK
+  
+Migrate from Indexes Perspective
+Note:
+  -Clustered primary keys only
+Main Success Scenario:
+  1. Clustered Indexes OK
+  2. Non Clustered Indexes OK
+  
+Migrate from Management Perspective
+Note:
+  -For Alerting, use Event Notifications Subscription with Amazon Simple Notification Service (SNS)
+  -For Database Mail, use Lambda Integration
+  -Use AWS Glue for ETL
+  -View Logs from RDS console, RDS API, CLI, and SDKs
+  -For Monitoring use CloudWatch
+  -Instead of Linked Servers, Data transfer across schemas only, use a custom application solution to access remote instances
+  -Can also use AWS RDS API, AWS Management Console, and AWS CLI to interface with Aurora
+Main Success Scenario:
+  1. SQL Server Agent NOT OK
+  2. Alerting NOT OK
+  3. Database Mail NOT OK
+  4. ETL NOT OK
+  5. View Server Logs
+  6. Maintenance Plans OK
+  7. Monitoring OK
+  8. Resource Governor NOT OK
+  9. Linked Servers NOT OK
+  10. Scripting NOT OK
+  
+  Migrate from Performance Tuning Perspective
+  Main Success Scenario:
+    1. Execution Plans NOT OK
+    2. Query Hints and Plan Guides MAYBE OK
+    3. Managing Statistics NOT OK
+  
+  Migrate from Physical Storage Perspective
+  Main Success Scenario:
+    1. Partitioning  NOT OK
+    
+  Migrate from Security Perspective
+  Main Success Scenario:
+    1. Column Encryption OK
+    2. Data Control Langauge OK
+    3. Transparent Data Encryption OK
+    4. Users and Roles NOT OK
+    
+    
+    
