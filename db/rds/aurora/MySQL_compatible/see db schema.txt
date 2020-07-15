@@ -1,0 +1,28 @@
+See DB Schema
+Main Success Scenario:
+ 1. See query below
+ 
+ select
+	  table_catalog, # only shows "def"
+    table_schema, # schema or db name
+    table_name,
+    table_type, # values of SYSTEM VIEW, BASE TABLE, VIEW
+    engine, # values of MyISAM, MEMORY, InnoDB, null; what is this?
+    version, # what is this?
+    row_format, # what is this?
+    table_rows, # count of rows in the tables
+    avg_row_length, # what is this?
+    data_length, # what is this?
+    max_data_length, # what is this?
+    index_length, # what is this?
+    data_free, # what is this?
+    auto_increment, # what is this?
+    create_time, # time table/view created; what time zone is this?
+    update_time, # time table/view updated; what time zone is this?
+    check_time, # what is this?
+    table_collation,
+    checksum, # what is this for?
+    create_options, # what is this?
+    table_comment # what is this?
+from
+	information_Schema.tables
