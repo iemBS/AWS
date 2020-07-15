@@ -1,0 +1,29 @@
+See Column Details in DB
+Note:
+  -What do each of the columns mean? xxx:fill in
+Main Success Scenario:
+  1. Run the following SQL query
+
+select
+	table_catalog,
+    table_schema,
+    table_name,
+    column_name,
+    ordinal_position,
+    column_default,
+    is_nullable,
+    data_type,
+    character_maximum_length,
+    character_octet_length,
+    numeric_precision,
+    numeric_scale,
+    datetime_precision,
+    character_set_name,
+    collation_name,
+    column_type,
+    column_key,
+    extra,
+    privileges,
+    column_comment
+from
+	information_Schema.columns
