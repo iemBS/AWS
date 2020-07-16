@@ -1,0 +1,3 @@
+Get MySQL Version
+Main Success Scenario:
+  1. select VERSION()
