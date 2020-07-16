@@ -1,4 +1,5 @@
 Navigate MySQL Workbench
+  SQL Query Toolbar guidance @ https://dev.mysql.com/doc/workbench/en/wb-sql-editor-toolbar.html
 
 -Navigator left sidebar
   -Administration tab
@@ -32,5 +33,9 @@ Navigate MySQL Workbench
 -Edit menu
   -Format option
     -Beutify Query option
+-Query tab
+  -Execute selected portion of script or everything (if no selection)
+  -Execute the statement under the keyboard cursor
+  
 -xxx:fill in
       
