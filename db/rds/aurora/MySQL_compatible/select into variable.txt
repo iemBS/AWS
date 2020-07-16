@@ -1,0 +1,5 @@
+Select Into Variable
+Note: 
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/select-into.html
+Main Success Scenario:
+  1.   SELECT * INTO @myvar FROM t1;
