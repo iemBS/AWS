@@ -1,3 +1,5 @@
+MySQL 5.6 ref @ https://dev.mysql.com/doc/refman/5.6/en/
+
 -simple update statement
 -simple insert statement
 -simple delete statement
