@@ -33,6 +33,11 @@ Navigate MySQL Workbench
 -Edit menu
   -Format option
     -Beutify Query option
+  -Preferences option
+    -Workbench Preference window
+      -left side bar
+        -SQL Editor option
+          -DBMS connection read timeout interval (in seconds) textbox
 -Query tab
   -Execute selected portion of script or everything (if no selection)
   -Execute the statement under the keyboard cursor
