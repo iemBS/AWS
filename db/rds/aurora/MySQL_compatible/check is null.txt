@@ -1,0 +1,5 @@
+Check Is Null
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/comparison-operators.html
+Main Success Scenario:
+  1. SELECT ISNULL(1+1);
