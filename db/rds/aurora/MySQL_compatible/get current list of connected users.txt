@@ -1,0 +1,26 @@
+Get Current List of Connected Users
+Note:
+  -If someone is logged in under a generic user, then the host column needs to be used to differentiate users. 
+Main Success Scenario:
+  1. See query below
+  
+      SELECT 
+          user, 
+          host, 
+          db, 
+          command 
+      FROM 
+          information_schema.processlist;
+Alternatives:
+  1a. Get current list of connected users that are active
+    1a1. See query below
+    
+      SELECT 
+          user, 
+          host, 
+          db, 
+          command 
+      FROM 
+          information_schema.processlist
+      where
+        command <> 'Sleep'
