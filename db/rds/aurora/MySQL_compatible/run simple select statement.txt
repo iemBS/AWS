@@ -6,6 +6,7 @@ Note:
     -Does db name need to be specified?
     -Are single quotes used here like square brackets in SQL server?
     -Can double quotes be used on the db name?
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/select.html
 Main Success Scenario:
   1. see query below
 
