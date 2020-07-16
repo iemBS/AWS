@@ -3,3 +3,6 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-show-users/
 Main Success Scenario:
   1. SELECT user();
+Alternatives:
+  1a. Just get user name
+    1a1. SELECT current_user();
