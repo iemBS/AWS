@@ -1,0 +1,10 @@
+Update Column Value
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/update.html
+Main Success Scenario:
+  1. UPDATE t SET id = id + 1;
+Alternatives:
+  1a. The order the rows are updated in the table is important
+    1a1. UPDATE t SET id = id + 1 ORDER BY id DESC;
+  1b. Update a column using the column of a joined table
+    1b1. UPDATE items,month SET items.price=month.price WHERE items.id=month.id;
