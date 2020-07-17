@@ -1,0 +1,17 @@
+Load Table with Static Values
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/loading-tables.html
+  -Same as done in SQL Server
+Main Success Scenario:
+  1. See query below
+
+      INSERT INTO pet
+             VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL);
+             
+             
+      another example with more than one row 
+      
+      create temporary table tmp (c int);
+
+      insert into tmp (c)
+      values (1), (2), (3);
