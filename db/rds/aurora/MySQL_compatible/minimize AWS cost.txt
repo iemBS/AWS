@@ -1,0 +1,10 @@
+Minimize Cost
+Main Success Scenario:
+  1. "Check SQL Query"
+  .xxx:fill in
+  
+Check Query Query
+Note:
+  -EXPLAIN command is an execution plan
+Main Success Scenario:
+  1. Run EXPLAIN command
