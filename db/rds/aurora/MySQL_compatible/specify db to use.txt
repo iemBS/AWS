@@ -3,3 +3,6 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-select-database/
 Main Success Scenario:
   1. USE dbName
+Alternatives:
+  1a. Specify in MySQL Workbench client
+    1a1. In "Navigator" left side bar and "schemas" tab, double click on DB name
