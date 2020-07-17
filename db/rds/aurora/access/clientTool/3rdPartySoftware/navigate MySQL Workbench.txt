@@ -41,6 +41,8 @@ Navigate MySQL Workbench
             -DBMS connection read timeout interval (in seconds) textbox
           -Other section
             -Safe Updates (rejects UPDATEs and DELETEs with no restrictions)
+-Query menu
+  -Reconnect to Server option
 -Query tab
   -Execute selected portion of script or everything (if no selection)
   -Execute the statement under the keyboard cursor
