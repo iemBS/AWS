@@ -5,7 +5,7 @@ Note:
   -MySQL removes the temporary table automatically when the session ends or the connection is terminated. Of course, you can use the  DROP TABLE statement to remove a temporary table explicitly when you are no longer use it.
   -A temporary table is only available and accessible to the client that creates it. Different clients can create temporary tables with the same name without causing errors because only the client that creates the temporary table can see it. However, in the same session, two temporary tables cannot share the same name.
   -A temporary table can have the same name as a normal table in a database. For example, if you create a temporary table named employees in the sample database, the existing employees table becomes inaccessible. Every query you issue against the employees table is now referring to the temporary table employees. When you drop the employees temporary table, the permanent employees table is available and accessible.
-  -No need to have a db prefix on the table name because it is stored in the temp 
+  -No need to have a db prefix on the table name because it cannot be stored in a db of your choice.
   
 Main Success Scenario:
   1. See query below
