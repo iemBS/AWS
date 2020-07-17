@@ -1,0 +1,5 @@
+Specify DB to Use
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-select-database/
+Main Success Scenario:
+  1. USE dbName
