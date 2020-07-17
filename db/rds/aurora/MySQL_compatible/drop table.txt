@@ -1,0 +1,13 @@
+Drop Table
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Drop Table if Exists
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-drop-table/#:~:text=The%20IF%20EXISTS%20option%20conditionally,TABLE%20statement%20only%20drops%20tables.
+Main Success Scenario:
+  1. See query below
+  
+    DROP TABLE IF EXISTS aliens;
+  
