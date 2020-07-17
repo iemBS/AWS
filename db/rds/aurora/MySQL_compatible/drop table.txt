@@ -1,6 +1,11 @@
 Drop Table
 Main Success Scenario:
   1. xxx:fill in
+Alternatives:
+  1a. Drop table only if it exists 
+    1a1. "Drop Table if Exists"
+  1b. Drop temp table 
+    1b1. "Drop Temp Table"
   
   
 Drop Table if Exists
@@ -10,4 +15,10 @@ Main Success Scenario:
   1. See query below
   
     DROP TABLE IF EXISTS aliens;
+    
+Drop Temp Table
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-temporary-table/
+Main Success Scenario:
+  1. DROP TEMPORARY TABLE table_name;
   
