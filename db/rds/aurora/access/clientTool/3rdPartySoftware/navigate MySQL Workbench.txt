@@ -37,7 +37,10 @@ Navigate MySQL Workbench
     -Workbench Preference window
       -left side bar
         -SQL Editor option
-          -DBMS connection read timeout interval (in seconds) textbox
+          -MySQL Session section
+            -DBMS connection read timeout interval (in seconds) textbox
+          -Other section
+            -Safe Updates (rejects UPDATEs and DELETEs with no restrictions)
 -Query tab
   -Execute selected portion of script or everything (if no selection)
   -Execute the statement under the keyboard cursor
