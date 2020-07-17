@@ -1,7 +1,9 @@
 Load Table with Static Values
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/loading-tables.html
+  -Guidance @ https://www.mysqltutorial.org/mysql-insert-statement.aspx#:~:text=INSERT%20INTO%20table(c1%2Cc2,parentheses%20following%20the%20VALUES%20keyword.
   -Same as done in SQL Server
+  -If specifying columns to insert into, then table name needs to touch the open parenthesis
 Main Success Scenario:
   1. See query below
 
@@ -11,7 +13,7 @@ Main Success Scenario:
              
       another example with more than one row 
       
-      create temporary table tmp (c int);
+      create temporary table tmp(c int);
 
       insert into tmp (c)
       values (1), (2), (3);
