@@ -1,0 +1,34 @@
+Create Temp Table
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-temporary-table/
+  -A temporary table is created by using CREATE TEMPORARY TABLE statement. Notice that the keyword TEMPORARY is added between the CREATE and TABLE keywords.
+  -MySQL removes the temporary table automatically when the session ends or the connection is terminated. Of course, you can use the  DROP TABLE statement to remove a temporary table explicitly when you are no longer use it.
+  -A temporary table is only available and accessible to the client that creates it. Different clients can create temporary tables with the same name without causing errors because only the client that creates the temporary table can see it. However, in the same session, two temporary tables cannot share the same name.
+  -A temporary table can have the same name as a normal table in a database. For example, if you create a temporary table named employees in the sample database, the existing employees table becomes inaccessible. Every query you issue against the employees table is now referring to the temporary table employees. When you drop the employees temporary table, the permanent employees table is available and accessible.
+  
+Main Success Scenario:
+  1. See query below
+  
+      CREATE TEMPORARY TABLE credits(
+          customerNumber INT PRIMARY KEY,
+          creditLimit DEC(10,2)
+      );
+Alternatives:
+  1a. Create and fill temp table in one query
+    1a1. "Create Temp Table On-the-Fly"
+
+Create Temp Table On-the-Fly
+Note:
+  -Like creating a temp table using SELECT INTO within SQL Server
+Main Success Scenario:
+  1. See query below
+  
+      CREATE TEMPORARY TABLE top_customers
+      SELECT p.customerNumber, 
+             c.customerName, 
+             ROUND(SUM(p.amount),2) sales
+      FROM payments p
+      INNER JOIN customers c ON c.customerNumber = p.customerNumber
+      GROUP BY p.customerNumber
+      ORDER BY sales DESC
+      LIMIT 10;
