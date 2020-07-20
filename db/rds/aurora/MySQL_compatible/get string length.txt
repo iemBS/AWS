@@ -1,0 +1,4 @@
+Get String Length
+Guidance @ https://www.w3schools.com/sql/func_mysql_length.asp
+Main Success Scenario:
+  1. select length('sdfdf')
