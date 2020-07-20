@@ -24,6 +24,7 @@ Main Success Scenario:
 Choices for Developer
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/using-explain.html
+  -EXPLAIN command not limited to selected text in SQL Workbench. 
 Main Success Scenario:
   . "Have only what is needed"
   . "Create Good Performing Tables Joins"
