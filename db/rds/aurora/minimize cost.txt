@@ -2,16 +2,48 @@ Minimize Cost
 Notes:
   -xxx:fill in
 Main Success Scenario:
-  1.Minimize logging (drive space)
-  2.Minimize # of read replicas (drive space)
-  3.Minimize backtracking (drive space)
-  4.Minimize auto back up (drive space)
-  5.Minimize manual snapshot (drive space)
-  6.Reserve instead of on-demand 
-  7.Make larger time reservation commitment in advance
-  8.Minimize data transfer frequency
-  9.Choose lower cost destination during data transfer
-  10.Just use default VPC (CPU, drive space)
-  11. Remove deletion protection.
-  12.use public instead of private subnets
-  13.Minimize table scanning
+  1."Choices for Environment Admin"
+  2."Choices for DB Admin"
+  3."Choices for Developer"
+
+Choices for Environment Admin
+Main Success Scenario:
+  1. Make larger time reservation commitment in advance
+  2. Reserve instead of on-demand 
+  3. Minimize auto back up (drive space)
+  4. use public instead of private subnets
+  5. Just use default VPC (CPU, drive space)
+  6. Minimize # of read replicas (drive space)
+  7. Remove deletion protection
+  
+Choices for DB Admin
+Main Success Scenario:
+  1. Minimize logging (drive space)
+  2. Choose lower cost destination during data transfer
+  3. Minimize manual snapshot (drive space)
+  4. Minimize backtracking (drive space)
+  
+Choices for Developer
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/using-explain.html
+Main Success Scenario:
+  . Have only what is needed
+  . Understand syntax of query language 
+  . Use EXPLAIN command to see query execution plan
+  . "Put Working Data Set in RAM"
+  . "Minimize data transfer frequency"
+  . "Minimize Table Scanning"
+   
+Put Working Data Set in RAM
+Note:
+  -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.BestPractices.html
+Main Success Scenario:
+  1. Use "VolumeReadIOPS" metric to see if you are reading or writing to a disk too much
+  2. Use "BufferCacheHitRatio" metric to see if you are reading from the buffer cache of a DB instance or from a disk
+  
+Minimize Table Scanning
+Main Success Scenario:
+  1. Add indexing for joins
+  2. Add indexing for filters
+  
+  
