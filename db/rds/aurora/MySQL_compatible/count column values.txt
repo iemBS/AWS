@@ -1,0 +1,8 @@
+Count Column Values
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-count/
+Main Success Scenario: 
+  1. select count(myCol) from myDB.myTable
+Alternatives:
+  1a. Get distinct count instead
+    1a1. select count(distinct myCol) from myDB.myTable
