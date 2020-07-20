@@ -25,11 +25,24 @@ Choices for Developer
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/using-explain.html
 Main Success Scenario:
-  . Have only what is needed
+  . "Have only what is needed"
+  . "Create Good Performing Tables Joins"
+  . Use Positive instead of negative filters
   . Understand syntax of query language 
   . Use EXPLAIN command to see query execution plan
   . "Put Working Data Set in RAM"
   . "Minimize data transfer frequency"
+  
+Have Only what is Needed
+Main Success Scenario:
+  1. Avoid using * in select statement
+  2. Remove data as soon as possible
+  
+Create Good Performing Tables Joins
+Main Success Scenario:
+  . Know unique identifiers for tables used in join
+  . Try to stick with Inner Joins rather than outer or cross joins
+  . Place table with lowest row count in first position
   . "Minimize Table Scanning"
    
 Put Working Data Set in RAM
