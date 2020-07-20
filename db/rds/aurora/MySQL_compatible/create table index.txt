@@ -10,3 +10,5 @@ Alternatives:
     1a1. CREATE UNIQUE INDEX part_of_name ON customer (name(10));
   1b. Create Clustered Index
     1b1. xxx:fill in
+  1c. Create Multi-Column Index
+    1c1. xxx:fill in
