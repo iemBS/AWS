@@ -1,6 +1,4 @@
 Minimize Cost
-Notes:
-  -xxx:fill in
 Main Success Scenario:
   1."Choices for Environment Admin"
   2."Choices for DB Admin"
