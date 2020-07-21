@@ -1,0 +1,5 @@
+Delete From Table
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-delete-statement.aspx/
+Main Success Scenario:
+  1. xxx:fill
