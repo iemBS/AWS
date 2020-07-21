@@ -1,0 +1,12 @@
+Constrain Column Values
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/constraint-invalid-data.html
+Main Success Scenario:
+  1. Limit values to those noted in the constraint
+    
+       xxx:fill in
+Alternatives:
+  1a. Replace invalid value with a default valid value
+    1a1. See code below
+    
+       xxx:fill in
