@@ -1,0 +1,16 @@
+Avoid Duplicates in Table
+Note:
+  -Guidance @ https://www.tutorialspoint.com/mysql/mysql-handling-duplicates.htm
+Main Success Scenario:
+  1. Use INSERT IGNORE
+    
+      mysql> INSERT IGNORE INTO person_tbl (last_name, first_name)
+         -> VALUES( 'Jay', 'Thomas');
+      Query OK, 1 row affected (0.00 sec)
+
+      mysql> INSERT IGNORE INTO person_tbl (last_name, first_name)
+         -> VALUES( 'Jay', 'Thomas');
+      Query OK, 0 rows affected (0.00 sec)
+      
+Alternatives:
+  1. xxx:fill in
