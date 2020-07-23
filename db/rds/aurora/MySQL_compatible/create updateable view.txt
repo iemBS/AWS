@@ -1,0 +1,9 @@
+Create Updateable View
+Note: 
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/view-updatability.html
+Pre-conditions:
+  -Query within view cannot use:
+    -union
+    -
+Main Success Scenario:
+  1. xxx:fill in
