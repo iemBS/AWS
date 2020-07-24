@@ -1,4 +1,13 @@
 Generate SQL object Create Script
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-stored-procedure/alter-stored-procedure/
+  -create and alter scripts differ like this for procedures
+    -create script header
+      CREATE PROCEDURE `mySprocName` ()
+
+    -alter script header
+      CREATE DEFINER=`myUserName`@`%` PROCEDURE `mySprocName`()
+      
 Pre-conditions:
   -Generating SQL script in MySQL Workbench client
 Main Success Scenario:
