@@ -1,0 +1,17 @@
+Generate SQL object Create Script
+Pre-conditions:
+  -Generating SQL script in MySQL Workbench client
+Main Success Scenario:
+  1. Open MySQL Workbench client
+  2. Hover over SQL object name
+  3. Click on wrench icon that appears to the right of the SQL object
+  4. Script appears in query pain
+  5. Click disk icon on top left of query window
+  6. Note name to save the script as
+Alternatives:
+  1a. Generate SQL script from command line
+    1a1. xxx:fill in
+  1b. Generate SQL script from a SQL command in the MySQL Workbench client
+    1b1. xxx:fill in
+  
+  
