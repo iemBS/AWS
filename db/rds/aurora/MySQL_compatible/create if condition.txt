@@ -1,0 +1,11 @@
+Create IF Condition
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-if-statement/
+Main Success Scenario:
+  1. See code below
+
+    IF credit > 50000 THEN
+        SET pCustomerLevel = 'PLATINUM';
+    END IF;
+  
+  
