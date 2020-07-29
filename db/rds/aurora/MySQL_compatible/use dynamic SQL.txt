@@ -4,3 +4,17 @@ Note:
   -Guidance @ https://stackoverflow.com/questions/190776/how-to-have-dynamic-sql-in-mysql-stored-procedure
 Main Success Scenario:
   1. xxx:fill in
+Alternatives:
+  1a. Use CONCAT function instead
+    1a1. See code below
+    
+        mysql> USE test;
+        mysql> CREATE TABLE t1 (a INT NOT NULL);
+        mysql> INSERT INTO t1 VALUES (4), (8), (11), (32), (80);
+
+        mysql> SET @table = 't1';
+        mysql> SET @s = CONCAT('SELECT * FROM ', @table);
+
+        mysql> PREPARE stmt3 FROM @s;
+        mysql> EXECUTE stmt3;
+        mysql> DEALLOCATE PREPARE stmt3;
