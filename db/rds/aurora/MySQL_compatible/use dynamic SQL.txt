@@ -2,6 +2,7 @@ Use Dynamic SQL
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/prepare.html
   -Guidance @ https://stackoverflow.com/questions/190776/how-to-have-dynamic-sql-in-mysql-stored-procedure
+  -USE statement CANNOT be used inside a procedure. See @ https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
