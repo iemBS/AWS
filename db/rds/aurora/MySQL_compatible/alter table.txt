@@ -10,3 +10,5 @@ Alternatives:
     1b1. ALTER TABLE tblName RENAME tblName_OLD;
   1c. Alter datetime(6) column to default to the current date
     1c1. ALTER TABLE tblNm MODIFY colDt DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6);
+  1d. Alter table to add a multi column primary key
+    1d1. ALTER TABLE tblNm ADD CONSTRAINT PRIMARY KEY (col1,col2)
