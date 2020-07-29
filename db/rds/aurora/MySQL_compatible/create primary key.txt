@@ -1,0 +1,8 @@
+Create Primary Key
+Note: 
+  -Guidance @ https://www.mysqltutorial.org/mysql-primary-key/#:~:text=When%20the%20primary%20key%20has,column_list%20by%20commas%20(%2C).
+Main Success Scenario:
+  1. xxx:fill in
+Alternatives:
+  1a. Create Primary Key with multiple columns
+   1a1. xxx:fill in
