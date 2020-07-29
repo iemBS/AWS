@@ -1,0 +1,5 @@
+Update Column Based on other data in same table
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/update.html
+Main Success Scenario:
+  1. xxx:fill in
