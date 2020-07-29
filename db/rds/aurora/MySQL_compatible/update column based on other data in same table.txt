@@ -1,5 +1,25 @@
 Update Column Based on other data in same table
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/update.html
+  -Is there performance issues with this?
 Main Success Scenario:
-  1. xxx:fill in
+  1. See code below
+  
+      update
+        myTbl as p,
+        (
+          select
+            myCol
+          from
+            myTbl
+          group by
+            myCol
+          having
+            count(myCol) > 1
+        ) As dupe
+      set
+        myCol2 = 1
+      where
+        p.myCol2 = 0
+        and
+        p.myCol = dupe.myCol
