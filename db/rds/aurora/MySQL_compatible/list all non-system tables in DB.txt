@@ -1,0 +1,5 @@
+List all Non-System Tables in DB
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-show-tables/
+Main Success Scenario:
+  1. SHOW TABLES
