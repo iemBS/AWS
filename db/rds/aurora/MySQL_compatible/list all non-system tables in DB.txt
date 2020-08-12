@@ -1,5 +1,22 @@
 List all Non-System Tables in DB
 Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-show-tables/
+  -Guidanxe @ https://stackoverflow.com/questions/2389468/compare-structures-of-two-databases#:~:text=For%20MySQL%20database%20you%20can,%2C%20'%2C%20'%2C%20cl.
 Main Success Scenario:
   1. SHOW TABLES
+Alternatives: 
+  1a. Use a SQL query 
+    1a1. See query below
+      select
+        t.table_type,
+        t.table_name
+      from
+        information_schema.tables t 
+      where
+        t.Table_Schema = 'myDBName'
+          and
+        t.table_type in
+          (
+          'BASE TABLE',
+              'VIEW'
+          )
