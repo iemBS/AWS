@@ -4,5 +4,17 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/create-the-first-trigger-in-mysql.aspx
   -Guidance @ https://www.mysqltutorial.org/mysql-triggers/mysql-after-update-trigger
   -Guidance @ https://www.mysqltutorial.org/mysql-triggers/mysql-after-insert-trigger/
+  -use of Delimiter is very important
 Main Success Scenario:
-  1. xxx:fill in
+  1. See code below
+  
+DELIMITER //
+CREATE TRIGGER myTriggerName
+     AFTER INSERT ON myTableTriggerIsOn
+     FOR EACH ROW BEGIN
+  
+       bodyOfMyTrigger
+
+ 	   END //
+    
+     DELIMITER ;
