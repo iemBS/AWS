@@ -1,0 +1,3 @@
+Show Existing Trigger Code
+Main Success Scenario:
+  1. SHOW CREATE TRIGGER myTriggerName
