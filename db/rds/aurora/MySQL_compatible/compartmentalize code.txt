@@ -1,0 +1,5 @@
+Compartmentalize Code
+Note:
+  -Procedures provide a way to isolate functionality and to reduce the amount of code that is versioned. 
+Main Success Scenario:
+  1. 
