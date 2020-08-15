@@ -1,0 +1,25 @@
+See Indexes
+Note:
+  Guidance @ https://www.mysqltutorial.org/mysql-index/mysql-show-indexes/
+Main Success Scenario:
+  1. See code below
+
+      SELECT  
+        TABLE_SCHEMA,
+          TABLE_NAME,
+          INDEX_SCHEMA,
+          INDEX_NAME,
+          NON_UNIQUE,
+          COLUMN_NAME,
+          SEQ_IN_INDEX,
+          INDEX_TYPE
+      FROM 
+        INFORMATION_SCHEMA.STATISTICS
+      WHERE
+        TABLE_SCHEMA = 'myDbName'
+      ORDER BY
+        TABLE_SCHEMA,
+        TABLE_NAME,
+        INDEX_NAME,
+        SEQ_IN_INDEX
+  
