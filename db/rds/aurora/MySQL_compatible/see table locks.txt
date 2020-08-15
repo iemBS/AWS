@@ -2,6 +2,7 @@ See Table locks
 Note:
   -Must run as master account
   -Guidance @ https://forums.aws.amazon.com/thread.jspa?threadID=234301
+  -Guidance @ https://dba.stackexchange.com/questions/189804/how-to-avoid-lock-wait-timeout-exceed-and-improve-mysql-innodb-write-speed
 Main Success Scenario:
   1. See code below
 
