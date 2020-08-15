@@ -1,0 +1,27 @@
+See Table locks
+Note:
+  -Must run as master account
+  -Guidance @ https://forums.aws.amazon.com/thread.jspa?threadID=234301
+Main Success Scenario:
+  1. See code below
+
+      SELECT 
+        r.trx_id waiting_trx_id,
+        r.trx_mysql_thread_id waiting_thread,
+        r.trx_query waiting_query,
+        b.trx_id blocking_trx_id,
+        b.trx_mysql_thread_id blocking_thread,
+        b.trx_query blocking_query
+      FROM 
+        information_schema.innodb_lock_waits w
+        INNER JOIN information_schema.innodb_trx b ON
+          b.trx_id = w.blocking_trx_id
+        INNER JOIN information_schema.innodb_trx r ON
+          r.trx_id = w.requesting_trx_id;
+       
+ Alternatives:
+   1a. See meta data locks, which are related to DDL
+     1a1. show engine innodb status;
+     1a2. Look into the TRANSACTION section which will show all waiting thread block by other.
+     
+In order to allow transaction wait for longer on DML locks you can change variable "innodb_lock_wait_timeout". To change variables in RDS refer to this link http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html
