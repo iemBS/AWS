@@ -1,5 +1,11 @@
 Delete From Table
 Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-delete-statement.aspx/
+  -Guidance @ https://www.mysqltutorial.org/mysql-delete-join
 Main Success Scenario:
   1. xxx:fill
+Alternatives:
+  1a. Delete from a table while joined to another table
+    1a1. xxx:fill in
+  1b. Delete from two tables that are joined 
+    1b1. xxx:fill in
