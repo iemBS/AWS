@@ -1,5 +1,8 @@
 Set Variable with Select Statement
 Note:
-  -Guidance @ https://www.oreilly.com/library/view/mysql-cookbook-2nd/059652708X/ch01s27.html#:~:text=SET%20also%20can%20be%20used,arms%2Blegs)%20FROM%20limbs)%3B
+  -Guidance @ https://www.oreilly.com/library/view/mysql-cookbook-2nd/059652708X/ch01s27.html
 Main Success Scenario:
   1. SET @max_limbs = (SELECT MAX(arms+legs) FROM limbs);
+Alternatives:
+  1a. Use Select
+    1a1. SELECT @name := thing FROM limbs WHERE legs = 0;
