@@ -1,0 +1,7 @@
+Define Procedure Parameter
+Note: 
+  -Guidance @ https://www.mysqltutorial.org/stored-procedures-parameters.aspx#:~:text=First%2C%20specify%20the%20parameter%20mode,the%20column%20name%20in%20MySQL.
+Main Success Scenario:
+  1. Prefix with IN, OUT or INTOUT
+  2. Specify a data type suffix
+  3. Do NOT include an "@" symbol prefix
