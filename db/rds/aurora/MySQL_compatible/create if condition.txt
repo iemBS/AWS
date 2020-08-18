@@ -7,5 +7,8 @@ Main Success Scenario:
     IF credit > 50000 THEN
         SET pCustomerLevel = 'PLATINUM';
     END IF;
+Alternatives:
+  1a. Run update query within a prepared statement within an IF condition
+    1a1. xxx:fill in
   
   
