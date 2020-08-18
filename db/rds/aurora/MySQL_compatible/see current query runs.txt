@@ -1,0 +1,5 @@
+See Current Query Runs
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-show-processlist/
+Main Success Scenario:
+  1. SHOW FULL PROCESSLIST;
