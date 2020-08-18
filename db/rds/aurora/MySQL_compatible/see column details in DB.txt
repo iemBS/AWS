@@ -27,3 +27,5 @@ select
     column_comment
 from
 	information_Schema.columns
+where
+	table_schema = 'myDB'
