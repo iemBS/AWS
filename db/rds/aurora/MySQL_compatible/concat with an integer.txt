@@ -1,0 +1,8 @@
+Concat with an Integer
+Note: 
+  -Integer auto converts to a string type. 
+Main Success Scenario:
+  1. See code below
+  
+        SET @intVar = 24;
+        select concat("| ",@intVar,"|");
