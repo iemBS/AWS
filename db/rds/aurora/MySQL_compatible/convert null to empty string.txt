@@ -1,0 +1,6 @@
+Convert NULL to Empty String
+Main Success Scenario:
+  1. select IFNULL(prereq,"") from test
+Alternatives:
+  1a. use Coalesce function
+    1a1. select coalesce(prereq,'') from test
