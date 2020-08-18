@@ -4,5 +4,7 @@ Note:
 Main Success Scenario:
   1. SET @max_limbs = (SELECT MAX(arms+legs) FROM limbs);
 Alternatives:
-  1a. Use Select
+  1a. Use Assignment operator
     1a1. SELECT @name := thing FROM limbs WHERE legs = 0;
+  1b. Need to add limit 
+    1b1. SET @max_limbs = (SELECT armCnt FROM limbs where appendage = 6 limit 1);
