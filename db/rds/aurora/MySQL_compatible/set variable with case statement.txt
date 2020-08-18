@@ -2,4 +2,13 @@ Set Variable with Case Statement
 Note: 
   -Guidance @ https://www.mysqltutorial.org/mysql-case-statement/
 Main Success Scenario:
-  1. xxx:fill in
+  1. See code below
+ 
+    CASE customerCountry
+		WHEN  'USA' THEN
+		   SET @Shipping = '2-day Shipping';
+		WHEN 'Canada' THEN
+		   SET @Shipping = '3-day Shipping';
+		ELSE
+		   SET @Shipping = '5-day Shipping';
+	END CASE;
