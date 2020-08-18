@@ -1,0 +1,5 @@
+Use Table Alias
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-alias/
+Main Success Scenario:
+  1. xxx:fill in
