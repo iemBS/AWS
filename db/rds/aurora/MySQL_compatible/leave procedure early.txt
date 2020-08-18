@@ -1,0 +1,5 @@
+Leave Procedure Early
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-stored-procedure/mysql-leave/
+Main Success Scenario:
+  1.xxx:fill in
