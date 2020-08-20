@@ -1,0 +1,14 @@
+Get Table Row Count
+Note: 
+  -Guidance @ https://www.mysqltutorial.org/mysql-row-count/
+Main Success Scenario:
+  1. See query below
+  
+      SELECT 
+          table_name, 
+          table_rows
+      FROM
+          information_schema.tables
+      WHERE
+          table_schema = 'classicmodels'
+      ORDER BY table_name;
