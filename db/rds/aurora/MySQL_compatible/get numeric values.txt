@@ -1,0 +1,10 @@
+Get Numeric Values
+Note: 
+  -Guidance @ https://stackoverflow.com/questions/22510736/mysql-select-only-numeric-values-from-varchar-column
+Main Success Scenario:
+  1. select myCol from myTbl where myCol REGEXP '^[0-9]+$';
+Alternatives:
+  1a. Get positive and negative numeric values
+    1a1. select myCol from myTbl where myCol REGEXP '^-?[0-9]+$';
+  1b. Get decimal numbers
+    1b1. xxx:fill in
