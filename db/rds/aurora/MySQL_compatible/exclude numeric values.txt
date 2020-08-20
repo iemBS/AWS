@@ -1,0 +1,8 @@
+Exclude Numeric Values
+Note:
+  -Guidance @ https://www.reddit.com/r/mysql/comments/58mg9x/mysql_select_only_non_numeric_values_from_varchar/
+Main Success Scenario:
+  1. select * from myTbl where myCol NOT REGEXP '^[0-9]+$' and myCol REGEXP '^[0-9A-Za-z]+$';
+Alternatives:
+  1a. Exclude negative numeric values as well
+    1a1. select * from myTbl where myCol NOT REGEXP '^-?[0-9]+$' and myCol REGEXP '^[0-9A-Za-z]+$';
