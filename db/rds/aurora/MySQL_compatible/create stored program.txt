@@ -1,0 +1,17 @@
+Create Stored Program
+Note: 
+  -Stored Programs are 
+    -Stored Routines
+      -Stored Procedures: Does not return a value, pre-compiled
+      -Stored Functions: Returns single value, compiled at run time
+    -Triggers
+    -Events. These can be written in SQL or another language. 
+  -Stored Program Guidance @ https://dev.mysql.com/doc/refman/5.6/en/stored-programs-defining.html
+  -Stored Program Guidance @ https://en.wikibooks.org/wiki/MySQL/Stored_Programs
+  -Stored Program Restriction Guidance @ https://dev.mysql.com/doc/refman/5.6/en/stored-program-restrictions.html
+  -Stored Routine Guidance @ https://dev.mysql.com/doc/refman/5.6/en/stored-routines.html
+  -Stored Procedures User Forum Guidance @ https://forums.mysql.com/list.php?98
+  -Event Guidance @ https://dev.mysql.com/doc/refman/5.6/en/triggers.html
+  -Are there user defined functions that are different than Stored Functions?
+Main Success Scenario:
+  1. xxx:fill in
