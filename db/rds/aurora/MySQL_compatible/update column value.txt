@@ -15,10 +15,10 @@ Alternatives:
         Inner Join 
         (
           Select Distinct 
-            ColB
+            ColB  
           From
             Tbl2 pr
-        ) t ON p.ColA = t.ColB
+        ) t ON p.ColA = t.ColB  # helps to have index on the p.ColA column 
         set
           p.ColA2 = 1
         where
