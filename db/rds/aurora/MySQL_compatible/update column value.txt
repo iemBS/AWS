@@ -8,3 +8,18 @@ Alternatives:
     1a1. UPDATE t SET id = id + 1 ORDER BY id DESC;
   1b. Update a column using the column of a joined table
     1b1. UPDATE items,month SET items.price=month.price WHERE items.id=month.id;
+  1c. Update a column using the column of a joined table in a more optimized way
+    1c1. See query below
+         update
+           Tbl1 p
+        Inner Join 
+        (
+          Select Distinct 
+            ColB
+          From
+            Tbl2 pr
+        ) t ON p.ColA = t.ColB
+        set
+          p.ColA2 = 1
+        where
+          p.ColA2 = 0
