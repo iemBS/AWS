@@ -1,3 +1,5 @@
 Drop Table Index
+Note:
+  -Guidance @ https://www.w3schools.com/sql/sql_create_index.asp
 Main Success Scenario:
   1. ALTER TABLE MyTbl DROP INDEX idx_MyTbl_MyCols;
