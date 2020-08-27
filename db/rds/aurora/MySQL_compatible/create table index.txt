@@ -8,6 +8,8 @@ Note:
     -Guidance @ https://stackoverflow.com/questions/24315151/does-order-of-fields-of-multi-column-index-in-mysql-matter
     -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/multiple-column-indexes.html
   -A primary key and a unique index with the non-null constraint are basically the same
+  -Having a number after a string column noted in an index indicates the first N characters will be used in the index. 
+    -Specifying N for indexes can make the index file much smaller, which could save a lot of disk space and might also speed up INSERT operations.
 Main Success Scenario:
   1. CREATE INDEX part_of_name ON customer (name(10));
 Alternatives:
@@ -17,3 +19,4 @@ Alternatives:
     1b1. xxx:fill in
   1c. Create Multi-Column Index
     1c1. xxx:fill in
+  
