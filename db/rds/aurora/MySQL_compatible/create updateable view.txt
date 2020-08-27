@@ -1,6 +1,8 @@
 Create Updateable View
 Note: 
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/view-updatability.html
+  -Cannot use subqueries in a view
+    -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/view-restrictions.html
 Pre-conditions:
   -Query within view cannot use:
     -union
