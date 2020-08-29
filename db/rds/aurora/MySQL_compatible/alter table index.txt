@@ -1,0 +1,6 @@
+Alter Table Index
+Note:
+  -There is no way to alter an index on a table. You need to drop it and then recreate it
+Main Success Scenario:
+  1. Drop Table Index
+  2. Create Table Index
