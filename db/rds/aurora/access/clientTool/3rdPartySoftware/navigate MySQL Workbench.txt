@@ -43,6 +43,23 @@ Navigate MySQL Workbench
             -Safe Updates (rejects UPDATEs and DELETEs with no restrictions)
 -Query menu
   -Reconnect to Server option
+-Database menu
+-Server menu
+  -Client Connections tab
+    -list
+      -Id column: 
+      -User column: 
+      -Host column: 
+      -DB column: 
+      -Command column: 
+      -Time column: 
+      -State column: 
+      -Info column: 
+    -Refresh Rate drop down: Choose how frequently to refresh the list
+    -Hide sleeping connections check box: Hide connections in list that are sleeping
+    -Kill Query(s) button: 
+    -Kill Connection(s) button: 
+    -Refresh button: 
 -Query tab
   -Execute selected portion of script or everything (if no selection)
   -Execute the statement under the keyboard cursor
