@@ -1,0 +1,7 @@
+Set Blank Date Column Value
+Note:
+  -Setting column value to '' will set a date value of 0000-00-00
+  -Setting column value to NULL will set a date value of NULL
+Main Success Scenario:
+  1. Determine what you want the blank value to show as when read from the table
+  2. Set to either '' or NULL
