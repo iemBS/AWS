@@ -1,4 +1,4 @@
-Load Table with Static Values
+Insert Into Table with Static Values
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/loading-tables.html
   -Guidance @ https://www.mysqltutorial.org/mysql-insert-statement.aspx#:~:text=INSERT%20INTO%20table(c1%2Cc2,parentheses%20following%20the%20VALUES%20keyword.
