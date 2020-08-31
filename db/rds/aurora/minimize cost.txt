@@ -33,6 +33,12 @@ Main Success Scenario:
   . Use EXPLAIN command to see query execution plan
   . "Put Working Data Set in RAM"
   . "Minimize data transfer frequency"
+  - "Read during Monitoring"
+  
+Read during Monitoring
+Main Success Scenario:
+  - Only set to tools to auto pull a process status when actually watching the tool
+  -xxx:fill in
   
 Have Only what is Needed
 Main Success Scenario:
