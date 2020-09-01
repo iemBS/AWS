@@ -1,0 +1,9 @@
+Find Vale with Non-ASCII Character
+Main Success Scenario:
+  1. See query below
+      select
+         count(MyCol)
+      from
+        MyTbl
+      where
+          MyCol <> CONVERT(MyCol USING ASCII)
