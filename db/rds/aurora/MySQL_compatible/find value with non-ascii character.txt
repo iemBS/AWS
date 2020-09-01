@@ -1,4 +1,6 @@
 Find Vale with Non-ASCII Character
+Note: 
+  -Guidance @ https://stackoverflow.com/questions/401771/how-can-i-find-non-ascii-characters-in-mysql/11741314
 Main Success Scenario:
   1. See query below
       select
