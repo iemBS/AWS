@@ -1,0 +1,6 @@
+Find Zero Length ASCII Code
+Main Success Scenario:
+  1. See query below
+
+      select length(substring('colVal',posStart,1)) # length is 0
+      select ascii(substring('colVal',posStart,1))  # ascii code returned
