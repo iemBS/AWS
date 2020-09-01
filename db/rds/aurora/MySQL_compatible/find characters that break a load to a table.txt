@@ -1,0 +1,7 @@
+Find Characters that Break a Load to a Table
+Pre-conditions:
+  -Data loaded from outside of Aurora
+Main Success Scenario:
+  1. xxx:fill in
+ 
+  
