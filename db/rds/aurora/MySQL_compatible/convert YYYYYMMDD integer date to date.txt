@@ -1,0 +1,4 @@
+Convert YYYYMMDD integer date to Date
+Main Success Scenario:
+  1. select CONVERT('20190718', DATE)
+  2. Results in 2019-07-18
