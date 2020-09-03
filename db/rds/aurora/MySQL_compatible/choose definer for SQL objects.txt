@@ -11,6 +11,7 @@ Note:
     -For stored procedures and views, the object definition can include a SQL SECURITY characteristic with a value of DEFINER or INVOKER to specify whether the object executes in definer or invoker context. If the definition omits the SQL SECURITY characteristic, the default is definer context.
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/stored-objects-security.html#stored-objects-security-orphan-objects
     -An object can be orphaned if the account that creates it no longer exists or is an account that never existed
+  -Leaving definer as "admin" avoids orphaning SQL objects.
 Main Success Scenario:
   1. 
 
