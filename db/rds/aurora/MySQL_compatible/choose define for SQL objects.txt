@@ -1,0 +1,19 @@
+
+
+Choose Definer for SQL objects
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/create-procedure.html
+    -"DEFINER" defines the security context of a procedure 
+    -The "DEFINER" clause specifies the MySQL account to be used when checking access privileges at procedure execution time for procedures that have the "SQL SECURITY DEFINER" characteristic.
+    -Within the body of a procedure that is defined with the "SQL SECURITY DEFINER" characteristic, the CURRENT_USER function returns the procedures's DEFINER value.
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/stored-objects-security.html#stored-objects-security-definer
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/stored-objects-security.html#stored-objects-security-sql-security
+    -For stored procedures and views, the object definition can include a SQL SECURITY characteristic with a value of DEFINER or INVOKER to specify whether the object executes in definer or invoker context. If the definition omits the SQL SECURITY characteristic, the default is definer context.
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/stored-objects-security.html#stored-objects-security-orphan-objects
+    -An object can be orphaned if the account that creates it no longer exists or is an account that never existed
+Main Success Scenario:
+  1. 
+
+  
+   
+  
