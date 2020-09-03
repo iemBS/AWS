@@ -1,0 +1,15 @@
+List all non-system Routines in server
+Main Success Scenario:
+  1. See query below
+  
+    select
+      routine_schema As dbNm,
+      specific_name As rtnNm,
+      routine_type As rtnType,
+      SQL_DATA_ACCESS,
+      SECURITY_TYPE,
+      DEFINER, # security context that routine is run in
+      CREATED As createdTmUTC,
+      LAST_ALTERED As lstAltTmUTC
+    from
+      Information_schema.routines 
