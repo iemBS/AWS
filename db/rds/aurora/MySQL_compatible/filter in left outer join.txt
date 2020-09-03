@@ -1,0 +1,6 @@
+Filter in Left Outer Join
+Note:
+  -Filtering on the left table will not throw an error and will not filter data. It will be ignored. 
+  -Filtering of the right table will turn the left outer join into an inner join. https://dev.mysql.com/doc/refman/5.6/en/outer-join-simplification.html
+Main Success Scenario:
+  1. Place filter in the WHERE clause
