@@ -2,6 +2,7 @@ Delete From Table
 Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-delete-statement.aspx/
   -Guidance @ https://www.mysqltutorial.org/mysql-delete-join
+  -Delete from right table guidance @ https://stackoverflow.com/questions/652770/delete-with-join-in-mysql
 Main Success Scenario:
   1. xxx:fill
 Alternatives:
@@ -9,3 +10,12 @@ Alternatives:
     1a1. xxx:fill in
   1b. Delete from two tables that are joined 
     1b1. xxx:fill in
+  1c. Delete from right table while using the left table to filter the right table
+    1c1. See query below
+    
+          Delete 
+            b
+          From
+            tblA a
+            Inner Join tblB b On 
+              a.ID = b.ID
