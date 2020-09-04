@@ -2,5 +2,6 @@ Join Table
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/join.html
   -Order of columns in join does not matter
+  -Order in which you join more than one table matters with outer joins. https://stackoverflow.com/questions/9614922/does-the-join-order-matter-in-sql
 Main Success Scenario:
   1. xxx:fill
