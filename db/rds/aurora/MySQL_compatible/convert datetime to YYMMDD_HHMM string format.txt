@@ -1,0 +1,8 @@
+Convert DateTime to YYMMDD_HHMM string format
+Note:
+  -Guidance @ 
+    -https://planet.mysql.com/entry/?id=35330
+    -https://dev.mysql.com/doc/refman/5.6/en/date-and-time-functions.html#function_convert-tz
+  -Specific example below is using current time and converting from UTC timezone to Pacific timezone
+Main Success Scenario:
+  1. select concat(right(replace(CURDATE(),'-',''),6),'_',hour(CONVERT_TZ(CURTIME(), 'UTC', 'US/Pacific' )),minute(CONVERT_TZ(CURTIME(), 'UTC', 'US/Pacific' )))
