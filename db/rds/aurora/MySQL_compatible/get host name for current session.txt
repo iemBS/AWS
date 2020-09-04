@@ -1,0 +1,3 @@
+Get Host Name for Current Session
+Main Success Scenario:
+  1. select @@hostname
