@@ -4,5 +4,6 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/using-explain.html
   -Explain needs to be on the same line as "Select" and precede it. 
   -The query can go to the next line if you do not want it all on the first line.
+  -Explain will not work with variables in the query. 
 Main Success Scenario:
   1. Explain Select * From myTable
