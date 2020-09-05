@@ -18,6 +18,9 @@ Main Success Scenario:
 Alternatives:
   1a. Create and fill temp table in one query
     1a1. "Create Temp Table On-the-Fly"
+  1b. Create Temp Table in Procedure
+    1b1. Drop Temp table if it exists
+    1b2. Create Temp Table
 
 Create Temp Table On-the-Fly
 Note:
