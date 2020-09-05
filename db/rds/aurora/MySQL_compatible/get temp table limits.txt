@@ -1,0 +1,15 @@
+Get Temp Table Limits
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/temporary-table-problems.html
+    -TEMPORARY tables are supported only by the InnoDB, MEMORY, MyISAM, and MERGE storage engines.
+    -Temporary tables are not supported for NDB Cluster.
+    -The SHOW TABLES statement does not list TEMPORARY tables.
+    -To rename TEMPORARY tables, RENAME TABLE does not work. Use ALTER TABLE instead:
+    -You cannot refer to a TEMPORARY table more than once in the same query.
+    -The Can't reopen table error also occurs if you refer to a temporary table multiple times in a stored function under different aliases, even if the references occur in different statements within the function. It may occur for temporary tables created outside stored functions and referred to across multiple calling and callee functions.
+    -If a TEMPORARY is created with the same name as an existing non-TEMPORARY table, the non-TEMPORARY table is hidden until the TEMPORARY table is dropped, even if the tables use different storage engines.
+    -There are known issues in using temporary tables with replication. 
+  -What about row count, column count, or data size?
+Main Success Scenario:
+  1.xxx:fill 
+  
