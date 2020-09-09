@@ -1,8 +1,9 @@
 Get Current User Info
 Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-show-users/
+  -Guidance @ https://www.w3schools.com/sql/func_mysql_current_user.asp
 Main Success Scenario:
   1. SELECT user();
 Alternatives:
   1a. Just get user name
-    1a1. SELECT current_user();
+    1a1. SELECT current_user() or SELECT current_user
