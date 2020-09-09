@@ -1,0 +1,6 @@
+Get User and Time Message
+Pre-Conditions:
+  -User is the one that is running the current session
+  -Time uses time zone specified in query
+Main Success Scenario:
+  1. select concat(replace('sco.bur@%','@%',' @ '),right(replace(CURDATE(),'-',''),6),'_',right(concat('00',hour(CONVERT_TZ(CURTIME(), 'UTC', 'US/Pacific' ))),2),right(concat('00',minute(CONVERT_TZ(CURTIME(), 'UTC', 'US/Pacific'))),2))
