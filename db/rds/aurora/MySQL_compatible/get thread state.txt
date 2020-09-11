@@ -1,0 +1,5 @@
+Get Thread State
+Note:
+  Meaning of thread states @ https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
+Main Success Scenario:
+  1. xxx:fill 
