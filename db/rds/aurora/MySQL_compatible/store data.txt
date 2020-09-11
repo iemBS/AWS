@@ -1,0 +1,15 @@
+Store Data
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/temporary-files.html
+  -Guidance @ https://www.percona.com/blog/2019/07/17/mysql-disk-space-exhaustion-for-implicit-temporary-tables/
+Main Success Scenario:
+  1. "Store Data on RAM"
+  2. "Store Data on Disk"
+  
+Store Data on RAM
+Main Success Scenario:
+  1.xxx:fill
+  
+Store Data on Disk
+Main Success Scenario:
+  1.xxx:fill 
