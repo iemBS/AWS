@@ -1,5 +1,9 @@
 Get Host Name for Current Session
 Note:
   -Guidance @ https://stackoverflow.com/questions/8283248/show-mysql-host-via-sql-command
+  -"hostname" is the IP address where the query is run from
 Main Success Scenario:
   1. select @@hostname
+Alternatives:
+  1a. Use "show variables" instead
+    1a1. show variables where Variable_name like '%hostname%';
