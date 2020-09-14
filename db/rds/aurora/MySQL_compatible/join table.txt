@@ -3,5 +3,9 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/join.html
   -Order of columns in join does not matter
   -Order in which you join more than one table matters with outer joins. https://stackoverflow.com/questions/9614922/does-the-join-order-matter-in-sql
+  -using a condition in the join for the right table hurts performance 
+  -using a condition in the join for the left table has got to be looking at more than one table if the potential columns to use are from more than one table. Looking at more than one table has got to slow performance. Then there is the fact that a condition needs to be checked for each potential join from the left table. 
+    -https://www.red-gate.com/simple-talk/sql/performance/how-to-avoid-conditional-joins-in-t-sql/
+  -If more than one column is being used to define the part from the left table, then more than one table needs to be looked at. This has got to slow performance. 
 Main Success Scenario:
   1. xxx:fill
