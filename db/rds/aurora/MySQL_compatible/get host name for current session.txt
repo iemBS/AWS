@@ -7,3 +7,5 @@ Main Success Scenario:
 Alternatives:
   1a. Use "show variables" instead
     1a1. show variables where Variable_name like '%hostname%';
+  1b. Find in list of all host name for all sessions
+    1b1. select host from information_schema.processlist;  
