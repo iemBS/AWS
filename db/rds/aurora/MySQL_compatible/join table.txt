@@ -7,7 +7,7 @@ Note:
   -using a condition in the join for the left table has got to be looking at more than one table if the potential columns to use are from more than one table. Looking at more than one table has got to slow performance. Then there is the fact that a condition needs to be checked for each potential join from the left table. 
     -https://www.red-gate.com/simple-talk/sql/performance/how-to-avoid-conditional-joins-in-t-sql/
   -If more than one column is being used to define the part from the left table, then more than one table needs to be looked at. This has got to slow performance. 
-  -joining on an extra column that is not needed in the join, regardless if it is in an index on the right table, while the better column is joined on and has an index in the righ table, will make the query perform slower
-  -Joining on a column that has more than one value in the right table but is filtered on a single value in the right table, will make the query slower
+  -Joining on an extra column that is not needed in the join, regardless if it is in an index on the right table, while the better column is joined on and has an index in the righ table, will make the query perform slower. This is likely due to column values not needing to be pulled from the left table to search for the values in an index for the right table or the right table. 
+  -Joining on a column that has more than one value in the right table but is filtered on a single value in the right table, will make the query slower. This is likely due to column values not needing to be pulled from the left table to search for the values in an index for the right table or the right table. 
 Main Success Scenario:
   1. xxx:fill
