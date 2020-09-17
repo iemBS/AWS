@@ -8,6 +8,7 @@ Main Success Scenario:
   -. Avoid use of "distinct"
   -. "Use Correct Join"
   -."Add all Possible Filters"
+  -."Use Union instead of Multiple Inserts"
   -. xxx:fill
   
   
@@ -22,4 +23,10 @@ Use Correct Join
 -xxx:fill
 
 Add all Possible Filters
+-xxx:fill
+
+Use Union instead of Multiple Inserts
+Note:
+  -Guidance @ https://www.sqlservercentral.com/forums/topic/union-all-or-multiple-inserts
+Main Success Scenario:
 -xxx:fill
