@@ -1,6 +1,7 @@
 Tweak Performance
 Note:
   -Make performance better but keep the code simple and debuggable
+  -NULLs can be indexed. See guidance @ https://dev.mysql.com/doc/refman/5.6/en/is-null-optimization.html
 Main Success Scenario:
   -. Reduce data as soon as possible
   -. "Use Union All with 1 Insert or Just Inserts"
