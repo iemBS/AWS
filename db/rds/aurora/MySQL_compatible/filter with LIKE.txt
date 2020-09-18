@@ -1,0 +1,10 @@
+Filter with LIKE
+Note:
+  -https://stackoverflow.com/questions/8537516/how-to-use-an-user-variables-in-mysql-like-clause
+Main Success Scenario:
+  1. xxx:fill
+Alternatives:
+  1a. Use a variable for the value searched for
+    1a1. xxx:fill
+  1b: Use a variable for the column you are searching in
+    1b1. xxx:fill
