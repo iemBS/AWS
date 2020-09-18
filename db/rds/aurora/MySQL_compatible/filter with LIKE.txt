@@ -8,5 +8,5 @@ Alternatives:
     1a1. xxx:fill
   1b: Use a variable for the column you are searching in
     1b1. xxx:fill
-  1c: Use a variable for the value searched for and do it in a JOIN
+  1c: Use like in a table join
     1c1. On tbl1.ColumnA Like Concat('%',tbl2.ColumnB,'%') 
