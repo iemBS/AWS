@@ -12,6 +12,7 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/stored-objects-security.html#stored-objects-security-orphan-objects
     -An object can be orphaned if the account that creates it no longer exists or is an account that never existed
   -Leaving definer as "admin" avoids orphaning SQL objects.
+  -Definers are not used for tables and indexes on tables
 Main Success Scenario:
   1. 
 
