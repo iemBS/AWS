@@ -11,6 +11,9 @@ Note:
   -A primary key and a unique index with the non-null constraint are basically the same
   -Having a number after a string column noted in an index indicates the first N characters will be used in the index. 
     -Specifying N for indexes can make the index file much smaller, which could save a lot of disk space and might also speed up INSERT operations.
+  -When you create a UNIQUE constraint, MySQL creates a UNIQUE index behind the scenes. Guidance @ https://www.mysqltutorial.org/mysql-unique
+  -A PRIMARY KEY constraint creates a UNIQUE index. 
+  -You can have only one PRIMARY KEY constraint per table. 
 Main Success Scenario:
   1. CREATE INDEX part_of_name ON customer (name(10));
 Alternatives:
