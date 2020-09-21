@@ -11,5 +11,6 @@ Note:
     -There are known issues in using temporary tables with replication. 
   -What about row count, column count, or data size?
 Main Success Scenario:
-  1.xxx:fill 
+  1. Use the smaller of these two values
+       select @@tmp_table_size, @@max_heap_table_size;
   
