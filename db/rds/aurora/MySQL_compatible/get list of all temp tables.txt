@@ -1,0 +1,6 @@
+Get List of All Temp Tables
+Note:
+  -This can only be done simplly in MySQL 5.7. Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-temp-table-info.html
+  -The "INNODB_TEMP_TABLE_INFO" table does not exist in MySQL 5.6. 
+Main Success Scenario:
+  1. xxx:fill 
