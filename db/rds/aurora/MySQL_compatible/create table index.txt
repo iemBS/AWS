@@ -14,6 +14,13 @@ Note:
   -When you create a UNIQUE constraint, MySQL creates a UNIQUE index behind the scenes. Guidance @ https://www.mysqltutorial.org/mysql-unique
   -A PRIMARY KEY constraint creates a UNIQUE index. 
   -You can have only one PRIMARY KEY constraint per table. 
+  -Unique Key and Primary Key differences
+    -Unique Key allows one NULL value
+    -Primary key has a clustered index and unique key does not have a clustered index
+  -Clustered indexes are stored physically on the table. This means they are the fastest and you can only have one clustered index per table. Non-clustered indexes are stored separately, and you can have as many as you want.
+  -While executing a SELECT statement is faster on a clustered index than a non-clustered index, but INSERTs, UPDATEs, and DELETEs on that clustered index require more time. The extra time is needed because you are also updating the index during those operations. Rows are being sorted in the table to keep the clustered index up to date.
+    -Guidance @ https://stackoverflow.com/questions/91688/what-are-the-differences-between-a-clustered-and-a-non-clustered-index
+    -Guidance @ https://www.sqlshack.com/poor-database-indexing-sql-query-performance-killer-recommendations/
 Main Success Scenario:
   1. CREATE INDEX part_of_name ON customer (name(10));
 Alternatives:
