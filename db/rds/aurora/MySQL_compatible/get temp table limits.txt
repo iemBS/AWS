@@ -10,7 +10,7 @@ Note:
     -If a TEMPORARY is created with the same name as an existing non-TEMPORARY table, the non-TEMPORARY table is hidden until the TEMPORARY table is dropped, even if the tables use different storage engines.
     -There are known issues in using temporary tables with replication. 
   -What about row count, column count, or data size?
-  -When an internal temporary table is created in memory or on disk, the server increments the @@Created_tmp_tables value. When an internal temporary table is created on disk, the server increments the @@Created_tmp_disk_tables value. If too many internal temporary tables are created on disk, consider increasing the @@tmp_table_size and @@max_heap_table_size settings.
+  -When an internal temporary table is created in memory or on disk, the server increments the Created_tmp_tables value. When an internal temporary table is created on disk, the server increments the Created_tmp_disk_tables value. If too many internal temporary tables are created on disk, consider increasing the @@tmp_table_size and @@max_heap_table_size settings.
 Main Success Scenario:
   1. Use the smaller of these two values
        select @@tmp_table_size, @@max_heap_table_size;
