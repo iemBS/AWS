@@ -1,0 +1,3 @@
+Convert Timezone
+Main Success Scenario:
+  1. Select CONVERT_TZ('SomeDateValue','UTC','US/Pacific')
