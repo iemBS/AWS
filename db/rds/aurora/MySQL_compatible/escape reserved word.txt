@@ -1,0 +1,7 @@
+Escape Reserved Word
+Note:
+  -Guidance @ https://stackoverflow.com/questions/2889871/how-do-i-escape-reserved-words-used-as-column-names-mysql-create-table
+Main Success Scenario:
+  1. Use ` around word
+Alternatives:
+  1a. Use " around word 
