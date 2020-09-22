@@ -1,0 +1,5 @@
+Create Identity Dynamically
+Note:
+  -Guidance @ https://electrictoolbox.com/autoincrement-value-mysql/
+Main Success Scenario:
+  1. SELECT *, @i:=@i+1 AS i FROM fruit ORDER BY name;
