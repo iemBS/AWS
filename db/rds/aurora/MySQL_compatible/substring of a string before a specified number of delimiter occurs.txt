@@ -1,0 +1,6 @@
+substring of a string before a specified number of delimiter occurs
+Note:
+  -Guidance @ https://www.w3schools.com/sql/func_mysql_substring_index.asp
+Main Success Scenario:
+  1. SELECT SUBSTRING_INDEX("www.w3schools.com", ".", 1);
+  2. Returns www
