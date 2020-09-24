@@ -21,5 +21,15 @@ Alternatives:
         mysql> PREPARE stmt3 FROM @s;
         mysql> EXECUTE stmt3;
         mysql> DEALLOCATE PREPARE stmt3;
-    1b. Want to have more than one statement that ends with semi-colon
-      1b1. Have more than one prepared statement because more than one is not allowed in a prepared statement 
+  1b. Want to have more than one statement that ends with semi-colon
+    1b1. Have more than one prepared statement because more than one is not allowed in a prepared statement 
+  1c. Want to drop a temp table outside of prepared statement, create temp table inside prepared statement, and use it outside prepared statement
+    1c1. See query below
+    
+      DROP TEMPORARY TABLE IF EXISTS Temp_MyTbl;
+      SET @qry = 'CREATE TEMPORARY TABLE Temp_MyTbl SELECT 1 As MyCol';
+      PREPARE stmt FROM @qry;
+        EXECUTE stmt;
+        deallocate prepare stmt;
+
+        Select * From Temp_MyTbl;
