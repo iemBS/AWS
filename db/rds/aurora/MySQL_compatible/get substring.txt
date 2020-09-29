@@ -1,5 +1,7 @@
 Get SubString
 Note:
   -Guidance @ https://www.w3schools.com/sql/func_mysql_left.asp
+  -Guidance @ https://www.w3schools.com/sql/func_mysql_substr.asp
+  -Guidance @ https://www.w3schools.com/sql/func_mysql_substring.asp
 Main Success Scenario:
-  1.xxx:fill in
+  1. SELECT SUBSTR("SQL Tutorial", 5, 3) AS ExtractString;
