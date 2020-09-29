@@ -22,5 +22,7 @@ Alternatives:
     1a1. xxx:fill in
   1b. Generate SQL script from a SQL command in the MySQL Workbench client
     1b1. xxx:fill in
+  1c. Generate SQL script for all objects in the database
+    1c1. xxx:fill in
   
   
