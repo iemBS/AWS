@@ -21,6 +21,12 @@ Alternatives:
   1b. Create Temp Table in Procedure
     1b1. Drop Temp table if it exists
     1b2. Create Temp Table
+  1c. Create Temp Table with database name prefix. 
+    1c1. 
+      CREATE TEMPORARY TABLE IF NOT EXISTS MyDbNm.MyTmpTbl
+        Select 1 As col;
+    1c2. Run select statement to see that DB prefix is part of the name of the table and not limited to the database that was noted. 
+       Select * From MyDbNm.MyTmpTbl
 
 Create Temp Table On-the-Fly
 Note:
