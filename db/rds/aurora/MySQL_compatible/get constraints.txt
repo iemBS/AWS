@@ -1,0 +1,50 @@
+Get Constraints
+Main Success Scenario:
+  1. See queries below
+
+    # Get names of constraints
+    Drop Temporary Table if Exists Tmp_Constraint;
+    Create Temporary Table Tmp_Constraint
+    Select
+      Constraint_Schema As DbConstraintIsIn,
+        Constraint_Name As ConstraintNm,
+        Table_Schema As DbTblIsInThatConstraintIsOn,
+        Table_Name As TblNm,
+        Constraint_Type As ConstraintTyp
+    From
+      information_schema.table_constraints 
+    Where
+      LEFT(Constraint_Schema,5) = 'ODSH_'
+        Or
+        LEFT(Constraint_Schema,5) = 'PRVSN_'
+    Order By
+      Constraint_Schema,
+        Constraint_Name;
+
+    # Get names of columns involved
+    Drop Temporary Table If Exists Tmp_Constraint_Col;
+    Create Temporary Table Tmp_Constraint_Col
+    Select
+      t.DbConstraintIsIn,
+        t.ConstraintNm,
+        t.DbTblIsInThatConstraintIsOn,
+        t.TblNm,
+        t.ConstraintTyp,
+        cu.Column_Name As ColNm,
+        cu.Ordinal_Position As ColPosInTbl,
+        cu.Position_In_Unique_Constraint As ColPosInUniqueConstraint,
+        cu.Referenced_Table_Schema As RefDbNm,
+        cu.Referenced_Table_Name As RefTblNm,
+        cu.Referenced_Column_Name As RefColNm
+    From
+      Tmp_Constraint t
+      Inner Join information_schema.key_column_usage cu On 
+        t.DbConstraintIsIn = cu.Constraint_Schema
+            And
+            t.ConstraintNm = cu.Constraint_Name
+
+    # Foreign key constraints
+    Select
+      *
+    From
+      information_schema.referential_constraints
