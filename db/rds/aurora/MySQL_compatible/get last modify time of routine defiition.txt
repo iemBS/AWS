@@ -1,0 +1,16 @@
+Get Last Modified Time of Routine Definition
+Main Success Scenario:
+  1. Use query below
+  
+    SELECT
+      Routine_Schema As DbNm,
+        Routine_Name As RtnNm,
+        Routine_Type As RtnTyp,
+      created As CreateTm,
+        Last_Altered As LstModTm
+    FROM 
+      Information_Schema.Routines
+    Where
+      Routine_Schema = 'MyDbNm'
+    Order By
+      Routine_Schema
