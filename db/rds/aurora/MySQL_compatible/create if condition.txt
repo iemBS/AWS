@@ -1,6 +1,7 @@
 Create IF Condition
 Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-if-statement/
+  -Guidance @ https://www.mysqltutorial.org/mysql-if-function.aspx
 Main Success Scenario:
   1. See code below
 
@@ -10,5 +11,7 @@ Main Success Scenario:
 Alternatives:
   1a. Run update query within a prepared statement within an IF condition
     1a1. xxx:fill in
+  1b. Use IF function inside select part of query
+    1b1. SELECT IF(1 = 2,'true','false')
   
   
