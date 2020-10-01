@@ -1,0 +1,8 @@
+Drop Temp Table
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/drop-table.html
+Main Success Scenario:
+  1. Drop Temporary Table If Exists MyTmpTbl;
+Alternatives:
+  1a. Use regular drop statement
+    1a1. Drop Table MyTmpTbl;
