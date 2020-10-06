@@ -1,0 +1,15 @@
+Get System Variable Value
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/8.0/en/show-variables.html
+Main Success Scenario:
+  1. Show [table name]
+       Show ProcessList
+       Show Variables 
+Alternatives:
+  1a. Limit Show method to return only specific rows 
+    1a1. xxx:fill
+  1b. Get value of single global variable 
+    1b1. SELECT @@GLOBAL.innodb_data_file_path;
+  1c. Get value of single Session variable
+    1b1. SELECT @@SESSION.pseudo_thread_id
+  
