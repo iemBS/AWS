@@ -12,3 +12,12 @@ Main Success Scenario:
               hour(CONVERT_TZ(CURTIME(), 'UTC', 'US/Pacific' )), /* Get HH */
               minute(CONVERT_TZ(CURTIME(), 'UTC', 'US/Pacific' )) /* Get MM */
         )
+Alternatives:
+  1a. Without timezone conversion
+    1a1. Run query below
+      Select
+        concat(
+          right(replace(CURDATE(),'-',''),6),'_', /* Get YYMMDD */
+          hour(CURDATE()), /* Get HH */
+          minute(CURDATE()) /* Get MM */
+        )
