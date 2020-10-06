@@ -3,3 +3,6 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-show-processlist/
 Main Success Scenario:
   1. SHOW FULL PROCESSLIST;
+Alternatives:
+  1a. Pull from table instead
+    1a1. Select * From Information_Schema.ProcessList
