@@ -1,6 +1,7 @@
 Use Full Outer Join
 Note:
   -A full outer join does not exist in MySQL like it does SQL Server. It can be mimiced though. 
+  -Guidance @ https://stackoverflow.com/questions/4796872/how-to-do-a-full-outer-join-in-mysql
 Main Success Scenario:
   1. See query below
 
