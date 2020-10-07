@@ -1,0 +1,45 @@
+Get Queried Table Name in Query Results
+Main Success Scenario:
+  1. See query below
+        SET @param1 = 0;  # Use as a parameter
+        SET @param2 = '0';  # Use as a parameter
+        SET @param3 = 0;   # Use as a parameter
+        SET @TblNm = 'MyTableName'; # Use as a parameter
+
+        SET @strToSearchFor = 'MySchema.';  # internal variable that is not edited
+        SET @SessionId = @@SESSION.pseudo_thread_id; # internal variable that is not edited
+
+        Drop Temporary Table If Exists TmpTblNm;
+
+      SET @qry = CONCAT("
+            CREATE Temporary TABLE TmpTblNm
+        Select  
+          myCol0,
+          (Select Info From Information_Schema.ProcessList Where ID = ",@SessionId," Limit 1) As Info
+        From 
+          PRVSN_CM.",@TblNm,"
+        Where
+          myCol1 = ",@param1,"
+          And
+          myCol2 <> ",@param2,"
+          And
+          myCol3 = '",@param3,"';
+        ");
+
+      PREPARE qry FROM @qry;
+        EXECUTE qry;
+        DEALLOCATE PREPARE qry;
+
+      Select
+        myCol0,
+            SUBSTR(Info,posA,posZ - posA) As TblNm
+      From
+        (
+          Select
+            myCol0,
+            Info,
+            Locate(@strToSearchFor,Info) + Length(@strToSearchFor) As posA,
+            Locate('\n',Info,Locate(@strToSearchFor,Info) + Length(@strToSearchFor)) As posZ # newline character MUST exist right after the table name
+          From
+            TmpTblNm        
+        ) t2;
