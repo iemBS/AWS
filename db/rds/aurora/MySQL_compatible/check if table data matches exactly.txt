@@ -1,0 +1,10 @@
+Check if Table Data Matches Exactly
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/checksum-table.html
+  -Guidance @ https://stackoverflow.com/questions/2129717/how-to-verify-if-two-tables-have-exactly-the-same-data
+  -xxx:fill
+Main Success Scenario:
+  1. CHECKSUM TABLE original_table, backup_table;
+Alternatives:
+  1a. Save checksum result to compare to later
+    1a1. xxx:fill
