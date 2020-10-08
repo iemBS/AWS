@@ -3,3 +3,20 @@ Main Success Scenario:
   1. USE PRVSN_CM; 
      SELECT @@character_set_database; # gives abbreviated name
   2. SHOW CHARACTER SET; # Shows map of abbreviated character set name to full name. Important for "latin1", which is used to refer to CP1252 and ISO 8859-1 character sets depending on who you talk to. 
+  3. See character sets used in other areas of MySQL
+      SELECT 
+        * 
+      FROM 
+        INFORMATION_SCHEMA.SESSION_VARIABLES
+      WHERE 
+        VARIABLE_NAME IN 
+          (
+          'character_set_client', 
+          'character_set_connection',
+              'character_set_database',
+              'character_set_filesystem',
+          'character_set_results', 
+              'character_set_server',
+              'character_set_system',
+          'collation_connection'
+        ) ORDER BY VARIABLE_NAME;
