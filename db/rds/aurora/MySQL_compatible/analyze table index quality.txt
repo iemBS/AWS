@@ -6,3 +6,28 @@ Note:
 Main Success Scenario:
   1. ANALYZE TABLE MyTbl;
   2. See message of index quality 
+  3. Run the below query to see the index MB size compared to the table MB size.
+  
+      Select
+        *,
+        Round(indexSizeInMB / tableSizeInMB,2) * 100 As indexPctOfTableSizeInMB
+      From
+        (
+          SELECT 
+             table_name, 
+             table_rows As tableSizeInRows,
+             round(((data_length) / 1024 / 1024), 2) As tableSizeInMB,
+             round(((index_length) / 1024 / 1024),2) As indexSizeInMB,
+             Version,
+             Engine,
+             Row_Format
+          FROM 
+            information_schema.TABLES 
+          Where
+            Table_Type = 'BASE TABLE'
+            And
+            index_length > 0
+        ) t
+      ORDER BY 
+        indexPctOfTableSizeInMB DESC;
+
