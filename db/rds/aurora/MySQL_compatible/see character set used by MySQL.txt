@@ -1,4 +1,6 @@
 See Character Set used by MySQL
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/charset-connection.html
 Main Success Scenario:
   1. USE PRVSN_CM; 
      SELECT @@character_set_database; # gives abbreviated name
