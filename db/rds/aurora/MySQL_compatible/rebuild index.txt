@@ -1,5 +1,6 @@
 Rebuild Index
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/rebuilding-tables.html
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/information-schema-statistics-table.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. Optimize Table MyTable
