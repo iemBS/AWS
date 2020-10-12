@@ -1,0 +1,6 @@
+Sort Values in Table Index
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/multiple-column-indexes.html
+  -Are new index rows always added to the end of the index?
+Main Success Scenario:
+  1. xxx:fill
