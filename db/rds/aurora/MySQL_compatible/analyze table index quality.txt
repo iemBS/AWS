@@ -5,6 +5,8 @@ Note:
   -How much bigger in MB can the index get than a table and still be seen as ok by the "ANALYZE TABLE" statement?
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/information-schema-statistics-table.html
   -Guidance @ https://dev.mysql.com/doc/refman/8.0/en/mysql-indexes.html
+  -# of rows examined in an index in the EXPLAIN results is an estimate.
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
 Main Success Scenario:
   1. ANALYZE TABLE MyTbl;
   2. See message of index quality 
