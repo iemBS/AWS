@@ -11,5 +11,6 @@ Note:
   -Joining on a column that has more than one value in the right table but is filtered on a single value in the right table, will make the query slower. This is likely due to column values not needing to be pulled from the left table to search for the values in an index for the right table or the right table. 
   -Guidance @ https://github.com/mysql/mysql-server/blob/8.0/sql/sql_optimizer.cc#L9076
   -Is a query faster if the left table is sorted in the same way as the right table?
+  -Guidance @ https://www.oreilly.com/library/view/high-performance-mysql/9780596101718/ch04.html
 Main Success Scenario:
   1. xxx:fill
