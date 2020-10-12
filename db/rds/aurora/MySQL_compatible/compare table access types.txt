@@ -1,0 +1,8 @@
+Compare Table Access Types
+Note:
+  -access types ordered from slowest to fastest: full table scan, index scans, range scans, unique index lookups, and constants
+  -Guidance @ https://www.oreilly.com/library/view/high-performance-mysql/9780596101718/ch04.html
+  -Range Optimization @ https://dev.mysql.com/doc/refman/5.7/en/range-optimization.html
+Main Success Scenario:
+  1. How many rows exist in table?
+  2. xxx:fill
