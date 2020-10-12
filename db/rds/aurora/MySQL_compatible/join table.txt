@@ -9,5 +9,6 @@ Note:
   -If more than one column is being used to define the part from the left table, then more than one table needs to be looked at. This has got to slow performance. 
   -Joining on an extra column that is not needed in the join, regardless if it is in an index on the right table, while the better column is joined on and has an index in the righ table, will make the query perform slower. This is likely due to column values not needing to be pulled from the left table to search for the values in an index for the right table or the right table. 
   -Joining on a column that has more than one value in the right table but is filtered on a single value in the right table, will make the query slower. This is likely due to column values not needing to be pulled from the left table to search for the values in an index for the right table or the right table. 
+  -Guidance @ https://github.com/mysql/mysql-server/blob/8.0/sql/sql_optimizer.cc#L9076
 Main Success Scenario:
   1. xxx:fill
