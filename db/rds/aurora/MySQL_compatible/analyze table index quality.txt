@@ -3,6 +3,7 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/analyze-table.html
   -ANALYZE TABLE clears table statistics from the INFORMATION_SCHEMA.INNODB_SYS_TABLESTATS table and sets the STATS_INITIALIZED column to Uninitialized. Statistics are collected again the next time the table is accessed. This may be why some people are seeing improvements just by running "ANALYZE TABLE". They are not using old stats for the index. The 1st run afer running that statement may be slow, but the times after that may be faster than before running the statement. 
   -How much bigger in MB can the index get than a table and still be seen as ok by the "ANALYZE TABLE" statement?
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/information-schema-statistics-table.html
 Main Success Scenario:
   1. ANALYZE TABLE MyTbl;
   2. See message of index quality 
