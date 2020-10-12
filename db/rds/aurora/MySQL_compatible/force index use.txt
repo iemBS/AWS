@@ -1,6 +1,7 @@
 For Index Use
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/index-hints.html
+  -Guidance @ https://www.mysqltutorial.org/mysql-index/mysql-force-index/
 Main Success Scenario:
   1. SELECT * FROM table1 USE INDEX (col1_index,col2_index) WHERE col1=1 AND col2=2 AND col3=3;
 Alternatives:
