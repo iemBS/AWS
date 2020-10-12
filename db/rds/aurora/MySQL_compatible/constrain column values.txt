@@ -1,6 +1,7 @@
 Constrain Column Values
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/constraint-invalid-data.html
+  -A unique constraint cannot exist without a unique index. Guidance @ https://stackoverflow.com/questions/19907766/mysql-unique-constraint-without-index
 Main Success Scenario:
   1. Limit values to those noted in the constraint
     
