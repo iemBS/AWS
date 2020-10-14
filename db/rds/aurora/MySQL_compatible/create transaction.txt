@@ -14,5 +14,6 @@ Note:
   -Statements that trigger an implicit commit @ https://dev.mysql.com/doc/refman/5.7/en/implicit-commit.html
   -Guidance @ https://www.oreilly.com/library/view/mysql-in-a/9780596514334/re72.html
   -Guidance @ https://www.w3resource.com/mysql/mysql-transaction.php
+  -A rollback to a savepoint will implicitly commit everything up to that savepoint in the transaction @ https://www.w3resource.com/mysql/mysql-transaction.php
 Main Success Scenario: 
   1.xxx:fill
