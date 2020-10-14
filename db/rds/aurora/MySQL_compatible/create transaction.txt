@@ -12,5 +12,6 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html#isolevel_repeatable-read
   -By default, MySQL runs with autocommit mode enabled. 
   -Statements that trigger an implicit commit @ https://dev.mysql.com/doc/refman/5.7/en/implicit-commit.html
+  -Guidance @ https://www.oreilly.com/library/view/mysql-in-a/9780596514334/re72.html
 Main Success Scenario: 
   1.xxx:fill
