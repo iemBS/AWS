@@ -2,5 +2,15 @@ Create Transaction
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/set-transaction.html
   -The isolation level is used for operations on InnoDB tables
-Main Success Scenario:
+  -Without GLOBAL or SESSION keyword, the statement applies only to the next single transaction performed within the session. Subsequent transactions revert to using the session value of the named characteristics
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html
+  -See current open transactions with 
+      SELECT * FROM information_schema.innodb_trx
+  -The TRX_ID column in information_schema.innodb_trx only has values if the transaction is read-only and non-locking.
+  -Default isolation level is "repeatable read"
+  -When using the default REPEATABLE READ isolation level, the first UPDATE acquires an x-lock on each row that it reads and does not release any of them.
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html#isolevel_repeatable-read
+  -By default, MySQL runs with autocommit mode enabled. 
+  -Statements that trigger an implicit commit @ https://dev.mysql.com/doc/refman/5.7/en/implicit-commit.html
+Main Success Scenario: 
   1.xxx:fill
