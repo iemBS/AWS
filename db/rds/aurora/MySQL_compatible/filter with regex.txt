@@ -1,0 +1,54 @@
+Filter with Regex
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-regular-expression-regexp.aspx/
+  -Commonly used metacharacters and constructs in a regular expression:
+    ^: matches the position at the beginning of the searched string
+    $: matches the position at the end of the searched string
+    .: matches any single character
+    […]: matches any character specified inside the square brackets
+    [^…]: matches any character not specified inside the square brackets
+    p1|p2: matches any of the patterns p1 or p2
+    *: matches the preceding character zero or more times
+    +: matches preceding character one or more times
+    {n}: matches n number of instances of the preceding character
+    {m,n}: matches from m to n number of instances of the preceding character
+   -Guidance @ https://www.rexegg.com/regex-quickstart.html
+Main Success Scenario:
+  1. "Have at least one letter in value"
+  2. xxx:fill
+  
+Have at least one Letter in value
+Main Success Scenario:
+  1. Select * From MyTbl Where MyCol RegExp '[A-Za-z]+'
+  
+Have at least one number in value 
+Main Success Scenario:
+  1. Select * From MyTbl Where MyCol RegExp '[0-9]+'
+  
+Have a character other than a number
+Main Success Scenario:
+  1. Select * From MyTbl Where MyCol RegExp '[^0-9]'
+  
+Have text within value
+Main Success Scenario:
+  1. Select * From MyTbl Where MyCol RegExp 'cheese'  # returns rows where "cheese" is within the value
+  
+Get value with exactly 10 characters
+Main Success Scenario:
+  1. Select * From MyTbl Where MyCol RegExp '^.{10}$'
+Alternatives:
+  1a. Only 10 characters within the 0 to 9 range of characters
+    1a1. Select * From MyTbl Where MyCol RegExp '^[0-9]{10}$'
+  1b. Only 10 characters within the 0x70 to 0x74 range of characters in Ascii using hexadecimal numbers for the characters.
+    1b1. Select * From MyTbl Where MyCol RegExp '^[\x70-\x74]{10}$'
+    
+Have values that start with "a"
+Main Success Scenario:
+  1. Select * From MyTbl Where MyCol RegExp '^a'
+  
+Have values that end with "a"
+Main Success Scenario:
+  1. Select * From MyTbl Where MyCol RegExp 'a$'
+
+
+
