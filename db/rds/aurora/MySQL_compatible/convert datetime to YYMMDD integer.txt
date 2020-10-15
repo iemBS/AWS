@@ -1,0 +1,5 @@
+Convert DateTime to YYMMDD Integer
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-cast/
+Main Success Scenario:
+  1. Select CAST(right(replace(CURDATE(),'-',''),6) AS UNSIGNED)
