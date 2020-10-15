@@ -4,6 +4,10 @@ Note:
   -Guidance @ https://stackoverflow.com/questions/1532366/mysql-number-of-items-within-in-clause
   -The max number of values allowed in the IN list is limited by the max_allowed_packet system variable.
   -The max_allowed_packet system variable is defined @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet
-  -Run the following SQL to see the value of the max_allowed_packet system variable. 
+  -Run the following SQL to see the value of the max_allowed_packet system variable globally and per session:
+    SELECT @@GLOBAL.max_allowed_packet;
+    SELECT @@SESSION.max_allowed_packet;
+  -Min and Max values allowed for max_allowed_packet are 1024 Bytes (equal to 1 MB) and 1073741824 Bytes (equal to 1 GB)
+  -The documented default for max_allowed_packet is 4194304 Bytes (equal to 4 MB)
 Main Success Scenario:
   1. xxx:fill
