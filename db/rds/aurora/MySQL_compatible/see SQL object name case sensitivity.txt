@@ -2,4 +2,6 @@ See SQL Object Name Case Sensitivity
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. Get value of lower_case_table_names system variable
+       Select @@Global.lower_case_table_names 
+  2. xxx:fill in
