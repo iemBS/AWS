@@ -11,7 +11,11 @@ Note:
     -There are known issues in using temporary tables with replication. 
   -What about row count, column count, or data size?
   -When an internal temporary table is created in memory or on disk, the server increments the Created_tmp_tables value. When an internal temporary table is created on disk, the server increments the Created_tmp_disk_tables value. If too many internal temporary tables are created on disk, consider increasing the @@tmp_table_size and @@max_heap_table_size settings.
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-temp-table-info.html
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-temp-table-info-table.html
+  -"Space" column in the information_schema.INNODB_TEMP_TABLE_INFO table is the ID of the temporary tablespace where the temporary table resides.
 Main Success Scenario:
-  1. Use the smaller of these two values
+  1. Use the smaller of these two values to get the global limit
        select @@tmp_table_size, @@max_heap_table_size;
-  
+  2. Instead of pushing the data into a temp table put it into a real table for enough time just to see how big the table and possible indexes for it are. 
+  3. Drop the real table
