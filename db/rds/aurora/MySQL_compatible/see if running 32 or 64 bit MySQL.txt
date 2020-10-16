@@ -1,0 +1,3 @@
+See if running 32 or 64 bit MySQL
+Main Success Scenario:
+  1. Select @@version_compile_machine # "x86_64" result means 64 bit
