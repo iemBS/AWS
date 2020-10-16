@@ -2,7 +2,15 @@ See SQL Object Name Case Sensitivity
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html
   -lower_case_table_names is configured at the server level and not the DB level
+  -When "lower_case_table_names" is 1, then table names are stored in lowercase on disk and name comparisons are not case-sensitive. MySQL converts all table names to lowercase on storage and lookup. This behavior also applies to database names and table aliases.
 Main Success Scenario:
   1. Get value of lower_case_table_names system variable
        Select @@Global.lower_case_table_names 
-  2. xxx:fill in
+  2. See what OS MySQL is running on
+       Select @@version_compile_os
+  3. If the version_compile_OS variable indicates Unix or Linux and the value of lower_case_table_names is 1, then the SQL object names are case insensitive. 
+  
+ 
+  
+      
+  
