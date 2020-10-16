@@ -1,0 +1,104 @@
+Get SQL Object Name Case Differences
+Note: 
+  -Use your knowledge of the case you want to use to limit the list of bad cases you have to deal with
+Main Success Scenario:
+  x. Establish what case you want to use (Pascal Case, Camel Case, or something else)
+  x. Compare table names of two DBs that have the same table name spellings
+  	
+      Drop Temporary Table If Exists TblNmCompare;
+        Create Temporary Table TblNmCompare
+        (
+        DbNm Varchar(255),
+           TblNm Varchar(255) Collate latin1_general_cs,
+           UpperCaseTblNm Varchar(255)
+        );
+
+      Insert Into 
+        TblNmCompare
+      Select
+        Table_Schema As DbNm,
+        Table_Name  As TblNm,
+            Upper(Table_Name) AS UpperCaseTblNm
+      From
+        Information_Schema.Tables 
+      Where
+        Table_Schema In ('DB1','DB2')
+            And
+        Table_Name In ('TB1','TB2','TB3')
+
+      Select
+        UpperCaseTblNm
+      From
+        TblNmCompare
+      Group By
+        UpperCaseTblNm
+      Having
+        Count(Distinct TblNm) > 1;
+    
+    x. Compare column names of two DBs that have the same table name spellings and column name spellings
+
+          Drop Temporary Table If Exists ColNmCompare;
+            Create Temporary Table ColNmCompare
+            (
+            DbNm Varchar(255),
+                TblNm Varchar(255),
+                ColNm Varchar(255) Collate latin1_general_cs,
+            UpperCaseColNm Varchar(255)
+            );
+
+          Insert Into 
+            ColNmCompare
+          Select
+            Table_Schema As DbNm,
+            Table_Name  As TblNm,
+                Column_Name AS ColNm,
+                Upper(Column_Name) AS UpperCaseColNm
+          From
+            Information_Schema.Columns 
+          Where
+            Table_Schema In ('DB1','DB2')
+                And
+            Table_Name In ('TB1','TB2','TB3')
+
+          Select
+            c.Table_Schema As DbNm,
+                c.Table_Name As TblNm,
+                c.Column_Name As ColNm
+          From
+            (
+              Select
+                TblNm,
+                UpperCaseColNm,
+                Count(Distinct ColNm) As Cnt
+              From
+                ColNmCompare
+              Group By
+                TblNm,
+                UpperCaseColNm
+              Having
+                Count(Distinct ColNm) > 1
+            ) t
+                Inner Join Information_Schema.Columns c On 
+              t.TblNm = c.Table_Name
+                    And
+                    t.UpperCaseColNm = c.Column_Name
+          Order By
+            TblNm,
+                ColNm
+       x. Compare index names of two DBs that have the same table name spellings and index name spellings.
+         xxx:fill in
+       x. Compare index column names of two DBs that have the same column name spellings.
+         xxx:fill in
+       x. Compare procedure names of two DBs that have the same procedure name spellings.
+         xxx:fill in
+       x. Compare procedure parameter names of two DBs that have the same procedure name spellings.
+         xxx:fill in
+       x. Compare function names of two DBs that have the same function name spellings.
+         xxx:fill in
+       x. Compare function parameter names of two DBs that have the same function name spellings.
+         xxx:fill in
+       x. Compare case where routine (procedure & function) parameter is spelled the same as a column name
+         xxx:fill in
+       x. Compare trigger names of two DBs that have the same trigger name spellings
+         xxx:fill in
+       x. Search routine (procedure & function) body, trigger body, view body, and column default value for use of the bad cases
