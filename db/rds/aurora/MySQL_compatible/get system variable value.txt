@@ -1,6 +1,7 @@
 Get System Variable Value
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/8.0/en/show-variables.html
+  -System Variable index @ https://dev.mysql.com/doc/refman/5.7/en/dynindex-sysvar.html
 Main Success Scenario:
   1. Show [table name]
        Show ProcessList
