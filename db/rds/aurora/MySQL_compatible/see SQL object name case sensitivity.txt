@@ -1,6 +1,7 @@
 See SQL Object Name Case Sensitivity
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html
+  -lower_case_table_names is configured at the server level and not the DB level
 Main Success Scenario:
   1. Get value of lower_case_table_names system variable
        Select @@Global.lower_case_table_names 
