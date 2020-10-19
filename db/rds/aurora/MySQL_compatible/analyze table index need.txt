@@ -40,6 +40,8 @@ Main Success Scenario:
   
   
 Filter column
+Note: 
+  -What about NOT IN operator?
 Main Success Scenario:
   1. ColNm = Val
   2. ColNm Between Val1 and Val2
