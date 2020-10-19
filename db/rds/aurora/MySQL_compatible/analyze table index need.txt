@@ -5,6 +5,7 @@ Main Success Scenario:
   x. "See if table/sub-query with fewest rows in left position of a table join"
   x. "See if column value order makese a difference"
   x. "See column relationships"
+  x. "See if column makes index unique and avoids use of disitinct"
   x.xxx:fill in
 
 See if column falls into scenario where indexes can help
@@ -71,3 +72,7 @@ Main Success Scenario:
   2. Is the column that is in position 2 or greater in the index, have values that have more than one parent varlue that is in the column to the left (a value hierarchy where there can be many parents)
   3. Does the column that is in position 2 or greater in the index need to have its values found after the column to the left does (priority of hierarchy levels)
   4. What is the average count of values for a column that is in position N+1 in an index for each value that is in column N in the index
+  
+See if column makes index unique and avoids use of disitinct
+Main Success Scenario:
+  1. xxx:fill
