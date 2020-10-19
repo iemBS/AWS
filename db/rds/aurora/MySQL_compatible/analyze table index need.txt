@@ -14,9 +14,9 @@ Main Success Scenario:
   2. Join on column
   3. Group on column
   4. Distinct on column
-  5. Partiiton on column
+  5. Partition on column
   6. Use only column in index
-  7. Sort on column
+  7. Order on column
   8. "Use aggregation function on column"
   9. "Like column"
   
