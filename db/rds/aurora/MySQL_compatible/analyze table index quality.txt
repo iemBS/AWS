@@ -36,4 +36,56 @@ Main Success Scenario:
         indexPctOfTableSizeInMB DESC;
        
   4. "See if column falls into scenario where indexes can help"
+  5. See how well columns in an index relate to each other
+
+        Select
+          Avg(Cnt), # Avg count of values for Column 2 for each Column 1 value
+            Min(Cnt),
+            Max(Cnt)
+        From
+          (
+            Select
+              MyCol1InIndex,
+              Count(Distinct MyCol2InIndex) As Cnt
+            From
+              MyTbl
+            Group By
+              MyCol1InIndex
+            Order By
+              Cnt Desc
+          ) t;
+
+        Select
+          Avg(Cnt), # Avg count of values for Column 3 for each Column 2 value
+            Min(Cnt),
+            Max(Cnt)
+        From
+          (
+            Select
+              MyCol2InIndex,
+              Count(Distinct MyCol3InIndex) As Cnt
+            From
+              MyTbl
+            Group By
+              MyCol2InIndex
+            Order By
+              Cnt Desc
+          ) t;
+
+        Select
+          Avg(Cnt), # Avg count of values for Column 4 for each Column 3 value
+            Min(Cnt),
+            Max(Cnt)
+        From
+          (
+            Select
+              MyCol3InIndex,
+              Count(Distinct right(replace(MyCol4InIndex,'-',''),6)) As Cnt
+            From
+              MyTbl
+            Group By
+              MyCol3InIndex
+            Order By
+              Cnt Desc
+          ) t;
   
