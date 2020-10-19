@@ -20,6 +20,7 @@ Main Success Scenario:
   8. "Use aggregation function on column"
   9. "Like column"
   10. "Replace conditional join with temp table"
+  11. Has two or more values in column
   
   
 Use aggregation function on column
