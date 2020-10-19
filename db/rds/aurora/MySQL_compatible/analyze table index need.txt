@@ -10,7 +10,7 @@ Note:
   -Guidance @ https://www.tutorialspoint.com/how-to-speed-up-select-distinct-in-mysql
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/mysql-indexes.html
 Main Success Scenario:
-  1. Filter column
+  1. "Filter column"
   2. Join on column
   3. Group on column
   4. Distinct on column
@@ -37,5 +37,13 @@ Main Success Scenario:
 Replace conditional join with temp table
 Main Success Scenario:
   1. xxx:fill in
+  
+  
+Filter column
+Main Success Scenario:
+  1. ColNm = Val
+  2. ColNm Between Val1 and Val2
+  3. ColNm In (Val1, Val2, Val3)
+  4. xxx:fill in
   
  
