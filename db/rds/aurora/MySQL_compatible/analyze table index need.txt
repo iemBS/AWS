@@ -1,0 +1,14 @@
+Analyze Table Index Need
+Main Success Scenario:
+  x. Queries with table are slow
+  x. "See if column falls into scenario where indexes can help"
+  x.xxx:fill in
+
+See if column falls into scenario where indexes can help
+Main Success Scenario:
+  1. Filter column
+  2. Join on column
+  3. Group on column
+  4. Distinct on column
+  5. Partiiton on column
+  6. Only column used in table
