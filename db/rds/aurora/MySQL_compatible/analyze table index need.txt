@@ -8,10 +8,28 @@ Main Success Scenario:
 See if column falls into scenario where indexes can help
 Note: 
   -Guidance @ https://www.tutorialspoint.com/how-to-speed-up-select-distinct-in-mysql
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/mysql-indexes.html
 Main Success Scenario:
   1. Filter column
   2. Join on column
   3. Group on column
   4. Distinct on column
   5. Partiiton on column
-  6. Only column used in table
+  6. Use only column in index
+  7. Sort on column
+  8. "Use aggregation function on column"
+  9. "Like column"
+  
+  
+Use aggregation function on column
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/aggregate-functions.html
+Main Success Scenario:
+  1. Use Min function
+  2. Use Max function
+
+Like colum
+Main Success Scenario:
+  1. The values in two different columns do not need to be converted to be compared
+  
+ 
