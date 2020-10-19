@@ -1,4 +1,6 @@
 Analyze Table Index Need
+Note:
+  -A unique index has the added ability to tell you if the uniquness of an index has been violated. 
 Main Success Scenario:
   x. Queries with table are slow
   x. "See if column falls into scenario where indexes can help"
