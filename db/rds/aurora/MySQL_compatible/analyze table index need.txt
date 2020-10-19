@@ -75,4 +75,4 @@ Main Success Scenario:
   
 See if column makes index unique and avoids use of disitinct
 Main Success Scenario:
-  1. xxx:fill
+  1. If column added to make index unique but is not used in a way defined in the "See if column falls into scenario where indexes can help" use case, then put in column position at end of index.
