@@ -44,6 +44,7 @@ Main Success Scenario:
   Note: 
     -This makes use of the phone book analogy for an index
     -Guidance for Avg function @ https://www.mysqltutorial.org/mysql-avg/
+    -Flipping the columns in any of the queries below would ideally give you an average of 1. If it does not, then a smaller value would confirm that you chose the right parent to child relationship (aka ordering of those two columns). 
   Main Success Scenario:
     1. See query below
 
