@@ -43,6 +43,7 @@ Main Success Scenario:
   See how well columns in an index relate to each other
   Note: 
     -This makes use of the phone book analogy for an index
+    -Guidance for Avg function @ https://www.mysqltutorial.org/mysql-avg/
   Main Success Scenario:
     1. See query below
 
