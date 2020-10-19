@@ -2,6 +2,7 @@ Analyze Table Index Need
 Main Success Scenario:
   x. Queries with table are slow
   x. "See if column falls into scenario where indexes can help"
+  x. "See if table/sub-query with fewest rows in left position of a table join"
   x.xxx:fill in
 
 See if column falls into scenario where indexes can help
