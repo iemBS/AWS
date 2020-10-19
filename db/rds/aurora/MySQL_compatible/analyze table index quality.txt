@@ -34,4 +34,6 @@ Main Success Scenario:
         ) t
       ORDER BY 
         indexPctOfTableSizeInMB DESC;
-
+       
+  4. "See if column falls into scenario where indexes can help"
+  
