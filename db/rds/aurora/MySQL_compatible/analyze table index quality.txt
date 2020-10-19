@@ -36,7 +36,15 @@ Main Success Scenario:
         indexPctOfTableSizeInMB DESC;
        
   4. "See if column falls into scenario where indexes can help"
-  5. See how well columns in an index relate to each other
+  5. "See how well columns in an index relate to each other"
+  
+  
+  
+  See how well columns in an index relate to each other
+  Note: 
+    -This makes use of the phone book analogy for an index
+  Main Success Scenario:
+    1. See query below
 
         Select
           Avg(Cnt), # Avg count of values for Column 2 for each Column 1 value
