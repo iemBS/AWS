@@ -11,5 +11,6 @@ Note:
   -The documented default for max_allowed_packet is 4194304 Bytes (equal to 4 MB)
   -MySQL will convert the values in an IN list to binary and sort them. 
   -Are values in the column looking in the list of IN values or is the list of IN values searched for in the column?
+  -Guidance @ https://www.mysqltutorial.org/sql-in.aspx/
 Main Success Scenario:
   1. xxx:fill
