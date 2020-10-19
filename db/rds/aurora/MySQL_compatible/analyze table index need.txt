@@ -19,6 +19,7 @@ Main Success Scenario:
   7. Order on column
   8. "Use aggregation function on column"
   9. "Like column"
+  10. "Replace conditional join with temp table"
   
   
 Use aggregation function on column
@@ -31,5 +32,9 @@ Main Success Scenario:
 Like colum
 Main Success Scenario:
   1. The values in two different columns do not need to be converted to be compared
+  
+Replace conditional join with temp table
+Main Success Scenario:
+  1. xxx:fill in
   
  
