@@ -5,6 +5,8 @@ Main Success Scenario:
   x.xxx:fill in
 
 See if column falls into scenario where indexes can help
+Note: 
+  -Guidance @ https://www.tutorialspoint.com/how-to-speed-up-select-distinct-in-mysql
 Main Success Scenario:
   1. Filter column
   2. Join on column
