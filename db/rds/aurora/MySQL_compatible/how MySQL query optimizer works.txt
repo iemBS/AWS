@@ -1,0 +1,5 @@
+How MySQL Query Optimizer Works
+Note:
+  -Guidance @ https://dev.mysql.com/doc/internals/en/optimizer.html
+Main Success Scenario:
+  1. xxx:fill in
