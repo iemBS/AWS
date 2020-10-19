@@ -21,6 +21,7 @@ Main Success Scenario:
   9. "Like column"
   10. "Replace conditional join with temp table"
   11. Has two or more values in column
+  12. "Replace conditional update value with temp table"
   
   
 Use aggregation function on column
@@ -48,4 +49,10 @@ Main Success Scenario:
   3. ColNm In (Val1, Val2, Val3)
   4. xxx:fill in
   
- 
+Replace conditional update value with temp table
+Pre-Conditions: 
+  -Only applies to update query
+Note:
+  -Guidance @ https://stackoverflow.com/questions/31844963/mysql-use-of-index-in-case-when-syntax
+Main Success Scenario:
+  1.xxx:fill in
