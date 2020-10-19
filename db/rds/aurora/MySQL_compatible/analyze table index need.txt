@@ -3,6 +3,7 @@ Main Success Scenario:
   x. Queries with table are slow
   x. "See if column falls into scenario where indexes can help"
   x. "See if table/sub-query with fewest rows in left position of a table join"
+  x. "See if column value order makese a difference"
   x.xxx:fill in
 
 See if column falls into scenario where indexes can help
@@ -54,5 +55,9 @@ Pre-Conditions:
   -Only applies to update query
 Note:
   -Guidance @ https://stackoverflow.com/questions/31844963/mysql-use-of-index-in-case-when-syntax
+Main Success Scenario:
+  1.xxx:fill in
+  
+See if column value order makese a difference
 Main Success Scenario:
   1.xxx:fill in
