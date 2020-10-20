@@ -7,6 +7,7 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/8.0/en/mysql-indexes.html
   -# of rows examined in an index in the EXPLAIN results is an estimate.
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
+  -Defragmentation of a table explained @ https://dev.mysql.com/doc/refman/5.7/en/innodb-file-defragmenting.html
 Main Success Scenario:
   1. ANALYZE TABLE MyTbl;
   2. See message of index quality 
