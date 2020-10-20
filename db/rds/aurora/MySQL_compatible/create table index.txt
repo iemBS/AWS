@@ -21,6 +21,8 @@ Note:
   -While executing a SELECT statement is faster on a clustered index than a non-clustered index, but INSERTs, UPDATEs, and DELETEs on that clustered index require more time. The extra time is needed because you are also updating the index during those operations. Rows are being sorted in the table to keep the clustered index up to date.
     -Guidance @ https://stackoverflow.com/questions/91688/what-are-the-differences-between-a-clustered-and-a-non-clustered-index
     -Guidance @ https://www.sqlshack.com/poor-database-indexing-sql-query-performance-killer-recommendations/
+    -The index quality can go down if there are enough inserts, updates, and deletions in a table. 
+    -If you are going to insert data into a table and create an index on it in two steps that are right next to each other, insert into the table first and then create the index next. 
 Main Success Scenario:
   1. CREATE INDEX part_of_name ON customer (name(10));
 Alternatives:
