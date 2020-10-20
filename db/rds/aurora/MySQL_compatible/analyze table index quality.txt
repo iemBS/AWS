@@ -8,6 +8,7 @@ Note:
   -# of rows examined in an index in the EXPLAIN results is an estimate.
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
   -Defragmentation of a table explained @ https://dev.mysql.com/doc/refman/5.7/en/innodb-file-defragmenting.html
+  -Declare columns to be NOT NULL if possible. It makes SQL operations faster, by enabling better use of indexes and eliminating overhead for testing whether each value is NULL. You also save some storage space, one bit per column. If you really need NULL values in your tables, use them. Just avoid the default setting that allows NULL values in every column. From https://dev.mysql.com/doc/refman/5.7/en/data-size.html
 Main Success Scenario:
   1. ANALYZE TABLE MyTbl;
   2. See message of index quality 
