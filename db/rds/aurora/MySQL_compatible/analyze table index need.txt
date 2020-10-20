@@ -48,6 +48,7 @@ Main Success Scenario:
 Filter column
 Note: 
   -What about NOT IN operator?
+  -If the count of what you care about is less than the distinct count of values, think about adding a flag to the table to make the query faster. So, if there are 5 distinct values for a column you are doing to filter on and you only want only 2 of those 5 values, you may want to add a flag column with values of 1 and 0 to indicate what rows you care about. That would mean searching for 1 value in the table or index instead of 2 values. That flag column has a bigger impact the larger those two numbers are. 
 Main Success Scenario:
   1. ColNm = Val
   2. ColNm Between Val1 and Val2
