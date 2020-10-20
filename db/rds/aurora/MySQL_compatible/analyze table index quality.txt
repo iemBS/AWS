@@ -109,6 +109,7 @@ Length of prefix on values to use for indexing
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/column-indexes.html#column-indexes-prefix
   -minimize length of prefix used on column values to use for indexing
+  -Guidance @ https://www.mysqltutorial.org/mysql-index/mysql-prefix-index/
 Main Success Scenario:
   1. xxx:fill in
     
