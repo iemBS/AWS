@@ -27,6 +27,10 @@ Alternatives:
         Select 1 As col;
     1c2. Run select statement to see that DB prefix is part of the name of the table and not limited to the database that was noted. 
        Select * From MyDbNm.MyTmpTbl
+  1d. Internal temp table created by MySQL
+    1d1. See https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html
+       
+       
 
 Create Temp Table On-the-Fly
 Note:
