@@ -1,3 +1,5 @@
 Optimize Table Column
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/data-size.html
 Main Success Scenario:
   1. xxx:fill in
