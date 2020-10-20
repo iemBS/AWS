@@ -39,6 +39,7 @@ Main Success Scenario:
        
   4. "See if column falls into scenario where indexes can help"
   5. "See how well columns in an index relate to each other"
+  6. "Length of prefix on values to use for indexing"
   
   
   
@@ -103,4 +104,11 @@ Main Success Scenario:
             Order By
               Cnt Desc
           ) t;
-  
+          
+Length of prefix on values to use for indexing
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/column-indexes.html#column-indexes-prefix
+  -minimize length of prefix used on column values to use for indexing
+Main Success Scenario:
+  1. xxx:fill in
+    
