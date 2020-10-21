@@ -1,1 +1,4 @@
 https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html
+https://www.mysqltutorial.org/mysql-triggers/working-mysql-scheduled-event/
+
+xxx:fill in
