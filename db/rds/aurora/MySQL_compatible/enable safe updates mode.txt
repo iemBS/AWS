@@ -1,0 +1,12 @@
+Enable Safe Updates Mode
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/mysql-tips.html#safe-updates
+  -Setting sql_select_limit to 1,000 causes the server to limit all SELECT result sets to 1,000 rows unless the statement includes a LIMIT clause.
+  -Setting max_join_size to 1,000,000 causes multiple-table SELECT statements to produce an error if the server estimates it must examine more than 1,000,000 row combinations.
+Main Success Scenario:
+  1. SET sql_safe_updates=1;
+Alternatives:
+  1a. Also limit all select statements to return a max of 1,000 rows
+    1a1. SET sql_safe_updates=1, sql_select_limit=1000;
+  1b. Also limit all joins to look at 1 million row combinations
+    1b1. SET sql_safe_updates=1, smax_join_size=1000000;
