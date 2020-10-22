@@ -1,0 +1,11 @@
+Show Error Message
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-signal-resignal/
+Main Success Scenario:
+  1. Show error message to query tool
+     xxx:fill in
+Alternatives:
+  1a. Send error message to log
+    1a1. xxx:fill in
+  1b. Send email
+    1b1. xxx:fill in
