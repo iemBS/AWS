@@ -13,6 +13,7 @@ Note:
     {n}: matches n number of instances of the preceding character
     {m,n}: matches from m to n number of instances of the preceding character
    -Guidance @ https://www.rexegg.com/regex-quickstart.html
+   -Character class @ https://dev.mysql.com/doc/refman/5.7/en/regexp.html
 Main Success Scenario:
   1. "Have at least one letter in value"
   2. xxx:fill
@@ -50,5 +51,22 @@ Have values that end with "a"
 Main Success Scenario:
   1. Select * From MyTbl Where MyCol RegExp 'a$'
 
+See if a quoted identifier would need to be used for this SQL object name
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/identifiers.html
+    -characters for SQL object name that does not need a quoted identifier are limited to 
+        ASCII: [0-9,a-z,A-Z$_] (basic Latin letters, digits 0-9, dollar, underscore)
+        Extended: U+0080 .. U+FFFF
+  -MySQL 8.0 and above are the only versions that can search for Unicode characters using the unicode hex numbers. 
+    -https://stackoverflow.com/questions/25727830/searching-by-unicode-range-in-mysql
+Main Success Scenario:
+  1. Select 
+        * 
+     From 
+       MyTbl 
+     Where 
+       MyCol RegExp '[^0-9,a-z,A-Z$_]'
+       #And
+       #MyCol RegExp REGEXP '[^\\u0080-\\uFFFF]'  # Filter will not work before MySQL 8.0. Characters in the U+0080 to U+FFFF range are allowed in a SQL object name, but we are unlikely to use them.
 
 
