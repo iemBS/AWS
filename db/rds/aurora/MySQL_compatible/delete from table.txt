@@ -3,8 +3,9 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-delete-statement.aspx/
   -Guidance @ https://www.mysqltutorial.org/mysql-delete-join
   -Delete from right table guidance @ https://stackoverflow.com/questions/652770/delete-with-join-in-mysql
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/delete.html
 Main Success Scenario:
-  1. xxx:fill
+  1. DELETE FROM somelog WHERE user = 'jcole'
 Alternatives:
   1a. Delete from a table while joined to another table
     1a1. xxx:fill in
@@ -19,3 +20,14 @@ Alternatives:
             tblA a
             Inner Join tblB b On 
               a.ID = b.ID
+  1d. Delete rows in a certain order and up to a specific row count
+    1d1. "Delete rows in a certain order and up to a specific row count"
+
+Delete rows in a certain order and up to a specific row count
+Note:
+  -If the DELETE statement includes an ORDER BY clause, rows are deleted in the order specified by the clause. This is useful primarily in conjunction with LIMIT. For example, the following statement finds rows matching the WHERE clause, sorts them by timestamp_column, and deletes the first (oldest) one
+  -ORDER BY also helps to delete rows in an order required to avoid referential integrity violations.
+Main Success Scenario:
+  1. See code below
+        DELETE FROM somelog WHERE user = 'jcole'
+        ORDER BY timestamp_column LIMIT 1;
