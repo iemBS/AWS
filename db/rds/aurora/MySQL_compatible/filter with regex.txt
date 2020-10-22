@@ -70,3 +70,12 @@ Main Success Scenario:
        #MyCol RegExp REGEXP '[^\\u0080-\\uFFFF]'  # Filter will not work before MySQL 8.0. Characters in the U+0080 to U+FFFF range are allowed in a SQL object name, but we are unlikely to use them.
 
 
+Test Regex Logic
+Main Success Scenario:
+  1. See code below
+  
+    Select
+    Case 
+      When 'a' RegExp '[^0-9,a-z,A-Z$_]' then 1
+      Else 2
+    End
