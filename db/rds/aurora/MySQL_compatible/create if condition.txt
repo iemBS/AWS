@@ -2,6 +2,7 @@ Create IF Condition
 Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-if-statement/
   -Guidance @ https://www.mysqltutorial.org/mysql-if-function.aspx
+  -Guidance @ https://www.tutorialspoint.com/mysql-if-statement-with-multiple-conditions
 Main Success Scenario:
   1. See code below
 
@@ -13,5 +14,11 @@ Alternatives:
     1a1. xxx:fill in
   1b. Use IF function inside select part of query
     1b1. SELECT IF(1 = 2,'true','false')
+  1c. Use Compound condition
+    1c1. See query below
+    
+    IF (credit > 50000 AND chile = 2) THEN
+        SET pCustomerLevel = 'PLATINUM';
+    END IF;
   
   
