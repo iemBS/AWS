@@ -20,5 +20,13 @@ Alternatives:
     IF (credit > 50000 AND chile = 2) THEN
         SET pCustomerLevel = 'PLATINUM';
     END IF;
+ 1d. IF ELSE
+   1d1. See query below 
+   
+      IF credit > 50000 THEN
+          SET pCustomerLevel = 'PLATINUM';
+      ELSE
+          SET pCustomerLevel = 'NOT PLATINUM';
+      END IF;   
   
   
