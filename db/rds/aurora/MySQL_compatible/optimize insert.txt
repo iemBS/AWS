@@ -3,12 +3,20 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/insert-optimization.html
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-bulk-data-loading.html
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_stats_on_metadata
+  -Guidance @ https://kvz.io/improve-mysql-insert-performance.html
 Main Success Scenario:
   1. "Optimize Insert when loading from Values block"
   2. "Optimize Insert when loading from text file"
   3. Take advantage of the fact that columns have default values. Insert values explicitly only when the value to be inserted differs from the default. This reduces the parsing that MySQL must do and improves the insert speed.
   4. "Optimize Insert when Bulk Data Loading for InnoDB Tables"
   5. Disable innodb_stats_on_metadata
+  6. "Optimize Insert with a Transaction"
+  
+Optimize Insert with a Transaction
+Note:
+  -When your queries are wrapped inside a Transaction, the table does not get re-indexed until after this entire bulk is processed. Saving a lot of work.
+Main Success Scenario:
+  1. xxx:fill in
   
 Optimize Insert when loading from Values block
 Main Success Scenario:
