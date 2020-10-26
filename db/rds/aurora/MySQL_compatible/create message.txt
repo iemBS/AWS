@@ -1,0 +1,26 @@
+Create Message
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-signal-resignal/
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/signal.html
+  -A SIGNAL statement always specifies an SQLSTATE value, either directly, or indirectly by referring to a named condition defined with an SQLSTATE value.
+  -The first two characters of an SQLSTATE value are its class, and the class determines the default value for the condition information items
+  -Class = '00' is illegal because SQLSTATE values that begin with '00' indicate success and are not valid for SIGNAL.
+  -The intent of SIGNAL is to raise a user-generated error explicitly, so a signal is never ignored.
+  -SQLSTATE values @ https://en.wikipedia.org/wiki/SQLSTATE
+  -ER_SIGNAL_WARN, ER_SIGNAL_NOT_FOUND and ER_SIGNAL_EXCEPTION constants are not accessible from SQL so probably it makes sense to say that they are respectively 1642, 1643 and 1644.
+Main Success Scenario:
+  1. "Create Error Message"
+Alternatives:
+  1a. Create Warning Message
+    1a1. 
+  
+  
+Create Error Message
+Main Success Scenario:
+  1. Show error message to query tool
+     xxx:fill in
+Alternatives:
+  1a. Send error message to log
+    1a1. xxx:fill in
+  1b. Send email
+    1b1. xxx:fill in
