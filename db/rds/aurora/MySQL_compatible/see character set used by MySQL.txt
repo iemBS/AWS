@@ -2,7 +2,7 @@ See Character Set used by MySQL
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/charset-connection.html
 Main Success Scenario:
-  1. USE PRVSN_CM; 
+  1. USE MyDB; 
      SELECT @@character_set_database; # gives abbreviated name
   2. SHOW CHARACTER SET; # Shows map of abbreviated character set name to full name. Important for "latin1", which is used to refer to CP1252 and ISO 8859-1 character sets depending on who you talk to. 
   3. See character sets used in other areas of MySQL
