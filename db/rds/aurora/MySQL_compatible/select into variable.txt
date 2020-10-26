@@ -1,6 +1,7 @@
 Select Into Variable
 Note: 
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/select-into.html
+  -Guidance @ https://www.mysqltutorial.org/mysql-select-into-variable/
   -Do the variables need to be defined before selecting into them?
 Main Success Scenario:
   1.   SELECT * INTO @myvar FROM t1;
