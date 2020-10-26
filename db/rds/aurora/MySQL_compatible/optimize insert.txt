@@ -1,0 +1,32 @@
+Optimize Insert
+Note: 
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/insert-optimization.html
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-bulk-data-loading.html
+Main Success Scenario:
+  1. "Optimize Insert when loading from Values block"
+  2. "Optimize Insert when loading from text file"
+  3. Take advantage of the fact that columns have default values. Insert values explicitly only when the value to be inserted differs from the default. This reduces the parsing that MySQL must do and improves the insert speed.
+  4. "Optimize Insert when Bulk Data Loading for InnoDB Tables"
+  
+Optimize Insert when loading from Values block
+Main Success Scenario:
+  1. If you are inserting many rows from the same client at the same time, use INSERT statements with multiple VALUES lists to insert several rows at a time. This is considerably faster (many times faster in some cases) than using separate single-row INSERT statements. If you are adding data to a nonempty table, you can tune the bulk_insert_buffer_size variable to make data insertion even faster.
+
+Optimize Insert when loading from text file
+Main Success Scenario:
+  1. When loading a table from a text file, use LOAD DATA. This is usually 20 times faster than using INSERT statements
+
+Optimize Insert when Bulk Data Loading for InnoDB Tables
+Note:
+  -The mysqldump option --opt creates dump files that are fast to import into an InnoDB table, even without wrapping them with the SET autocommit and COMMIT statements.
+  -For big tables, temporarily turning off the uniquness checks saves a lot of disk I/O because InnoDB can use its change buffer to write secondary index records in a batch. Be certain that the data contains no duplicate keys.
+  -For big tables, temporarily turning off the foreign key checks can save a lot of disk I/O. 
+Main Success Scenario:
+  1. When importing data into InnoDB, turn off autocommit mode, because it performs a log flush to disk for every insert. To disable autocommit during your import operation, surround it with SET autocommit and COMMIT statements:
+  2. If you have UNIQUE constraints on secondary keys, you can speed up table imports by temporarily turning off the uniqueness checks during the import session
+  3. If you have FOREIGN KEY constraints in your tables, you can speed up table imports by turning off the foreign key checks for the duration of the import session
+  4. Use the multiple-row INSERT syntax to reduce communication overhead between the client and the server if you need to insert many rows:
+  5. When doing bulk inserts into tables with auto-increment columns, set innodb_autoinc_lock_mode to 2 instead of the default value 1.
+  6. When performing bulk inserts, it is faster to insert rows in PRIMARY KEY order. InnoDB tables use a clustered index, which makes it relatively fast to use data in the order of the PRIMARY KEY. Performing bulk inserts in PRIMARY KEY order is particularly important for tables that do not fit entirely within the buffer pool.
+  7. For optimal performance when loading data into an InnoDB FULLTEXT index, follow the set of steps @ https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-bulk-data-loading.html
+  
