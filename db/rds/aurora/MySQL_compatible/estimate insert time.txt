@@ -1,0 +1,16 @@
+Estimate Insert Time
+Pre-Conditions:
+  -This does not take into consideration the initial overhead to open tables, which is done once for each concurrently running query.
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/insert-optimization.html
+  -This does not take into consideration the initial overhead to open tables, which is done once for each concurrently running query.
+  -The size of the table slows down the insertion of indexes by log N, assuming B-tree indexes.
+Main Success Scenario:
+  1. The time required for inserting a row is determined by the following factors, where the numbers indicate approximate proportions:
+  
+        Connecting: (3)
+        Sending query to server: (2)
+        Parsing query: (2)
+        Inserting row: (1 × size of row)
+        Inserting indexes: (1 × number of indexes)
+        Closing: (1)
