@@ -14,9 +14,7 @@ Main Success Scenario:
     From
       information_schema.table_constraints 
     Where
-      LEFT(Constraint_Schema,5) = 'ODSH_'
-        Or
-        LEFT(Constraint_Schema,5) = 'PRVSN_'
+      Constraint_Schema = 'MyDb'
     Order By
       Constraint_Schema,
         Constraint_Name;
