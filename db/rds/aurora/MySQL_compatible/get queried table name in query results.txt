@@ -17,7 +17,7 @@ Main Success Scenario:
           myCol0,
           (Select Info From Information_Schema.ProcessList Where ID = ",@SessionId," Limit 1) As Info
         From 
-          PRVSN_CM.",@TblNm,"
+          MyDB.",@TblNm,"
         Where
           myCol1 = ",@param1,"
           And
