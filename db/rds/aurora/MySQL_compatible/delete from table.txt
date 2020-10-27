@@ -10,6 +10,7 @@ Note:
     -Divide innodb_buffer_pool_size by xxx to get megabytes and by xxx to get gigabytes
     -Guidance @ https://dba.stackexchange.com/questions/57497/the-total-number-of-locks-exceeds-the-lock-table-size-even-after-increasing-buf
   -The innodb_buffer_pool_instances system variable creates more than one instance of a buffer pool. 1 means one buffer pool instance. 2 means two buffer pool instances. 
+  -A larger buffer pool requires less disk I/O to access the same table data more than once. 
 Main Success Scenario:
   1. DELETE FROM somelog WHERE user = 'jcole'
 Alternatives:
