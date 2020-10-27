@@ -1,0 +1,6 @@
+Degrade Partition
+Note: 
+  -
+Main Success Scenario:
+  1. Delete a large number of rows from a partition or if you have made many changes to a partitioned table with variable-length rows (that is, having VARCHAR, BLOB, or TEXT columns)
+  2. xxx:fill in
