@@ -9,8 +9,9 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
   -Defragmentation of a table explained @ https://dev.mysql.com/doc/refman/5.7/en/innodb-file-defragmenting.html
   -Declare columns to be NOT NULL if possible. It makes SQL operations faster, by enabling better use of indexes and eliminating overhead for testing whether each value is NULL. You also save some storage space, one bit per column. If you really need NULL values in your tables, use them. Just avoid the default setting that allows NULL values in every column. From https://dev.mysql.com/doc/refman/5.7/en/data-size.html
-  -Outer query can make use of an index that is on a sub query. This can be confirmed with the visual Explain command
+  -Outer query can make use of an index that is on a sub query. This can be confirmed with the visual Explain command and speed tests. 
     -https://dev.mysql.com/doc/refman/5.7/en/subqueries.html
+  -Indexes for tables within a view can be used when joining to the view. This can be confirmed with the visual Explain command and speed tests. 
 Main Success Scenario:
   1. ANALYZE TABLE MyTbl;
   2. See message of index quality 
