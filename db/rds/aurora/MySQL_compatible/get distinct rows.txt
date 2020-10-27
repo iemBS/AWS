@@ -1,0 +1,5 @@
+Get Distinct Rows
+Note:
+  -Guidance @ https://www.mysqltutorial.org/sql-union-mysql.aspx/
+Main Success Scenario:
+  1. xxx:fill in
