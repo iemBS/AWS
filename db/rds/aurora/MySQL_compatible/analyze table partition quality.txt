@@ -1,0 +1,6 @@
+Analyze Table Partition Quality
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/partitioning-maintenance.html
+    -If you have deleted a large number of rows from a partition or if you have made many changes to a partitioned table with variable-length rows (that is, having VARCHAR, BLOB, or TEXT columns), you can use ALTER TABLE ... OPTIMIZE PARTITION to reclaim any unused space and to defragment the partition data file.
+Main Success Scenario:
+  1. xxx:fill in
