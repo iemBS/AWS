@@ -4,6 +4,12 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-delete-join
   -Delete from right table guidance @ https://stackoverflow.com/questions/652770/delete-with-join-in-mysql
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/delete.html
+  -If you are deleting many rows from a large table, you may exceed the lock table size for an InnoDB table.
+    -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size
+    -innodb_buffer_pool_size is the size in bytes of the buffer pool, the memory area where InnoDB caches table and index data.
+    -Divide innodb_buffer_pool_size by xxx to get megabytes and by xxx to get gigabytes
+    -Guidance @ https://dba.stackexchange.com/questions/57497/the-total-number-of-locks-exceeds-the-lock-table-size-even-after-increasing-buf
+  -The innodb_buffer_pool_instances system variable creates more than one instance of a buffer pool. 1 means one buffer pool instance. 2 means two buffer pool instances. 
 Main Success Scenario:
   1. DELETE FROM somelog WHERE user = 'jcole'
 Alternatives:
@@ -22,6 +28,8 @@ Alternatives:
               a.ID = b.ID
   1d. Delete rows in a certain order and up to a specific row count
     1d1. "Delete rows in a certain order and up to a specific row count"
+  1e. Lock table size exceeded error occurs
+    1e1. Update the innodb_buffer_pool_size system variable (in bytes) to have more space 
 
 Delete rows in a certain order and up to a specific row count
 Note:
