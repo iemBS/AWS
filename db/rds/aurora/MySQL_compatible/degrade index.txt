@@ -1,0 +1,11 @@
+Degrade Index
+Note: 
+  -Doing soft deletes and then moving those to another table when possible, is a controlled and flexible way to handle hard deletes and update indexing. 
+  -Update of values in columns that do not contribute to the index, do not make a difference. 
+Main Success Scenario:
+  1. Delete large number of rows from a table with variable-length rows (that is, having VARCHAR, BLOB, or TEXT columns)
+  2. Truncate several times a table with variable-length rows (that is, having VARCHAR, BLOB, or TEXT columns)
+  3. Truncate a large table with variable-length rows (that is, having VARCHAR, BLOB, or TEXT columns)
+  3. Make several value updates to variable length (that is, having VARCHAR, BLOB, or TEXT) columns within the index
+  
+  
