@@ -1,0 +1,13 @@
+Insert Into Index
+Note:
+  -Unique and non-unique indexes have their own table and sorting will be done in that table.
+  -Primary indexes do not have their own table and the sorting is done in the same table.
+  -When a table with an index is inserted into, the index is also inserted into. 
+    -For a non-primary key, that is unique or non-unique, the values inserted into the index are sorted during insert
+    -For a primary key, the table is sorted during insert
+  -When a table with an index is updated, the index is also updated if the updated columns are in the index
+    -For a non-primary key, that is unique or non-unique, the values inserted into the index are sorted after being updated
+    -For a primary key, the table is updated during insert
+  -Guidance @ https://www.tutorialspoint.com/mysql/mysql-indexes.htm
+Main Success Scenario:
+  1. xxx:fill in
