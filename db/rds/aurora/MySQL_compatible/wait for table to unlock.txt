@@ -1,0 +1,6 @@
+Wait for Table to Unlock
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-understanding-innodb-locking.html
+  -Can the use of partitions in a table limit a lock to a partition instead of the whole table?
+Main Success Scenario:
+  1.xxx:fill in
