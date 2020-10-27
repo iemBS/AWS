@@ -1,0 +1,79 @@
+See Buffer Pool Use
+Note: 
+  -The records where Data_Size is 0 just has the index or table definition. 
+  -innodb_buffer_pool_size system variable @ https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size
+    -The size in bytes of the buffer pool, the memory area where InnoDB caches table and index data. 
+    -A larger buffer pool requires less disk I/O to access the same table data more than once. 
+    -Buffer pool size must always be equal to or a multiple of innodb_buffer_pool_chunk_size * innodb_buffer_pool_instances.
+    -If you alter the buffer pool size to a value that is not equal to or a multiple of innodb_buffer_pool_chunk_size * innodb_buffer_pool_instances, buffer pool size is automatically adjusted to a value that is equal to or a multiple of innodb_buffer_pool_chunk_size * innodb_buffer_pool_instances.
+    -Can be set dynamically, which allows you to resize the buffer pool without restarting the server.
+  -innodb_buffer_pool_instances system variable @ https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_instances
+    -The number of regions that the InnoDB buffer pool is divided into.
+    -For systems with buffer pools in the multi-gigabyte range, dividing the buffer pool into separate instances can improve concurrency, by reducing contention as different threads read and write to cached pages.
+    -Each page that is stored in or read from the buffer pool is assigned to one of the buffer pool instances randomly, using a hashing function.
+    -This option only takes effect when setting innodb_buffer_pool_size to 1GB or more. 
+    -The total buffer pool size is divided among all the buffer pools.
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool-resize.html
+  -Avoiding running queries against the Information_Schema.INNODB_BUFFER_PAGE table in a production environment. There will be a performance impact on queries running. 
+Main Success Scenario:
+  1. See total Buffer Pool use
+
+    select
+      ((Sum(Data_Size)/1024)/1024) As Data_SizeInMB,
+        (((Sum(Data_Size)/1024)/1024)/1024) As Data_SizeInGB
+    From
+      Information_Schema.INNODB_BUFFER_PAGE  
+    Where
+      Data_Size <> 0
+      
+Alternatives:
+  1a. See buffer pool use by table type and page type
+    1a1. See query below 
+
+      select
+        Case
+          When Left(Table_Name,7) = '`mysql`' Then 'System'
+              When Left(Table_Name,5) = '`SYS_' Then 'System'
+              When Left(Table_Name,5) = '`tmp`'  Then 'Temp'
+              When Table_Name is NULL Then 'Unknown'
+              Else 'Ours'
+          End As Table_Type,
+        Page_Type,
+        ((Sum(Data_Size)/1024)/1024) As Data_SizeInMB,
+          (((Sum(Data_Size)/1024)/1024)/1024) As Data_SizeInGB
+      From
+        Information_Schema.INNODB_BUFFER_PAGE  
+      Where
+        Data_Size <> 0
+      Group By
+        Table_Type,
+        Page_Type
+      Order By
+        Data_SizeInMB desc
+        
+  1b. See buffer pool use by table type, page type, and table name
+    1b1. See query below 
+
+      select
+        Case
+          When Left(Table_Name,7) = '`mysql`' Then 'System'
+              When Left(Table_Name,5) = '`SYS_' Then 'System'
+              When Left(Table_Name,5) = '`tmp`'  Then 'Temp'
+              When Table_Name is NULL Then 'Unknown'
+              Else 'Ours'
+          End As Table_Type,
+        Table_Name,
+          Page_Type,
+        ((Sum(Data_Size)/1024)/1024) As Data_SizeInMB,
+          (((Sum(Data_Size)/1024)/1024)/1024) As Data_SizeInGB
+      From
+        Information_Schema.INNODB_BUFFER_PAGE  
+      Where
+        Data_Size <> 0
+      Group By
+        Table_Type,
+        Table_Name,
+          Page_Type
+      Order By
+        Table_Type,
+        Table_Name
