@@ -2,6 +2,7 @@ Choose Index to Use
 Note:
   -Does using hints make this choice process faster?
   -How often does this choice come up for a single query?
+  -Guidance @ https://dev.mysql.com/doc/refman/8.0/en/optimization-indexes.html
 Main Success Scenario:
   1. MySQL will need to choose an index to use if there is more than one index that exists in a table. 
   2. MySQL will need to choose an index to use if there is more than one index that exists for a column. 
