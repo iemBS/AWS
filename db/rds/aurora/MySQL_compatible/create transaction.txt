@@ -15,5 +15,20 @@ Note:
   -Guidance @ https://www.oreilly.com/library/view/mysql-in-a/9780596514334/re72.html
   -Guidance @ https://www.w3resource.com/mysql/mysql-transaction.php
   -A rollback to a savepoint will implicitly commit everything up to that savepoint in the transaction @ https://www.w3resource.com/mysql/mysql-transaction.php
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/savepoint.html
+  -Components of a transaction
+    -scope
+    -isolation level
+    -access mode
+    -create save point
+    -rollback to save point
+    -release save point
+    -commmit
+      -Two procedure instances with the same transaction code and savepoint names, will throw an error for the second instance started because the first instance committed and deleted the savepoint name. 
+  -All savepoints of the current transaction are deleted if you execute a COMMIT, or a ROLLBACK that does not name a savepoint.
+  -The RELEASE SAVEPOINT statement removes the named savepoint from the set of savepoints of the current transaction. 
+  -When a rollback to savepoint occurs, savepoints that were set at a later time than the named savepoint are deleted.
+  -The SAVEPOINT statement sets a named transaction savepoint with a name of identifier. If the current transaction has a savepoint with the same name, the old savepoint is deleted and a new one is set.
+  -
 Main Success Scenario: 
   1.xxx:fill
