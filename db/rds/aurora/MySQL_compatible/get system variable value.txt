@@ -10,12 +10,13 @@ Main Success Scenario:
        Show Variables 
 Alternatives:
   1a. Limit Show method to return only specific rows 
-    1a1. xxx:fill
+    1a1. SHOW Global Status Where Variable_Name = 'Handler_savepoint'
   1b. Get value of single global system variable 
     1b1. SELECT @@GLOBAL.innodb_data_file_path;
   1c. Get value of single Session system variable
     1b1. SELECT @@SESSION.pseudo_thread_id
   1d. Show only global status system variables
     1d1. SHOW GLOBAL STATUS;
-    
-  
+  1e. Limit Show method to return only specific rows using LIKE
+    1e1. SHOW Global Status Like 'Handler_savepoint'  
+      
