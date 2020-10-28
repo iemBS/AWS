@@ -81,4 +81,7 @@ Main Success Scenario:
   1. select * from performance_schema.events_transactions_current
   2. select * from performance_schema.events_transactions_history
   3. select * from performance_schema.events_transactions_history_long
+  4. Check if two or more instances of a procedure (that contains a transaction and savepoints) are running simultaneously
+  5. Check if the multiple simultaneous instances of procedures are using the same savepoint names (bad if they are)
+  
   
