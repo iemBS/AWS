@@ -1,0 +1,18 @@
+Increment Time
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_date-add
+  -Values for the INTERVAL parameter of DATE_ADD and DATE_SUB functions @ https://dev.mysql.com/doc/refman/5.7/en/expressions.html#temporal-intervals
+Main Success Scenario:
+  1. See query below
+
+  Select
+		Tm,
+        DATE_ADD(Tm, INTERVAL 1 SECOND) As TmPlus1Second,
+        DATE_ADD(Tm, INTERVAL 1 MINUTE) As TmPlus1Minute,
+        DATE_ADD(Tm, INTERVAL 1 HOUR) As TmPlus1Hour,
+        DATE_ADD(Tm, INTERVAL 1 DAY) As TmPlus1Day
+	From
+		(
+			Select
+				CurTime() As Tm
+        ) t
