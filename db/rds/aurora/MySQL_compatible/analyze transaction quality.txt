@@ -1,5 +1,84 @@
 Analyze Transaction Quality
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Handler_savepoint
+  -
 Main Success Scenario:
-  1. 
+  1. "Analyze Transaction Quality at the Global level"
+  2. "Analyze Transaction Quality at the Transaction level"
+  
+Analyze Transaction Quality at the Global level
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Handler_savepoint
+  -The Slave_retried_transactions variable is affected by the value of the show_compatibility_56 system variable. See @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56_slave_status
+  -The Slave_retried_transactions variable only shows the status of the default replication channel. To monitor any replication channel, use the COUNT_TRANSACTIONS_RETRIES column in the replication_applier_status table for the replication channel. Slave_retried_transactions is deprecated and is removed in MySQL 8.0.
+  -The Handler_rollback variable contains the counts that are in the Handler_savepoint_rollback variable
+Main Success Scenario:
+  1. The number of requests for a storage engine to place a savepoint.
+    SHOW Global Status Where Variable_Name In ('Handler_savepoint')
+  2. The number of requests for a storage engine to roll back to a savepoint.
+    SHOW Global Status Where Variable_Name In ('Handler_savepoint_rollback')
+  3. The number of requests for a storage engine to perform a rollback operation.
+    SHOW Global Status Where Variable_Name In ('Handler_rollback')
+  4. The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction.
+    SHOW Global Status Where Variable_Name = 'Binlog_cache_disk_use'
+  5. The number of transactions that used the binary log cache.
+    SHOW Global Status Where Variable_Name = 'Binlog_cache_use'
+  6. Shows the number of ongoing transactions which have been marked as anonymous. This can be used to ensure that no further transactions are waiting to be processed.
+    SHOW Global Status Where Variable_Name = 'Ongoing_anonymous_transaction_count'
+  7. "Analyze Transaction Quality at the Global level for the source-side semisynchronous replication plugin"
+  8. "Analyze Transaction Quality at the Global level for debug builds"
+  9. The total number of times since startup that the replication replica SQL thread has retried transactions.
+     SHOW Global Status Where Variable_Name = 'Slave_retried_transactions'
+  10. For the memory-mapped implementation of the recovery log, this variable increments each time the server was not able to commit a transaction and had to wait for a free page in the log. If this value is large, you might want to increase the log size (with the --log-tc-size option). For binary log-based recovery, this variable increments each time the binary log cannot be closed because there are two-phase commits in progress. (The close operation waits until all such transactions are finished.)
+    SHOW Global Status Where Variable_Name = 'Tc_log_page_waits'
+    
+Analyze Transaction Quality at the Global level for debug builds
+Pre-Conditions
+  -Variables available only for debug builds
+Main Success Scenario:
+  1. Shows the number of ongoing transactions which use gtid_next=ANONYMOUS and that violate GTID consistency.
+    SHOW Global Status Where Variable_Name = 'Ongoing_anonymous_gtid_violating_transaction_count'
+  2. Shows the number of ongoing transactions which use gtid_next=AUTOMATIC and that violate GTID consistency.
+    SHOW Global Status Where Variable_Name = 'Ongoing_automatic_gtid_violating_transaction_count'
+  
+Analyze Transaction Quality at the Global level for the source-side semisynchronous replication plugin
+Pre-Conditions:
+  -Variables Available only if source-side semisynchronous replication plugin is installed
+Main Success Scenario:
+  1. The average time in microseconds the source waited for each transaction.
+    SHOW Global Status Where Variable_Name = 'Rpl_semi_sync_master_tx_avg_wait_time'
+  2. The total time in microseconds the source waited for transactions.
+    SHOW Global Status Where Variable_Name = 'Rpl_semi_sync_master_tx_wait_time'
+  3. The total number of times the source waited for transactions.
+    SHOW Global Status Where Variable_Name = 'Rpl_semi_sync_master_tx_waits'
+  4. The total number of times the source waited for an event with binary coordinates lower than events waited for previously. This can occur when the order in which transactions start waiting for a reply is different from the order in which their binary log events are written.
+    SHOW Global Status Where Variable_Name = 'Rpl_semi_sync_master_wait_pos_backtraverse'
+    
+Analyze Transaction Quality at the Transaction level
+Pre-Conditions
+  -Performance Schema needs to be enabled at startup of MySQL instance to collect data in the tables that are in the performance_schema database
+  -Once Performance Schema is enabled at start up, it can be enabled or disabled at run time using the performance_schema.setup_instruments and performance_schema.setup_consumers tables. 
+    -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-quick-start.html
+Note:
+  -What can be done with the data in the Performance_Schema database
+    -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema.html
+  -Tables in the performance_scheam db that can help us understand how specific transactions are doing:
+    -performance_schema.events_transactions_current: The current transaction event for each thread.
+    -performance_schema.events_transactions_history: The most recent transaction events that have ended per thread.
+    -performance_schema.events_transactions_history_long: The most recent transaction events that have ended globally (across all threads).
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-transaction-tables.html
+  -Transaction tables within the performance_schema db @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-transaction-tables.html
+  -Reltionship of transaction events and stored program events @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-transaction-tables.html#performance-schema-transaction-tables-stored-programs
+  -Errors and warnings that occur within a transaction are recorded in statement events, but not in the corresponding transaction event. This includes transaction-specific errors and warnings, such as a rollback on a nontransactional table or GTID consistency errors.
+  -Stored routines require the event table in the mysql database. This table is created during the MySQL 5.7 installation procedure. If you are upgrading to MySQL 5.7 from an earlier version, be sure to update your grant tables to make sure that the event table exists
+    -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html
+  -Enabling the Performance Schema could cause memory errors. https://aws.amazon.com/blogs/database/best-practices-for-amazon-aurora-mysql-database-configuration/
+  -The performance_schema db is contained within Amazon RDS Performance Insights
+    -Performance Schema is enabled automatically when you create an Amazon RDS for MariaDB or MySQL DB instance with Performance Insights enabled
+      -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Enabling.html
+  -Amazon RDS Performance Insights is disabled on a serverless Aurora instance 
+      -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations
+Main Success Scenario:
+  1. select * from performance_schema.events_transactions_current
+  2. select * from performance_schema.events_transactions_history
+  3. select * from performance_schema.events_transactions_history_long
+  
