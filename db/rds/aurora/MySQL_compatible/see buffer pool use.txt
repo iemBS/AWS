@@ -15,6 +15,7 @@ Note:
     -The total buffer pool size is divided among all the buffer pools.
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool-resize.html
   -Avoiding running queries against the Information_Schema.INNODB_BUFFER_PAGE table in a production environment. There will be a performance impact on queries running. 
+  -Guidance @ https://michael.bouvy.net/blog/en/2015/01/18/understanding-mysql-innodb-buffer-pool-size/
 Main Success Scenario:
   1. See total Buffer Pool use
 
