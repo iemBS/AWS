@@ -1,16 +1,21 @@
 Get System Variable Value
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/8.0/en/show-variables.html
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-variables.html
   -System Variable index @ https://dev.mysql.com/doc/refman/5.7/en/dynindex-sysvar.html
+  -Guidance @ https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html
+  -list of dynamic system variables @ https://dev.mysql.com/doc/refman/5.7/en/dynamic-system-variables.html
+    -Can be set at run time
 Main Success Scenario:
-  1. Show [table name]
-       Show ProcessList
+  1. Show [table name] to see the current values used by the running MySQL instance
        Show Variables 
 Alternatives:
   1a. Limit Show method to return only specific rows 
     1a1. xxx:fill
-  1b. Get value of single global variable 
+  1b. Get value of single global system variable 
     1b1. SELECT @@GLOBAL.innodb_data_file_path;
-  1c. Get value of single Session variable
+  1c. Get value of single Session system variable
     1b1. SELECT @@SESSION.pseudo_thread_id
+  1d. Show only global status system variables
+    1d1. SHOW GLOBAL STATUS;
+    
   
