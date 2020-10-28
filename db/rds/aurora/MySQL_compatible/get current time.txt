@@ -1,0 +1,11 @@
+Get Current Date
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/date-and-time-functions.html
+  -Guidance @ https://www.w3schools.com/sql/func_mysql_now.asp
+Main Success Scenario:
+  1. SELECT NOW();
+Alternatives:
+  1a. Get only current date
+    1a1. Select CURDATE()
+  1b. Get only current time
+    1b1. Select CurTime()
