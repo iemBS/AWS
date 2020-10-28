@@ -1,0 +1,15 @@
+Use Loop
+Note:
+  -Loop must be done in a routine
+Main Success Scenario:
+  1. See query below 
+    Set @EndTm = (SELECT DATE_ADD(NOW(), INTERVAL 5 SECOND));
+
+    WaitLoop:  LOOP
+      IF  NOW() > @EndTm THEN 
+        LEAVE  WaitLoop;
+      END  IF;
+          ITERATE  WaitLoop;
+    END LOOP;
+Alternatives:
+  1a. xxx:fill in
