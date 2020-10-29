@@ -1,5 +1,6 @@
 Create Transaction
 Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-transaction.aspx/
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/set-transaction.html
   -The isolation level is used for operations on InnoDB tables
   -Without GLOBAL or SESSION keyword, the statement applies only to the next single transaction performed within the session. Subsequent transactions revert to using the session value of the named characteristics
@@ -29,6 +30,109 @@ Note:
   -The RELEASE SAVEPOINT statement removes the named savepoint from the set of savepoints of the current transaction. 
   -When a rollback to savepoint occurs, savepoints that were set at a later time than the named savepoint are deleted.
   -The SAVEPOINT statement sets a named transaction savepoint with a name of identifier. If the current transaction has a savepoint with the same name, the old savepoint is deleted and a new one is set.
-  -
 Main Success Scenario: 
-  1.xxx:fill
+  x. "Set AutoCommit system variable"
+  1."Start Transaction"
+  2. "Create SavePoint in Transaction"
+  3. "Create Another SavePoint in Transaction"
+  4. "Release First SavePoint"
+  5. "Commit Transaction"
+Alternatives:
+  3a. "Create SavePoint with same name as previous SavePoint"
+    3a1. xxx:fill in
+  5a. "Rollback Transaction"
+    5a1. xxx:fill in
+    
+Set AutoCommit system variable
+Note:
+  -A session that has autocommit enabled can perform a multiple-statement transaction by starting it with an explicit START TRANSACTION or BEGIN statement and ending it with a COMMIT or ROLLBACK statement.
+  -If autocommit mode is disabled within a session with SET autocommit = 0, the session always has a transaction open. A COMMIT or ROLLBACK statement ends the current transaction and a new one starts.
+  -If a session that has autocommit disabled ends without explicitly committing the final transaction, MySQL rolls back that transaction.
+Main Success Scenario:
+  1. Set AutoCommit to 1 (system default)
+Alternatives:
+  1a. Set AutoCommit to 0 at server level
+    1a1. xxx:fill in
+  1b. Set AutoCommit to 0 at session level
+    1b1. xxx:fill in
+ 
+Start Transaction
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/commit.html
+  -When autocommit is set to 1, the use of START TRANSACTION will disable autocommit for the transaction. 
+  -Guidance @ https://www.w3resource.com/mysql/mysql-transaction.php
+  -BEGIN and BEGIN WORK are supported as aliases of START TRANSACTION for initiating a transaction. START TRANSACTION is standard SQL syntax, is the recommended way to start an ad-hoc transaction, and permits modifiers that BEGIN does not.
+  -The BEGIN statement differs from the use of the BEGIN keyword that starts a BEGIN ... END compound statement. The latter does not begin a transaction. 
+  -Begin and End block defined @ https://dev.mysql.com/doc/refman/5.7/en/begin-end.html
+  -Within all stored programs (stored procedures and functions, triggers, and events), the parser treats BEGIN [WORK] as the beginning of a BEGIN ... END block. Begin a transaction in this context with START TRANSACTION instead.
+  -Beginning a transaction causes any pending transaction to be committed.
+    -So, transactions cannot be nested. 
+  -Beginning a transaction also causes table locks acquired with LOCK TABLES to be released, as though you had executed UNLOCK TABLES. 
+  -Beginning a transaction does not release a global read lock acquired with FLUSH TABLES WITH READ LOCK.
+Main Success Scenario:
+  1. START TRANSACTION;
+  2. 
+Alternatives:
+  1a. Starting a transaction not in a stored program and do not need to use modifiers on transaction start
+    1a1. BEGIN
+  1b. Same as step "1a"
+    1b1. BEGIN WORK
+  
+Create SavePoint in Transaction
+Main Success Scenario:
+  1. 
+
+Create Another SavePoint in Transaction
+Main Success Scenario:
+  1. 
+
+Release First SavePoint
+Note:
+  -Guidance @ https://www.oreilly.com/library/view/mysql-in-a/9780596514334/re69.html
+Main Success Scenario:
+  1. 
+
+Commit Transaction
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-autocommit-commit-rollback.html
+  -A "COMMIT;" line can exist in the code without starting a transaction and MySQL will not throw an error. 
+  -A transaction ends when it is committed or rolled back, either explicitly with a COMMIT or ROLLBACK statement or implicitly when a DDL statement is issued.
+  -DDL or Data Definition Language actually consists of the SQL commands that can be used to define the database schema. 
+  -Statements that cause an implicit commit @ https://dev.mysql.com/doc/refman/5.7/en/implicit-commit.html
+Main Success Scenario:
+  1. COMMIT; 
+  2. Transaction is done 
+  3. First line after the end of the transaction, is then run
+  
+Rollback Transaction
+Note:
+  -Guidance @ https://www.oreilly.com/library/view/mysql-in-a/9780596514334/re72.html
+  -There is no limit to the number of times that a transaction can be rolled back to a savepoint. 
+  -The ROLLBACK TO SAVEPOINT statement rolls back a transaction to the named savepoint without terminating the transaction.
+    -Guidance @ https://stackoverflow.com/questions/33950723/rollback-to-savepoint
+  -If a session that has autocommit disabled ends without explicitly committing the final transaction, MySQL rolls back that transaction.
+  -Modifications that the current transaction made to rows after the savepoint was set are undone in the rollback, but InnoDB does not release the row locks that were stored in memory after the savepoint.
+  -Transactional table means, if data manipulation done with in transaction then rollback / commit will work. For Non Transactional table, You need to rollback the changes with manual code. No Impact of rollBack and commit. These tables are useful for performing the statements with high performance.
+Main Success Scenario:
+  1. ROLLBACK TO `My2ndSavePoint`;
+  2. Modifications that the current transaction made to rows after the "My2ndSavePoint" savepoint was set, are undone in the rollback
+  3. Transaction is done
+  4. First line after the end of the transaction, is then run
+Alternatives:
+  1a. Explicit call to undo all changes since the start of the transaction
+    1a1. ROLLBACK;
+    1a2. Modifications that the current transaction made to rows since the beginning of the transaction, are undone in the rollback
+    1a3. Transaction is done
+    1a4. First line after the end of the transaction, is then run
+  1b. Implicit call to undo all changes since the start of the transaction
+    1b1. autocommit was set to 0 at the server or session level
+    1b2. COMMIT not called at end of transaction
+    1b3. MySQL does an implicit rollback (without specifying a savepoint)
+    1b4. Modifications that the current transaction made to rows since the beginning of the transaction, are undone in the rollback
+    1b5. First line after the end of the transaction, is then run
+  1c. Rollback failure for a non-transactional table
+    1c1. https://dev.mysql.com/doc/refman/5.7/en/nontransactional-tables.html
+
+
+
+
