@@ -1,0 +1,5 @@
+See Table Cache
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/table-cache.html
+Main Success Scenario:
+  1. xxx:fill in
