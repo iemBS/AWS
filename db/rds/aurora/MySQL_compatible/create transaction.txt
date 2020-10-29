@@ -115,6 +115,8 @@ Note:
   -If a session that has autocommit disabled ends without explicitly committing the final transaction, MySQL rolls back that transaction.
   -Modifications that the current transaction made to rows after the savepoint was set are undone in the rollback, but InnoDB does not release the row locks that were stored in memory after the savepoint.
   -Transactional table means, if data manipulation done with in transaction then rollback / commit will work. For Non Transactional table, You need to rollback the changes with manual code. No Impact of rollBack and commit. These tables are useful for performing the statements with high performance.
+  -If the kill command is used on a thread with a transaction, it is the same as running "ROLLBACK;"
+    -Guidance @ https://www.tutorialspoint.com/What-happens-to-the-current-MySQL-transaction-if-the-session-is-killed-by-DBA
 Main Success Scenario:
   1. ROLLBACK TO `My2ndSavePoint`;
   2. Modifications that the current transaction made to rows after the "My2ndSavePoint" savepoint was set, are undone in the rollback
