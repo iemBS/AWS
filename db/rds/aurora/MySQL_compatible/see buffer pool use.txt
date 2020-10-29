@@ -18,6 +18,8 @@ Note:
   -Guidance @ https://michael.bouvy.net/blog/en/2015/01/18/understanding-mysql-innodb-buffer-pool-size/
   -Table_Name column in INNODB_BUFFER_PAGE table only used where PAGE_TYPE equals "INDEX".
     -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-buffer-page-table.html
+  -InnoDB reserves additional memory for buffers and control structures, so that the total allocated space is approximately 10% greater than the specified buffer pool size.
+    -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size
 Main Success Scenario:
   1. See total Buffer Pool use
 
