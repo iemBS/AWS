@@ -1,0 +1,5 @@
+Optimize Locking
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/locking-issues.html
+Main Success Scenario:
+  1.xxx:fill in
