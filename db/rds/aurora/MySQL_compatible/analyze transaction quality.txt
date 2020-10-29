@@ -82,6 +82,8 @@ Note:
   -Amazon RDS Performance Insights is disabled on a serverless Aurora instance 
       -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations
   -Guidance @ https://www.mysqltutorial.org/mysql-transaction.aspx/
+  -Performance_Schema is implemented as a storage engine
+    -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-quick-start.html
 Main Success Scenario:
   1. select * from performance_schema.events_transactions_current
   2. select * from performance_schema.events_transactions_history
