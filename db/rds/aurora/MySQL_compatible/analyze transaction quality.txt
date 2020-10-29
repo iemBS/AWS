@@ -63,8 +63,12 @@ Note:
     -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema.html
   -Tables in the performance_scheam db that can help us understand how specific transactions are doing:
     -performance_schema.events_transactions_current: The current transaction event for each thread.
+      -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-events-transactions-current-table.html
+      -Do the simultaneously running instances of the same procedure (that contains a transaction and savepoints) have the same values for EVENT_ID, EVENT_NAME, and GTID?
     -performance_schema.events_transactions_history: The most recent transaction events that have ended per thread.
+      -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-events-transactions-history-table.html
     -performance_schema.events_transactions_history_long: The most recent transaction events that have ended globally (across all threads).
+      -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-events-transactions-history-long-table.html
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-transaction-tables.html
   -Transaction tables within the performance_schema db @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-transaction-tables.html
   -Reltionship of transaction events and stored program events @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-transaction-tables.html#performance-schema-transaction-tables-stored-programs
@@ -77,11 +81,14 @@ Note:
       -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Enabling.html
   -Amazon RDS Performance Insights is disabled on a serverless Aurora instance 
       -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations
+  -Guidance @ https://www.mysqltutorial.org/mysql-transaction.aspx/
 Main Success Scenario:
   1. select * from performance_schema.events_transactions_current
   2. select * from performance_schema.events_transactions_history
   3. select * from performance_schema.events_transactions_history_long
   4. Check if two or more instances of a procedure (that contains a transaction and savepoints) are running simultaneously
   5. Check if the multiple simultaneous instances of procedures are using the same savepoint names (bad if they are)
+  6. See if autocommit is enabled (value of 1 or ON)
+    select @@Global.autocommit
   
   
