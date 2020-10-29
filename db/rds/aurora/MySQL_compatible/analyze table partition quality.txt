@@ -3,7 +3,8 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/partitioning-maintenance.html
     -If you have deleted a large number of rows from a partition or if you have made many changes to a partitioned table with variable-length rows (that is, having VARCHAR, BLOB, or TEXT columns), you can use ALTER TABLE ... OPTIMIZE PARTITION to reclaim any unused space and to defragment the partition data file.
 Main Success Scenario:
-  1. See how well the data is distributed across the partitions
+  1. xxx:fill in
+  2. See how well the data is distributed across the partitions
   
     SELECT 
         PARTITION_ORDINAL_POSITION, 
@@ -15,5 +16,7 @@ Main Success Scenario:
       TABLE_SCHEMA = 'db_name' 
         AND 
         TABLE_NAME = 'tbl_name';
-
-2. xxx:fill in
+        
+3. See count of rows for each combination of RowCurrentInd, SourceSystemId (If bad, may want to push RowCurrentInd = 0 to another table)
+4. See percent of current rows where ActionId = 3 (If high, may want to push ActionId = 3 to another table)
+x. xxx:fill in
