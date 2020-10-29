@@ -37,11 +37,13 @@ Main Success Scenario:
   3. "Create Another SavePoint in Transaction"
   4. "Release First SavePoint"
   5. "Commit Transaction"
+  6. "See Explicit and Implicit Rollbacks"
 Alternatives:
   3a. "Create SavePoint with same name as previous SavePoint"
     3a1. xxx:fill in
   5a. "Rollback Transaction"
     5a1. xxx:fill in
+    
     
 Set AutoCommit system variable
 Note:
@@ -133,6 +135,28 @@ Alternatives:
   1c. Rollback failure for a non-transactional table
     1c1. https://dev.mysql.com/doc/refman/5.7/en/nontransactional-tables.html
 
-
+See Explicit and Implicit Rollbacks
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-show-processlist/
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/thread-information.html
+  -SHOW PROCESSLIST shows currently running threads
+  -Columns returned by SHOW PROCESSLIST
+    -Id: Clients process id
+    -User: Username associated with the thread.
+    -db: Default database if one selected otherwise NULL
+    -Command:Command type
+      -possible values @ https://dev.mysql.com/doc/refman/5.7/en/thread-commands.html
+    -Time: Number of seconds that the current thread has been in its current state.
+    -State: Thread state which represents an action, event, or state that indicates what thread is executing.
+      -Most states correspond to very quick operations. If a thread stays in a given state for many seconds, there might be a problem that needs to be investigated.
+      -Possible values @ https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
+      -A value of "Rolling back" indicates a rollback
+    -Info: Statement that is being executed, or NULL if it is not executing any statement. If you do not use the FULL keyword in the SHOW PROCESSLIST command, then only the first 100 characters of each statement are returned in the Info column.
+    -How to discern between implied and explicit rollbacks in the SHOW PROCESSLIST results?
+Main Success Scenario:
+  1. SHOW PROCESSLIST
+Alternatives:
+  1a. See full value in the "Info" column of SHOW PROCESSLIST
+    1a1. SHOW FULL PROCESSLIST
 
 
