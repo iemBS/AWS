@@ -1,5 +1,6 @@
 Find Vale with Non-ASCII Character
 Note: 
+  -Guidance @ https://www.mysqltutorial.org/mysql-character-set/
   -Guidance @ https://stackoverflow.com/questions/401771/how-can-i-find-non-ascii-characters-in-mysql/11741314
   -The decimal numbers for Ascii characters go from 0 to 127. Any decimal number higher than 127 may be called "extended Ascii", it is not Ascii. 
 Main Success Scenario:
