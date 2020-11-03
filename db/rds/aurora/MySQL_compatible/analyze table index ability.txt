@@ -3,6 +3,7 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/char.html
   -InnoDB Storage Engine never gives back disk space unless innodb_file_per_table system variable is set to 1. 
   -If innodb_file_per_table is set to 1, you can run the optimize command on a table to remove the extra space used by indexes. 
+  -OPTIMIZE TABLE will create a new identical empty table. Then it will copy row by row data from the old table to the new one. In this process, a new .ibd tablespace will be created and space will be reclaimed.
   -When CHAR values are stored, they are right-padded with spaces to the specified length. When CHAR values are retrieved, trailing spaces are removed unless the PAD_CHAR_TO_FULL_LENGTH SQL mode is enabled.
   -VARCHAR values are not padded when they are stored. Trailing spaces are retained when values are stored and retrieved, in conformance with standard SQL.
   -Values in VARCHAR columns are variable-length strings. The length can be specified as a value from 0 to 65,535. The effective maximum length of a VARCHAR is subject to the maximum row size (65,535 bytes, which is shared among all columns) and the character set used.
@@ -12,6 +13,10 @@ Note:
   -When you remove rows, they are just marked as deleted on disk but space will be consumed by InnoDB files which can be re-used later when you insert/update more rows but it will never shrink. Very old MySQL bug: 
     -http://bugs.mysql.com/bug.php?id=1341
   -MySQL system tablespace is ibdata1, which is located under /var/lib/mysql. The single ibdata1 file contains all the tables and indexes in your MySQL database. So, if you have a big database, this file size will grow really big.
+  -When innodb_file_per_table is OFF and all data is going to be stored in ibdata files. If you drop some tables and delete some data then there is no other way to reclaim that unused disk space except dump/reload method.
+  -When Innodb_file_per_table is ON, each table stores data and indexes in its own tablespace file. However, the shared tablespace-ibdata1 can still grow and you can check more information here about why it grows and what are the solutions.
+    -https://www.percona.com/blog/2013/09/25/how-to-reclaim-space-in-innodb-when-innodb_file_per_table-is-on/
+    -https://www.percona.com/blog/2013/08/20/why-is-the-ibdata1-file-continuously-growing-in-mysql/
 Main Success Scenario:
   1. Is the table using the InnoDB storage engine and innodb_file_per_table system variable set to 1 to allow empty disk space used by an index to be given up
       select @@Global.innodb_file_per_table
