@@ -2,6 +2,7 @@ Get Last Modified Time of Routine Definition
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/show-procedure-status.html
   -Guidance @ https://www.mysqltutorial.org/listing-stored-procedures-in-mysql-database.aspx/
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-procedure-status.html
 Main Success Scenario:
   1. The Last_Altered column below cannot be used if running in an AWS Aurora serverless environment  
   
@@ -18,7 +19,8 @@ Main Success Scenario:
     Order By
       Routine_Schema
 Alternatives:
-  1a. Use SHOW PRC
+  1a. Use SHOW Procedure for procedures 
     SHOW Procedure STATUS WHERE Db = 'MyTableName' And Name = 'MyProcedureName'
+  1b. Use 
   
   
