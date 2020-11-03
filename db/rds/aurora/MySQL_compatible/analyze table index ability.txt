@@ -5,6 +5,7 @@ Note:
 Main Success Scenario:
   1. Is the table using the InnoDB storage engine and innodb_file_per_table system variable set to 1 to allow empty disk space used by an index to be given up
       select @@Global.innodb_file_per_table
+  2. xxx:fill in
 Alternatives:
   1a. xxx is NOT set to 1
     1a1. Use mysqldump to dump your databases to a file.
