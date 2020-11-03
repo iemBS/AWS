@@ -32,7 +32,7 @@ Main Success Scenario:
   1. CREATE INDEX part_of_name ON customer (name(10));
 Alternatives:
   1a. Create Unique Index
-    1a1. CREATE UNIQUE INDEX part_of_name ON customer (name(10));
+    1a1. CREATE UNIQUE INDEX idx_[tableName]_[column names] ON [tableName] ([list of columns in index]);
   1b. Create Clustered Index
     1b1. xxx:fill in
   1c. Create Multi-Column Index
