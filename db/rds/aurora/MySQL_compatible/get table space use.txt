@@ -1,0 +1,10 @@
+Get Table Space Use
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-files-table.html
+Main Success Scenario:
+  1. See query below
+
+    select
+      *
+    from
+      INFORMATION_SCHEMA.FILES  limit 10;
