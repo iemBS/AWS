@@ -1,0 +1,15 @@
+Analyze Table Index Ability
+Note: 
+  -InnoDB Storage Engine never gives back disk space unless innodb_file_per_table system variable is set to 1. 
+  -If innodb_file_per_table is set to 1, you can run the optimize command on a table to remove the extra space used by indexes. 
+Main Success Scenario:
+  1. Is the table using the InnoDB storage engine and innodb_file_per_table system variable set to 1 to allow empty disk space used by an index to be given up
+      select @@Global.innodb_file_per_table
+Alternatives:
+  1a. xxx is NOT set to 1
+    1a1. Use mysqldump to dump your databases to a file.
+    1a2. Drop your databases.
+    1a3. Stop mysql.
+    1a4. Delete your innodb files (or move them elsewhere).
+    1a5. Start up mysql.
+    1a6. Re-create your databases and re-import from the mysqldump file.
