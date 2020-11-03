@@ -1,13 +1,23 @@
 Analyze Table Index Ability
 Note: 
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/char.html
   -InnoDB Storage Engine never gives back disk space unless innodb_file_per_table system variable is set to 1. 
   -If innodb_file_per_table is set to 1, you can run the optimize command on a table to remove the extra space used by indexes. 
+  -When CHAR values are stored, they are right-padded with spaces to the specified length. When CHAR values are retrieved, trailing spaces are removed unless the PAD_CHAR_TO_FULL_LENGTH SQL mode is enabled.
+  -VARCHAR values are not padded when they are stored. Trailing spaces are retained when values are stored and retrieved, in conformance with standard SQL.
+  -Values in VARCHAR columns are variable-length strings. The length can be specified as a value from 0 to 65,535. The effective maximum length of a VARCHAR is subject to the maximum row size (65,535 bytes, which is shared among all columns) and the character set used.
+  -For VARCHAR columns, trailing spaces in excess of the column length are truncated prior to insertion and a warning is generated, regardless of the SQL mode in use. For CHAR columns, truncation of excess trailing spaces from inserted values is performed silently regardless of the SQL mode.
+  -InnoDB encodes fixed-length fields greater than or equal to 768 bytes in length as variable-length fields, which can be stored off-page. For example, a CHAR(255) column can exceed 768 bytes if the maximum byte length of the character set is greater than 3, as it is with utf8mb4.
+  -All MySQL collations are of type PAD SPACE. This means that all CHAR, VARCHAR, and TEXT values are compared without regard to any trailing spaces. “Comparison” in this context does not include the LIKE pattern-matching operator, for which trailing spaces are significant. 
+  -When you remove rows, they are just marked as deleted on disk but space will be consumed by InnoDB files which can be re-used later when you insert/update more rows but it will never shrink. Very old MySQL bug: 
+    -http://bugs.mysql.com/bug.php?id=1341
+  -MySQL system tablespace is ibdata1, which is located under /var/lib/mysql. The single ibdata1 file contains all the tables and indexes in your MySQL database. So, if you have a big database, this file size will grow really big.
 Main Success Scenario:
   1. Is the table using the InnoDB storage engine and innodb_file_per_table system variable set to 1 to allow empty disk space used by an index to be given up
       select @@Global.innodb_file_per_table
   2. xxx:fill in
 Alternatives:
-  1a. xxx is NOT set to 1
+  1a. innodb_file_per_table is NOT set to 1
     1a1. Use mysqldump to dump your databases to a file.
     1a2. Drop your databases.
     1a3. Stop mysql.
