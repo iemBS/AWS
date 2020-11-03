@@ -3,6 +3,7 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/show-procedure-status.html
   -Guidance @ https://www.mysqltutorial.org/listing-stored-procedures-in-mysql-database.aspx/
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-procedure-status.html
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-function-status.html
 Main Success Scenario:
   1. The Last_Altered column below cannot be used if running in an AWS Aurora serverless environment  
   
@@ -21,6 +22,21 @@ Main Success Scenario:
 Alternatives:
   1a. Use SHOW Procedure for procedures 
     SHOW Procedure STATUS WHERE Db = 'MyTableName' And Name = 'MyProcedureName'
-  1b. Use 
-  
-  
+  1b. Use SHOW Function for functions
+    SHOW Function STATUS WHERE Db = 'MyTableName' And Name = 'MyProcedureName' And Modified > @dt;
+  1c. Get updated functions from the Information_Schema.Routines table 
+    1c1. Use the below query to get updated functions
+      select 
+      Routine_Schema As DbNm,
+        Routine_Type AS ObjType,
+        Routine_Name AS ObjNm,
+        Created As CreatedDt,
+        Last_Altered As LastModDt
+    From
+      Information_Schema.Routines
+    Where
+      Routine_Type = 'FUNCTION'
+        And
+        Routine_Schema = 'MyDbNm'
+        And 
+        Last_Altered > @dt
