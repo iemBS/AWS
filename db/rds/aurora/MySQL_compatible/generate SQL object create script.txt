@@ -8,6 +8,7 @@ Note:
     -alter script header
       CREATE DEFINER=`myUserName`@`%` PROCEDURE `mySprocName`()
       
+ -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-create-table.html
 Pre-conditions:
   -Generating SQL script in MySQL Workbench client
 Main Success Scenario:
@@ -20,9 +21,24 @@ Main Success Scenario:
 Alternatives:
   1a. Generate SQL script from command line
     1a1. xxx:fill in
-  1b. Generate SQL script from a SQL command in the MySQL Workbench client
-    1b1. xxx:fill in
-  1c. Generate SQL script for all objects in the database
+  1b. Generate SQL table script from a SQL command in the MySQL Workbench client
+    1b1. SHOW CREATE TABLE MyTbl
+  1c. Generate SQL view script from a SQL command in the MySQL Workbench client
     1c1. xxx:fill in
+  1d. Get a SQL view script from a system table 
+    1d1. 
+        Select
+          @@hostname,
+          Table_Schema,
+          Table_Name,
+          View_Definition
+        From
+          Information_Schema.Views;
+  1e. Get a SQL routine script from a system table 
+    1e1. xxx:fill in
+  1f. Generate SQL routine script from a SQL command in the MySQL Workbench client
+    1f1. xxx:fill in
+  1x. Generate SQL script for all objects in the database
+    1x1. xxx:fill in
   
   
