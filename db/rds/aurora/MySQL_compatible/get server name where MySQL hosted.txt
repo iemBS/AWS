@@ -1,0 +1,10 @@
+Get Server Name
+Note:
+  -Cannot use these because they give you the location that connections are coming from and connecting to the MySQL instance
+    -SELECT SUBSTRING_INDEX(USER(), '@', -1) 
+    -select host from information_schema.processlist;
+Main Success Scenario:
+  1. Select @@hostname
+Alternatives:
+  1a. Get using "SHOW VARIABLES"
+    1a1. show variables where Variable_name = 'hostname';
