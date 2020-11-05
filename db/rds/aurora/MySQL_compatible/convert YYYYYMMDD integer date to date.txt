@@ -1,6 +1,8 @@
 Convert YYYYMMDD integer date to Date
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/data-types.html
+  -Types that can be converted to is less than the list of data types that columns can be defined as. See @ https://www.w3schools.com/sql/func_mysql_convert.asp
+  -Cannot convert to "VARCHAR" type. 
 Main Success Scenario:
   1. select CONVERT('20190718', DATE)
   2. Results in 2019-07-18
