@@ -27,8 +27,13 @@ Main Success Scenario:
   1. Select * From MyTbl Where MyCol RegExp '[0-9]+'
   
 Have a character other than a number
+Note:
+  -The NOT allows you to let in an empty string
 Main Success Scenario:
   1. Select * From MyTbl Where MyCol RegExp '[^0-9]'
+Alternatives:
+  1a. Get a character other than those between 0 and 9 or an empty string
+    1a1. Select * From MyTbl Where MyCol NOT RegExp '^[0-9]+$'
   
 Have text within value
 Main Success Scenario:
@@ -42,6 +47,15 @@ Alternatives:
     1a1. Select * From MyTbl Where MyCol RegExp '^[0-9]{10}$'
   1b. Only 10 characters within the 0x70 to 0x74 range of characters in Ascii using hexadecimal numbers for the characters.
     1b1. Select * From MyTbl Where MyCol RegExp '^[\x70-\x74]{10}$'
+    
+Get a non-empty contiguous string of digits
+Main Success Scenario: 
+  1. Select * From MyTbl Where MyCol RegExp '^[0-9]+$'
+  
+Get anything that is not a non-empty contiguous string of digits
+Main Success Scenario: 
+  1. Select * From MyTbl Where MyCol NOT RegExp '^[0-9]+$'
+
     
 Have values that start with "a"
 Main Success Scenario:
