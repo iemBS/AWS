@@ -1,0 +1,8 @@
+Use CheckSum
+Note: 
+  -Checksums are often used to verify data integrity but are not relied upon to verify data authenticity.
+  -Guidance @ https://www.howtogeek.com/363735/what-is-a-checksum-and-why-should-you-care/
+  -Guidance @ https://www.tutorialspoint.com/create-an-aggregate-checksum-of-a-column-in-mysql
+    -You can compare the the data in a column between two DBs by comparing Select Sum(CRC32(MyCol)) From MyTable
+Main Success Scenario:
+  1. Select CRC32(MyCol) From MyTable
