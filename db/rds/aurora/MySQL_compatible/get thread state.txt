@@ -1,5 +1,34 @@
 Get Thread State
 Note:
-  Meaning of thread states @ https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
+  -Meaning of thread states @ https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/thread-information.html
+  -Thread States not possible becasue using InnoDB storage engine:
+    -Analyzing
+    -Creating index
+    -Repair done
+    -Saving state
+    -Sorting index
+  -Thread states can be helpful for understanding performance
+    -Copying to tmp table
+    -Creating sort index
+    -Creating tmp table
+    -logging slow query
+    -optimizing
+    -Removing duplicates
+    -removing tmp table
+    -Repair by sorting
+    -Repair with keycache
+  -Thread states indicate performance issues occuring
+    -converting HEAP to ondisk
+    -Copying to tmp table on disk
+  -Thread states indicate an issue is occuring
+    -Rolling back
 Main Success Scenario:
-  1. xxx:fill 
+  1. Get threads run by the current account
+      Select * From Information_Schema.ProcessList Where User = SUBSTRING_INDEX(USER(),'@',1) LIMIT 0, 2000
+Alternatives:
+  1a. Get thread state of all active threads
+    xxx:fill in
+  1b. Get thread state of all inactive threads
+    xxx:fill in
+  
