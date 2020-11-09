@@ -1,0 +1,22 @@
+Access with Excel
+Main Success Scenario:
+  1. "Access with MySQL Add-In for Excel"
+Alternatives:
+  1a. "Access with AWS ODBC"
+  1b. "Access with MySQL ODBC Driver"
+  
+Access with MySQL Add-In for Excel
+Note:
+  -Guidance @ https://dev.mysql.com/doc/mysql-for-excel/en/mysql-for-excel-install.html
+Main Success Scenario:
+  1. xxx:fill in
+  
+Access with AWS ODBC
+Note:
+  -Guidance @ https://docs.aws.amazon.com/redshift/latest/mgmt/configure-odbc-connection.html#install-odbc-driver-windows
+Main Success scenario:
+  1. xxx:fill in
+
+Access with MySQL ODBC Driver
+Main Success scenario:
+  1. xxx:fill in
