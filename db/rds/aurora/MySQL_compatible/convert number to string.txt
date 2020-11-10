@@ -1,0 +1,5 @@
+Convert Number to String
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-cast/
+Main Success Scenario:
+  1. Select Cast(24 As CHAR(2))
