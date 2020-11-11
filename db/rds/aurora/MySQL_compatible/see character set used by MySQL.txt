@@ -1,6 +1,7 @@
 See Character Set used by MySQL
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/charset-connection.html
+  -Guidance @ https://downloads.mysql.com/docs/mysql-g11n-excerpt-8.0-en.pdf
 Main Success Scenario:
   1. USE MyDB; 
      SELECT @@character_set_database; # gives abbreviated name
