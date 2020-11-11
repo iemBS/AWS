@@ -1,0 +1,10 @@
+Assign Value
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/assignment-operators.html
+Main Success Scenario:
+  1. Use "=" with the SET keyword
+Alternatives:
+  1a. Use "=" with SET in an update statement
+    1a1. xxx:fill in
+  1b. Use ":=" to assign a value
+    1b1. xxx:fill in
