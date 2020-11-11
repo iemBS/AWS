@@ -2,7 +2,14 @@ Insert Into Table with Auto Increment Column
 Note:
   -Guidance @ https://dev.mysql.com/doc/mysql-tutorial-excerpt/5.7/en/example-auto-increment.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. See query below 
+      Insert Into MyTbl
+        (n)
+      select 
+        @seq :=floor(@seq + 1) AS n
+      from 
+        (select @seq :=0)s, information_schema.columns 
 Alternatives:
   1a. Insert value into auto increment column
     1a1. insert value into column and the next auto increment value will be the value after the highest value in the column
+        xxx:fill in
