@@ -1,6 +1,7 @@
 Assign Value
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/assignment-operators.html
+  -When used in a SET statement, = is treated identically to :=.
 Main Success Scenario:
   1. Use "=" with the SET keyword
 Alternatives:
