@@ -1,3 +1,5 @@
 Convert Timezone
+Note:
+  -Timezone abbreviations @ https://www.timeanddate.com/time/zones/
 Main Success Scenario:
   1. Select CONVERT_TZ('SomeDateValue','UTC','US/Pacific')
