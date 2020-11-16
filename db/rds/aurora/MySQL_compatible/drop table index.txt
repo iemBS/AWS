@@ -3,3 +3,6 @@ Note:
   -Guidance @ https://www.w3schools.com/sql/sql_create_index.asp
 Main Success Scenario:
   1. ALTER TABLE MyTbl DROP INDEX idx_MyTbl_MyCols;
+Alternatives:
+  1a. Alternative command format that is also a table alter
+    1a1. Drop Index idx_MyTbl_MyCols On MyTbl;
