@@ -2,8 +2,9 @@ Alter Table Index
 Note:
   -There is no way to alter an index on a table. You need to drop it and then recreate it
   -The alter statements keeps you from dropping the table during the change though
+  -See "Drop Table Index" and "Create Table Index" in other indexes
 Main Success Scenario:
   1. Drop Table Index
-    ALTER TABLE DROP INDEX idx_MyIdx
+    "Drop Table Index"
   2. Create Table Index
-    ALTER TABLE ADD INDEX idx_MyIdx On MyTbl (MyCol1,MyCol2)
+    "Create Table Index"
