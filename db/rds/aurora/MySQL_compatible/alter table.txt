@@ -4,6 +4,7 @@ Note:
   -Guidance @ https://www.w3schools.com/sql/sql_alter.asp
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/data-types.html
   -If only the nulability for a column is changed, the data type needs to be stated before the nullability. 
+  -If any part of a column definition is changed, the rest of the column attributes that are not changing need to be included in the alter table statement so they are not lost
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
