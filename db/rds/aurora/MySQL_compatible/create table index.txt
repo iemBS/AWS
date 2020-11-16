@@ -29,12 +29,14 @@ Note:
     -If it is very likely that a long string column has a unique prefix on the first number of characters, it is better to index only this prefix, using MySQL's support for creating an index on the leftmost part of the column. Shorter indexes are faster, not only because they require less disk space, but because they also give you more hits in the index cache, and thus fewer disk seeks.
     -Use Partial Index @ https://www.oreilly.com/library/view/high-performance-mysql/0596003064/ch04.html
 Main Success Scenario:
-  1. CREATE INDEX part_of_name ON customer (name(10));
+  1. CREATE INDEX idx_[tableName]_[column names] ON MyTbl (MyCol1,MyCol2);
 Alternatives:
   1a. Create Unique Index
-    1a1. CREATE UNIQUE INDEX idx_[tableName]_[column names] ON [tableName] ([list of columns in index]);
+    1a1. CREATE UNIQUE INDEX idx_[tableName]_[column names] ON MyTbl (MyCol1,MyCol2);
   1b. Create Clustered Index
     1b1. xxx:fill in
   1c. Create Multi-Column Index
     1c1. xxx:fill in
+  1d. Alternative command format that is also treated as a table alter
+    1d1. ALTER TABLE ADD INDEX idx_[tableName]_[column names] ON MyTbl (MyCol1,MyCol2);
   
