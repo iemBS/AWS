@@ -1,6 +1,9 @@
 Alter Table
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/alter-table.html
+  -Guidance @ https://www.w3schools.com/sql/sql_alter.asp
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/data-types.html
+  -If only the nulability for a column is changed, the data type needs to be stated before the nullability. 
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
@@ -8,7 +11,11 @@ Alternatives:
     1a1. xxx:fill in
   1b. Change table name
     1b1. ALTER TABLE tblName RENAME tblName_OLD;
-  1c. Alter datetime(6) column to default to the current date
+  1c. Alter column of datetime(6) data type to default to the current date
     1c1. ALTER TABLE tblNm MODIFY colDt DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6);
   1d. Alter table to add a multi column primary key
     1d1. ALTER TABLE tblNm ADD CONSTRAINT PRIMARY KEY (col1,col2)
+  1e. Alter column data type
+    1e1. ALTER TABLE tablename MODIFY columnname INTEGER;
+  1f. Alter column nullability
+    1f1. ALTER TABLE tablename MODIFY columnname INTEGER NOT NULL;
