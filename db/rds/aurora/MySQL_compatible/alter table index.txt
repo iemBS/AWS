@@ -2,7 +2,7 @@ Alter Table Index
 Note:
   -There is no way to alter an index on a table. You need to drop it and then recreate it
   -The alter statements keeps you from dropping the table during the change though
-  -See "Drop Table Index" and "Create Table Index" in other indexes
+  -See "Drop Table Index" and "Create Table Index" in other files in this code repo
 Main Success Scenario:
   1. Drop Table Index
     "Drop Table Index"
