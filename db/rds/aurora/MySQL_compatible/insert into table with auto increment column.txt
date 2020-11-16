@@ -10,6 +10,6 @@ Main Success Scenario:
       from 
         (select @seq :=0)s, information_schema.columns 
 Alternatives:
-  1a. Insert value into auto increment column
+  1a. Insert value into column specified as auto increment 
     1a1. insert value into column and the next auto increment value will be the value after the highest value in the column
         xxx:fill in
