@@ -1,0 +1,5 @@
+Drop Procedure
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-stored-procedure/mysql-drop-procedure/
+Main Success Scenario:
+  1. Drop Procedure If Exists MyDb.MyProcedure
