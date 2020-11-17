@@ -22,3 +22,5 @@ Alternatives:
     1f1. ALTER TABLE tablename MODIFY columnname INTEGER NOT NULL;
   1g. Alter column name casing (does not see as a name change)
     1g1. ALTER TABLE tablename MODIFY columnnaMe INTEGER NOT NULL;
+  1h.  Remove column default (just don't mention it)
+    1h1. ALTER TABLE tablename MODIFY columnname INTEGER NOT NULL;
