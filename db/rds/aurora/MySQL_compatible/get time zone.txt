@@ -1,0 +1,12 @@
+Get Time Zone
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_time_zone
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_system_time_zone
+  -time_zone variable is ...
+    -Current time zone
+	-This variable is used to initialize the time zone for each client that connects.
+  -If "time_zone" set to "SYSTEM", every MySQL function call that requires a time zone calculation makes a system library call to determine the current system time zone. This call may be protected by a global mutex, resulting in contention.
+  -There are Global and Session flavors of "time_zone" variable
+  -By default, the initial value of "time_zone" is 'SYSTEM' (which means, “use the value of system_time_zone”). 
+Main Success Scenario:
+  1. Select If(@@time_zone='SYSTEM',@@Global.system_time_zone,@@time_zone)
