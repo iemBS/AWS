@@ -1,0 +1,16 @@
+Set Default Value
+Note: 
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/data-type-defaults.html
+  -The BLOB, TEXT, GEOMETRY, and JSON data types cannot be assigned a default value.
+  -Numeric fields can have their default value surounded by quotes
+Main Success Scenario:
+  1. See code below
+  
+    CREATE TABLE t1 (
+      i     INT DEFAULT -1,
+      c     VARCHAR(10) DEFAULT '',
+      price DOUBLE(16,2) DEFAULT '0.00'
+    );
+    
+ Alternatives:
+   1a. xxx:fill in
