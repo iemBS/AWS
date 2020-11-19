@@ -1,3 +1,5 @@
 Get Last Modify Time of Table Definition
+Note:
+  -InndoDB storage engine does not support the UPDATE_TIME column in nformation_Schema.Tables
 Main Success Scenario:
   1. You cannot get the last modify time of a table definition in MySQL. The Create_Time and Update_Time in Information_Schema.Tables does not keep that info. 
