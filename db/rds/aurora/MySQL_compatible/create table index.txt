@@ -13,6 +13,8 @@ Note:
     -Specifying N for indexes can make the index file much smaller, which could save a lot of disk space and might also speed up INSERT operations.
   -When you create a UNIQUE constraint, MySQL creates a UNIQUE index behind the scenes. Guidance @ https://www.mysqltutorial.org/mysql-unique
   -A PRIMARY KEY constraint creates a UNIQUE index. 
+  -A unique index can contain multiple null values. See https://dev.mysql.com/doc/refman/5.7/en/create-index.html
+    -"InnoDB Storage Engine Index Characteristics" table in URL above notes that unique and non-unique indexes can have more than one NULL value
   -You can have only one PRIMARY KEY constraint per table. 
   -Unique Key and Primary Key differences
     -Unique Key allows one NULL value
