@@ -1,6 +1,8 @@
 Get Table Row Count
 Note: 
   -Guidance @ https://www.mysqltutorial.org/mysql-row-count/
+  -If using the InndoDB storage engine, the Table_Rows value in Information_Schema.tables is an approximation and can be off by as much as 50%.
+    -See @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html
 Main Success Scenario:
   1. See query below
   
@@ -12,3 +14,12 @@ Main Success Scenario:
       WHERE
           table_schema = 'classicmodels'
       ORDER BY table_name;
+      
+Alternatives:
+  1a. If using InnoDB storage engine do not rely on table_rows column in Information_Schema.tables
+    1a1. Generate a query for each table that calls count(*)
+
+          
+    1a2. xxx
+    
+    
