@@ -31,3 +31,55 @@ Navigate UI
   -"Tags" tab
   
   xxx:fill in
+
+
+When using DEV role on 201120
+-"Amazon RDS" left side bar
+  -"Dashbaord" option
+  -"Databases" option
+    -table
+      -"DB identifier" column
+      -"Role" column
+      -"Engine" column
+      -"Region & AZ" column
+      -"Size" column
+      -"Status" column
+      -"CPU" column
+      -"Current activity" column
+      -"Maintenance" column
+      -"VPC" column
+      -"Multi-AZ" column
+  -"Query Editor" option
+    -"Connect to database" window
+      -xxx:fill in
+  -"Performance Insights" option
+  -"Snapshots" option
+    -"Manual" tab
+    -xxx:fill in
+  -"Automanted backups" option
+    -xxx:fill in
+  -"Reserved Instances" option
+    -xxx:fill in
+  -"Proxies" option
+    -xxx:fill in
+  -"Subnet groups" option
+    -xxx:fill in
+  -"Parameter groups" option
+    -xxx:fill in
+  -"Option groups" option
+    -xxx:fill in
+  -"Events" option
+    -gear icon on top right
+      -"Preferences" window
+        -xxx:fill in
+    -table
+      -"Source" column
+      -"Type" column: Has value of Instances, Snapshots, Cluster Snapshots, Clusters
+      -"Time" column
+      -"Message" column
+  -"Event subscriptions" option
+    -xxx:fill in
+  -"Recommendations" option
+    -xxx:fill in
+  -"Certificate update" option
+    -xxx:fill in
