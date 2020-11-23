@@ -1,0 +1,13 @@
+See Event Messages
+Note:
+  -Guidance @ https://www.tutorialspoint.com/What-is-the-use-of-ON-COMPLETION-PRESERVE-clause-while-creating-the-event
+Main Success Scenario:
+  1. Select * from event_messages;
+  2. End 
+Alternatives:
+  1a. Get error message saying "event_messages" table does not exist 
+    1a1. xxx:fill in
+    1a2. End
+  1b. xxx:fill in
+    1b1. SHOW EVENTS FROM [MyDB name];
+    1b2. End
