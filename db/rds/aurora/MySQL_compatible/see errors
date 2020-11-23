@@ -1,0 +1,20 @@
+See Errors
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-errors.html
+  -SHOW ERRORS is a diagnostic statement that is similar to SHOW WARNINGS, except that it displays information only for errors, rather than for errors, warnings, and notes.
+  -SELECT @@error_count will clear the message list in "SHOW ERRORS" if run. 
+  -SHOW COUNT(*) ERRORS will NOT clear the message list in "SHOW ERRORS" if run. 
+  -The max_error_count system variable controls the maximum number of error, warning, and note messages for which the server stores information
+Main Success Scenario:
+  1. SHOW ERRORS; 
+  2. END
+Alternatives:
+  1a. Get count of warnings 
+    1a1. SHOW COUNT(*) ERRORS;
+    1a2. END
+  1b. Get count of warnings via the system variable
+    1b1. SELECT @@error_count;
+    1b2. END
+  1c. Errors gone since max_error_count was exceeded
+    1c1. The oldest warning, error, and note messages in SHOW WARNINGS have been pushed out to limit to the number of messages in max_error_count
+    1c2. END
