@@ -1,0 +1,5 @@
+Alter Event
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/alter-event.html
+Main Success Scenario:
+  1. xxx:fill in
