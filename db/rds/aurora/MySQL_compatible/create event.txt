@@ -6,6 +6,7 @@ Note:
   -If the event scheduler is not enabled, you can set the event_scheduler system variable to enable and start it. 
   -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler-thread-states.html
   -MySQL Events are also known as “temporal triggers” because they are triggered by time, not by DML events like normal triggers. 
+  -Even if you are an admin, you may see "Access denied; you need (at least one of) the SUPER privilege(s) for this operation" when trying to turn on the event_scheduler
 Main Success Scenario:
   1. See code below 
   
@@ -43,3 +44,8 @@ Alternatives:
     1c1. xxx:fill in
   1d. Execute more than one statement within an event
     1d1. xxx:fill in
+  1e. Event does not start after it is created
+    1e1. Confirm event scheduler is off.
+      select @@Global.event_scheduler # A value of "OFF", means it is not on. 
+    1e2. Turn event scheduler on.
+      SET GLOBAL event_scheduler = ON; 
