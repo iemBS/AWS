@@ -49,3 +49,5 @@ Alternatives:
       select @@Global.event_scheduler # A value of "OFF", means it is not on. 
     1e2. Turn event scheduler on.
       SET GLOBAL event_scheduler = ON; 
+  1f. Add an additional schedule to an event
+    1f1. xxx:fill in
