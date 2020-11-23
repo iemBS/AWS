@@ -10,6 +10,13 @@ Note:
   -If event_scheduler has a value of OFF what happens when you create an event
     -Running SHOW EVENTS FROM [MyDb] indicates STATUS = "ENABLED"
     -No error message is showing in MySQL workbench when you create an event in this scenario. 
+  -event_scheduler is a parameter in Aurora serverless that cannot be set using a MySQL query. 
+  -Even though you can change the event_scheduler parameter in the RDS console, it does not change the event_scheduler system variable in MySQL. 
+    -Info @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html
+    -Running the below query shows "OFF"
+      select @@Global.event_scheduler
+    -You get an error message when you run the below to set the system variable to "ON"
+      SET GLOBAL event_scheduler = ON;
 Main Success Scenario:
   1. See code below 
   
