@@ -1,0 +1,16 @@
+Notified of Transaction Rollback
+Note:
+  -You must call SIGNAL after ROLLBACK if you want an exception to be generated and rollback the transaction. 
+    -See @ https://stackoverflow.com/questions/60894895/mysql-transaction-in-stored-procedure-does-not-rollback
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/signal.html
+Main Success Scenario:
+  1. See code below 
+  
+    DECLARE exit handler for sqlexception
+    BEGIN
+        -- ERROR
+      ROLLBACK;
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'SQLError occured. Triggered ROLLBACK';
+    END;
+Alternatives:
+  1a. xxx:fill in
