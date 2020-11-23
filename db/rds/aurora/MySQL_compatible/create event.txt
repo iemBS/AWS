@@ -10,7 +10,7 @@ Main Success Scenario:
   1. See code below 
   
     CREATE EVENT myevent
-    ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR
+    ON SCHEDULE AT CURRENT_TIMESTAMP
     DO
       UPDATE myschema.mytable SET mycol = mycol + 1;
      
@@ -21,20 +21,25 @@ Alternatives:
     1a1. See code below
 
       CREATE EVENT myevent
-      ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR 
+      ON SCHEDULE AT CURRENT_TIMESTAMP
       ON COMPLETION PRESERVE
       DO
         UPDATE myschema.mytable SET mycol = mycol + 1;
         
     1a2. Go to step 2
     
-  1b. Be expecit about event going away after the schedule is complete
+  1b. Be explicit about event going away after the schedule is complete
     1b1. See code below
     
       CREATE EVENT myevent
-      ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR 
+      ON SCHEDULE AT CURRENT_TIMESTAMP
       ON COMPLETION NOT PRESERVE
       DO
         UPDATE myschema.mytable SET mycol = mycol + 1;
       
     1b2. Go to step 2
+    
+  1c. Execute event more than once before it goes away
+    1c1. xxx:fill in
+  1d. Execute more than one statement within an event
+    1d1. xxx:fill in
