@@ -1,0 +1,12 @@
+Cause Transaction Rollback
+Note:
+  -Guidance @ https://stackoverflow.com/questions/6121917/automatic-rollback-if-commit-transaction-is-not-reached
+Main Success Scenario:
+  1. Error occurs when your SQL code is running
+  2. Stop Executing SQL code
+  3. SQL code is quit in a middle of a transaction
+Alternatives:
+  1a. Disconnecting query from the database
+    1a1. xxx:fill in
+  1b. A deadlock or lock-wait timeout occurs
+    1b1. xxx:fill in
