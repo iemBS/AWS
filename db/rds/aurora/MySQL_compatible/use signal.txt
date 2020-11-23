@@ -1,0 +1,42 @@
+Use Signal
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/signal.html
+  -SQLSTATE values that begin with '01' are signals in the warning class. The warning does not terminate the procedure, and can be seen with SHOW WARNINGS after the procedure returns.
+  -All SQLSTATE classes and possible values @ https://en.wikipedia.org/wiki/SQLSTATE
+  -https://www.mysqltutorial.org/mysql-signal-resignal/
+  -The RESIGNAL  statement is similar to SIGNAL  statement in term of functionality and syntax, except that:
+    -You must use the RESIGNAL  statement within an error or warning handler, otherwise, you will get an error message saying that “RESIGNAL when the handler is not active”. Notice that you can use SIGNAL  statement anywhere inside a stored procedure.
+    -You can omit all attributes of the RESIGNAL statement, even the SQLSTATE value.
+    -If you use the RESIGNAL statement alone, all attributes are the same as the ones passed to the condition handler.
+    -MYSQL_ERRNO is a MySQL extension
+    -Value for MYSQL_ERRNO does not need to align with the SQLSTATE. It will cause confusion for anyone looking at it.
+Main Success Scenario:
+  1. SIGNAL SQLSTATE '01000';
+  2. End
+Alternatives:
+  1a. Signal an unhandled user-defined exception
+    1a1. SIGNAL SQLSTATE '45000';
+    1a2. End
+  1b. Signal successful completion
+    1b1. The SQLSTATE is "00000", but you cannot make a SIGNAL call with that 
+    1b2. End
+  1c. Signal custom error with spaces that is derived from "45000" SQLSTATE
+    1c1. 
+      DECLARE My_Custom_Error CONDITION FOR SQLSTATE '45000';
+      SIGNAL My_Custom_Error
+     1c2. End
+  1d. Signal custom error with spaces that is derived from "45000" SQLSTATE
+    1d1. See code below 
+      DECLARE `My Custom Error` CONDITION FOR SQLSTATE '45000';
+      SIGNAL `My Custom Error`
+    1d2. End
+  1e. Set MESSAGE_TEXT in SIGNAL statement
+    1e1. See code below 
+      SIGNAL SQLSTATE '01000'
+        SET MESSAGE_TEXT = 'A warning occurred'
+  1f. Set MYSQL_ERRNO in SIGNAL statement
+    1f1. See code below
+      SIGNAL SQLSTATE '01000'
+        SET MYSQL_ERRNO = 1000;
+  1z. Use Resignal instead of Signal
+    1z. xxx:fill in
