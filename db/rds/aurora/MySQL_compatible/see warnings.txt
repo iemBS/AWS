@@ -1,0 +1,24 @@
+See Warnings
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-warnings.html
+  -SHOW WARNINGS is a diagnostic statement that displays information about the conditions (errors, warnings, and notes) resulting from executing a statement in the current session.
+  -Enable seeing warnings when running SQL Queries
+    -"Show warnings enabled" command does not work in Aurora serverless environment 
+  -Disable seeing warnings when running SQL Queries
+    -"Show nowarning enabled" command does not work in Aurora serverless environment 
+  -SELECT @@warning_count will clear the message list in "SHOW WARNINGS" if run. 
+Main Success Scenario:
+  1. SHOW WARNINGS; 
+  2. END
+Alternatives:
+  1a. Get count of warnings 
+    1a1. SHOW COUNT(*) WARNINGS;
+    1a2. END
+  1b. Get count of warnings via the system variable
+    1b1. SELECT @@warning_count;
+    1b2. END
+  1c. Warnings gone since max_error_count was exceeded
+    1c1. The oldest warning, error, and note messages in SHOW WARNINGS have been pushed out to limit to the number of messages in max_error_count
+    1c2. END
+
+    
