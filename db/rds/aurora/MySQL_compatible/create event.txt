@@ -7,6 +7,9 @@ Note:
   -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler-thread-states.html
   -MySQL Events are also known as “temporal triggers” because they are triggered by time, not by DML events like normal triggers. 
   -Even if you are an admin, you may see "Access denied; you need (at least one of) the SUPER privilege(s) for this operation" when trying to turn on the event_scheduler
+  -If event_scheduler has a value of OFF what happens when you create an event
+    -Running SHOW EVENTS FROM [MyDb] indicates STATUS = "ENABLED"
+    -No error message is showing in MySQL workbench when you create an event in this scenario. 
 Main Success Scenario:
   1. See code below 
   
