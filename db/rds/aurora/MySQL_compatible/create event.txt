@@ -1,0 +1,40 @@
+Create Event
+Note:
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/create-event.html
+  -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html
+  -https://www.mysqltutorial.org/mysql-triggers/working-mysql-scheduled-event/
+  -If the event scheduler is not enabled, you can set the event_scheduler system variable to enable and start it. 
+  -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler-thread-states.html
+  -MySQL Events are also known as “temporal triggers” because they are triggered by time, not by DML events like normal triggers. 
+Main Success Scenario:
+  1. See code below 
+  
+    CREATE EVENT myevent
+    ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR
+    DO
+      UPDATE myschema.mytable SET mycol = mycol + 1;
+     
+  2. xxx:fill in
+  
+Alternatives:
+  1a. Keep event from disappearing after schedule is complete
+    1a1. See code below
+
+      CREATE EVENT myevent
+      ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR 
+      ON COMPLETION PRESERVE
+      DO
+        UPDATE myschema.mytable SET mycol = mycol + 1;
+        
+    1a2. Go to step 2
+    
+  1b. Be expecit about event going away after the schedule is complete
+    1b1. See code below
+    
+      CREATE EVENT myevent
+      ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR 
+      ON COMPLETION NOT PRESERVE
+      DO
+        UPDATE myschema.mytable SET mycol = mycol + 1;
+      
+    1b2. Go to step 2
