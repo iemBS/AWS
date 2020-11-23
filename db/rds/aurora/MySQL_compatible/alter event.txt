@@ -1,5 +1,29 @@
 Alter Event
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/alter-event.html
+  -Specify the options in an ALTER EVENT statement only for those characteristics that you want to change; omitted options keep their existing values
 Main Success Scenario:
-  1. xxx:fill in
+  1. See code below
+    CREATE EVENT MyEvent
+    ON SCHEDULE AT CURRENT_TIMESTAMP
+    DO
+        CALL MyDb.MyProcedure();
+Alternatives:
+  1a. Disable an event
+    1a1. See code below 
+      ALTER EVENT myevent
+        DISABLE;
+    1a2. End
+  1b. Change event schedule
+    1b1. See code below 
+      ALTER EVENT MyEvent
+      ON SCHEDULE AT CURRENT_TIMESTAMP
+    1b2. End 
+  1c. Move event to another DB
+    1c1. See code below
+      ALTER EVENT MyOldDb.MyEvent
+      RENAME TO MyNewDb.MyEvent
+    1c2. End 
+  1d. 
+    
+
