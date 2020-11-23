@@ -10,6 +10,12 @@ Note:
     -If you use the RESIGNAL statement alone, all attributes are the same as the ones passed to the condition handler.
     -MYSQL_ERRNO is a MySQL extension
     -Value for MYSQL_ERRNO does not need to align with the SQLSTATE. It will cause confusion for anyone looking at it.
+    -Use "SHOW WARNINGS" to see warnings generated with a SIGNAL statement
+      -MESSAGE_TEXT value will show in "Message" column of results
+      -MYSQL_ERRNO value will show in "Code" column of results
+    -Use "SHOW ERRORS" to see errors generated with a SIGNAL statement
+      -MESSAGE_TEXT value will show in "Message" column of results
+      -MYSQL_ERRNO value will show in "Code" column of results
 Main Success Scenario:
   1. SIGNAL SQLSTATE '01000';
   2. End
