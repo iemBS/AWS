@@ -121,7 +121,7 @@ Alternatives:
     1k3. SHOW WARNINGS returns Level, Code, & Message columns
       'Warning', '1642', '2'
     1k4. END
-  1l. 
+  1l. Generate more than one warning in a procedure 
     1l1. Create procedure that returns no value but has more than one SIGNAL generated warning
       CREATE DEFINER=`MyAcct`@`%` PROCEDURE `MyProcedure`()
       BEGIN
@@ -135,5 +135,22 @@ Alternatives:
     1l4. SHOW WARNINGS returns Level, Code, & Message columns
       'Warning', '1642', '2'
     1l5. END
+  1m. Generate more than one error in a procedure (only the first is returned)
+    1m1. Create procedure that returns no value but has more than one SIGNAL generated error
+      CREATE DEFINER=`MyAcct`@`%` PROCEDURE `MyProcedure`()
+      BEGIN
+        SIGNAL SQLSTATE '45000'
+          SET MESSAGE_TEXT = 1;
+        SIGNAL SQLSTATE '45000'
+          SET MESSAGE_TEXT = 2;   
+      END
+    1m2. CALL MyProcedure();
+    1m3. SHOW ERRORS
+    1m4. SHOW ERRORS returns Level, Code, & Message columns
+      'Error', '1644', '1'
+    1m5. SHOW WARNINGS
+    1m6. SHOW WARNINGS returns Level, Code, & Message columns
+      'Error', '1644', '1'
+    1m7. END
   1z. Use Resignal instead of Signal
     1z. xxx:fill in
