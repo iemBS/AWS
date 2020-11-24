@@ -1,0 +1,17 @@
+Add Diagnostic Area Messages
+Note:
+  -DDL = Data Definition Language
+  -DML = Data Manipulation Language 
+  -DCL = Data Control Language
+  -DML defined @ https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_dml
+  -DDL defined @ https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_ddl
+  -DCL defined @ https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_dcl
+Main Success Scenario:
+  1. "Add Warning Messages to Diagnostic Area"
+  2. "Add Error Messages to Diagnostic Area"
+  
+Add Warning Messages to Diagnostic Area
+Main Success Scenario:
+  1. Run DML statements
+  2. Run DDL statements 
+  
