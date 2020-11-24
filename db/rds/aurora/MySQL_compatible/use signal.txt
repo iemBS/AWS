@@ -85,5 +85,17 @@ Alternatives:
     1g3. SHOW ERRORS returns Level, Code, & Message columns
       'Error', '3000', 'An error occurred'
     1g4. END 
+  1h. Use invalid SQLSTATE that has a class > '02' and is not in https://en.wikipedia.org/wiki/SQLSTATE
+    1h1. SIGNAL SQLSTATE '47000'
+    1h2. SHOW ERRORS
+    1h3. SHOW ERRORS returns Level, Code, & Message columns
+      'Error', '1644', 'Unhandled user-defined exception condition'
+    1h4. END
+  1i. Use invalid SQLSTATE that has a class of '01' and is not in https://en.wikipedia.org/wiki/SQLSTATE
+    1i1. SIGNAL SQLSTATE '01999'
+    1i2. SHOW WARNINGS
+    1i3. SHOW WARNINGS returns Level, Code, & Message columns
+      'Warning', '1642', 'Unhandled user-defined warning condition'
+    1i4. END
   1z. Use Resignal instead of Signal
     1z. xxx:fill in
