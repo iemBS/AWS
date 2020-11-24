@@ -6,6 +6,12 @@ Note:
   -SHOW COUNT(*) ERRORS will NOT clear the message list in "SHOW ERRORS" if run. 
   -The max_error_count system variable controls the maximum number of error, warning, and note messages for which the server stores information
   -"error_count" is only a session variable 
+  -The global and session scopes of the max_error_count variable can be changed to a value of 65535. 
+    -See doc @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_error_count
+  -The max_error_count variable can bet set within Aurora serverless using a query like below for the session scope, but not for the global scope. The setting of the global scope variable gives an "Error Code: 1227. Access denied; you need (at least one of) the SUPER privilege(s) for this operation" error. 
+    -SET SESSION max_error_count = 67; 
+  -According to the following AWS doc, The global scope of the max_error_count variable cannot be changed in the RDS console either. 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.parameter-groups
 Main Success Scenario:
   1. SHOW ERRORS; 
   2. END
