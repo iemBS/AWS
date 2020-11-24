@@ -9,6 +9,8 @@ Note:
   -SELECT @@warning_count will clear the message list in "SHOW WARNINGS" if run. 
   -Warnings cannot be returned from stored functions because the RETURN statement that causes the function to return clears the diagnostic area. The statement thus clears any warnings that may have been present there (and resets warning_count to 0).
   -"warning_count" is only a session variable. 
+  -SHOW WARNINGS only shows warnings for the latest statement. 
+  -SHOW WARNINGS gets its messages from the Diagnostic Area
 Main Success Scenario:
   1. SHOW WARNINGS; 
   2. END
