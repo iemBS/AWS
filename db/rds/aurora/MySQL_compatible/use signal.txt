@@ -6,7 +6,7 @@ Note:
     -Class = '02' (not found)
     -Class > '02' (exception)
   -The first two characters of an SQLSTATE value are its class, and the class determines the default value for the condition information items
-  -SQLSTATE values that begin with '01' are signals in the warning class. The warning does not terminate the procedure, and can be seen with SHOW WARNINGS after the procedure returns.
+  -Warnings do not terminate a procedure
   -All SQLSTATE classes and possible values @ https://en.wikipedia.org/wiki/SQLSTATE
   -https://www.mysqltutorial.org/mysql-signal-resignal/
   -The RESIGNAL  statement is similar to SIGNAL  statement in term of functionality and syntax, except that:
