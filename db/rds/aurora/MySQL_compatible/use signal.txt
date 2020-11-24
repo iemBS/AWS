@@ -34,7 +34,9 @@ Note:
       -For > '02' class: Unhandled user-defined exception condition
 Main Success Scenario:
   1. SIGNAL SQLSTATE '01000';
-  2. End
+  2. SHOW WARNINGS
+  3. SHOW WARNINGS returns Level, Code, & Message columns
+  4. End
 Alternatives:
   1a. Signal an unhandled user-defined exception
     1a1. SIGNAL SQLSTATE '45000';
@@ -97,5 +99,25 @@ Alternatives:
     1i3. SHOW WARNINGS returns Level, Code, & Message columns
       'Warning', '1642', 'Unhandled user-defined warning condition'
     1i4. END
+  1j. See the results of only the last error SIGNAL statement (default behavior)
+    1j1. See code below
+        SIGNAL SQLSTATE '45000'
+          SET MESSAGE_TEXT = 1;
+        SIGNAL SQLSTATE '45000'
+          SET MESSAGE_TEXT = 2;     
+    1j2. SHOW ERRORS
+    1j3. SHOW ERRORS returns Level, Code, & Message columns
+      'Error', '1644', '2'
+    1j4. END 
+  1k. See the results of only the last warning SIGNAL statement (default behavior)
+    1k1. See code below
+      SIGNAL SQLSTATE '01000'
+        SET MESSAGE_TEXT = 1;
+      SIGNAL SQLSTATE '01000'
+        SET MESSAGE_TEXT = 2;     
+    1k2. SHOW WARNINGS
+    1k3. SHOW WARNINGS returns Level, Code, & Message columns
+      'Warning', '1642', '2'
+    1k4. END
   1z. Use Resignal instead of Signal
     1z. xxx:fill in
