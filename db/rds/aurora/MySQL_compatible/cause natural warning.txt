@@ -1,0 +1,7 @@
+Cause Natural Warning
+Note: 
+  -Natural as opposed to custom
+  -list of SQLSTATE values @ https://en.wikipedia.org/wiki/SQLSTATE
+  -
+Main Success Scenario:
+  1. xxx:fill in
