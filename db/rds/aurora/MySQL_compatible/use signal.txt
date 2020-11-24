@@ -1,6 +1,11 @@
 Use Signal
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/signal.html
+    -Class = '00' (success)
+    -Class = '01' (warning)
+    -Class = '02' (not found)
+    -Class > '02' (exception)
+  -The first two characters of an SQLSTATE value are its class, and the class determines the default value for the condition information items
   -SQLSTATE values that begin with '01' are signals in the warning class. The warning does not terminate the procedure, and can be seen with SHOW WARNINGS after the procedure returns.
   -All SQLSTATE classes and possible values @ https://en.wikipedia.org/wiki/SQLSTATE
   -https://www.mysqltutorial.org/mysql-signal-resignal/
@@ -16,13 +21,17 @@ Note:
     -Use "SHOW ERRORS" to see errors generated with a SIGNAL statement
       -MESSAGE_TEXT value will show in "Message" column of results
       -MYSQL_ERRNO value will show in "Code" column of results
+      -map error # to SQLSTATE to SQLSTATE keyword @ https://docs.oracle.com/cd/E19078-01/mysql/mysql-refman-5.0/error-handling.html
 Main Success Scenario:
   1. SIGNAL SQLSTATE '01000';
   2. End
 Alternatives:
   1a. Signal an unhandled user-defined exception
     1a1. SIGNAL SQLSTATE '45000';
-    1a2. End
+    1a2. SHOW ERRORS
+    1a3. SHOW ERRORS returns Level, Code, & Message columns
+      'Error', '1644', 'Unhandled user-defined exception condition'
+    1a4. 
   1b. Signal successful completion
     1b1. The SQLSTATE is "00000", but you cannot make a SIGNAL call with that 
     1b2. End
@@ -30,16 +39,26 @@ Alternatives:
     1c1. 
       DECLARE My_Custom_Error CONDITION FOR SQLSTATE '45000';
       SIGNAL My_Custom_Error
-     1c2. End
+     1c2. SHOW ERRORS
+     1c3. SHOW ERRORS returns Level, Code, & Message columns
+       'Error', '1319', 'Undefined CONDITION: My_Custom_Error'
+     1c4. End
   1d. Signal custom error with spaces that is derived from "45000" SQLSTATE
     1d1. See code below 
       DECLARE `My Custom Error` CONDITION FOR SQLSTATE '45000';
       SIGNAL `My Custom Error`
-    1d2. End
+    1d2. SHOW ERRORS
+    1d3. SHOW ERRORS returns Level, Code, & Message columns
+      'Error', '1319', 'Undefined CONDITION: My_Custom_Error'
+    1d4. END
   1e. Set MESSAGE_TEXT in SIGNAL statement
     1e1. See code below 
       SIGNAL SQLSTATE '01000'
-        SET MESSAGE_TEXT = 'A warning occurred'
+        SET MESSAGE_TEXT = 'A warning occurred';
+    1e2. SHOW WARNINGS 
+    1e3. SHOW WARNINGS returns Level, Code, & Message columns
+      'Warning', '1642', 'A warning occurred'
+    1e4. END
   1f. Set MYSQL_ERRNO in SIGNAL statement
     1f1. See code below
       SIGNAL SQLSTATE '01000'
