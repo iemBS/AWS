@@ -1,5 +1,30 @@
 Create Handler
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/declare-handler.html
+  -types of handlers:
+    -A continue handler will allow the curernt program to continue execution
+    -An exit handler will terminate the execution of the BEGIN ... END compound statement in which the handler is declared. This is true even if the condition occurs in an inner block.
+    -An undo handler is not supported in MySQL 5.7
+      -Why is it mentioned in the MySQL 5.7 doc then?
+  -A SQL Exception is the same as an error
 Main Success Scenario:
-  1.xxx:fill in
+  1.See code below
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION BEGIN END;
+Alternatives:
+  1a. Create Continue Handler instead
+    1a1. "Create Continue Handler" 
+  1b. SQL Exception occurs but no handler is declared to catch it
+    1b1. SQL Exception is raised in executed program
+    1b2. Program terminates at the statement that raised the condition, as if there were an EXIT handler
+    1b3. END
+  1c. Program A calls Program B and Program B has a SQL Exception but no handler is declared to catch it
+    1c1. SQL Exception occurs in Program B but not handler is declared to catch it
+    1c2. The calling program handles the condition using the handler selection rules applied to its own handlers.
+  
+
+
+
+Create Continue Handler
+Main Success Scenario:
+ 1. xxx:fill in
+
