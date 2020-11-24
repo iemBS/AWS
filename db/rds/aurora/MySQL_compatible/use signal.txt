@@ -32,6 +32,8 @@ Note:
       -For '01' class: Unhandled user-defined warning condition
       -For '02' class: Unhandled user-defined not found condition
       -For > '02' class: Unhandled user-defined exception condition
+    -Calling SIGNAL will clear the previous errors, warnings, and notes from the Diagnostic Area. 
+      -Noted @ https://mariadb.com/kb/en/diagnostics-area/
 Main Success Scenario:
   1. SIGNAL SQLSTATE '01000';
   2. SHOW WARNINGS
