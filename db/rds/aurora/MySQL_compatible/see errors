@@ -14,6 +14,7 @@ Note:
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.parameter-groups
   -https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html#diagnostics-area-populating
   -SHOW ERRORS shows the errors only for the latest statement. 
+  -SHOW ERRORS gets its messages from the Diagnostic Area
 Main Success Scenario:
   1. SHOW ERRORS; 
   2. END
