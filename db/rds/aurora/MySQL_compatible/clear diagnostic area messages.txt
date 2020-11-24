@@ -13,9 +13,28 @@ Note:
       -xxx:fill in
   -Guidance @ https://mariadb.com/kb/en/diagnostics-area/
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html#diagnostics-area-populating
+  -https://dev.mysql.com/doc/refman/5.7/en/return.html
+  -https://mariadb.com/kb/en/return/
+  -The RETURN statement quits and then exits a program. 
+    -The quit part of the RETURN statement causes the Diagnostic Area to be cleared.  
+  -https://dev.mysql.com/doc/refman/5.7/en/leave.html
+  -Procedure statement clearing diagnostic area noted @ https://dev.mysql.com/doc/refman/5.7/en/resignal.html
+  -SET statement clearing a diagnostic area noted @ https://dev.mysql.com/doc/refman/5.7/en/resignal.html
+  -diagnostic hierarchy
+    -stack of diagnostics areas
+      -diagnostic area: contains one or more condition areas.
+        -condition area: contains condition information items, such as the SQLSTATE value, MYSQL_ERRNO, or MESSAGE_TEXT.
+  -When a handler takes control, it pushes a diagnostics area to the top of the stack, so there are two diagnostics areas during handler execution:
+    -The first (current) diagnostics area, which starts as a copy of the last diagnostics area, but is overwritten by the first statement in the handler that changes the current diagnostics area.
+    -The last (stacked) diagnostics area, which has the condition areas that were set up before the handler took control.
+  -An error, warning, and note are all condition areas. 
 Main Success Scenario:
-  1. Use SIGNAL
-  2. Use table based statement
+  1. Use one of these statements 
+    -Use SIGNAL
+    -Use table based statement (xxx:fill [need to discern between DML statements and non-DML statements here])
+    -RETURN at end of function
+    -Use procedure statement 
+    -xxx:fill [What about a LEAVE statement in a procedure?]
 
   
   
