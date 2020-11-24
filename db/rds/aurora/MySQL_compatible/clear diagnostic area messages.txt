@@ -1,0 +1,25 @@
+Clear Diagnostic Area Messages
+Note: 
+  -The Dianostic Area holds the messages that are seen in the SHOW ERRORS and SHOW WARNINGS results 
+  -table based statements that clear Diagnostic Area
+    -INSERT
+    -xxx:fill in
+  -These statements will not clear diagnostic area
+    -Statements that do not access a table and do not produce warnings 
+      -SET
+      -SELECT (of a variable)
+      -RESIGNAL
+      -GET DIAGNOSTICS
+      -xxx:fill in
+  -Guidance @ https://mariadb.com/kb/en/diagnostics-area/
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html#diagnostics-area-populating
+Main Success Scenario:
+  1. Use SIGNAL
+  2. Use table based statement
+
+  
+  
+  
+
+
+  
