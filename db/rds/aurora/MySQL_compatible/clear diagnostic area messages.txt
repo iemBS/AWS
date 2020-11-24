@@ -6,10 +6,11 @@ Note:
     -xxx:fill in
   -These statements will not clear diagnostic area
     -Statements that do not access a table and do not produce warnings 
-      -SET
+      -SET (as long as it does not produce warnings)
       -SELECT (of a variable)
       -RESIGNAL
       -GET DIAGNOSTICS
+      -BEGIN
       -xxx:fill in
   -Guidance @ https://mariadb.com/kb/en/diagnostics-area/
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html#diagnostics-area-populating
