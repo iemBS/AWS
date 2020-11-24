@@ -2,6 +2,8 @@ Cause Natural Warning
 Note: 
   -Natural as opposed to custom
   -list of SQLSTATE values @ https://en.wikipedia.org/wiki/SQLSTATE
-  -
+  -map MySQL error # to SQLSTATE to SQLSTATE keyword @ https://docs.oracle.com/cd/E19078-01/mysql/mysql-refman-5.0/error-handling.html
 Main Success Scenario:
   1. xxx:fill in
+Alternatives:
+  1a. xxx:fill in
