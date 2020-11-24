@@ -7,6 +7,8 @@ Note:
   -Disable seeing warnings when running SQL Queries
     -"Show nowarning enabled" command does not work in Aurora serverless environment 
   -SELECT @@warning_count will clear the message list in "SHOW WARNINGS" if run. 
+  -Warnings cannot be returned from stored functions because the RETURN statement that causes the function to return clears the diagnostic area. The statement thus clears any warnings that may have been present there (and resets warning_count to 0).
+  -"warning_count" is only a session variable. 
 Main Success Scenario:
   1. SHOW WARNINGS; 
   2. END
@@ -15,10 +17,12 @@ Alternatives:
     1a1. SHOW COUNT(*) WARNINGS;
     1a2. END
   1b. Get count of warnings via the system variable
-    1b1. SELECT @@warning_count;
+    1b1. Select @@Session.warning_count;
     1b2. END
   1c. Warnings gone since max_error_count was exceeded
     1c1. The oldest warning, error, and note messages in SHOW WARNINGS have been pushed out to limit to the number of messages in max_error_count
     1c2. END
+  1d. xxx:fill in
+    1d1. xxx:fill in
 
     
