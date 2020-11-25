@@ -72,7 +72,7 @@ Alternatives:
       DECLARE no_such_table CONDITION FOR 1051;
       
     1k2. Create Exit Handler for a specific MySQL Error Code
-      DECLARE CONTINUE HANDLER FOR no_such_table
+      DECLARE EXIT HANDLER FOR no_such_table
       BEGIN
         -- body of handler
       END;
@@ -81,7 +81,7 @@ Alternatives:
     1L1. Declare condition statement for a specific SQLSTATE
       DECLARE no_such_table CONDITION FOR SQLSTATE '42S02';
     1L2. Create Exit Handler for a specific SQLSTATE
-      DECLARE CONTINUE HANDLER FOR no_such_table
+      DECLARE EXIT HANDLER FOR no_such_table
       BEGIN
         -- body of handler
       END;
