@@ -2,8 +2,12 @@ Notified of Transaction Rollback
 Note:
   -You must call SIGNAL after ROLLBACK if you want an exception to be generated and rollback the transaction. 
     -See @ https://stackoverflow.com/questions/60894895/mysql-transaction-in-stored-procedure-does-not-rollback
-  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/signal.html
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/signal.html
+    -https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html
   -SIGNAL statement must use a 5 character string literal for the SQLSTATE
+  -Condition 1 in the Diagnostics area is the most recent condition (error, warning, or note).
+    -So, if we are looking at the Diagnostics Area within a handler, then it is the error
 Main Success Scenario:
   1. See code below 
   
@@ -100,3 +104,5 @@ Alternatives:
                     mysql_errno = 1649;
 
         END
+  1d. Collect error info, rollback, then show error that occurred in the procedure 
+    1c1. See code below
