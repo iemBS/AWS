@@ -13,4 +13,57 @@ Main Success Scenario:
       SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'SQLError occured. Triggered ROLLBACK';
     END;
 Alternatives:
-  1a. xxx:fill in
+  1a. Rollback and then show error that occurred in the procedure as string message in SQL client
+    1a1. See code below
+        CREATE DEFINER=`MyAccount`@`%` PROCEDURE `MyProcedure`()
+        BEGIN    
+          DECLARE EXIT HANDLER FOR SQLEXCEPTION
+          BEGIN 
+            GET DIAGNOSTICS CONDITION 1 
+              @sqlstate = RETURNED_SQLSTATE, # Get SQLSTATE of error thrown by procedure
+              @errno = MYSQL_ERRNO, # Get MySQL Error # of error thrown by procedure
+                    @text = MESSAGE_TEXT; # Get Message of error thrown by procedure 
+                SET @full_error = CONCAT('Transaction rollback occurred due to ERROR (MySQL Error #:', @errno, ', SQLSTATE: ', @sqlstate, ', Message: "', @text,'")');
+            ROLLBACK; # Should return MyColumn to a value of 0. 
+                SELECT @full_error;
+          END;
+
+          Update MyTable Set MyColumn = 0;
+
+          START TRANSACTION;
+            SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+            Update MyTable Set MyColumn = 1;
+
+          SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 1;
+          SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 2;   
+
+          COMMIT;  
+        END
+        
+  1b. Rollback and then show general error to indicate an error occurred in the procedure 
+    1a1. See code below
+        CREATE DEFINER=`MyAccount`@`%` PROCEDURE `MyProcedure`()
+        BEGIN    
+          DECLARE EXIT HANDLER FOR SQLEXCEPTION
+          BEGIN 
+            ROLLBACK; # Should return MyColumn to a value of 0. 
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'SQLError occured. Triggered ROLLBACK';
+          END;
+
+          Update MyTable Set MyColumn = 0;
+
+          START TRANSACTION;
+            SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+            Update MyTable Set MyColumn = 1;
+
+          SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 1;
+          SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 2;   
+
+          COMMIT;  
+        END
