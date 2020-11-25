@@ -3,6 +3,7 @@ Note:
   -You must call SIGNAL after ROLLBACK if you want an exception to be generated and rollback the transaction. 
     -See @ https://stackoverflow.com/questions/60894895/mysql-transaction-in-stored-procedure-does-not-rollback
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/signal.html
+  -SIGNAL statement must use a 5 character string literal for the SQLSTATE
 Main Success Scenario:
   1. See code below 
   
@@ -66,4 +67,36 @@ Alternatives:
             SET MESSAGE_TEXT = 2;   
 
           COMMIT;  
+        END
+  1c. Collect error info, rollback, then show error that occurred in the procedure 
+    1c1. See code below
+        CREATE DEFINER=`MyAccount`@`%` PROCEDURE `MyProcedure`()
+        BEGIN    
+          DECLARE EXIT HANDLER FOR SQLEXCEPTION
+          BEGIN 
+            GET DIAGNOSTICS CONDITION 1 
+              @sqlstate = RETURNED_SQLSTATE, # Get SQLSTATE of error thrown by procedure
+              @errno = MYSQL_ERRNO, # Get MySQL Error # of error thrown by procedure
+                    @text = MESSAGE_TEXT; # Get Message of error thrown by procedure 
+                SET @full_error = CONCAT('Transaction rollback occurred due to ERROR (MySQL Error #:', @errno, ', SQLSTATE: ', @sqlstate, ', Message: "', @text,'")');
+            ROLLBACK; # Should return MyColumn to a value of 0. 
+                SIGNAL SQLSTATE '45000' 
+              SET MESSAGE_TEXT = @full_error, 
+                        MYSQL_ERRNO = @errno;
+          END;
+
+          Update MyTable Set MyColumn = 0;
+
+          START TRANSACTION;
+            SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+            Update MyTable Set MyColumn = 1;
+
+          SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 1,
+                    mysql_errno = 1649;
+          SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 2,
+                    mysql_errno = 1649;
+
         END
