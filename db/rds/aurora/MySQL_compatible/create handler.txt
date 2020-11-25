@@ -1,12 +1,18 @@
 Create Handler
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/declare-handler.html
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/declare-handler.html
+    -https://dev.mysql.com/doc/refman/5.7/en/declare-condition.html
+    -map of MySQL Error # to SQLSTATE @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
   -types of handlers:
     -A continue handler will allow the curernt program to continue execution
     -An exit handler will terminate the execution of the BEGIN ... END compound statement in which the handler is declared. This is true even if the condition occurs in an inner block.
     -An undo handler is not supported in MySQL 5.7
       -Why is it mentioned in the MySQL 5.7 doc then?
   -A SQL Exception is the same as an error
+  -NOT FOUND: Shorthand for the class of SQLSTATE values that begin with '02'.
+  -SQLWARNING: Shorthand for the class of SQLSTATE values that begin with '01'.
+  -SQLEXCEPTION: Shorthand for the class of SQLSTATE values that do not begin with '00', '01', or '02'.
 Main Success Scenario:
   1.See code below
     DECLARE EXIT HANDLER FOR SQLEXCEPTION BEGIN END;
@@ -20,11 +26,75 @@ Alternatives:
   1c. Program A calls Program B and Program B has a SQL Exception but no handler is declared to catch it
     1c1. SQL Exception occurs in Program B but not handler is declared to catch it
     1c2. The calling program handles the condition using the handler selection rules applied to its own handlers.
+  1d. Create Exit Handler for a SQL Warning
+    1d1. See code below
+      DECLARE CONTINUE HANDLER FOR SQLWARNING
+      BEGIN
+        -- body of handler
+      END;
+      
+  1e. Create Exit Handler for a SQLSTATE in the "02" class
+    1e1. See code below
+      DECLARE CONTINUE HANDLER FOR NOT FOUND
+      BEGIN
+        -- body of handler
+      END;
+      
+  1f. Create Exit Handler for a specific MySQL Error Code
+    1f1. See code below
+      DECLARE CONTINUE HANDLER FOR 1051
+      BEGIN
+        # Body of handler here
+      END 
+ 
+  1g. Create Exit Handler for a specific SQLSTATE
+    1g1. See code below
+      DECLARE CONTINUE HANDLER FOR SQLSTATE '42S02'
+      BEGIN
+        # Body of handler here
+      END
+      
+  1h. Create Exit Handler where no clean up is needed
+    1h1. DECLARE EXIT HANDLER FOR SQLEXCEPTION BEGIN END;
+    
+  1i. Create Exit Handler where the clean up consists of a transaction rollback
+    1i1. See code below
+      DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+      BEGIN 
+        ROLLBACK
+      END;
+    
+  1j. Create Exit Handler where the clean up consists of signalling an error & transaction rollback
+    1j1. xxx:fill in
+    
+  1k. Create Exit Handler with a condition statement based on a MySQL Error Code
+    1k1. Declare condition statement for a specific MySQL Error Code
+      DECLARE no_such_table CONDITION FOR 1051;
+      
+    1k2. Create Exit Handler for a specific MySQL Error Code
+      DECLARE CONTINUE HANDLER FOR no_such_table
+      BEGIN
+        -- body of handler
+      END;
+      
+  1L. Create Exit Handler with a condition statement based on a SQLSTATE     
+    1L1. Declare condition statement for a specific SQLSTATE
+      DECLARE no_such_table CONDITION FOR SQLSTATE '42S02';
+    1L2. Create Exit Handler for a specific SQLSTATE
+      DECLARE CONTINUE HANDLER FOR no_such_table
+      BEGIN
+        -- body of handler
+      END;
+      
+  1m. Create Exit Handlers to handle two specific SQL Exceptions and all other SQL Exceptions
+    1m. xxx:fill in
   
-
-
+  
 
 Create Continue Handler
 Main Success Scenario:
- 1. xxx:fill in
+  1. xxx:fill in
+Alternatives:
+  1a. Create Continue Handler to ignore a condition
+    1a1. DECLARE CONTINUE HANDLER FOR SQLWARNING BEGIN END;
 
