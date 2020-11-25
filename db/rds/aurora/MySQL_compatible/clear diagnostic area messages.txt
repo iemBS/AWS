@@ -35,6 +35,7 @@ Main Success Scenario:
     -Use table based statement (xxx:fill [need to discern between DML statements and non-DML statements here])
     -RETURN at end of function
     -Use procedure statement 
+    -Transaction rollback
     -xxx:fill [What about a LEAVE statement in a procedure?]
 
   
