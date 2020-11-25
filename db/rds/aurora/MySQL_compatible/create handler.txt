@@ -87,9 +87,11 @@ Alternatives:
       END;
       
   1m. Create Exit Handlers to handle two specific SQL Exceptions and all other SQL Exceptions
-    1m. xxx:fill in
+    1m1. xxx:fill in
   
-  
+  1n. xxx:fill in
+    1n1. 
+    
 
 Create Continue Handler
 Main Success Scenario:
