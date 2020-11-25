@@ -104,5 +104,68 @@ Alternatives:
                     mysql_errno = 1649;
 
         END
-  1d. Collect error info, rollback, then show error that occurred in the procedure 
+  1d. Collect error info based on part of query it is from, rollback, then show error that occurred in the procedure 
     1c1. See code below
+      CREATE DEFINER=`MyAccount`@`%` PROCEDURE `MyProcedure`()
+      BEGIN    
+        # Declare variables to hold diagnostics area info
+        DECLARE varSQLSTATE CHAR(5) DEFAULT '00000';
+        DECLARE varMESSAGE_TEXT TEXT;
+          DECLARE varMYSQL_ERRNO INT;
+          DECLARE varQueryPart TEXT;
+
+          # Declare Error handler
+        DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN 
+              # Get error info
+          GET DIAGNOSTICS CONDITION 1 
+            varSQLSTATE = RETURNED_SQLSTATE, # Get SQLSTATE of error thrown by procedure
+            varMYSQL_ERRNO = MYSQL_ERRNO, # Get MySQL Error # of error thrown by procedure
+                  varMESSAGE_TEXT = MESSAGE_TEXT; # Get Message of error thrown by procedure 
+          IF varQueryPart = 'INSERT' THEN                                                   
+            SET varMESSAGE_TEXT = CONCAT_WS('|','Transaction rollback','MyProcedure',varQueryPart,varSQLSTATE,varMESSAGE_TEXT);
+              ELSE 
+            SET varMESSAGE_TEXT = CONCAT_WS('|','Transaction rollback','MyProcedure',varQueryPart,varSQLSTATE,varMESSAGE_TEXT);
+              END IF;
+          ROLLBACK; # Should return MyTable table to state before changes occurred in the section that the error occurred in
+              SIGNAL SQLSTATE '45000' 
+            SET MESSAGE_TEXT = varMESSAGE_TEXT,
+                      MYSQL_ERRNO = varMYSQL_ERRNO;
+        END;
+
+        START TRANSACTION;
+          SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+          SET varQueryPart = 'INSERT'; 
+
+        # Insert that works
+        DELETE FROM MyTable;
+        Insert Into
+          MyTable
+          (
+            ColOne
+          )
+        Select 0;
+
+          /*
+        # Insert that will cause error
+        Insert Into
+          MyTable
+          (
+            ColTWo
+          )
+        Select 3;
+        */
+
+          SET varQueryPart = 'UPDATE';
+
+          # Update that works
+          /*
+          Update MyTable Set ColOne = 1;
+          */
+
+          # Update that will cause error
+          Update MyTable Set ColTwo = 1;
+
+        COMMIT;
+      END
