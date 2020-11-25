@@ -35,6 +35,7 @@ Note:
       -For > '02' class: Unhandled user-defined exception condition
     -Calling SIGNAL will clear the previous errors, warnings, and notes from the Diagnostic Area. 
       -Noted @ https://mariadb.com/kb/en/diagnostics-area/
+    -SQLSTATE in a SIGNAL statement must be a 5-character string literal
 Main Success Scenario:
   1. SIGNAL SQLSTATE '01000';
   2. SHOW WARNINGS
