@@ -1,6 +1,20 @@
 Define Type for Variable
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/user-variables.html
-  -Cannot specify data type
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.6/en/user-variables.html
+    -https://dev.mysql.com/doc/refman/5.7/en/declare-local-variable.html
+    -https://dev.mysql.com/doc/refman/5.7/en/local-variable-scope.html
+  -User variables start with an @ character
+  -Cannot specify data type on a user variable 
+  -Local variables do not start with an @ character
+  -To provide a default value for a local variable, include a DEFAULT clause. The value can be specified as an expression; it need not be a constant.
+  -Local variables are treated like stored routine parameters with respect to data type and overflow checking.
+  -Local variable declarations must appear before cursor or handler declarations.
+  -Local variable names are not case-sensitive. Permissible characters and quoting rules are the same as for other identifiers. 
+  -The scope of a local variable is the BEGIN ... END block within which it is declared. The variable can be referred to in blocks nested within the declaring block, except those blocks that declare a variable with the same name.
+  -If a local variable and a column name in a table are the same, the local variable will be used if the name is in the select clause for a query run against the table. 
 Main Success Scenario:
-  1. xxx:fill in
+  1. DECLARE xname VARCHAR(5);
+Alternatives:
+  1a. Declare local variable with a default value 
+    1a1. DECLARE xname VARCHAR(5) DEFAULT 'bob';
