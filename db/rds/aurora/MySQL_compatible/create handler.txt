@@ -13,6 +13,7 @@ Note:
   -NOT FOUND: Shorthand for the class of SQLSTATE values that begin with '02'.
   -SQLWARNING: Shorthand for the class of SQLSTATE values that begin with '01'.
   -SQLEXCEPTION: Shorthand for the class of SQLSTATE values that do not begin with '00', '01', or '02'.
+  -MESSAGE_TEXT parameter in SIGNAL statement has a max length of 146 characters. No error is thrown if the max is reached. The text is truncated on the right. 
 Main Success Scenario:
   1.See code below
     DECLARE EXIT HANDLER FOR SQLEXCEPTION BEGIN END;
