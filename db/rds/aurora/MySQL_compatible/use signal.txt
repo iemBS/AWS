@@ -22,6 +22,7 @@ Note:
       -MESSAGE_TEXT value will show in "Message" column of results
       -MYSQL_ERRNO value will show in "Code" column of results
       -map MySQL error # to SQLSTATE to SQLSTATE keyword @ https://docs.oracle.com/cd/E19078-01/mysql/mysql-refman-5.0/error-handling.html
+        -updated map @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
         -More than one MySQL error # can be mapped to a single SQLSTATE
     -defaults for MYSQL_ERRNO and MESSAGE_TEXT defined @ https://mariadb.com/kb/en/diagnostics-area/
     -default MYSQL_ERRNO value for each class within SQLSTATE
