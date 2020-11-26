@@ -3,6 +3,8 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-if-statement/
   -Guidance @ https://www.mysqltutorial.org/mysql-if-function.aspx
   -Guidance @ https://www.tutorialspoint.com/mysql-if-statement-with-multiple-conditions
+  -Do user defined variables not work in IF conditions?
+    -https://dev.mysql.com/doc/refman/5.7/en/user-variables.html
 Main Success Scenario:
   1. See code below
 
