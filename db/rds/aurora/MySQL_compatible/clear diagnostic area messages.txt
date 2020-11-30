@@ -15,6 +15,7 @@ Note:
       -RESIGNAL
       -GET DIAGNOSTICS
       -BEGIN
+      -LEAVE 
       -xxx:fill in
   -Guidance @ https://mariadb.com/kb/en/diagnostics-area/
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html#diagnostics-area-populating
@@ -40,7 +41,6 @@ Main Success Scenario:
     -RETURN at end of function
     -Use procedure statement 
     -Transaction rollback
-    -xxx:fill [What about a LEAVE statement in a procedure?]
 
   
   
