@@ -1,5 +1,12 @@
 Leave Procedure Early
 Note:
-  -Guidance @ https://www.mysqltutorial.org/mysql-stored-procedure/mysql-leave/
+  -Guidance @ 
+    -https://www.mysqltutorial.org/mysql-stored-procedure/mysql-leave/
+    -https://dev.mysql.com/doc/refman/5.7/en/begin-end.html
+    -https://dev.mysql.com/doc/refman/5.7/en/statement-labels.html
+    -https://mariadb.com/kb/en/leave/
+  -LEAVE cannot be used to exit a DECLARE HANDLER block. 
+    -If attempted, you will get a 1308 MySQL error
 Main Success Scenario:
   1.xxx:fill in
+
