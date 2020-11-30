@@ -30,5 +30,15 @@ Alternatives:
       ELSE
           SET pCustomerLevel = 'NOT PLATINUM';
       END IF;   
+ 1e. With ELSE IF
+   1e1. See query below
+   
+    IF credit > 50000 THEN
+        SET pCustomerLevel = 'PLATINUM';
+    ELSEIF credit > 20000 THEN
+        SET pCustomerLevel = 'GOLD';
+    ELSE
+        SET pCustomerLevel = 'SILVER';
+    END IF;
   
   
