@@ -1,0 +1,6 @@
+Use Labels
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/statement-labels.html
+Main Success Scenario:
+  1. xxx:fill in
