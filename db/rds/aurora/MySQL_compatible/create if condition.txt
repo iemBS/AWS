@@ -41,6 +41,11 @@ Alternatives:
         SET pCustomerLevel = 'SILVER';
     END IF;
   1f. Use an IN operator in an IF condition
-    1f1. It appears IN operators cannot be used in MySQL IF conditions
-  
+    1f1. See code below
+    
+      If credit IN (100,200) THEN
+        SELECT 'has 100 or 200';
+      ELSE 
+        SELECT 'has other';
+      END IF;
   
