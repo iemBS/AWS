@@ -3,4 +3,6 @@ Note:
   -Guidance @ 
     -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html#USER_LogAccess.MySQL.LogFileSize
 Main Success Scenario:
-  1. xxx:fill in
+  1. Check max size via MySQL with the below query
+    select @@innodb_log_file_size 
+  2. xxx:fill in
