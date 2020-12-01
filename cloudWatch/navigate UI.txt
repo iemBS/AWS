@@ -1,7 +1,40 @@
 Navigate UI
 -Left Side Bar 
   -"Log Groups" link
-    -[Log group] link
-      -"Log streams" section
-        -[Log stream] link
-          -"Log events" section
+    -search textbox
+    -gear icon
+      -"Preferences" section
+    -table
+      -"Log group" column
+        -[Log group] link
+          -"Log group details" section
+          -"Log streams" tab
+            -search textbox
+            -table
+              -"Log stream" column
+                -[Log stream] link
+                  -"Log events" section
+                    -search textbox
+                    -"Actions" button
+                    -gear icon
+                      -"Preferences" section
+                    -table
+                      -"Timestamp" column
+                      -"Ingestion time" column
+                      -"Message" column
+                      -"Event id" column
+                      -"Log stream name" column
+              -"ARN" column
+              -"Creation time" column
+              -"First event time" column
+              -"Last event time" column
+              -"Last ingestion time" column
+              -"Stored bytes" column
+              -"Upload sequence token" column
+          -"Metric filters" tab
+          -"Subscription filters" tab
+          -"Contributor Insights" tab
+      -"Retention" column
+      -"Metric filters" column
+      -"Contributor Insignts" column
+      -"Subscription filters" column 
