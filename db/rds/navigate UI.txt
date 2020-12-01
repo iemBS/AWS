@@ -39,8 +39,18 @@ When using DEV role on 201120
   -"Databases" option
     -table
       -"DB identifier" column
+        -[DB identifier] link
+          -"Summary" section
+          -"Connectivity & security" tab
+          -"Monitoring" tab
+          -"Logs & events" tab
+          -"Configuration" tab
+          -"Maintenance & backups" tab
+          -"Tags" tab
+      -"DB Cluster identifier" column
       -"Role" column
       -"Engine" column
+      -"Engine version" column
       -"Region & AZ" column
       -"Size" column
       -"Status" column
@@ -49,6 +59,7 @@ When using DEV role on 201120
       -"Maintenance" column
       -"VPC" column
       -"Multi-AZ" column
+      -[xxx:fill in add several more columns here]
   -"Query Editor" option
     -"Connect to database" window
       -xxx:fill in
