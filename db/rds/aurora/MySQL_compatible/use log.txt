@@ -98,6 +98,7 @@ Main Success Scenario:
 Use Audit Log
 Note:
   -This is not a MySQL log, but it is an RDS log
+  -Text of a forced error or warning can be found in this log. Handy if trying to understand why an error or warning is not showing in the Error log. 
 Main Success Scenario:
   1. Search for the text of the forced error or warning
   
