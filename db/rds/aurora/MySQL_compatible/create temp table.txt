@@ -28,7 +28,7 @@ Alternatives:
     1c2. Run select statement to see that DB prefix is part of the name of the table and not limited to the database that was noted. 
        Select * From MyDbNm.MyTmpTbl
   1d. Internal temp table created by MySQL
-    1d1. See https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html
+    1d1. "Create Internal Temp Table"
        
        
 
@@ -47,3 +47,28 @@ Main Success Scenario:
       GROUP BY p.customerNumber
       ORDER BY sales DESC
       LIMIT 10;
+
+Create Internal Temp Table
+Pre-Conditions:
+  -Internal Temp Tables only created by MySQL. 
+Note: 
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html
+  -Internal temp tables created by MySQL for 
+    -sorting an index
+    -evaluation of UNION statements
+    -Evaluation of some views, such those that use the TEMPTABLE algorithm, UNION, or aggregation.
+    -Evaluation of derived tables
+    -Tables created for subquery or semijoin materialization
+    -Evaluation of statements that contain an ORDER BY clause and a different GROUP BY clause, or for which the ORDER BY or GROUP BY contains columns from tables other than the first table in the join queue.
+    -Evaluation of DISTINCT combined with ORDER BY may require a temporary table.
+    -For queries that use the SQL_SMALL_RESULT modifier, MySQL uses an in-memory temporary table, unless the query also contains elements (described later) that require on-disk storage.
+    -To evaluate INSERT ... SELECT statements that select from and insert into the same table, MySQL creates an internal temporary table to hold the rows from the SELECT, then inserts those rows into the target table.
+    -Evaluation of multiple-table UPDATE statements.
+    -Evaluation of GROUP_CONCAT() or COUNT(DISTINCT) expressions.
+  -query conditions that prevent the use of an internal temp table
+    -xxx:fill in
+  -query conditions that qualify a UNION for evaluation without an internal temp table
+    -xxx:fill in
+Main Success Scenario:
+  1. xxx:fill in
