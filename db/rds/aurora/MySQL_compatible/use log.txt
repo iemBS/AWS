@@ -1,0 +1,89 @@
+Use Log
+Pre-Conditions:
+  -Logs are found @ AWS > CloudWatch > CloudWatch Logs > Log groups
+Note: 
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/server-logs.html
+    -https://dev.mysql.com/doc/refman/5.7/en/using-log-files.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html
+Main Success Scenario:
+  1. See what OS the MySQL software runs on
+    select 
+      @@version_compile_machine As 64Bit,
+      @@version_compile_os As OsName
+  2. "Use Error Log"
+  3. "Use General Query Log"
+  4. "Use Binary Log"
+  5. "Use Relay Log"
+  6. "Use Slow query Log"
+  7. "Use DDL Log"
+
+Use Error Log
+Pre-Conditions:
+  -This log is found in /aws/rds/cluster/[aurora instance]/error
+Note:
+  -This log covers problems encountered starting, running, or stopping mysqld
+    -record of mysqld startup and shutdown times. 
+    -diagnostic messages (from server startup, shutdown, and while running)
+      -errors
+      -warnings
+      -notes
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/error-log.html
+Main Success Scenario:
+  1. Find Errors
+    xxx:fill in
+  2. Find Warnings
+    Look for "[Warning]" in the Message column of the log entry
+  3. Find Notes
+    Look for "[Note]" in the Message column of the log entry
+    
+    
+Use General Query Log
+Note:
+  -This log covers established client connections and statements received from clients
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/query-log.html
+  -What account writes to this log:
+    -MySQLd
+  -Statements written to the query log in the order that it is received (might differ from the order in which they are executed). This logging order contracts with that of the Binary log.
+  -The query log may contain statements that only select data while such statements are never written to the binary log.
+Main Success Scenario:
+  1. Confirm General Query Log is enabled
+    Select @@GLOBAL.general_log;
+  2. xxx:fill in
+Alternatives:
+  1a. Enable General Query log
+    1a1. SET GLOBAL general_log = 'ON';
+    1a2. Go to step 2. 
+  
+Use Binary Log
+Note: 
+  -This log covers statements that change data (also used for replication)
+  -Statements are written after they are executed but before any locks are released
+Main Success Scenario:
+  1.xxx:fill in
+
+Use Relay Log
+Note:
+  -This log covers data changes received from a replication source server
+Main Success Scenario:
+  1.xxx:fill in
+
+Use Slow query log
+Note: 
+  -Queries that took more than long_query_time seconds to execute
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html
+Main Success Scenario:
+  1.xxx:fill in
+  
+Use DDL Log
+Note: 
+  -Also called Metadata log
+  -This log covers metadata operations performed by DDL statements
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/ddl-log.html
+Main Success Scenario:
+  1.xxx:fill in
+  
