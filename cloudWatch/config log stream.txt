@@ -1,0 +1,10 @@
+Config Log Stream
+Note:
+ -Guidance @ 
+   -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
+   -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html
+Question:
+ -Why do some Log Groups one log stream while others have more than one log stream?
+ -What is a large number of bytes for a log stream?
+Main Success Scenario:
+  1. xxx:fill in
