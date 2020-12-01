@@ -18,6 +18,8 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/error-log-filtering.html
     -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html#USER_LogAccess.MySQLDB.PublishtoCloudWatchLogs
+  -The MySQL error log is written to the mysql-error.log file. You can view mysql-error.log by using the Amazon RDS console or by retrieving the log using the Amazon RDS API, Amazon RDS CLI, or AWS SDKs. mysql-error.log is flushed every 5 minutes, and its contents are appended to mysql-error-running.log. The mysql-error-running.log file is then rotated every hour and the hourly files generated during the last 24 hours are retained. Note that the retention period is different between Amazon RDS and Aurora.
 Main Success Scenario:
   1. Set log_error_verbosity system variable to control server verbosity for writing error, warning, and note messages to the error log.
   2. xxx:fill in
