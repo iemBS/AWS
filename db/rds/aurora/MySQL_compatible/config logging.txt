@@ -1,0 +1,21 @@
+Config Logging
+Main Success Scenario:
+  1. "Config Logging for Error Log"
+  2. xxx:fill in
+
+Config Logging for Error Log
+Note:
+  -Values allowed for log_error_verbosity system variable:
+    -1 (errors only)
+    -2 (errors and warnings)
+    -3 (errors, warnings, and notes), defautl
+  -If the value of log_error_verbosity is greater than 2, the server logs aborted connections and access-denied errors for new connection attempts.
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/error-log-filtering.html
+    -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity
+Main Success Scenario:
+  1. Set log_error_verbosity system variable to control server verbosity for writing error, warning, and note messages to the error log.
+  2. xxx:fill in
+  
+  
+  
