@@ -1,4 +1,7 @@
 Config Logging
+Note: 
+  -Log events from Aurora are published in the form of log streams (sequences of log events) to log groups in Amazon CloudWatch. Each DB instance and log type creates a separate group in the same AWS Region as the DB instance, with the following naming pattern:
+    -/aws/rds/[instance]/[db-instance-id]/[log-type]
 Main Success Scenario:
   1. "Config Logging for Error Log"
   2. xxx:fill in
@@ -8,7 +11,7 @@ Note:
   -Values allowed for log_error_verbosity system variable:
     -1 (errors only)
     -2 (errors and warnings)
-    -3 (errors, warnings, and notes), defautl
+    -3 (errors, warnings, and notes), default
   -If the value of log_error_verbosity is greater than 2, the server logs aborted connections and access-denied errors for new connection attempts.
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/error-log-filtering.html
