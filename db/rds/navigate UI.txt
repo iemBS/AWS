@@ -45,6 +45,21 @@ When using DEV role on 201120
           -"Monitoring" tab
           -"Logs & events" tab
           -"Configuration" tab
+            -"Configuration" column
+              -"DB cluster parameter group" variable
+                -[used parameter group] link
+                  -search textbox
+                  -gear icon
+                    -"Preference" section
+                  -"Parameters" table
+                    -"Name" column
+                    -"Values" column
+                    -"Allowed values" column
+                    -"Modifiable" column
+                    -"Source" column
+                    -"Apply type" column
+                    -"Data type" column
+                    -"Description" column 
           -"Maintenance & backups" tab
           -"Tags" tab
       -"DB Cluster identifier" column
@@ -75,7 +90,7 @@ When using DEV role on 201120
     -xxx:fill in
   -"Subnet groups" option
     -xxx:fill in
-  -"Parameter groups" option: This does not flag the Parameter Group that is currently being used. To find chosen parameter group go to: Left Side Bar > "Databases" link > [DB identifier] link > "Configuration" tab > "Configuration" section > "DB cluster parameter group" variable 
+  -"Parameter groups" option: Used Parameter Group is not flagged. To find used parameter group go to: Left Side Bar > "Databases" link > [DB identifier] link > "Configuration" tab > "Configuration" section > "DB cluster parameter group" variable 
     -search textbox
     -gear icon
       -"Preferences" section
