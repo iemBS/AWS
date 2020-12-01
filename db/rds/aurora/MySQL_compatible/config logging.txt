@@ -7,6 +7,8 @@ Main Success Scenario:
   2. xxx:fill in
 
 Config Logging for Error Log
+Pre-Conditions:
+  -The log_error_verbosity system variable can be configuraable from MySQL, because the parameter of the same name in the RDS Parameter Group will indicate "engine-default" in the "Source" column. 
 Note:
   -Values allowed for log_error_verbosity system variable:
     -1 (errors only)
