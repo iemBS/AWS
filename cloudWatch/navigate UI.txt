@@ -30,7 +30,7 @@ Navigate UI
               -"Last event time" column
               -"Last ingestion time" column
               -"Stored bytes" column
-              -"Upload sequence token" column
+              -"Upload sequence token" column 
           -"Metric filters" tab
           -"Subscription filters" tab
           -"Contributor Insights" tab
