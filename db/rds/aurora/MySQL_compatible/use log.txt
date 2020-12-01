@@ -6,6 +6,7 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/server-logs.html
     -https://dev.mysql.com/doc/refman/5.7/en/using-log-files.html
     -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html
+  -RDS also has the Audit log that does not exist in MySQL. 
 Main Success Scenario:
   1. See what OS the MySQL software runs on
     select 
@@ -17,6 +18,7 @@ Main Success Scenario:
   5. "Use Relay Log"
   6. "Use Slow query Log"
   7. "Use DDL Log"
+  8. "Use Audit Log"
 
 Use Error Log
 Pre-Conditions:
@@ -30,6 +32,7 @@ Note:
       -notes
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/error-log.html
+  -If the SQLSTATE is custom and unique it can be found in the Audit log. 
 Main Success Scenario:
   1. Find Errors
     xxx:fill in
@@ -46,12 +49,17 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/query-log.html
   -What account writes to this log:
     -MySQLd
-  -Statements written to the query log in the order that it is received (might differ from the order in which they are executed). This logging order contracts with that of the Binary log.
+  -Statements written to the query log in the order that it is received (might differ from the order in which they are executed). This logging order contrasts with that of the Binary log.
+    -Select statement
+    -Set statement
+    -COMMIT
+    -Insert statement
   -The query log may contain statements that only select data while such statements are never written to the binary log.
 Main Success Scenario:
   1. Confirm General Query Log is enabled
     Select @@GLOBAL.general_log;
-  2. xxx:fill in
+  x. 
+  x. xxx:fill in
 Alternatives:
   1a. Enable General Query log
     1a1. SET GLOBAL general_log = 'ON';
@@ -86,4 +94,10 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/ddl-log.html
 Main Success Scenario:
   1.xxx:fill in
+  
+Use Audit Log
+Note:
+  -This is not a MySQL log, but it is an RDS log
+Main Success Scenario:
+  1. Search for the text of the forced error or warning
   
