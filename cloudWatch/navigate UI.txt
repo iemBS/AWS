@@ -1,0 +1,7 @@
+Navigate UI
+-Left Side Bar 
+  -"Log Groups" link
+    -[Log group] link
+      -"Log streams" section
+        -[Log stream] link
+          -"Log events" section
