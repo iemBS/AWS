@@ -8,12 +8,11 @@ Note:
     -Diagnostic statements do not clear the diagnostics area. 
       -SHOW ERRORS
       -SHOW WARNINGS
-      -
+      -GET DIAGNOSTICS
     -Statements that do not access a table and do not produce warnings 
       -SET (as long as it does not produce warnings)
       -SELECT (of a variable)
       -RESIGNAL
-      -GET DIAGNOSTICS
       -BEGIN
       -LEAVE 
       -xxx:fill in
