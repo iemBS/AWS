@@ -15,6 +15,8 @@ Note:
   -https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html#diagnostics-area-populating
   -SHOW ERRORS shows the errors only for the latest statement. 
   -SHOW ERRORS gets its messages from the Diagnostic Area
+Question:
+  -What kind of errors are seen with these @ https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html
 Main Success Scenario:
   1. SHOW ERRORS; 
   2. END
