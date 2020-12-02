@@ -1,0 +1,27 @@
+Navigate UI
+-Left Side Bar
+  -"Job"
+    -"User Preferences" link
+      -xxx:fill in
+    -"Add Job" button
+    -"Action" drop down menu
+      -xxx:fill in
+    -search textbox
+    -job table
+      -"Name" column
+        -[job name]
+          -"History" tab
+            -gear icon
+              -[select columns to display]
+            -history table
+              -xxx:fill in
+          -"Details" tab
+            -xxx:fill in
+          -"Script" tab
+            -xxx:fill in
+      -"Type" column
+      -"ETL Language" column
+      -"Script location" column
+      -"Last modified" column
+      -"Job bookmark" column
+      -
