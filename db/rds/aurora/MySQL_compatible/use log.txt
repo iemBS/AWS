@@ -48,8 +48,13 @@ Alternatives:
   1a. Error log is not published to CloudWatch frequent enough
     1a1. Search Error log using CLI
       xxx:fill in
+  1b. Find SSL Errors that are showing as warnings
+    1b1. Look for "error:" in the Message column of the log entry
+  1c. Find query interruption errors as warnings
+    1c1. Look for "error:" in the Message column of the log entry
   2a. Find warnings for use of deprecated SQL objects
     2a1. Look for "Warning:" in the Message column of the log entry
+  
     
     
 Use General Query Log
