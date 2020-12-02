@@ -48,6 +48,8 @@ Alternatives:
   1a. Error log is not published to CloudWatch frequent enough
     1a1. Search Error log using CLI
       xxx:fill in
+  2a. Find warnings for use of deprecated SQL objects
+    2a1. Look for "Warning:" in the Message column of the log entry
     
     
 Use General Query Log
