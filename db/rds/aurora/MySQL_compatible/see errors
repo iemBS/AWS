@@ -17,6 +17,7 @@ Note:
   -SHOW ERRORS gets its messages from the Diagnostic Area
 Question:
   -What kind of errors are seen with these @ https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html
+  -Do errors get shown only in the console if running from the console intead of also showing in the Error log? See ref to stderr @ https://dev.mysql.com/doc/refman/5.7/en/error-log-syslog.html
 Main Success Scenario:
   1. SHOW ERRORS; 
   2. END
