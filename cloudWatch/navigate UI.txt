@@ -14,7 +14,7 @@ Navigate UI
               -"Log stream" column
                 -[Log stream] link
                   -"Log events" section
-                    -search textbox
+                    -search textbox: This is case sensitive, quotes will allow you to search for exact values
                     -"Actions" button
                     -gear icon
                       -"Preferences" section
