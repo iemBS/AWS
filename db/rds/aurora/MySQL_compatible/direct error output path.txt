@@ -1,0 +1,42 @@
+Direct Error Output Path
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/error-message-elements.html#error-sources
+    -https://dev.mysql.com/doc/mysql-errors/5.7/en/global-error-reference.html
+    -https://dev.mysql.com/doc/refman/5.7/en/error-handling.html
+  -"Log Level" preference setting in MySQL Workbench client @ https://dev.mysql.com/doc/workbench/en/wb-preferences-others.html
+Main Success Scenario:
+  1. "Error from Server"
+  2. "Send Error to Error Log"
+Alternatives:
+  1a. Error from Client Program instead
+    1a1. "Error from Client Program"
+  2a. Send Error to Client Program instead
+    2a1. "Send Error to Client Program"
+    
+  
+Error from Client Program
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/mysql-errors/5.7/en/client-error-reference.html
+  -Client error messages originate from within the MySQL client library.
+  -For client-side errors, the SQLSTATE value is always 'HY000' (general error), so it is not meaningful for distinguishing one client error from another.
+Main Success Scenario:
+  1. xxx:fill in
+  
+Error from Server
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+  -For server-side errors, not all MySQL error numbers have corresponding SQLSTATE values. In these cases, 'HY000' (general error) is used.
+Main Success Scenario:
+  1. xxx:fill in
+  
+Send Error to Error Log
+Main Success Scenario:
+  1. xxx:fill in
+
+Send Error to Client Program
+Main Success Scenario:
+  1. xxx:fill in
+
