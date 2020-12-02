@@ -34,9 +34,12 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/error-log.html
     -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html#USER_LogAccess.MySQLDB.PublishtoCloudWatchLogs
   -If the SQLSTATE is custom and unique it can be found in the Audit log. 
+  -Searches with the Log Stream search textbox are case sensitive. Putting double quotes around your values makes it an exact search. 
+Question:
+  -What are the warnings in the log stream that have "Warning" instead of "[Warning]"?
 Main Success Scenario:
   1. Find Errors
-    xxx:fill in
+    Look for "[Error]" in the Message column of the log entry
   2. Find Warnings
     Look for "[Warning]" in the Message column of the log entry
   3. Find Notes
