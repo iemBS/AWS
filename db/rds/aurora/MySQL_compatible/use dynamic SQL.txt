@@ -1,9 +1,12 @@
 Use Dynamic SQL
+Pre-Conditions:
+  -Procedure parameters and/or local variables will not be used in a prepared statement within a procedure and the prepared statement then used after the procedure has ended. The error caused by that scenario is noted @ https://dev.mysql.com/doc/refman/5.7/en/prepare.html
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/prepare.html
-  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/sql-prepared-statements.html
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.6/en/prepare.html
+    -https://dev.mysql.com/doc/refman/5.6/en/sql-prepared-statements.html
       -SQL syntax for prepared statements does not support multi-statements (that is, multiple statements within a single string separated by ; characters).
-  -Guidance @ https://stackoverflow.com/questions/190776/how-to-have-dynamic-sql-in-mysql-stored-procedure
+    -https://stackoverflow.com/questions/190776/how-to-have-dynamic-sql-in-mysql-stored-procedure
   -USE statement CANNOT be used inside a procedure. See @ https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html
 Main Success Scenario:
   1. xxx:fill in
@@ -33,3 +36,6 @@ Alternatives:
         deallocate prepare stmt;
 
         Select * From Temp_MyTbl;
+  1d. Create a prepared statement within a procedure and then use it outside of the procedure after the procedure has completed
+    1d1. xxx:fill in & based on what is noted @ https://dev.mysql.com/doc/refman/5.7/en/prepare.html
+
