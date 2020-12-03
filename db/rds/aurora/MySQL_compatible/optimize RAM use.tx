@@ -20,7 +20,7 @@ Main Success Scenario:
       
 Optimzie RAM use for InnoDB Storage engine
 Main Success Scenario:
-  1. Know what MySQL puts into RAM
+  1. Know what MySQL puts into RAM: Info @ https://dev.mysql.com/doc/refman/5.7/en/memory-use.html
     -Temp Table
     -Buffers
       -Buffer Pool: Store table and index data pages. It ensures that all the recently & frequently used data is in RAM to give a better response time. 
@@ -40,45 +40,60 @@ Main Success Scenario:
           -Session scope
       -xxx:fill in
     -Memory that is 5-10% the size of the buffer pool is allocated for additional data structures – and this number is larger if you’re using compression or set innodb_page_size smaller than 16K.
-    -Caches
-      -Does Key Buffer (key_buffer_size) only exist for MyISAM storage engine?
-      -Query Cache
-        -Global scope: Parsed mysql queries and their results to remember queries for better response time.
-        -Session scope NOT EXIST
+    -Caches: Info @ https://dev.mysql.com/doc/internals/en/caching.html
+      -Heap Table Cache: Many uses of GROUP BY or DISTINCT cache all found rows in a HEAP table. (This is a very quick in-memory table with hash index.). These tables are specified as a "HEAP" table when you specify the "TYPE" as "HEAP" in a table create statement. HEAP tables last longer than temp tables, because temp tables are dropped when the session is done. For temporary tables you need a special privilege (create temporary table) while for HEAP tables it is created wtih the MEMORY storage engine. Temporary tables are not shared among clients, heap tables are shared. The MEMORY storage engine does not persist any data to disk; it holds data in RAM. 
+        -Info @ 
+          -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch07s04.html
+          -https://stackoverflow.com/questions/18073839/difference-between-heap-table-and-temporary-table-in-mysql
+      -Hostname Cache: For quick lookup (with reverse name resolving). This is a must when you have a slow DNS. Info @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_hostname
+      -Join Table Cache: For every “full join” in a SELECT statement the rows found are cached in a join cache. (A “full join” here means there were no keys that could be used to find rows for the next table in the list.) In the worst case, one SELECT query can use many join caches.
+      -Key Cache: Only applicable to MyISAM storage engine
+      -Privilege Cache: To allow quick change between databases, the last used privileges are cached for each user/database combination. Info @ https://www.oreilly.com/library/view/mysql-in-a/0596007892/re24.html
+      -Query Cache: Deprecated as of MySQL 5.7.20, and is removed in MySQL 8.0. Noted @ https://dev.mysql.com/doc/refman/5.7/en/query-cache-status-and-maintenance.html. The query cache is not supported for partitioned tables, and is automatically disabled for queries involving partitioned tables. The query cache cannot be enabled for such queries. The query cache is used for prepared statements under the conditions described @ https://dev.mysql.com/doc/refman/5.7/en/query-cache-operation.html. 
+        -Global scope: Parsed mysql queries and their results to remember queries. Info @ https://dev.mysql.com/doc/refman/5.7/en/query-cache-status-and-maintenance.html
+        -Session scope: NOT EXIST
+      -Record Cache: This is used for quick scanning of all records in a table.
       -Stored Program Cache
         -Global Scope?
         -Session Scope
-      -Table Cache: NOT EXIST before MySQL 8.0
+      -Table Cache: NOT EXIST before MySQL 8.0. This holds the most recently used tables.
         -Global scope
         -Does Session scope exist in MySQL 8.0?
       -Table Definition Cache
-        -Global scope: The number of table definitions (from .frm files) that can be stored in the definition cache.
-        -Session scope NOT EXIST
+        -Global scope: The number of table definitions (from .frm files) that can be stored in the definition cache. Info @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_definition_cache
+        -Session scope: NOT EXIST
       -Table Open Cache
         -Global scope: The number of open tables for all threads.
           -Table Open Cache Instances: The number of open tables cache instances. 
-        -Session scope NOT EXIST
+        -Session scope: NOT EXIST
       -Thread Cache
         -Global scope: How many threads the server should cache for reuse. When a client disconnects, the client's threads are put in the cache if there are fewer than thread_cache_size threads there. Requests for threads are satisfied by reusing threads taken from the cache if possible, and only when the cache is empty is a new thread created. 
         -Session scope NOT EXIST
       -xxx:fill in
-    -not sure
+    -not sure if this falls under Buffer, Cache, or another part of RAM
       -internal in-memory temporary table
         -Global scope: xxx
         -Session scope: xxx
   2. What is the benefit of this RAM usage
     -Buffers
       -Buffer per Thread
+        -Join Buffer: Info @ https://dev.mysql.com/doc/internals/en/join-buffer-size.html
         -Sort Buffer: Improves performance for queries using ORDER BY or GROUP BY clauses that cannot be improved with a query optimization or additional indexing. 
     -Caches
+      -Query Cache: Better response times
       -Table Definition Cache: If you have lots of tables,this can help speed up the opening of tables. The table definition cache takes less space and does not use file descriptors, unlike the normal table cache.
       -Table Open Cache: xxx
         -Table Open Cache Instances: To improve scalability by reducing contention among sessions, the open tables cache can be partitioned into several smaller cache instances of size table_open_cache / table_open_cache_instances . A session needs to lock only one instance to access it for DML statements. This segments cache access among instances, permitting higher performance for operations that use the cache when there are many sessions accessing tables. (DDL statements still require a lock on the entire cache, but such statements are much less frequent than DML statements.)
       -Thread Cache: xxx
   3. Know how to look at RAM usage
+    -Buffers
+      -Buffer per Thread
+        -Join Buffer:
+          -Global scope: 
+          -Session scope: join_buffer_size
     -Caches
       -Query Cache
-        -Global scope: query_cache_size
+        -Global scope: have_query_cache, query_cache_size
       -Table Definition Cache
         -Global scope: table_definition_cache
       -Table Open Cache
@@ -86,6 +101,18 @@ Main Success Scenario:
           -Table Open Cache Instances: table_open_cache_instances
       -Thread Cache: thread_cache_size
 
-Optimzie RAM use for MyISAM Storage engine
+Optimize RAM use for MyISAM Storage engine
 Main Success Scenario:
-  1. xxx:fill in
+  1. Know what MySQL puts into RAM
+    -Buffers
+      -xxx:fill in
+    -Caches: Info @ https://dev.mysql.com/doc/internals/en/caching.html
+      -Key Cache
+      -xxx:fill in
+    -Temp Tables 
+      -xxx:fill in
+  2. What is the benefit of this RAM usage
+    -xxx:fill in
+  3. Know how to look at RAM usage
+    -xxx:fill in
+  x. xxx:fill in
