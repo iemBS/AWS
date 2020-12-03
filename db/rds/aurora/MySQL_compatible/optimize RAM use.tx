@@ -19,6 +19,8 @@ Main Success Scenario:
   
       
 Optimzie RAM use for InnoDB Storage engine
+Question:
+  -How to get the byte size of tables using the "MEMORY" storage engine (some or all of these are HEAP tables), since data_length in information_schema is 0?
 Main Success Scenario:
   1. Know what MySQL puts into RAM: Info @ https://dev.mysql.com/doc/refman/5.7/en/memory-use.html
     -Temp Table
@@ -28,9 +30,6 @@ Main Success Scenario:
           -Buffer Pool Instances: Buffer pool is evenly divided among each instance
         -Session scope: xxx
       -Buffer per Thread
-        -Join Buffer
-          -Global scope:xxx
-          -Session scope: xxx
         -Random-Read Buffer: For sorting reads
         -Read Buffer: For sequential table scans
           -Global: xxx
@@ -46,7 +45,9 @@ Main Success Scenario:
           -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch07s04.html
           -https://stackoverflow.com/questions/18073839/difference-between-heap-table-and-temporary-table-in-mysql
       -Hostname Cache: For quick lookup (with reverse name resolving). This is a must when you have a slow DNS. Info @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_hostname
-      -Join Table Cache: For every “full join” in a SELECT statement the rows found are cached in a join cache. (A “full join” here means there were no keys that could be used to find rows for the next table in the list.) In the worst case, one SELECT query can use many join caches.
+      -Join Table Cache: For every “full join” in a SELECT statement the rows found are cached in a join cache. (A “full join” here means there were no keys that could be used to find rows for the next table in the list.) In the worst case, one SELECT query can use many join caches. Info @ https://dev.mysql.com/doc/internals/en/join-buffer-size.html
+        -Global Scope
+        -Session Scope: Is this per thread?
       -Key Cache: Only applicable to MyISAM storage engine
       -Privilege Cache: To allow quick change between databases, the last used privileges are cached for each user/database combination. Info @ https://www.oreilly.com/library/view/mysql-in-a/0596007892/re24.html
       -Query Cache: Deprecated as of MySQL 5.7.20, and is removed in MySQL 8.0. Noted @ https://dev.mysql.com/doc/refman/5.7/en/query-cache-status-and-maintenance.html. The query cache is not supported for partitioned tables, and is automatically disabled for queries involving partitioned tables. The query cache cannot be enabled for such queries. The query cache is used for prepared statements under the conditions described @ https://dev.mysql.com/doc/refman/5.7/en/query-cache-operation.html. 
@@ -54,8 +55,8 @@ Main Success Scenario:
         -Session scope: NOT EXIST
       -Record Cache: This is used for quick scanning of all records in a table.
       -Stored Program Cache
-        -Global Scope?
-        -Session Scope
+        -Global Scope
+        -Session Scope: NOT EXIST
       -Table Cache: NOT EXIST before MySQL 8.0. This holds the most recently used tables.
         -Global scope
         -Does Session scope exist in MySQL 8.0?
@@ -92,8 +93,13 @@ Main Success Scenario:
           -Global scope: 
           -Session scope: join_buffer_size
     -Caches
+      -Join Buffer Cache
+        -Global Scope: join_buffer_size. Info @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size
+        -Session Scope: join_buffer_size. Info @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size
       -Query Cache
         -Global scope: have_query_cache, query_cache_size
+      -Stored Program Cache
+        -Global Scope: stored_program_cache. Info @ https://dev.mysql.com/doc/refman/5.7/en/statement-caching.html
       -Table Definition Cache
         -Global scope: table_definition_cache
       -Table Open Cache
