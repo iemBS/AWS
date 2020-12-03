@@ -8,6 +8,9 @@ Note:
       -SQL syntax for prepared statements does not support multi-statements (that is, multiple statements within a single string separated by ; characters).
     -https://stackoverflow.com/questions/190776/how-to-have-dynamic-sql-in-mysql-stored-procedure
   -USE statement CANNOT be used inside a procedure. See @ https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html
+  -Local variables and procedure parameters cannot be used within a prepared statement that is created within a procedure accoring to these two links:  
+    -https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/stored-program-restrictions.html
+    -https://dev.mysql.com/doc/refman/5.7/en/prepare.html
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
