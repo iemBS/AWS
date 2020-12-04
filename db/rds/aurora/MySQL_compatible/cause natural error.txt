@@ -1,0 +1,19 @@
+Cause Natural Error
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/common-errors.html
+    -https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
+  -Where Errors are born
+    -xxx:fill in
+  -Where to view Errors
+    -Client Programs
+      -Client Programs get the errors from as noted @ https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
+        -Errors that originate on the client side from within the MySQL client library
+        -Errors that originate on the server side and are sent to the client by the server. These are received within the client library, which makes them available to the host client program.
+      -Client Programs such us 
+        -MySQL Workbench
+        -mysql command line command as noted @ https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
+        -AWS Glue
+  -"stderr" directs where an error is sent to be displayed and that is noted @ https://dev.mysql.com/doc/refman/5.7/en/error-log.html
+Main Success Scenario:
+  1. 
