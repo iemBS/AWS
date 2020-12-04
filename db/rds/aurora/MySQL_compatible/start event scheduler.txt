@@ -1,0 +1,28 @@
+Start Event Scheduler
+Pre-Conditions:
+  -For Serverless Aurora that uses the MySQL engine, the "event_scheduler" system variable cannot be set to "ON". 
+    -Running "SET @@Global.event_scheduler = 'ON';" will result in this error:
+      Error Code: 1227. Access denied; you need (at least one of) the SUPER privilege(s) for this operation
+  -Only certain parameters in RDS (known as system variables in MySQL) can be changed (& used) for a Serverless Aurora instance. "event_scheduler" is not one of those that can be changed (& used). For the parameters that cannot be changed, the default MySQL value is used. The default for "event_handler" is "OFF". 
+    -You can change the value for the "event_handler" paraemter in the RDS parameter group and save it, but it does not push the value to MySQL
+    -This "event_handler" is not in the list of changable RDS parameters on the list @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/events-configuration.html
+    -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler
+    -https://aws.amazon.com/premiumsupport/knowledge-center/rds-modify-parameter-group-values/
+  -Event Scheduler must be on to run any events
+  -value changes to the event_scheduler variable in RDS are allowed while MySQL is running
+  -MySQL system variables are called parameters in RDS
+  -When you change a dynamic parameter in RDS and save the DB parameter group, the change is applied immediately regardless of the Apply Immediately setting.
+  -If a DB instance isn't using the latest changes to its associated DB parameter group, the AWS Management Console shows the DB parameter group with a status of pending-reboot. The pending-reboot parameter groups status doesn't result in an automatic reboot during the next maintenance window. To apply the latest parameter changes to that DB instance, manually reboot the DB instance.
+Main Success Scenario:
+  1. Amazon RDS web UI
+  2. On the left side bar, click on "Parameter groups"
+  3. Find parameter group 
+  4. search for "event_scheduler" using search textbox
+  5. click "Edit parameters" button
+  6. choose "ON" from drop down menu
+  7. click "Save changes" button
+  8. The "event_scheduler" value in MySQL will update immediately
+    select @@Global.event_scheduler;
