@@ -4,7 +4,17 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/common-errors.html
     -https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
   -Where Errors are born
-    -xxx:fill in
+    -list of all errors @ https://dev.mysql.com/doc/mysql-errors/5.7/en/ix01.html
+      -errors born from the server are noted @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+          -errors shown only in the Aurora Error log
+            -xxx:fill in
+          -errors shown only in the Client program
+            -xxx:fill in
+          -errors shown in the Aurora Error log and in the Client program
+            -xxx:fill in
+      -errors born from the client are noted @ https://dev.mysql.com/doc/mysql-errors/5.7/en/client-error-reference.html
+        -xxx:fill in
+      -errors born from the client or from the server are noted @ https://dev.mysql.com/doc/mysql-errors/5.7/en/global-error-reference.html
   -Where to view Errors
     -Client Programs
       -Client Programs get the errors from as noted @ https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
@@ -15,5 +25,6 @@ Note:
         -mysql command line command as noted @ https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
         -AWS Glue
   -"stderr" directs where an error is sent to be displayed and that is noted @ https://dev.mysql.com/doc/refman/5.7/en/error-log.html
+
 Main Success Scenario:
-  1. 
+  1. xxx:fill in
