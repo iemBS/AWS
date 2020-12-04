@@ -27,6 +27,69 @@ Note:
   -"stderr" directs where an error is sent to be displayed and that is noted @ https://dev.mysql.com/doc/refman/5.7/en/error-log.html
   -list of error classes and sub classes @ https://en.wikipedia.org/wiki/SQLSTATE
 Main Success Scenario:
-  1. xxx:fill in
-Alternatives:
-  1a. 
+  1. "Cause 'dynamic SQL error'"
+  2. xxx:fill in
+  
+Cause 'dynamic SQL error'
+Main Success Scenario:
+  1.xxx:fill in
+
+
+All Error classes below from https://en.wikipedia.org/wiki/SQLSTATE
+----------------------------------------------------------------------
+CLASS: 07, CLASS DESC: dynamic SQL error
+CLASS: 08, CLASS DESC: connection exception
+CLASS: 09, CLASS DESC: triggered action exception
+CLASS: 0A, CLASS DESC: feature not supported
+CLASS: 0D, CLASS DESC: invalid target type specification
+CLASS: 0E, CLASS DESC: invalid schema name list specification
+CLASS: 0F, CLASS DESC: locator exception
+CLASS: 0K, CLASS DESC: resignal when handler not active
+CLASS: 0L, CLASS DESC: invalid grantor
+CLASS: 0M, CLASS DESC: invalid SQL-invoked procedure reference
+CLASS: 0N, CLASS DESC: SQL/XML mapping error
+CLASS: 0P, CLASS DESC: invalid role specification
+CLASS: 0S, CLASS DESC: invalid transform group name specification
+CLASS: 0T, CLASS DESC: target table disagrees with cursor specification
+CLASS: 0U, CLASS DESC: attempt to assign to non-updatable column
+CLASS: 0V, CLASS DESC: attempt to assign to ordering column
+CLASS: 0W, CLASS DESC: prohibited statement encountered during trigger execution
+CLASS: 0X, CLASS DESC: invalid foreign server specification
+CLASS: 0Y, CLASS DESC: pass-through specific condition
+CLASS: 0Z, CLASS DESC: diagnostics exception
+CLASS: 10, CLASS DESC: XQuery error
+CLASS: 20, CLASS DESC: case not found for case statement
+CLASS: 21, CLASS DESC: cardinality violation
+CLASS: 22, CLASS DESC: data exception
+CLASS: 23, CLASS DESC: integrity constraint violation
+CLASS: 24, CLASS DESC: invalid cursor state
+CLASS: 25, CLASS DESC: invalid transaction state
+CLASS: 26, CLASS DESC: invalid SQL statement name
+CLASS: 27, CLASS DESC: triggered data change violation
+CLASS: 28, CLASS DESC: invalid authorization specification
+CLASS: 2B, CLASS DESC: dependent privilege descriptors still exist
+CLASS: 2C, CLASS DESC: invalid character set name
+CLASS: 2D, CLASS DESC: invalid transaction termination
+CLASS: 2E, CLASS DESC: invalid connection name
+CLASS: 2F, CLASS DESC: SQL routine exception
+CLASS: 2H, CLASS DESC: invalid collation name
+CLASS: 30, CLASS DESC: invalid SQL statement identifier
+CLASS: 33, CLASS DESC: invalid SQL descriptor name
+CLASS: 34, CLASS DESC: invalid cursor name
+CLASS: 35, CLASS DESC: invalid condition number
+CLASS: 36, CLASS DESC: cursor sensitivity exception
+CLASS: 38, CLASS DESC: external routine exception
+CLASS: 39, CLASS DESC: external routine invocation exception
+CLASS: 3B, CLASS DESC: savepoint exception
+CLASS: 3C, CLASS DESC: ambiguous cursor name
+CLASS: 3D, CLASS DESC: invalid catalog name
+CLASS: 3F, CLASS DESC: invalid schema name
+CLASS: 40, CLASS DESC: transaction rollback
+CLASS: 42, CLASS DESC: syntax error or access rule violation
+CLASS: 44, CLASS DESC: with check option violation
+CLASS: 45, CLASS DESC: unhandled user-defined exception
+CLASS: 46, CLASS DESC: OLB-specific error
+CLASS: 46, CLASS DESC: Java DDL
+CLASS: HW, CLASS DESC: datalink exception
+CLASS: HV, CLASS DESC: FDW-specific condition
+CLASS: HY, CLASS DESC: CLI-specific condition
