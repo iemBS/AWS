@@ -5,6 +5,7 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html
     -https://www.mysqltutorial.org/mysql-triggers/working-mysql-scheduled-event/
     -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler-thread-states.html
+    -https://www.mysqltutorial.org/mysql-interval/
   -If the event scheduler is not enabled, you can set the event_scheduler system variable to enable and start it. 
   -MySQL Events are also known as “temporal triggers” because they are triggered by time, not by DML events like normal triggers. 
   -Even if you are an admin, you may see "Access denied; you need (at least one of) the SUPER privilege(s) for this operation" when trying to turn on the event_scheduler
