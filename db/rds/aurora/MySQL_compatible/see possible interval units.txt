@@ -1,0 +1,3 @@
+See Possible Interval Units
+Main Success Scenario:
+  1. See @ https://www.mysqltutorial.org/mysql-interval/
