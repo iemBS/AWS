@@ -1,0 +1,5 @@
+Check Event Scheduler ON Status
+Pre-Conditions:
+  -
+Main Success Scenario:
+  1. In Amazon RDS dashboard > Left Side Bar > "Parameter groups" > search for "event_scheduler" with search textbox > see "Values" column
