@@ -25,6 +25,8 @@ Note:
         -mysql command line command as noted @ https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
         -AWS Glue
   -"stderr" directs where an error is sent to be displayed and that is noted @ https://dev.mysql.com/doc/refman/5.7/en/error-log.html
-
+  -list of error classes and sub classes @ https://en.wikipedia.org/wiki/SQLSTATE
 Main Success Scenario:
   1. xxx:fill in
+Alternatives:
+  1a. 
