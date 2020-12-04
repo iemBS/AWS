@@ -1,10 +1,11 @@
 Create Event
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/create-event.html
-  -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html
-  -https://www.mysqltutorial.org/mysql-triggers/working-mysql-scheduled-event/
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/create-event.html
+    -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html
+    -https://www.mysqltutorial.org/mysql-triggers/working-mysql-scheduled-event/
+    -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler-thread-states.html
   -If the event scheduler is not enabled, you can set the event_scheduler system variable to enable and start it. 
-  -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler-thread-states.html
   -MySQL Events are also known as “temporal triggers” because they are triggered by time, not by DML events like normal triggers. 
   -Even if you are an admin, you may see "Access denied; you need (at least one of) the SUPER privilege(s) for this operation" when trying to turn on the event_scheduler
   -If event_scheduler has a value of OFF what happens when you create an event
