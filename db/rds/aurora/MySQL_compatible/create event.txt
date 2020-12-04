@@ -22,7 +22,7 @@ Note:
 Main Success Scenario:
   1. See code below 
   
-    CREATE EVENT myevent
+    CREATE EVENT IF NOT EXIST myevent
     ON SCHEDULE AT CURRENT_TIMESTAMP
     DO
       UPDATE myschema.mytable SET mycol = mycol + 1;
@@ -63,3 +63,10 @@ Alternatives:
       SET GLOBAL event_scheduler = ON; 
   1f. Add an additional schedule to an event
     1f1. xxx:fill in
+  1g. Execute event 10 seconds after it is created
+  
+      CREATE EVENT myevent
+      ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 10 SECOND
+      ON COMPLETION PRESERVE
+      DO
+        UPDATE myschema.mytable SET mycol = mycol + 1;
