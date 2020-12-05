@@ -86,6 +86,8 @@ CLASS: 3D, CLASS DESC: invalid catalog name
 CLASS: 3F, CLASS DESC: invalid schema name
 CLASS: 40, CLASS DESC: transaction rollback
 CLASS: 42, CLASS DESC: syntax error or access rule violation
+  SUB_CLASS: 000, SUB_CLASS DESC: not sub class
+    MySQL_Err_Num:1305, MySQL_Err_Num_DESC: xxx, HOW_OCCURRED: calling a procedure that does not exist 
 CLASS: 44, CLASS DESC: with check option violation
 CLASS: 45, CLASS DESC: unhandled user-defined exception
 CLASS: 46, CLASS DESC: OLB-specific error
