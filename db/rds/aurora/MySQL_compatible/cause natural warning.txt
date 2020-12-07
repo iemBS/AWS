@@ -4,6 +4,7 @@ Note:
   -list of SQLSTATE values @ https://en.wikipedia.org/wiki/SQLSTATE
   -map MySQL error # to SQLSTATE to SQLSTATE keyword @ https://docs.oracle.com/cd/E19078-01/mysql/mysql-refman-5.0/error-handling.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. Insert string into column specified as integer
+  2. See 1366 MySQL Error number, which is a warning, and the row where the attempt is made that column will have a value of 0. 
 Alternatives:
   1a. xxx:fill in
