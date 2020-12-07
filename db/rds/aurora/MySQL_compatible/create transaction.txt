@@ -173,9 +173,36 @@ Main Success Scenario:
   1. Declare Exit Handler for Errors
     xxx:fill in
 Alternatives:
-  1a. Declare Continue Handler for Errors
-    1a1. xxx:fill in
-      DECLARE CONTINUE HANDLER FOR SQLSTATE '42S02'
+  1a. Declare Continue Handler for Errors and collect all errors
+    1a1. See code below
+	    DECLARE vSQLSTATE CHAR(5) DEFAULT '00000';
+	    DECLARE vMSG_TXT TEXT;
+      DECLARE vALL_MSG_TXT TEXT;
+      DECLARE vMYSQL_ERRNO INT;
+      
+      DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
       BEGIN
-        # add sql here
+		    GET DIAGNOSTICS CONDITION 1 
+			    vSQLSTATE = RETURNED_SQLSTATE, 
+			    vMYSQL_ERRNO = MYSQL_ERRNO, 
+          vMSG_TXT = MESSAGE_TEXT; 
+        SET vMSG_TXT = CONCAT_WS(";","MyDB.MyProc",vSQLSTATE,vMSG_TXT);
+        SET vALL_MSG_TXT = CONCAT(vALL_MSG_TXT,",",vMSG_TXT)
+      END;
+  1b. Declare Continue Handler for Errors and collect all errors with info on where in the query the error occurred
+    1b1. See code below
+	    DECLARE vSQLSTATE CHAR(5) DEFAULT '00000';
+	    DECLARE vMSG_TXT TEXT;
+      DECLARE vALL_MSG_TXT TEXT;
+      DECLARE vMYSQL_ERRNO INT;
+      DECLARE vQryPart TEXT;
+      
+      DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+      BEGIN
+		    GET DIAGNOSTICS CONDITION 1 
+			    vSQLSTATE = RETURNED_SQLSTATE, 
+			    vMYSQL_ERRNO = MYSQL_ERRNO, 
+          vMSG_TXT = MESSAGE_TEXT; 
+        SET vMSG_TXT = CONCAT_WS(";","MyDB.MyProc",vQryPart,vSQLSTATE,vMSG_TXT);
+        SET vALL_MSG_TXT = CONCAT(vALL_MSG_TXT,"/",vMSG_TXT)
       END;
