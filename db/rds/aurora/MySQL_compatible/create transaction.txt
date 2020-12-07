@@ -32,17 +32,21 @@ Note:
   -The SAVEPOINT statement sets a named transaction savepoint with a name of identifier. If the current transaction has a savepoint with the same name, the old savepoint is deleted and a new one is set.
 Main Success Scenario: 
   x. "Set AutoCommit system variable"
+  x. "Create Error Handler"
   1."Start Transaction"
   2. "Create SavePoint in Transaction"
   3. "Create Another SavePoint in Transaction"
   4. "Release First SavePoint"
   5. "Commit Transaction"
-  6. "See Explicit and Implicit Rollbacks"
+  6. Exit Transaction
+  7. "See Explicit and Implicit Rollbacks"
 Alternatives:
-  3a. "Create SavePoint with same name as previous SavePoint"
-    3a1. xxx:fill in
-  5a. "Rollback Transaction"
-    5a1. xxx:fill in
+  3a. Create SavePoint with same name as previous SavePoint
+    3a1. "Create SavePoint with same name as previous SavePoint"
+    3a2. Go to step 6. 
+  5a. Rollback Transaction
+    5a1. "Rollback Transaction"
+    5a2. Go to step 6. 
     
     
 Set AutoCommit system variable
@@ -164,3 +168,14 @@ Alternatives:
     1a1. SHOW FULL PROCESSLIST
 
 
+Create Error Handler
+Main Success Scenario:
+  1. Declare Exit Handler for Errors
+    xxx:fill in
+Alternatives:
+  1a. Declare Continue Handler for Errors
+    1a1. xxx:fill in
+      DECLARE CONTINUE HANDLER FOR SQLSTATE '42S02'
+      BEGIN
+        # add sql here
+      END;
