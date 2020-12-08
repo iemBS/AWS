@@ -2,5 +2,8 @@ Escape Special Character
 Note:
   -Guidance @ 
     -https://www.oreilly.com/library/view/mysql-cookbook/0596001452/ch04s02.html
+    -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06.html
+  -PHP often seems to be seen in online as having to deal with escaping special characters before running queries against a MySQL DB
+    -https://www.php.net/manual/en/function.mysql-real-escape-string.php
 Main Success Scenario:
   1. xxx:fill in
