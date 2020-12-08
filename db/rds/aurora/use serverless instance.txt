@@ -1,0 +1,6 @@
+Use Serverless Instance
+Note: 
+  -Guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
+Main Success Scenario:
+  1. xxx:fill in
