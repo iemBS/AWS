@@ -5,6 +5,7 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes
   -The use of the "ANSI_QUOTES" mode factors into the use of string literals
     -https://dev.mysql.com/doc/refman/5.7/en/string-literals.html
+  -PyMySQL use of SQL_MODE @ https://pymysql.readthedocs.io/en/latest/modules/connections.html
 Main Success Scenario:
   1. Add "ANSI_QUOTES" mode to SQL_MODE to force double quotes to act like ` quotes to identify SQL objects
 Alternatives:
