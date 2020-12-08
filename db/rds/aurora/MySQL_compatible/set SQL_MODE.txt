@@ -1,0 +1,9 @@
+Set SQL_MODE
+Note:
+  -Guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
+    -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes
+Main Success Scenario:
+  1. Add "ANSI_QUOTES" mode to SQL_MODE to force double quotes to act like ` quotes to identify SQL objects
+Alternatives:
+  1a. xxx:fill in
