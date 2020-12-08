@@ -3,12 +3,14 @@ Pre-Conditions:
   -Procedure parameters and/or local variables will not be used in a prepared statement within a procedure and the prepared statement then used after the procedure has ended. The error caused by that scenario is noted @ https://dev.mysql.com/doc/refman/5.7/en/prepare.html
 Note:
   -Guidance @ 
-    -https://dev.mysql.com/doc/refman/5.6/en/prepare.html
+    -https://dev.mysql.com/doc/refman/5.7/en/prepare.html
     -https://dev.mysql.com/doc/refman/5.6/en/sql-prepared-statements.html
       -SQL syntax for prepared statements does not support multi-statements (that is, multiple statements within a single string separated by ; characters).
     -https://stackoverflow.com/questions/190776/how-to-have-dynamic-sql-in-mysql-stored-procedure
     -https://dev.mysql.com/doc/refman/5.7/en/execute.html
     -https://dev.mysql.com/doc/refman/5.7/en/deallocate-prepare.html
+    -https://mariadb.com/kb/en/prepare-statement/
+    -https://dev.mysql.com/doc/refman/5.7/en/statement-caching.html
   -USE statement CANNOT be used inside a procedure. See @ https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html
   -Local variables and procedure parameters cannot be used within a prepared statement that is created within a procedure accoring to these two links:  
     -https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/stored-program-restrictions.html
