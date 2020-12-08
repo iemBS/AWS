@@ -1,0 +1,15 @@
+Config Parallel Query Execution
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html
+    -https://www.percona.com/blog/2019/01/17/using-parallel-query-with-amazon-aurora-for-mysql/
+  -Enabled and disabled using "aurora_parallel_query" parameter in Aurora
+  -Does not exist as a system variable in MySQL
+Question:
+  -Can this be enabled on a serverless instance?
+Main Success Scenario:
+  1. See if parallel query execution can be enabled on your Aurora version
+    https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-enabling
+  2. Enable Parallel Query Execution
+    xxx:fill in
+    
