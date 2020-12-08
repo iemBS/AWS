@@ -16,6 +16,7 @@ Note:
     -https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/stored-program-restrictions.html
     -https://dev.mysql.com/doc/refman/5.7/en/prepare.html
   -MySQL wants to put prepared statements in the Query Cache. That will not happen if the query resulting from the prepare statement breaks one of the rules @ https://dev.mysql.com/doc/refman/5.7/en/query-cache-operation.html
+  -A semi-colon is not needed at the end of string that holds the query for a prepared statement. The PREPARE or EXECUTE command will add a query terimnator.
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
