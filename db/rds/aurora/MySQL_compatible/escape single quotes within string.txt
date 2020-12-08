@@ -1,8 +1,12 @@
 Escape Single Quotes within String
 Note:
-  -Guidance @ https://stackoverflow.com/questions/9596652/how-to-escape-apostrophe-in-mysql
+  -Guidance @ 
+    -https://stackoverflow.com/questions/9596652/how-to-escape-apostrophe-in-mysql
+    -https://www.w3resource.com/mysql/string-functions/mysql-quote-function.php
 Main Success Scenario:
   1. Add another single quote
 Alternatives:
   1a. Add one back slash before the single quote
   1b. Use double quotes around the string and the single quotes inside do not need to be escaped
+  1c. Use QUOTE function
+    1c1. xxx:fill in
