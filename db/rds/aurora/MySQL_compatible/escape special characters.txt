@@ -1,0 +1,6 @@
+Escape Special Character
+Note:
+  -Guidance @ 
+    -https://www.oreilly.com/library/view/mysql-cookbook/0596001452/ch04s02.html
+Main Success Scenario:
+  1. xxx:fill in
