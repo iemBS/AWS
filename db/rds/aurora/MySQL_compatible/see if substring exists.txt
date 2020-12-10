@@ -3,4 +3,4 @@ Note:
   -Guidance @ 
     -https://www.w3resource.com/mysql/string-functions/mysql-instr-function.php
 Main Success Scenario:
-  1. xxx:fill in
+  1. SELECT INSTR('myteststring','st');
