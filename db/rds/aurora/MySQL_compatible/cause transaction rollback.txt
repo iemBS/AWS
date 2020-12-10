@@ -5,8 +5,14 @@ Main Success Scenario:
   1. Error occurs when your SQL code is running
   2. Stop Executing SQL code
   3. SQL code is quit in a middle of a transaction
+  4. End
 Alternatives:
   1a. Disconnecting query from the database
     1a1. xxx:fill in
+    1a2. go to Step 4
   1b. A deadlock or lock-wait timeout occurs
     1b1. xxx:fill in
+    1b2. go to Step 4
+  1c. "autocommit" is disabled and session ends without ending final transaction
+    1c1. MySQL rolls back that transaction.
+    1c2. go to Step 4
