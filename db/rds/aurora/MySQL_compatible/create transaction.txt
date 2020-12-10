@@ -30,6 +30,9 @@ Note:
   -The RELEASE SAVEPOINT statement removes the named savepoint from the set of savepoints of the current transaction. 
   -When a rollback to savepoint occurs, savepoints that were set at a later time than the named savepoint are deleted.
   -The SAVEPOINT statement sets a named transaction savepoint with a name of identifier. If the current transaction has a savepoint with the same name, the old savepoint is deleted and a new one is set.
+  -Starting a transaction
+    -With START TRANSACTION, autocommit remains disabled until you end the transaction with COMMIT or ROLLBACK. 
+    -xxx:fill in
 Main Success Scenario: 
   x. "Set AutoCommit system variable"
   x. "Create Error Handler"
