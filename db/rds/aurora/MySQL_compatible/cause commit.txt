@@ -1,0 +1,23 @@
+Cause Commit
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
+Main Success Scenario:
+  1. "Cause Statement Commit"
+  2. End
+Alternatives:
+  1a. Commit changes for more than one statement 
+    1a1. "Cause Transaction Commit"
+    1a2. Go to step 2
+
+Cause Statement Commit
+Main Success Scenario:
+  1.xxx:fill in
+
+Cause Transaction Commit
+Main Success Scenario:
+  1. Issue SQL COMMIT statement
+    COMMIT;
+Alternatives:
+  1a. Implicitly, when the server begins handling a DDL statement or SET AUTOCOMMIT={0|1} statement
+  
