@@ -25,7 +25,9 @@ Alternatives:
 
 Cause Transaction Rollback
 Note:
-  -Guidance @ https://stackoverflow.com/questions/6121917/automatic-rollback-if-commit-transaction-is-not-reached
+  -Guidance @ 
+    -https://stackoverflow.com/questions/6121917/automatic-rollback-if-commit-transaction-is-not-reached
+    -https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
 Main Success Scenario:
   1. Error occurs when your SQL code is running
   2. Stop Executing SQL code
@@ -43,6 +45,8 @@ Alternatives:
     1c2. go to Step 4
   1d. Session is killed
     1d1. xxx:fill in
+  1e. When one of the storage engines requests a rollback by setting thd->transaction_rollback_request
+    1e1. xxx:fill in
     
     
 
