@@ -1,0 +1,5 @@
+Limits to MySQL
+Note:
+  -Guidance @ https://downloads.mysql.com/docs/mysql-reslimits-excerpt-5.7-en.pdf
+Main Success Scenario:
+  1.xxx:fill in
