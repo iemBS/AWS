@@ -28,6 +28,10 @@ Note:
   -Guidance @ 
     -https://stackoverflow.com/questions/6121917/automatic-rollback-if-commit-transaction-is-not-reached
     -https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
+  -When a connection is closed, the current normal transaction, if any, is rolled back.
+    -Noted @ https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
+Question:
+  -Are disconnecting a query from the database and closing a connection, the same activity?
 Main Success Scenario:
   1. Error occurs when your SQL code is running
   2. Stop Executing SQL code
