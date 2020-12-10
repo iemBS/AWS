@@ -1,0 +1,27 @@
+Return Procedure Parameter
+Pre-Conditions:
+  -Parameters cannot return a value from a procedure if that procedure throws an error
+Note:
+  -Guidance @ 
+    -https://www.mysqltutorial.org/stored-procedures-parameters.aspx
+Main Success Scenario:
+  1. Select value into parameter
+  
+    CREATE PROCEDURE GetOrderCountByStatus (
+      IN  orderStatus VARCHAR(25),
+      OUT total INT
+    )
+    BEGIN
+      SELECT COUNT(orderNumber)
+      INTO total
+      FROM orders
+      WHERE status = orderStatus;
+    END
+    
+  2. Collect output value when calling procedure
+    CALL GetOrderCountByStatus('Shipped',@total);
+    SELECT @total;
+Alternatives:
+  1a. Set value with SET statement 
+    1a1. xxx:fill in
+    
