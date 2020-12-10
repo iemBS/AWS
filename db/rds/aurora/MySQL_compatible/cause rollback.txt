@@ -1,0 +1,47 @@
+Cause Rollback
+Note:
+  -Transaction safe tables are tables that can be rolled back
+  -All tables that use the InnoDB storage engine are safe tables
+  -issues with non-transaction safe tables
+    -If you use tables that are not transaction-safe within a transaction, changes to those tables are stored at once, regardless of the status of autocommit mode.
+    -If you issue a ROLLBACK statement after updating a nontransactional table within a transaction, an ER_WARNING_NOT_COMPLETE_ROLLBACK warning occurs. Changes to transaction-safe tables are rolled back, but not changes to nontransaction-safe tables.
+Question:
+  -Are temp tables transaction safe?
+Main Success Scenario:
+  1. "Cause Statement Rollback"
+Alternatives:
+  1a. More than one statement is rolled back
+    1a1. "Cause Transaction Rollback"
+  
+Cause Statement Rollback
+Pre-Conditions:
+  1. Rollback is limited to a single statement 
+Note:
+  -If a SELECT statement within a transaction calls a stored function, and a statement within the stored function fails, that statement rolls back. If ROLLBACK is executed for the transaction subsequently, the entire transaction rolls back. Noted @ https://dev.mysql.com/doc/refman/5.7/en/commit.html
+Main Success Scenario:
+  1. A single statement in a transaction has an error
+Alternatives:
+  1a. The single statement is a select statement that calls a stored function and the stored function fails
+
+Cause Transaction Rollback
+Note:
+  -Guidance @ https://stackoverflow.com/questions/6121917/automatic-rollback-if-commit-transaction-is-not-reached
+Main Success Scenario:
+  1. Error occurs when your SQL code is running
+  2. Stop Executing SQL code
+  3. SQL code is quit in a middle of a transaction
+  4. End
+Alternatives:
+  1a. Disconnecting query from the database
+    1a1. xxx:fill in
+    1a2. go to Step 4
+  1b. A deadlock or lock-wait timeout occurs
+    1b1. xxx:fill in
+    1b2. go to Step 4
+  1c. "autocommit" is disabled and session ends without ending final transaction
+    1c1. MySQL rolls back that transaction.
+    1c2. go to Step 4
+    
+    
+
+    
