@@ -2,6 +2,8 @@ Cause Commit
 Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
+  -A normal transaction is never committed when there is an outstanding statement transaction. 
+    -Noted @ https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
 Main Success Scenario:
   1. "Cause Statement Commit"
   2. End
