@@ -32,7 +32,10 @@ Note:
   -The SAVEPOINT statement sets a named transaction savepoint with a name of identifier. If the current transaction has a savepoint with the same name, the old savepoint is deleted and a new one is set.
   -Starting a transaction
     -With START TRANSACTION, autocommit remains disabled until you end the transaction with COMMIT or ROLLBACK. 
-    -xxx:fill in
+    -BEGIN and BEGIN WORK are supported as aliases of START TRANSACTION for initiating a transaction. START TRANSACTION is standard SQL syntax, is the recommended way to start an ad-hoc transaction, and permits modifiers that BEGIN does not.
+      -Noted @ https://dba.stackexchange.com/questions/261194/mysql-difference-between-begin-and-start-transaction
+    -The BEGIN statement differs from the use of the BEGIN keyword that starts a BEGIN ... END compound statement. The latter does not begin a transaction.
+      -Noted @ https://dev.mysql.com/doc/refman/5.7/en/commit.html
 Main Success Scenario: 
   x. "Set AutoCommit system variable"
   x. "Create Error Handler"
