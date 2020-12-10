@@ -41,6 +41,8 @@ Alternatives:
   1c. "autocommit" is disabled and session ends without ending final transaction
     1c1. MySQL rolls back that transaction.
     1c2. go to Step 4
+  1d. Session is killed
+    1d1. xxx:fill in
     
     
 
