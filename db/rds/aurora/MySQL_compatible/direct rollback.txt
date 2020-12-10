@@ -1,0 +1,24 @@
+Direct Rollback
+Pre-Conditions:
+  -This defines the path the rollback takes and is not concerned with how the rollback is started or caused
+Main Success Scenario:
+  1. 
+Alternatives:
+  1a. Program calling MySQL only returns the MySQL Error # and MESSAGE_TEXT
+    1a1. "Collect Info in SQL code"  
+    
+    
+Collect Info in SQL code
+Pre-Conditions:
+  -The calling program will know the DB and SQL Object names when they are called directly by that program. So, no need to collect that info within the SQL code.
+Main Success Scenario:
+  1. SQL Code is called directly by the Program
+    -Collect part of query that is reached during execution (these are labels within the query)
+  2. Return the collected info when the SQL code execution completes
+Alternatives:
+  1a. SQL Code is in a nested SQL object (procedure, function, trigger)
+    1a1. Collect name of DB that current SQL object is in
+    1a2. Collect name of current SQL object (procedure, function, trigger, event, or script name)
+    1a3. Collect part of query that is reached during execution (these are labels within the query)
+    1a4. Go to Step 2. 
+  
