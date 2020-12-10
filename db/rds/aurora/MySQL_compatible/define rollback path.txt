@@ -1,4 +1,4 @@
-Direct Rollback
+Define Rollback Path
 Pre-Conditions:
   -This defines the path the rollback takes and is not concerned with how the rollback is started or caused
 Main Success Scenario:
