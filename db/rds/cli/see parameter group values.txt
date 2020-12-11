@@ -1,0 +1,9 @@
+See Parameter Group Values
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html
+Main Success Scenario:
+  1. See code below where "mydbpg" is my parameter group name
+    aws rds describe-db-parameters \
+        --db-parameter-group-name mydbpg
+
