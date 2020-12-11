@@ -1,0 +1,16 @@
+See Default Parameter Values
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/reference/rds/describe-engine-default-cluster-parameters.html
+    -https://docs.aws.amazon.com/cli/latest/reference/rds/describe-engine-default-parameters.html
+Main Success Scenario:
+  1. See default engine and system parameter information for the cluster database engine. Limited to those parameters with MySQL 5.6 compatability. 
+    aws rds describe-engine-default-cluster-parameters \
+        --db-parameter-group-family aurora-mysql5.6
+  2. Output to console 
+Alternatives:
+  1a. See default engine and system parameter information for the specified database engine. Limited to MySQL 5.6 DB instances.
+    1a1. See code below
+      aws rds describe-engine-default-parameters \
+          --db-parameter-group-family mysql5.6
+    1a2. Go to Step 2
