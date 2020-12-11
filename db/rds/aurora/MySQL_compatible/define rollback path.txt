@@ -1,11 +1,145 @@
 Define Rollback Path
 Pre-Conditions:
   -This defines the path the rollback takes and is not concerned with how the rollback is started or caused
+  -auto_commit is set to ON
+  -InnoDB storage engine is used
+  -Errors in nested objects go up to the parent on their own or are re-thrown by an exit handler in the nested object
+  -Continue handlers are not used by the parent or nested objects
+  -Nested objects can put all the error info into the MESSAGE_TEXT attribute that is bubbled up
 Main Success Scenario:
-  1. 
+  1. Executed SQL script has NO nested objects, has NO explicit transaction around all of its SQL code, and has NO savepoints. 
+  2. All changes made by DML queries previous to the statement that rows the error will be committed, statement throwing the error will rollback, statements after the errored statement will not be executed. 
+  3. Program calling MySQL returns the MySQL Error #, MESSAGE_TEXT, SQL Object name, Database name where SQL Object exists
+  4. End
 Alternatives:
-  1a. Program calling MySQL only returns the MySQL Error # and MESSAGE_TEXT
-    1a1. "Collect Info in SQL code"  
+  1a. Executed SQL script has NO nested objects & has an explicit transaction around all of its SQL code
+    1a1. "(1A) Define Rollback Path where Executed SQL script has NO nested objects & has an explicit transaction around all of its SQL code"
+    1a2. Go to step 3. 
+  1b. Executed SQL script has NO nested objects & has explicit transaction around some of its SQL code
+    1b1. "(1B) Define Rollback Path where Executed SQL script has NO nested objects & has explicit transaction around some of its SQL code"
+    1b2. Go to step 3. 
+  1c. Executed SQL script has nested objects 
+    1c1. "(1C) Define Rollback Path where Executed SQL script has nested objects"
+    1c2. Go to step 3. 
+  3a. Program calling MySQL only returns the MySQL Error # and MESSAGE_TEXT
+    3a1. "Collect Info in SQL code"  
+    3a2. Go to Step 4. 
+    
+
+(1A) Define Rollback Path where Executed SQL script has NO nested objects & has an explicit transaction around all of its SQL code
+Main Success Scenario:
+  1. Executed SQL script has NO nested objects, has explicit transaction around all of its SQL code, and has NO savepoints. 
+  2. All changes made by DML queries will be rolled back
+  3. SQL script is exited
+  4. Program calling MySQL returns the MySQL Error #, MESSAGE_TEXT, SQL Object name, Database name where SQL Object exists
+  5. End
+Alternatives:
+  1a. Executed SQL script has NO nested objects, has explicit transaction around all of its SQL code, and has savepoints. 
+    1a1. Changes made by DML queries after the savepoint and up to and including the statement that errored out, will be rolled back
+    1a2. Go to step 3
+    
+
+(1B) Define Rollback Path where Executed SQL script has NO nested objects & has explicit transaction around some of its SQL code
+Main Success Scenario:
+  1. Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, and has error in transaction block
+  2. xxx:fill in
+Alternatives:
+  1a. Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, and has error within non-transaction block
+    1a1. "(1B.1A) Define Rollback Path where Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, and has error in non-transaction block"
+    
+
+(1B.1A) Define Rollback Path where Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, and has error in non-transaction block
+Main Success Scenario:
+  1. Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, and has error in non-transaction block
+  2. Changes made by DML queries in statements that precede the errored statement in the non-transaction block, will be committed. If a transaction block preceded the non-transaction block, DML query changes in there will also be committed. Only the errored statement in the non-transaction block will be rolled back. 
+  3. SQL script is exited
+  4. Program calling MySQL returns the MySQL Error #, MESSAGE_TEXT, SQL Object name, Database name where SQL Object exists
+Alternatives:
+  1a. Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, has error in transaction block
+   1a1. "(1B.1A.1A) Define Rollback Path where Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, has error in transaction block"
+  
+  
+(1B.1A.1A) Define Rollback Path where Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, has error in transaction block
+Main Success Scenario:
+  1. Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, has error in transaction block, and has NO savepoints
+  2. Changes made by DML queries within the transaction block are rolled back to the start of the transaction block
+  3. SQL script is exited
+  4. Program calling MySQL returns the MySQL Error #, MESSAGE_TEXT, SQL Object name, Database name where SQL Object exists
+Alternatives:
+  1a. Executed SQL script has NO nested objects, has explicit transaction around some of its SQL code, has error in transaction block, and has savepoints
+    1a1. Changes made by DML queries within the transaction block are rolled back to the savepoint within the transaction block
+    1a2. Go to step 3. 
+    
+  
+(1C) Define Rollback Path where Executed SQL script has nested objects
+Main Success Scenario:
+  1. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in SQL script
+  2. Changes made in all previous statements in SQL script and nested objects are committed. Only errored statement in SQL script is rolled back
+  3. SQL script is exited
+  4. Program calling MySQL returns the MySQL Error #, MESSAGE_TEXT, SQL Object name, Database name where SQL Object exists
+Alternatives:
+  1a. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object
+    1a1. "(1C.1A) Define Rollback Path where Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object"
+  1b. Executed SQL script has nested objects, has explicit transaction around all of its SQL code, has error in nested object
+    1b1. "(1C.1B) Define Rollback Path where Executed SQL script has nested objects, has explicit transaction around all of its SQL code, has error in nested object"
+    
+    
+(1C.1A) Define Rollback Path where Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object
+Main Success Scenario:
+  1. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has NO explicit transaction around all its code
+  2. xxx:fill in
+Alternatives:
+  1a. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error within nested object, nested object has explicit transaction around all its code
+    1a1. "(1C.1A.1A) Define Rollback Path where Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has explicit transaction around all its code"
+  1b. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error within nested object, nested object has explicit transaction around some of its code
+    1b1. "(1C.1A.1B) Define Rollback Path where Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has explicit transaction around some of its code"
+    
+
+(1C.1A.1A) "Define Rollback Path where Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error within nested object, nested object has explicit transaction around all its code
+Main Success Scenario:
+  1. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has explicit transaction around all its code, has NO savepoints
+  2. Changes made by DML queries in the nested object, will be rolled back
+  3. Nested object is exited
+  4. Statement that called the nested object will have any changes that were made by DML queries rolled back. All statements previous to that statement, are committed. 
+  5. SQL script is exited. 
+  6. Program calling MySQL returns the MySQL Error # and MESSAGE_TEXT
+Alternatives:
+  1a. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has explicit transaction around all its code, has savepoints
+    1a1. Changes made by DML queries in the nested object, will be rolled back to the savepoint. All statements in the nested object before the savepoint, are committed.
+    1a2. Go to step 3. 
+    
+   
+(1C.1A.1B) Define Rollback Path where Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has explicit transaction around some of its code
+  Main Success Scenario:
+    1. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has explicit transaction around some of its code, has error in non-transaction block of nested object
+    2. xxx:fill in
+  Alternatives:
+    1a. "(1C.1A.1B.1A) Define Rollback Path where Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has explicit transaction around some of its code, has error in transaction block of nested object"
+  
+
+(1C.1A.1B.1A) Define Rollback Path where Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error in nested object, nested object has explicit transaction around some of its code, has error in transaction block of nested object
+Main Success Scenario:
+  1. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error within nested object, nested object has explicit transaction around some of its code, has error in transaction block of nested object, has no savepoints
+  2. xxx:fill in
+Alternatives:
+  1a. Executed SQL script has nested objects, has NO explicit transaction around all of its SQL code, has error within nested object, nested object has explicit transaction around some of its code, has error in transaction block of nested object, has savepoints
+    1a1. xxx:fill in
+
+
+(1C.1B) Define Rollback Path where Executed SQL script has nested objects, has explicit transaction around all of its SQL code, has error in nested object
+Main Success Scenario:
+  1. Executed SQL script has nested objects, has explicit transaction around all of its SQL code, has error in nested object, has NO savepoints in SQL script
+  2. xxx:fill in
+Alternatives:
+  1a. Executed SQL script has nested objects, has explicit transaction around all of its SQL code, has error in nested object, has savepoints in SQL script
+    1a1. "(1C.1B.1A) Define Rollback Path where Executed SQL script has nested objects, has explicit transaction around all of its SQL code, has error in nested object, has savepoints in SQL script"
+ 
+ 
+(1C.1B.1A) Define Rollback Path where Executed SQL script has nested objects, has explicit transaction around all of its SQL code, has error in nested object, has savepoints in SQL script
+Main Success Scenario:
+  1. xxx:fill in
+
+
     
     
 Collect Info in SQL code
