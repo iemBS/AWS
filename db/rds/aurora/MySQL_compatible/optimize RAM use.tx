@@ -12,7 +12,8 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_definition_cache
     -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_open_cache
     -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_open_cache_instances
-    0https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_thread_cache_size
+    -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_thread_cache_size
+    -https://mariadb.com/kb/en/mariadb-memory-allocation/
 Main Success Scenario:
   1. "Optimzie RAM use for InnoDB Storage engine"
   2. "Optimzie RAM use for MyISAM Storage engine"
