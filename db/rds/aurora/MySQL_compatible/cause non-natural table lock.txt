@@ -1,3 +1,6 @@
 Cause Non-Natural Table Lock
+Note:
+  -Guidance @ 
+    -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
 Main Success Scenario:
   1.xxx:fill in
