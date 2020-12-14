@@ -1,6 +1,9 @@
 Cause Natural Table Lock
 Note:
   -When InnoDB performs a complete rollback of a transaction, all locks set by the transaction are released. If a single SQL statement within a transaction rolls back as a result of an error, such as a duplicate key error, locks set by the statement are preserved while the transaction remains active. This happens because InnoDB stores row locks in a format such that it cannot know afterward which lock was set by which statement. Noted @ https://dev.mysql.com/doc/refman/5.7/en/commit.html
+  -Guidance @ 
+    -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
+    -https://dev.mysql.com/doc/refman/5.7/en/locking-issues.html
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
