@@ -4,7 +4,11 @@ Note:
   -Guidance @ 
     -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
     -https://dev.mysql.com/doc/refman/5.7/en/locking-issues.html
+    -https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_row_lock
+    -https://dev.mysql.com/doc/refman/5.7/en/internal-locking.html
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
-  1a. xxx:fill in
+  1a. Just specific rows in the table are locked
+    1a1. xxx:fill in
+    
