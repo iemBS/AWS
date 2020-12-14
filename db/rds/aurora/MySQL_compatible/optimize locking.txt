@@ -1,5 +1,7 @@
 Optimize Locking
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/locking-issues.html
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/locking-issues.html
+    -https://dev.mysql.com/doc/refman/5.7/en/table-locking.html#table-locking-workarounds
 Main Success Scenario:
   1.xxx:fill in
