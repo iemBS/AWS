@@ -1,6 +1,99 @@
 Cause Non-Natural Table Lock
+Pre-Coditions:
+  -Use InnoDB storage engine
 Note:
   -Guidance @ 
     -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
+    -https://dev.mysql.com/doc/refman/5.7/en/internal-locking.html
+    -https://www.mysqltutorial.org/mysql-table-locking/
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html
+  -To avoid deadlocks when performing multiple concurrent write operations on a single InnoDB table, acquire necessary locks at the start of the transaction by issuing a SELECT ... FOR UPDATE statement for each group of rows expected to be modified, even if the data change statements come later in the transaction. If transactions modify or lock more than one table, issue the applicable statements in the same order within each transaction. Deadlocks affect performance rather than representing a serious error, because InnoDB automatically detects deadlock conditions and rolls back one of the affected transactions.
+  -
 Main Success Scenario:
-  1.xxx:fill in
+  1. Lock table for reading
+    LOCK TABLE MyTable READ;
+  2. "MyTable" is locked for reading by a thread, but can be read by other threads
+  3. End
+Alternatives:
+  1a. Lock table for writing
+    1a1. xxx:fill in
+  1b. Lock table for deleting
+    1b1. xxx:fill in
+  1c. "Lock only specific rows in a table" 
+  1d. "Lock only specific index record gap in a table"
+  1e. "Lock only specific index records in a table"
+  1f. "Lock specific index records and index record gap in a table"
+  1g. "Lock table with AUT-INC lock"
+  
+ 
+    
+Lock only specific rows in a table
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html
+    -https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_row_lock
+    -https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_intention_exclusive_lock
+    -https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_shared_lock
+Main Success Scenario:
+  1. Use intention exclusive lock to lock table and ready the lock to be moved to specific rows
+  2. Make this a read lock
+  3. xxx:fill in
+Alternatives:
+  1a. Use intention shared lock to lock table and ready the lock to be moved to specific rows
+    1a1. xxx:fill in
+  2a. Make this a write lock
+    2a1. xxx:fill in
+  2b. Make this an update lock
+    2b1. xxx:fill in
+  2c. Make this an insert lock
+    2c1. xxx:fill in
+  2d. Make this a delete lock
+    2d1. xxx:fill in
+    
+    
+Lock only specific index record gap in a table
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-gap-locks
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-insert-intention-locks
+    -
+Main Success Scenario:
+  1. Lock only specific gap in a table for reading
+  2. xxx:fill in
+Alternatives;
+  1a. Lock only specific gap in a table for writing
+    1a1. xxx:fill in
+  1b. Lock only specific gap in a table for updating
+    1b1. xxx:fill in
+  1c. Lock only specific gap in a table for deleting
+    1c1. xxx:fill in
+  1d. Lock only specific index record gap in a table for insert (Insert Intention Lock)
+    1d1. see code below
+        CREATE TABLE child (id int(11) NOT NULL, PRIMARY KEY(id)) ENGINE=InnoDB;
+        START TRANSACTION;
+        SELECT * FROM child WHERE id > 100 FOR UPDATE;
+        INSERT INTO child (id) VALUES (101);
+    1d2. Go to Step 2.
+    
+Lock only specific index records in a table
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-record-locks
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Lock specific index records and index record gap in a table
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-next-key-locks
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Lock table with AUT-INC lock
+Note:
+  -Guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-auto-inc-locks
+Main Success Scenario:
+  1. xxx:fill in
