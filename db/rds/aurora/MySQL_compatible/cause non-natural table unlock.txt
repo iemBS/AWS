@@ -1,0 +1,26 @@
+Cause Non-Natural Table Unlock
+Note:
+  -UNLOCK TABLES releases any locks held by the current thread. All tables that are locked by the current thread are automatically unlocked when the thread issues another LOCK TABLES, or when the connection to the server is closed.
+Note:
+  -Guidance @ 
+    -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
+    -https://dev.mysql.com/doc/internals/en/user-level-locks.html
+    -https://dev.mysql.com/doc/refman/5.7/en/locking-functions.html#function_release-lock
+Main Success Scenario:
+  1. UNLOCK TABLES;
+  2. All tables locked by the current thread are unlocked
+  3. End
+Alternatives:
+  1a. LOCK TABLES statement is called on the same thread
+    1a1. xxx:fill in
+    1a2. Go to Step 2
+  1b. Thread's connection to the server is closed
+    1b1. Do any automatic UNLOCK TABLES;
+    1b2. Go to Step 2
+  1c. Release a lock with a specific name
+    1c1. RELEASE_LOCK("MyLock");
+    1c2. That table lock is released
+    1c3. Go to step 3. 
+  1d. Release all currently named locks
+    1d1. RELEASE_ALL_LOCKS();
+    1d2. Go to Step 3
