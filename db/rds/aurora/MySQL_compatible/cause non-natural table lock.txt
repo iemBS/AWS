@@ -7,6 +7,7 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/internal-locking.html
     -https://www.mysqltutorial.org/mysql-table-locking/
     -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-transactions.html
   -To avoid deadlocks when performing multiple concurrent write operations on a single InnoDB table, acquire necessary locks at the start of the transaction by issuing a SELECT ... FOR UPDATE statement for each group of rows expected to be modified, even if the data change statements come later in the transaction. If transactions modify or lock more than one table, issue the applicable statements in the same order within each transaction. Deadlocks affect performance rather than representing a serious error, because InnoDB automatically detects deadlock conditions and rolls back one of the affected transactions.
   -"LOCK TABLES" statement CANNOT be used in procedures. Noted @ https://dba.stackexchange.com/questions/214678/why-does-mysql-forbid-lock-tables-in-stored-procedures
   -
