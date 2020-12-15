@@ -6,6 +6,7 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/locking-issues.html
     -https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_row_lock
     -https://dev.mysql.com/doc/refman/5.7/en/internal-locking.html
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-transactions.html
   -InnoDB tables use row-level locking so that multiple sessions and applications can read from and write to the same table simultaneously, without making each other wait or producing inconsistent results. For this storage engine, avoid using the LOCK TABLES statement, because it does not offer any extra protection, but instead reduces concurrency. The automatic row-level locking makes these tables suitable for your busiest databases with your most important data, while also simplifying application logic since you do not need to lock and unlock tables. 
   -MySQL uses table locking (instead of page, row, or column locking) for all storage engines except InnoDB. The locking operations themselves do not have much overhead. But because only one session can write to a table at any one time, for best performance with these other storage engines, use them primarily for tables that are queried often and rarely inserted into or updated.
   -
