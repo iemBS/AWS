@@ -1,0 +1,6 @@
+Get Thread ID of Current Session
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/information-functions.html#function_connection-id
+Main Success Scenario:
+  1. Select CONNECTION_ID();
