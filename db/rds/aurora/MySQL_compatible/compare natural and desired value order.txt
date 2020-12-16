@@ -1,0 +1,41 @@
+Compare Natural and Desired Value Order
+Main Success Scenario:
+  1. See code below
+    Drop Table If Exists AsIsTbl;
+    Set @i = 0;
+    Create Temporary Table AsIsTbl
+    select 
+      @i:=@i+1 AS ID,
+      MyColumn As Val
+    from 
+      MyTable;
+    Create Index IDX_AsIsTbl On AsIsTbl(ID);
+
+    Drop Table If Exists OrderByTbl;
+    Set @i = 0;
+    Create Temporary Table OrderByTbl
+    select 
+      @i:=@i+1 AS ID,
+      MyColumn As Val
+    from 
+      MyTable
+    Order By
+      MyColumn;
+    Create Index IDX_OrderByTbl On OrderByTbl(ID);
+
+    # if orders match, then no values are returned    
+    Select
+      o.ID,
+        a.Val As AsIsVal,
+        o.Val As OrderByVal
+    From
+      OrderByTbl o
+        Inner Join AsIsTbl a On 
+        o.ID = a.ID
+    Where
+      o.Val <> a.Val
+
+    /*
+    Drop Table If Exists AsIsTbl;
+    Drop Table If Exists OrderByTbl;
+    */
