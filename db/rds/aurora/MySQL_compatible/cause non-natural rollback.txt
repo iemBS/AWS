@@ -1,4 +1,4 @@
-Cause Rollback
+Cause Non-Rollback
 Note:
   -Transaction safe tables are tables that can be rolled back
   -All tables that use the InnoDB storage engine are safe tables
@@ -30,17 +30,12 @@ Note:
     -https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
   -When a connection is closed, the current normal transaction, if any, is rolled back.
     -Noted @ https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
-Question:
-  -Are disconnecting a query from the database and closing a connection, the same activity?
 Main Success Scenario:
   1. Error occurs when your SQL code is running
   2. Stop Executing SQL code
   3. SQL code is quit in a middle of a transaction
   4. End
 Alternatives:
-  1a. Disconnecting query from the database
-    1a1. xxx:fill in
-    1a2. go to Step 4
   1b. A deadlock or lock-wait timeout occurs
     1b1. xxx:fill in
     1b2. go to Step 4
@@ -51,7 +46,6 @@ Alternatives:
     1d1. xxx:fill in
   1e. When one of the storage engines requests a rollback by setting thd->transaction_rollback_request
     1e1. xxx:fill in
-    
     
 
     
