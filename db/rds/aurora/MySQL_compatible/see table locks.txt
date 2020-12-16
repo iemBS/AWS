@@ -1,10 +1,13 @@
 See Table locks
 Note:
   -Must run as master account
-  -Guidance @ https://forums.aws.amazon.com/thread.jspa?threadID=234301
-  -Guidance @ https://dba.stackexchange.com/questions/189804/how-to-avoid-lock-wait-timeout-exceed-and-improve-mysql-innodb-write-speed
+  -Guidance @ 
+    -https://forums.aws.amazon.com/thread.jspa?threadID=234301
+    -https://dba.stackexchange.com/questions/189804/how-to-avoid-lock-wait-timeout-exceed-and-improve-mysql-innodb-write-speed
+    -Use the following link to see table locks and the transactions associated to them
+      -https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-transactions.html
 Main Success Scenario:
-  1. See code below
+  1. See the queries that are waiting for a lock and the queries that are blocking a request for a lock
 
       SELECT 
         r.trx_id waiting_trx_id,
@@ -22,7 +25,64 @@ Main Success Scenario:
        
  Alternatives:
    1a. See meta data locks, which are related to DDL
-     1a1. show engine innodb status;
+     1a1. See code below
+        show engine innodb status;
      1a2. Look into the TRANSACTION section which will show all waiting thread block by other.
-     
+   1b. Look at only INFORMATION_SCHEMA.INNODB_TRX table to see what tables are locked
+   
+    # See where all the locks are. Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html
+    Select
+      TRX_WEIGHT, # number of rows altered and locked by a transaction
+        TRX_STATE, # state of the transaction
+        TRX_STARTED, # time transaction started
+        TRX_WAIT_STARTED, #  time when the transaction started waiting on the lock
+        TRX_MYSQL_THREAD_ID, # MySQL thread ID
+        TRX_QUERY, # SQL statement that is being executed by the transaction.
+        TRX_TABLES_IN_USE, # number of InnoDB tables used while processing the current SQL statement of this transaction.
+        TRX_TABLES_LOCKED, # number of InnoDB tables that the current SQL statement has row locks on
+        TRX_LOCK_STRUCTS, # number of locks reserved by the transaction
+        TRX_LOCK_MEMORY_BYTES, # total size taken up by the lock structures of this transaction in memory
+        TRX_ROWS_LOCKED, # The approximate number or rows locked by this transaction. The value might include delete-marked rows that are physically present but not visible to the transaction.
+        TRX_ROWS_MODIFIED, # number of modified and inserted rows in this transaction
+        TRX_CONCURRENCY_TICKETS, # A value indicating how much work the current transaction can do before being swapped out, as specified by the innodb_concurrency_tickets system variable.
+        TRX_ISOLATION_LEVEL, # isolation level of the current transaction
+        TRX_IS_READ_ONLY, # value of 1 indicates the transaction is read only
+        TRX_AUTOCOMMIT_NON_LOCKING # A value of 1 indicates the transaction is a SELECT statement that does not use the FOR UPDATE or LOCK IN SHARED MODE clauses, and is executing with autocommit enabled so that the transaction contains only this one statement.
+    From
+      INFORMATION_SCHEMA.INNODB_TRX 
+    Where
+      TRX_STATE = 'LOCK WAIT';  
+      
+  1c. Look at the locked tables in the INNODB_TRX table and the type of locks that are on the tables
+    # See type of lock. Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-locks-table.html
+    Select
+        t.TRX_MYSQL_THREAD_ID, # MySQL thread ID
+        t.TRX_QUERY, # SQL statement that is being executed by the transaction.
+        t.TRX_ID, # A unique transaction ID number, internal to InnoDB. These IDs are not created for transactions that are read only and nonlocking.
+      t.TRX_WEIGHT, # number of rows altered and locked by a transaction
+        t.TRX_STATE, # state of the transaction
+        t.TRX_STARTED, # time transaction started
+        t.TRX_WAIT_STARTED, #  time when the transaction started waiting on the lock
+        t.TRX_TABLES_IN_USE, # number of InnoDB tables used while processing the current SQL statement of this transaction.
+        t.TRX_TABLES_LOCKED, # number of InnoDB tables that the current SQL statement has row locks on
+        t.TRX_LOCK_STRUCTS, # number of locks reserved by the transaction
+        t.TRX_LOCK_MEMORY_BYTES, # total size taken up by the lock structures of this transaction in memory
+        t.TRX_ROWS_LOCKED, # The approximate number or rows locked by this transaction. The value might include delete-marked rows that are physically present but not visible to the transaction.
+        t.TRX_ROWS_MODIFIED, # number of modified and inserted rows in this transaction
+        t.TRX_CONCURRENCY_TICKETS, # A value indicating how much work the current transaction can do before being swapped out, as specified by the innodb_concurrency_tickets system variable.
+        t.TRX_ISOLATION_LEVEL, # isolation level of the current transaction
+        t.TRX_IS_READ_ONLY, # value of 1 indicates the transaction is read only
+        t.TRX_AUTOCOMMIT_NON_LOCKING, # A value of 1 indicates the transaction is a SELECT statement that does not use the FOR UPDATE or LOCK IN SHARED MODE clauses, and is executing with autocommit enabled so that the transaction contains only this one statement.
+      l.LOCK_MODE, # S=Shared,X=Exclusive,IS=Intention Shared,IX=Intension Exclusive,GAP,AUTO_INC,UNKNOWN
+        l.LOCK_TYPE, # RECORD for a row-level lock, TABLE for a table-level lock
+        l.LOCK_TABLE, # name of the table that has been locked or contains locked records.
+        l.LOCK_INDEX, # name of the index, if LOCK_TYPE is RECORD; otherwise NULL
+        l.LOCK_REC # The heap number of the locked record within the page, if LOCK_TYPE is RECORD; otherwise NULL
+    From
+      INFORMATION_SCHEMA.INNODB_TRX t
+        Inner Join INFORMATION_SCHEMA.INNODB_LOCKS l On 
+        t.TRX_REQUESTED_LOCK_ID = l.LOCK_ID
+    Where
+      t.TRX_STATE = 'LOCK WAIT';
+  
 In order to allow transaction wait for longer on DML locks you can change variable "innodb_lock_wait_timeout". To change variables in RDS refer to this link http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html
