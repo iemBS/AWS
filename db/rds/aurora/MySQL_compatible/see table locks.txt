@@ -7,7 +7,11 @@ Note:
     -Use the following link to see table locks and the transactions associated to them
       -https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-transactions.html
 Main Success Scenario:
-  1. See the queries that are waiting for a lock and the queries that are blocking a request for a lock
+  1. See tables that have or requested a lock
+    SHOW OPEN TABLES Where In_Use > 0;
+  
+  
+  See the queries that are waiting for a lock and the queries that are blocking a request for a lock
 
       SELECT 
         r.trx_id waiting_trx_id,
@@ -28,7 +32,7 @@ Main Success Scenario:
      1a1. See code below
         show engine innodb status;
      1a2. Look into the TRANSACTION section which will show all waiting thread block by other.
-   1b. Look at only INFORMATION_SCHEMA.INNODB_TRX table to see what tables are locked
+   1b. See current queries, if they have transaction, if the
    
     # See where all the locks are. Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html
     Select
