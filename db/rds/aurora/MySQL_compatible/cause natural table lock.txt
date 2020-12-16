@@ -14,6 +14,13 @@ Note:
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
-  1a. Just specific rows in the table are locked
+  1a. Lock table for writing
     1a1. xxx:fill in
+  1b. Lock table for deleting
+    1b1. xxx:fill in
+  1c. "Lock only specific rows in a table" 
+  1d. "Lock only specific index record gap in a table"
+  1e. "Lock only specific index records in a table"
+  1f. "Lock specific index records and index record gap in a table"
+  1g. "Lock table with AUT-INC lock"
     
