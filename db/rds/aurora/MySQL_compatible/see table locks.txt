@@ -9,24 +9,7 @@ Note:
 Main Success Scenario:
   1. See tables that have or requested a lock
     SHOW OPEN TABLES Where In_Use > 0;
-  
-  
-  See the queries that are waiting for a lock and the queries that are blocking a request for a lock
-
-      SELECT 
-        r.trx_id waiting_trx_id,
-        r.trx_mysql_thread_id waiting_thread,
-        r.trx_query waiting_query,
-        b.trx_id blocking_trx_id,
-        b.trx_mysql_thread_id blocking_thread,
-        b.trx_query blocking_query
-      FROM 
-        information_schema.innodb_lock_waits w
-        INNER JOIN information_schema.innodb_trx b ON
-          b.trx_id = w.blocking_trx_id
-        INNER JOIN information_schema.innodb_trx r ON
-          r.trx_id = w.requesting_trx_id;
-       
+         
  Alternatives:
    1a. See meta data locks, which are related to DDL
      1a1. See code below
@@ -56,37 +39,71 @@ Main Success Scenario:
       INFORMATION_SCHEMA.INNODB_TRX 
     Where
       TRX_STATE = 'LOCK WAIT';  
-      
-  1c. Look at the locked tables in the INNODB_TRX table and the type of locks that are on the tables
-    # See type of lock. Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-locks-table.html
+           
+  1c. See what queries have locks. If the lock is blocking a query or a query is waiting for a lock to release, you will see more details
+  
     Select
-        t.TRX_MYSQL_THREAD_ID, # MySQL thread ID
-        t.TRX_QUERY, # SQL statement that is being executed by the transaction.
-        t.TRX_ID, # A unique transaction ID number, internal to InnoDB. These IDs are not created for transactions that are read only and nonlocking.
-      t.TRX_WEIGHT, # number of rows altered and locked by a transaction
+		p.ID As ThreadId,
+        p.`User`, # Security context that query is running under
+        p.COMMAND, # SQL statement currently being run within a transaction that can have one or more statements
+        p.`TIME` As SecondsInState, # time in seconds that the thread has been in its current state
+        p.STATE, 
+        p.INFO,
+		t.TRX_WEIGHT, # number of rows altered and locked by a transaction
         t.TRX_STATE, # state of the transaction
         t.TRX_STARTED, # time transaction started
         t.TRX_WAIT_STARTED, #  time when the transaction started waiting on the lock
+        t.TRX_QUERY, # SQL statement that is being executed by the transaction.
         t.TRX_TABLES_IN_USE, # number of InnoDB tables used while processing the current SQL statement of this transaction.
         t.TRX_TABLES_LOCKED, # number of InnoDB tables that the current SQL statement has row locks on
         t.TRX_LOCK_STRUCTS, # number of locks reserved by the transaction
-        t.TRX_LOCK_MEMORY_BYTES, # total size taken up by the lock structures of this transaction in memory
+        t.TRX_LOCK_MEMORY_BYTES, # Total size taken up by the lock structures of this transaction in memory. Does this max out at 1,136 bytes?
         t.TRX_ROWS_LOCKED, # The approximate number or rows locked by this transaction. The value might include delete-marked rows that are physically present but not visible to the transaction.
         t.TRX_ROWS_MODIFIED, # number of modified and inserted rows in this transaction
         t.TRX_CONCURRENCY_TICKETS, # A value indicating how much work the current transaction can do before being swapped out, as specified by the innodb_concurrency_tickets system variable.
         t.TRX_ISOLATION_LEVEL, # isolation level of the current transaction
         t.TRX_IS_READ_ONLY, # value of 1 indicates the transaction is read only
         t.TRX_AUTOCOMMIT_NON_LOCKING, # A value of 1 indicates the transaction is a SELECT statement that does not use the FOR UPDATE or LOCK IN SHARED MODE clauses, and is executing with autocommit enabled so that the transaction contains only this one statement.
-      l.LOCK_MODE, # S=Shared,X=Exclusive,IS=Intention Shared,IX=Intension Exclusive,GAP,AUTO_INC,UNKNOWN
+		l.LOCK_MODE, # S=Shared,X=Exclusive,IS=Intention Shared,IX=Intension Exclusive,GAP,AUTO_INC,UNKNOWN
         l.LOCK_TYPE, # RECORD for a row-level lock, TABLE for a table-level lock
         l.LOCK_TABLE, # name of the table that has been locked or contains locked records.
         l.LOCK_INDEX, # name of the index, if LOCK_TYPE is RECORD; otherwise NULL
         l.LOCK_REC # The heap number of the locked record within the page, if LOCK_TYPE is RECORD; otherwise NULL
     From
-      INFORMATION_SCHEMA.INNODB_TRX t
-        Inner Join INFORMATION_SCHEMA.INNODB_LOCKS l On 
-        t.TRX_REQUESTED_LOCK_ID = l.LOCK_ID
-    Where
-      t.TRX_STATE = 'LOCK WAIT';
+		INFORMATION_SCHEMA.ProcessList p # https://dev.mysql.com/doc/refman/5.7/en/information-schema-processlist-table.html
+		Inner Join INFORMATION_SCHEMA.INNODB_TRX t On # https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html
+			p.ID = t.trx_mysql_thread_id
+		Left Outer Join INFORMATION_SCHEMA.INNODB_LOCKS l On # Provides information about each lock that an InnoDB transaction has requested but not yet acquired, and each lock that a transaction holds that is blocking another transaction. Noted @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-locks-table.html
+			t.TRX_REQUESTED_LOCK_ID = l.LOCK_ID
+	Where
+		p.State Not In 
+        (
+            'cleaned up' # In Aurora, the 'cleaned up' state is the final state of a connection whose work is complete but which has not been closed from the client side. In MySQL this field is left blank (no State) in the same circumstance. Noted @ https://forums.aws.amazon.com/thread.jspa?messageID=708499
+		) # Remove queries that 
+        And
+        p.ID <> CONNECTION_ID() # Remove the query in this session from the ProcessList table results
+        And
+        p.`User` Not In 
+        (
+			'rdsadmin' # To provide management services for each DB cluster, the rdsadmin user is created when the DB cluster is created. 
+        )
+Order By
+	ThreadId
+  
+  1d. See a simpler view of waiting and blocking due to locks
+  
+      SELECT 
+        r.trx_id waiting_trx_id,
+        r.trx_mysql_thread_id waiting_thread,
+        r.trx_query waiting_query,
+        b.trx_id blocking_trx_id,
+        b.trx_mysql_thread_id blocking_thread,
+        b.trx_query blocking_query
+      FROM 
+        information_schema.innodb_lock_waits w
+        INNER JOIN information_schema.innodb_trx b ON
+          b.trx_id = w.blocking_trx_id
+        INNER JOIN information_schema.innodb_trx r ON
+          r.trx_id = w.requesting_trx_id;
   
 In order to allow transaction wait for longer on DML locks you can change variable "innodb_lock_wait_timeout". To change variables in RDS refer to this link http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html
