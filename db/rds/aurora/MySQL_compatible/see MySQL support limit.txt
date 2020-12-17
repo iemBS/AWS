@@ -1,0 +1,8 @@
+See MySQL Support Limit
+Note:
+  -Guidance @
+    -https://www.mysql.com/support/
+    -https://www.mysql.com/support/eol-notice.html
+  -MySQL versions still being updated are listed in the drop down on the top right of the link @ https://dev.mysql.com/doc/relnotes/mysql/5.7/en/
+Main Success Scenario:
+  1. xxx:fill in
