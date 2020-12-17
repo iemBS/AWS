@@ -3,6 +3,7 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/innodb-deadlock-detection.html
     -https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_deadlock
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-deadlock-example.html
   -InnoDB tries to pick small transactions to roll back, where the size of a transaction is determined by the number of rows inserted, updated, or deleted.
 Question:
   -Are disconnecting a query from the database and closing a connection, the same activity?
