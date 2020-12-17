@@ -1,3 +1,6 @@
 Get MySQL Version
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/which-version.html
 Main Success Scenario:
   1. select VERSION()
