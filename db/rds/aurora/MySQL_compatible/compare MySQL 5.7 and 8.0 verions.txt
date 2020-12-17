@@ -1,0 +1,33 @@
+Compare MySQL 5.7 and 8.0 Versions
+Note:
+  -Guidance @
+    -https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html
+Main Success Scenario:
+  1. "See Features Added to 8.0"
+  2. "See Features Deprecated in 8.0"
+  3. "See Features Removed in 8.0"
+  
+  
+See Features Added to 8.0
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-additions
+Main Success Scenario:
+  1. xxx:fill in
+
+  
+See Features Deprecated in 8.0
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-deprecations
+Main Success Scenario:
+  1. xxx:fill in
+
+
+See Features Removed in 8.0
+Note: 
+  -Guidance @
+    -https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals
+Main Success Scenario:
+  1. xxx:fill in
+  
