@@ -20,8 +20,10 @@ Note:
   -If a SELECT statement within a transaction calls a stored function, and a statement within the stored function fails, that statement rolls back. If ROLLBACK is executed for the transaction subsequently, the entire transaction rolls back. Noted @ https://dev.mysql.com/doc/refman/5.7/en/commit.html
 Main Success Scenario:
   1. A single statement in a transaction has an error
+  2. That single statement rolls back
 Alternatives:
   1a. The single statement is a select statement that calls a stored function and the stored function fails
+    1a1. xxx:fill in
 
 Cause Transaction Rollback
 Note:
