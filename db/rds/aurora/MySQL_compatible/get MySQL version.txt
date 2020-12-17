@@ -2,5 +2,29 @@ Get MySQL Version
 Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/which-version.html
+    -https://en.wikipedia.org/wiki/MySQL
+  -Structure of the MySQL release name: A.B.C-D
+    -A is the major version number. 
+    -B is the minor version number. Taken together, the major and minor numbers constitute the release series number. The release series number describes the stable feature set.
+    -C is the version number within the release series number. This is incremented for each new bugfix release. In most cases, the most recent version within a release series number is the best choice.
+    -D is a suffix that indicates the stability level of the release. Releases within a series progress through a set of suffixes to indicate how the stability level improves. 
+      -Possible suffixes on a release name:
+        -mN (for example, m1, m2, m3, ...) indicates a milestone number.
+        -rc indicates a Release Candidate (RC). Release candidates are believed to be stable, having passed all of MySQL's internal testing.
+        -Absence of a suffix indicates a General Availability (GA) or Production release. GA releases are stable, having successfully passed through the earlier release stages, and are believed to be reliable, free of serious bugs, and suitable for use in production systems.
+        -"log" indicates that one or more of the general log, slow query log, or binary log are enabled. 
+        -"debug" indicates that the server was built with debugging support enabled.
+  -Release Series Numbers that have occurred for MySQL as of 201217:
+    -5.1
+    -5.5
+    -5.6
+    -5.7.
+    -8.0
+  -Release Series Numbers with the latest version number within the release series number
+    -5.1.73
+    -5.5.62
+    -5.6.50
+    -5.7.32
+    -8.0.22
 Main Success Scenario:
   1. select VERSION()
