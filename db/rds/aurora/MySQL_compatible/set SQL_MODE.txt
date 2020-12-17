@@ -1,11 +1,33 @@
 Set SQL_MODE
 Note:
   -Guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sql_mode
+    -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html
     -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
     -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes
   -The use of the "ANSI_QUOTES" mode factors into the use of string literals
     -https://dev.mysql.com/doc/refman/5.7/en/string-literals.html
   -PyMySQL use of SQL_MODE @ https://pymysql.readthedocs.io/en/latest/modules/connections.html
+  -MySQL Workbench allows SQL_MODE to be specified in two locations:
+    -"Edit" menu > "Preferences" option > "Workbench Preferences" window > left side bar
+      -"General Editors" > "Default SQL_MODE for syntax checker" field
+        -Defined @ https://dev.mysql.com/doc/workbench/en/wb-preferences-general-editors.html
+        -Only certain SQL modes can be specified here. 
+        -Even when SQL modes are specified here, they will be used to parse the SQL files opened in MySQL Workbench
+        -Setting this field with SQL modes will not cause the SQL_MODE variable at the global or session level to show these values. 
+      -"Modeling" > "MySQL" > "Default Target MySQL Version" field
+        -Defined @ https://dev.mysql.com/doc/workbench/en/wb-preferences-modeling.html#wb-preferences-modeling-mysql 
+  -Mode definitions:
+    -ONLY_FULL_GROUP_BY: https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by
+      -https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html
+    -STRICT_TRANS_TABLES: https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables
+      -InnoDB is a transactional storage engine
+      -Enables Strict SQL Mode for transactional storage angeines and when possible for non-transactional stroage engines. See def @ https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
+        -When Strict SQL Mode is not on, it will show some issues as just warnings. 
+    -NO_ZERO_IN_DATE: https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date
+    -NO_ZERO_DATE: https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date
+    -ERROR_FOR_DIVISION_BY_ZERO: https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero
+    -NO_ENGINE_SUBSTITUTION: https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution
 Main Success Scenario:
   1. Add "ANSI_QUOTES" mode to SQL_MODE to force double quotes to act like ` quotes to identify SQL objects
 Alternatives:
