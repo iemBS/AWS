@@ -26,5 +26,8 @@ Note:
     -5.6.50
     -5.7.32
     -8.0.22
+  -Release notes for each MySQL release series number:
+    -For 5.7 @ https://dev.mysql.com/doc/relnotes/mysql/5.7/en/
+    -For 8.0 @ https://dev.mysql.com/doc/relnotes/mysql/8.0/en/
 Main Success Scenario:
   1. select VERSION()
