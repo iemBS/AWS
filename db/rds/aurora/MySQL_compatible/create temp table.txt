@@ -51,6 +51,7 @@ Main Success Scenario:
 Create Internal Temp Table
 Pre-Conditions:
   -Internal Temp Tables only created by MySQL. 
+  -Internal Temp Tables use the "MEMORY" storage engine. Noted @ https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html#:~:text=An%20internal%20temporary%20table%20can,to%20an%20on%2Ddisk%20table.
 Note: 
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html
