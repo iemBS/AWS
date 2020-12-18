@@ -55,6 +55,7 @@ Pre-Conditions:
 Note: 
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html
+    -https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
   -Internal temp tables created by MySQL for 
     -sorting an index
     -evaluation of UNION statements
@@ -71,5 +72,26 @@ Note:
     -xxx:fill in
   -query conditions that qualify a UNION for evaluation without an internal temp table
     -xxx:fill in
+Main Success Scenario:
+  1. MySQL determines an internal temp table needs to be created to create a sort index. 
+  2. See "Creating sort index" thread state in process list
+  3. xxx:fill in
+Alternatives:
+  1a. Internal Temp table created during evaluation of UNION statements
+    1a1. xxx:fill in
+  1b. Internal Temp table created during evaluation of some views, such those that use the TEMPTABLE algorithm, UNION, or aggregation
+  1c. Internal Temp table created during evaluation of derived tables
+    1c1. "Create Internal Temp Table when deriving a table"
+  1d. Tables created for subquery or semijoin materialization
+  1e. Evaluation of statements that contain an ORDER BY clause and a different GROUP BY clause, or for which the ORDER BY or GROUP BY contains columns from tables other than the first table in the join queue.
+  1f. Evaluation of DISTINCT combined with ORDER BY may require a temporary table.
+  1g. To evaluate INSERT ... SELECT statements that select from and insert into the same table, MySQL creates an internal temporary table to hold the rows from the SELECT, then inserts those rows into the target table
+  1h. Evaluation of multiple-table UPDATE statements.
+  1i. Evaluation of GROUP_CONCAT() or COUNT(DISTINCT) expressions.
+    
+Create Internal Temp Table when deriving a table
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/derived-tables.html
 Main Success Scenario:
   1. xxx:fill in
