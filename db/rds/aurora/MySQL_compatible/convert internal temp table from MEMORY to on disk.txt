@@ -1,0 +1,11 @@
+Convert Internal Temp Table from MEMORY to on Disk
+Note:
+  -Temp tables that start out in RAM use the MEMORY storage engine. Noted @ https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html#:~:text=An%20internal%20temporary%20table%20can,to%20an%20on%2Ddisk%20table.
+  -Temp tables created with the "CREATE TABLE" statement are NOT internal temp tables. 
+  -The internal_tmp_disk_storage_engine variable defines the storage engine the server uses to manage on-disk internal temporary tables. Permitted values are INNODB (the default) and MYISAM.
+Main Success Scenario:
+  1. The byte size of an internal temp table exceeds the smaller of two values (tmp_table_size or max_heap_table_size). 
+  2. See "converting HEAP to ondisk" thread in the query process list 
+  3. xxx:fill in
+Alternatives:
+  xxx:fill in
