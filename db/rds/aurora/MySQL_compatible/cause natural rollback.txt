@@ -41,7 +41,7 @@ Alternatives:
 
 Cause Transaction Rollback
 Pre-Conditions:
-  -An exit handler is not used
+  -An exit handler is not used. If an exit handler is used, the only way to rollback after entering an exit handler is to do an explicit rollback statement.
 Note:
   -Guidance @ 
     -https://stackoverflow.com/questions/6121917/automatic-rollback-if-commit-transaction-is-not-reached
