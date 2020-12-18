@@ -5,13 +5,67 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_deadlock
     -https://dev.mysql.com/doc/refman/5.7/en/innodb-deadlock-example.html
   -InnoDB tries to pick small transactions to roll back, where the size of a transaction is determined by the number of rows inserted, updated, or deleted.
+  -Transaction safe tables are tables that can be rolled back
+  -All tables that use the InnoDB storage engine are safe tables
+  -issues with non-transaction safe tables
+    -If you use tables that are not transaction-safe within a transaction, changes to those tables are stored at once, regardless of the status of autocommit mode.
+    -If you issue a ROLLBACK statement after updating a nontransactional table within a transaction, an ER_WARNING_NOT_COMPLETE_ROLLBACK warning occurs. Changes to transaction-safe tables are rolled back, but not changes to nontransaction-safe tables.
 Question:
   -Are disconnecting a query from the database and closing a connection, the same activity?
+  -Are temp tables transaction safe?
 Main Success Scenario:
-  1. xxx:fill in
+  1. "Cause Statement Rollback"
 Alternatives:
-  1a. InnoDB storage engine rolls back one or more transactions to break a deadlock
-    1a1. InnoDB automatically detects transaction deadlocks
-    1a2. Rolls back a transaction or transactions to break the deadlock. 
-  1b. Disconnecting a query from the database
+  1a. More than one statement is rolled back
+    1a1. "Cause Transaction Rollback"
+  1b. InnoDB storage engine rolls back one or more transactions to break a deadlock
+    1b1. InnoDB automatically detects transaction deadlocks
+    1b2. Rolls back a transaction or transactions to break the deadlock. 
+  1c. Disconnecting a query from the database
+    1c1. xxx:fill in
+
+
+Cause Statement Rollback
+Pre-Conditions:
+  1. Rollback is limited to a single statement 
+Note:
+  -If a SELECT statement within a transaction calls a stored function, and a statement within the stored function fails, that statement rolls back. If ROLLBACK is executed for the transaction subsequently, the entire transaction rolls back. Noted @ https://dev.mysql.com/doc/refman/5.7/en/commit.html
+  -If autocommit is enabled and the executed statement is not within an explicit transaction statement, then the executed statement will automatically rollback. Noted @ https://dev.mysql.com/doc/refman/5.7/en/commit.html
+  -With START TRANSACTION, autocommit remains disabled until you end the transaction with COMMIT or ROLLBACK. The autocommit mode then reverts to its previous state. Noted @ https://dev.mysql.com/doc/refman/5.7/en/commit.html
+Main Success Scenario:
+  1. A single statement in an explicit transaction has an error
+  2. That single statement rolls back
+Alternatives:
+  1a. The single statement is a select statement that calls a stored function and the stored function fails
+    1a1. Go to Step 2
+
+Cause Transaction Rollback
+Pre-Conditions:
+  -An exit handler is not used
+Note:
+  -Guidance @ 
+    -https://stackoverflow.com/questions/6121917/automatic-rollback-if-commit-transaction-is-not-reached
+    -https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
+  -When a connection is closed, the current normal transaction, if any, is rolled back.
+    -Noted @ https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
+Main Success Scenario:
+  1. Error occurs when your SQL code that is running within a transaction statement 
+  2. Stop Executing SQL code
+  3. SQL code is quit in a middle of a transaction
+  4. End
+Alternatives:
+  1b. A deadlock or lock-wait timeout occurs
     1b1. xxx:fill in
+    1b2. go to Step 4
+  1c. "autocommit" is disabled and session ends without ending final transaction
+    1c1. MySQL rolls back that transaction.
+    1c2. go to Step 4
+  1d. Session is killed
+    1d1. xxx:fill in
+  1e. When one of the storage engines requests a rollback by setting thd->transaction_rollback_request
+    1e1. xxx:fill in
+
+
+  
+
+
