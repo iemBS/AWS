@@ -3,6 +3,7 @@ Note:
  -Guidance @ 
    -https://dev.mysql.com/doc/refman/8.0/en/condition-handling.html
    -https://dev.mysql.com/doc/refman/8.0/en/declare-handler.html
+ -When you handle MySQL Error # 1264 (when sticking a larger number in a column specified as a small number type), it shows in MySQL Workbench as a warning. According to the doc and my testing, the SQLSTATE is 22003. Warnings are supposed to be in the 01 class of errors, but this one is in the 22 class of errors. Noted as SQLSTATE 22003 @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
 Main Success Scenario:
   1. See code below
     DECLARE varSQLSTATE CHAR(5);
