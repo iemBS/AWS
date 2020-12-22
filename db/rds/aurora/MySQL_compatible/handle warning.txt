@@ -1,0 +1,36 @@
+Catch Warning
+Note:
+ -Guidance @ 
+   -https://dev.mysql.com/doc/refman/8.0/en/condition-handling.html
+   -https://dev.mysql.com/doc/refman/8.0/en/declare-handler.html
+Main Success Scenario:
+  1. See code below
+    DECLARE varSQLSTATE CHAR(5);
+    DECLARE varMESSAGE_TEXT TEXT;
+    DECLARE varMYSQL_ERRNO INT;
+    DECLARE varQueryPart TEXT;
+
+    DECLARE exit handler for SQLWARNING 
+    BEGIN 
+      # Get most recent condition
+      GET DIAGNOSTICS CONDITION 1 
+        varSQLSTATE = RETURNED_SQLSTATE, 
+        varMYSQL_ERRNO = MYSQL_ERRNO, 
+        varMESSAGE_TEXT = MESSAGE_TEXT; 
+
+        SET varMESSAGE_TEXT = CONCAT_WS('|',CONCAT(Database(),'.CurrentRoutineName'),varQueryPart,varSQLSTATE,varMESSAGE_TEXT);
+
+        SIGNAL SQLSTATE '01000' 
+          SET MESSAGE_TEXT = varMESSAGE_TEXT,
+              MYSQL_ERRNO = varMYSQL_ERRNO;
+    END;
+    
+Alternatives:
+  1a. Handle a specific warning
+    1a1. xxx:fill in
+  1b. Handle a range of warnings
+    1b1. xxx:fill in
+  1c. Handle a warning and throw an error instead
+    1c1. xxx:fill in
+  
+
