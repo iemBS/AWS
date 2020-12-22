@@ -1,4 +1,6 @@
 See Warnings
+Pre-Conditions:
+  -Warnings are in the "01" class of the SQLSTATE values. Noted @ https://en.wikipedia.org/wiki/SQLSTATE
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-warnings.html
   -SHOW WARNINGS is a diagnostic statement that displays information about the conditions (errors, warnings, and notes) resulting from executing a statement in the current session.
@@ -24,7 +26,32 @@ Alternatives:
   1c. Warnings gone since max_error_count was exceeded
     1c1. The oldest warning, error, and note messages in SHOW WARNINGS have been pushed out to limit to the number of messages in max_error_count
     1c2. END
-  1d. xxx:fill in
-    1d1. xxx:fill in
+  1d. See Specific Important Warnings
+    1d1. "See Specific Important Warnings"
+
+
+See Specific Important Warnings
+Note:
+  -These are all warnings that might be good to log because they indicate a current or soon to be error
+  -warnings found @
+    -https://dev.mysql.com/doc/connector-odbc/en/connector-odbc-reference-errorcodes.html
+    -https://dev.mysql.com/doc/mysql-errors/5.6/en/server-error-reference.html
+    -https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-error-sqlstates.html
+  -list of warnings that we may want to know about and why
+    -SQLSTATE:01004, MESSAGE_TEXT:"String data, right truncated", why: Data is being lost
+    -SQLSTATE:01S03, MESSAGE_TEXT:"No rows updated/deleted", why: An update is attempted where it is not needed. Can a check be done before to see if update should be tried?
+    -SQLSTATE:01S04, MESSAGE_TEXT:"More than one row updated/deleted", why: Important if only trying to update a single row
+    -SQLSTATE:01000, MESSAGE_TEXT:"Referring to uninitialized variable %s", MySQL Error #:1311, MySQL Error Name:ER_SP_UNINIT_VAR, why: Problem if variable needs to be initialized.
+    -SQLSTATE:xxx, MESSAGE_TEXT:"Out of range value for column '%s' at row %ld", MySQL Error #:1264, MySQL Error Name:ER_WARN_DATA_OUT_OF_RANGE, why: Because numbers larger than the specified size of a number column need to be known about
+    -SQLSTATE:01000, MESSAGE_TEXT:"Data truncated for column '%s' at row %ld", MySQL Error #:1265, MySQL Error Name:ER_WARN_DATA_TRUNCATED, why: Data is being lost
+    -SQLSTATE:01000, MESSAGE_TEXT:"Data truncated for column '%s' at row %ld", MySQL Error #:1265, MySQL Error Name:ER_WARN_DATA_TRUNCATED, why: Data is being lost
+    -SQLSTATE:01000, MESSAGE_TEXT:"Row %ld was truncated; it contained more data than there were input columns", MySQL Error #:1262, MySQL Error Name:ER_WARN_TOO_MANY_RECORDS, why: xxx:fill in
+    -SQLSTATE:01000, MESSAGE_TEXT:"Select %u was reduced during optimization", MySQL Error #:1249, MySQL Error Name:ER_SELECT_REDUCED, why: xxx:fill in
+Main Success Scenario:
+  1. Throw warning where SQLSTATE:01004, MESSAGE_TEXT:"String data, right truncated"
+Alternatives:
+  1a. One of the other warnings listed above occurs
+
+  
 
     
