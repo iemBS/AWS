@@ -9,9 +9,14 @@ Note:
     mydbcluster.cluster-123456789012.us-east-1.rds.amazonaws.com:3306
   -If your cluster contains only a primary instance and no Aurora Replicas, the reader endpoint connects to the primary instance. In that case, you can perform write operations through this endpoint.
   -Each Aurora cluster has a single built-in reader endpoint, whose name and other attributes are managed by Aurora. You can't create, delete, or modify this kind of endpoint.
+  -The lag in Aurora replication is usually much less than 100 milliseconds after the primary instance has written an update. Noted @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html
 Main Success Scenario:
   1. Get the read-only endpoint below (name differs from the regular one)
     mydbcluster.cluster-ro-123456789012.us-east-1.rds.amazonaws.com:3306
   2. Specify the use of this alternate end point in a connection string used by client software (Excel, MySQL Workbench, etc)
   3. End
+Alternatives:
+  1a. Use Custom End Point instead
+    1a1. xxx:fill in
+  
  
