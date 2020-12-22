@@ -1,4 +1,6 @@
 Use Reader Endpoint
+Pre-Conditions:
+  -The reader endpoint load-balances connections to available Aurora Replicas in an Aurora DB cluster. It doesn't load-balance individual queries. If you want to load-balance each query to distribute the read workload for a DB cluster, open a new connection to the reader endpoint for each query.
 Note:
   -Guidance @ 
     -https://aws.amazon.com/about-aws/whats-new/2016/09/reader-end-point-for-amazon-aurora/
@@ -6,6 +8,10 @@ Note:
   -Example of a regular cluster endpoint
     mydbcluster.cluster-123456789012.us-east-1.rds.amazonaws.com:3306
   -If your cluster contains only a primary instance and no Aurora Replicas, the reader endpoint connects to the primary instance. In that case, you can perform write operations through this endpoint.
+  -Each Aurora cluster has a single built-in reader endpoint, whose name and other attributes are managed by Aurora. You can't create, delete, or modify this kind of endpoint.
 Main Success Scenario:
-  1. Use the read-only endpoint below
+  1. Get the read-only endpoint below (name differs from the regular one)
     mydbcluster.cluster-ro-123456789012.us-east-1.rds.amazonaws.com:3306
+  2. Specify the use of this alternate end point in a connection string used by client software (Excel, MySQL Workbench, etc)
+  3. End
+ 
