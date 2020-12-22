@@ -1,0 +1,11 @@
+Use Reader Endpoint
+Note:
+  -Guidance @ 
+    -https://aws.amazon.com/about-aws/whats-new/2016/09/reader-end-point-for-amazon-aurora/
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html
+  -Example of a regular cluster endpoint
+    mydbcluster.cluster-123456789012.us-east-1.rds.amazonaws.com:3306
+  -If your cluster contains only a primary instance and no Aurora Replicas, the reader endpoint connects to the primary instance. In that case, you can perform write operations through this endpoint.
+Main Success Scenario:
+  1. Use the read-only endpoint below
+    mydbcluster.cluster-ro-123456789012.us-east-1.rds.amazonaws.com:3306
