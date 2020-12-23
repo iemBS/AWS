@@ -42,9 +42,11 @@ Note:
     -SQLSTATE:01S03, MESSAGE_TEXT:"No rows updated/deleted", why: An update is attempted where it is not needed. Can a check be done before to see if update should be tried?
     -SQLSTATE:01S04, MESSAGE_TEXT:"More than one row updated/deleted", why: Important if only trying to update a single row
     -SQLSTATE:01000, MESSAGE_TEXT:"Referring to uninitialized variable %s", MySQL Error #:1311, MySQL Error Name:ER_SP_UNINIT_VAR, why: Problem if variable needs to be initialized.
-    -SQLSTATE:xxx, MESSAGE_TEXT:"Out of range value for column '%s' at row %ld", MySQL Error #:1264, MySQL Error Name:ER_WARN_DATA_OUT_OF_RANGE, why: Because numbers larger than the specified size of a number column need to be known about
+    -SQLSTATE:22003, MESSAGE_TEXT:"Out of range value for column '%s' at row %ld", MySQL Error #:1264, MySQL Error Name:ER_WARN_DATA_OUT_OF_RANGE, why: Because numbers larger than the specified size of a number column need to be known about
+      -This may only apply to numbers
+      -This shows as a warning in MySQL Workbench even though the SQLSTATE does not indicate it is a warning. 
     -SQLSTATE:01000, MESSAGE_TEXT:"Data truncated for column '%s' at row %ld", MySQL Error #:1265, MySQL Error Name:ER_WARN_DATA_TRUNCATED, why: Data is being lost
-    -SQLSTATE:01000, MESSAGE_TEXT:"Data truncated for column '%s' at row %ld", MySQL Error #:1265, MySQL Error Name:ER_WARN_DATA_TRUNCATED, why: Data is being lost
+      -This may only apply to strings
     -SQLSTATE:01000, MESSAGE_TEXT:"Row %ld was truncated; it contained more data than there were input columns", MySQL Error #:1262, MySQL Error Name:ER_WARN_TOO_MANY_RECORDS, why: xxx:fill in
     -SQLSTATE:01000, MESSAGE_TEXT:"Select %u was reduced during optimization", MySQL Error #:1249, MySQL Error Name:ER_SELECT_REDUCED, why: xxx:fill in
 Main Success Scenario:
