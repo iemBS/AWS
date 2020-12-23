@@ -4,6 +4,7 @@ Note:
    -https://dev.mysql.com/doc/refman/8.0/en/condition-handling.html
    -https://dev.mysql.com/doc/refman/8.0/en/declare-handler.html
  -When you handle MySQL Error # 1264 (when sticking a larger number in a column specified as a small number type), it shows in MySQL Workbench as a warning. According to the doc and my testing, the SQLSTATE is 22003. Warnings are supposed to be in the 01 class of errors, but this one is in the 22 class of errors. Noted as SQLSTATE 22003 @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+ -If you have a error and warning handler within a set of queries, you will not jump from the warning handler to the error handler, if the warning handler throws an explicit error
 Main Success Scenario:
   1. See code below
     DECLARE varSQLSTATE CHAR(5);
@@ -27,11 +28,11 @@ Main Success Scenario:
     END;
     
 Alternatives:
-  1a. Handle a specific warning
+  1a. Handle a specific warning with an exit
     1a1. xxx:fill in
-  1b. Handle a range of warnings
+  1b. Handle a range of warnings with an exit
     1b1. xxx:fill in
-  1c. Handle a warning and throw an error instead
+  1c. Handle a warning and throw an error instead within an exit handler
     1c1. xxx:fill in
   
 
