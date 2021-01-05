@@ -1,0 +1,5 @@
+See Python Version Used in Glue
+Note:
+  -AWS doc notes version 3.6 @ https://aws.amazon.com/about-aws/whats-new/2019/06/aws_glue_supportscripts
+Main Success Scenario:
+  1. xxx:fill in
