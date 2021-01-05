@@ -1,3 +1,0 @@
-Convert Bit column to String column
-Main Success Scenario:
-  1. 

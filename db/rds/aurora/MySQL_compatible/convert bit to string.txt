@@ -1,0 +1,13 @@
+Convert Bit to String
+Main Success Scenario:
+  1. Convert bit 1 to a string
+    Select Cast(true As CHAR(1))
+  2. You get a value of "1"
+Alternatives:
+  1a. Convert bit 0 to a string
+    1a1. Select Cast(false As CHAR(1))
+    1a2. You get a value of "0"
+  1b. Convert bit NULL to a string
+    1b1. Select Cast(NULL As CHAR(1))
+    1b2. You get a value of NULL
+  
