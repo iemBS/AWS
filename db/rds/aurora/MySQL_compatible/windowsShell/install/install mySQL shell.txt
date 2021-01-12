@@ -4,6 +4,8 @@ Note:
     -https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html
 Main Success Scenario:
   1. xxx:fill in
+  x. Confirm you can start the MySQL shell 
+    xxx:fill in
 Alternatives:
   1a. Install from MySQL Workbench client instead
     1a1. Go to "Tools" menu
