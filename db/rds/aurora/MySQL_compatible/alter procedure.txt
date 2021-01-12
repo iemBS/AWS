@@ -2,4 +2,15 @@ Alter Procedure
 Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-stored-procedure/alter-stored-procedure/
 Main Success Scenario:
-  1. xxx:fill in
+  1. see the following code
+  
+      Use MyDB;
+      Drop Procedure If Exists MyProcedure;
+
+      DELIMITER $$
+      Use MyDB $$
+
+      [create script here]
+
+      $$ # append $$ to "END" at the end of the create procedure script
+      DELIMITER ;
