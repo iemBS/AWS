@@ -1,8 +1,11 @@
 Get System Variable Value
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-variables.html
-  -System Variable index @ https://dev.mysql.com/doc/refman/5.7/en/dynindex-sysvar.html
-  -Guidance @ https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html
+  -Guidance @ 
+    -System Variable index @ https://dev.mysql.com/doc/refman/5.7/en/dynindex-sysvar.html
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html
+    -https://mariadb.com/kb/en/show-variables/
+    -https://dev.mysql.com/doc/refman/5.7/en/show-variables.html
   -list of dynamic system variables @ https://dev.mysql.com/doc/refman/5.7/en/dynamic-system-variables.html
     -Can be set at run time
 Main Success Scenario:
@@ -19,4 +22,28 @@ Alternatives:
     1d1. SHOW GLOBAL STATUS;
   1e. Limit Show method to return only specific rows using LIKE
     1e1. SHOW Global Status Like 'Handler_savepoint'  
+  1f. From the system table instead
+    1f1. See code below
+      Select
+        *
+      From
+        (
+          Select
+            'Global' As Scope,
+            VARIABLE_NAME,
+                  VARIABLE_VALUE
+          From
+            Information_Schema.GLOBAL_VARIABLES 
+
+          Union All
+
+          Select
+            'Session' As Scope,
+            VARIABLE_NAME,
+                  VARIABLE_VALUE
+          From
+            Information_Schema.SESSION_VARIABLES 
+          ) t
+      Order By
+        Variable_Name
       
