@@ -46,4 +46,62 @@ Alternatives:
           ) t
       Order By
         Variable_Name
+    
+  1g. From the system table and returns one row for each variable even if has both global and session scope
+  
+      Select
+      Scope,
+        VARIABLE_NAME,
+        VARIABLE_VALUE
+    From
+      (
+        Select
+          'Global; Session' As Scope,
+          g.VARIABLE_NAME,
+                g.VARIABLE_VALUE
+        From
+          Information_Schema.GLOBAL_VARIABLES g
+                Inner Join Information_Schema.SESSION_VARIABLES s On 
+            g.VARIABLE_NAME = s.VARIABLE_NAME
+                    And
+                    g.VARIABLE_VALUE = s.VARIABLE_VALUE
+
+            Union All 
+
+        Select
+          'Global; Session' As Scope,
+          g.VARIABLE_NAME,
+                Concat(g.VARIABLE_VALUE,'; ',s.VARIABLE_VALUE) As VARIABLE_VALUE
+        From
+          Information_Schema.GLOBAL_VARIABLES g
+                Inner Join Information_Schema.SESSION_VARIABLES s On 
+            g.VARIABLE_NAME = s.VARIABLE_NAME
+                    And
+                    g.VARIABLE_VALUE <> s.VARIABLE_VALUE
+
+
+            Union All
+
+            Select
+          'Global' As Scope,
+          VARIABLE_NAME,
+                VARIABLE_VALUE
+        From
+          Information_Schema.GLOBAL_VARIABLES
+        Where
+          VARIABLE_NAME Not In (Select VARIABLE_NAME From Information_Schema.SESSION_VARIABLES)
+
+        Union All 
+
+            Select
+          'Session' As Scope,
+          VARIABLE_NAME,
+                VARIABLE_VALUE
+        From
+          Information_Schema.SESSION_VARIABLES
+        Where
+          VARIABLE_NAME Not In (Select VARIABLE_NAME From Information_Schema.GLOBAL_VARIABLES)
+        ) t
+    Order By
+      Variable_Name
       
