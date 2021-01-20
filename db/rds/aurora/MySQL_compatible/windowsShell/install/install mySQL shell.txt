@@ -2,16 +2,16 @@ Install MySQL Shell
 Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html
+    -https://dev.mysql.com/doc/refman/8.0/en/connecting.html
 Main Success Scenario:
-  1. xxx:fill in
-  x. Confirm you can start the MySQL shell 
+  1. Download MySQL shell from https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html
+  2. Install the appropriate version
+  3. Open command line and use "mysql.exe" to connect to your MySQL instance to test the install
     xxx:fill in
 Alternatives:
-  1a. Install from MySQL Workbench client instead
-    1a1. Go to "Tools" menu
-    1a2. Choose "Start Shell for MySQL Utilities" on "Tools" menu
-    1a3. Click "Download..." button on pop-up window. 
-    1a4. Web browser window opens with download page 
-      https://downloads.mysql.com/archives/utilities/
-    1a5. Specify "OS Version" on 
-    1a6. Click "Download" button of appropirate version
+  1a. Use "mysql.exe" command provided with MySQL Workbench client you already have installed 
+    1a1. Go to where you installed MySQL Workbench on your computer
+    1a2. Go to Step 3. 
+    
+    
+    
