@@ -46,6 +46,7 @@ Alternatives:
   1d. "Provide More Parameters to Procedure than Expected"
   1e. "Set SQL_MODE to a more restrictive mode that will cause errors"
   
+  
 Get an exclusive write table lock with user A and try to write to table with user B
 Main Success Scenario:
   1. Get credentials for an admin or non-admin login and refer to it as User A
@@ -101,10 +102,19 @@ Main Success Scenario:
   6. User A: Sees successful execution message for the KILL query
   7. User B: Sees an error with a message of "Lost connection to MySQL server during query" and MySQL Code of "2013"
 
+
 Set SQL_MODE to a more restrictive mode that will cause errors
 Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sql_mode
     -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html
+    -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
+    -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
+  -sql_mode system variable is a dynamic parameter in Aurora
+  -The 
 Main Success Scenario:
-  1. xxx:fill in
+  1. Run the following to your SQL instance for this session to throw an error  if a date is zero, part of date is zero, or there is division by zero 
+    SET SESSION sql_mode = 'STRICT_ALL_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO';
+Alternativew:
+  1a. Set sql_mode globally
+    1a1. SET GLOBAL sql_mode = 'STRICT_ALL_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO';
