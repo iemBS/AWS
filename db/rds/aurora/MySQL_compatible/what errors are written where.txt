@@ -12,6 +12,7 @@ Note:
   -Format of MySQL Error Number written to destination differs
     -When the server writes a message to the error log, it pads the error code with leading zeros to six digits and adds a prefix of MY- (examples: MY-000022, MY-010048).
     -When the server sends a message to a client program, it adds no zero-padding or prefix to the error code (examples: 1036, 3013).
+  -There are two scopes in which system variables exist. Global variables affect the overall operation of the server. Session variables affect its operation for individual client connections. Ref @ https://dev.mysql.com/doc/refman/5.7/en/using-system-variables.html
 Main Success Scenario:
   1. Map of error sources and where they are written
   
