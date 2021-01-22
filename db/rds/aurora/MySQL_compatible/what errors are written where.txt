@@ -18,6 +18,7 @@ Main Success Scenario:
     Source of Errors:
       -Errors from MySQL Client Library
       -Errors from the Server
+      -Errors from X Plugin (Is this a client plugin?)
       -Third Party application
       
     Destinations of Errors:
@@ -26,15 +27,15 @@ Main Success Scenario:
       
     MySQL Error Code Range map the source to the where it can be shown
       -Generated in Server 
-        -1,000 to 1,999 sent to MySQL Client Library
+        -1,000 to 1,999 sent to MySQL Client Library (Is this sent to Error Log?)
         -10,000 to 49,999 sent to Error Log and NOT sent to MySQL Client Library
       -Generated in MySQL Client Library 
         -2,000 to 2,999 sent to MySQL Client Library and NOT sent to Error Log
         -3,000 to 4,999 sent to MySQL Client Library and NOT sent to Error Log
       -Generated in X Plugin 
-        -5,000 to 5,999 sent to MySQL Client Library 
+        -5,000 to 5,999 sent to MySQL Client Library (Is this sent to Error Log?)
       -Generated in Third Party application
-        -50,000 to 51,999 
+        -50,000 to 51,999 (Is this sent to Error Log?)
       
       
 
