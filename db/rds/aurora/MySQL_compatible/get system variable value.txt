@@ -8,6 +8,7 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/show-variables.html
   -list of dynamic system variables @ https://dev.mysql.com/doc/refman/5.7/en/dynamic-system-variables.html
     -Can be set at run time
+  -For SHOW VARIABLES, if you specify neither GLOBAL nor SESSION, MySQL returns SESSION values. Ref @ https://dev.mysql.com/doc/refman/5.7/en/using-system-variables.html
 Main Success Scenario:
   1. Show [table name] to see the current values used by the running MySQL instance
        Show Variables 
