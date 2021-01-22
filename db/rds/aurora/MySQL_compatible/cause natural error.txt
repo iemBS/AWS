@@ -33,6 +33,92 @@ Main Success Scenario:
 Cause 'dynamic SQL error'
 Main Success Scenario:
   1.xxx:fill in
+  
+
+Cause Natural Error using Non-Natural Means
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+Main Success Scenario:
+  1. "Get an exclusive write table lock with user A and try to write to table with user B"
+Alternatives:
+  1a. "Provide Invalid Value to Procedure Parameter"
+  1b. "User A runs query and User B kills query"
+  1c. "Provide Incorrect number of Parameters to Procedure"
+  1d. "Provide More Parameters to Procedure than Expected"
+  1e. "Set SQL_MODE to a more restrictive mode that will cause errors"
+  
+  
+Get an exclusive write table lock with user A and try to write to table with user B
+Main Success Scenario:
+  1. Get credentials for an admin or non-admin login and refer to it as User A
+  2. Get credentials for an admin or non-admin login and refer to it as User B
+  3. User A: Runs below query, where MyTbl is a table accessible by both users
+    LOCK TABLES MyTbl WRITE;
+  4. User B: Runs Select Count(1) From MyTbl
+  5. User A: Runs the below query to see "Waiting for table metadata lock" in STATE column for User B's query
+    Select * From Information_Schema.ProcessList Where COMMAND <> 'Sleep'
+  6. User B: Stops select query
+  7. User B: Runs SET @@Session.lock_wait_timeout = 20
+  8. User B: Runs below query and watches it run for 20 seconds 
+    LOCK TABLES MyTbl WRITE;
+  9. User B: Sees error thrown with MySQL Error code of "1205" and message text of "Lock wait timeout exceeded; try restarting transaction"
+  
+
+Provide Invalid Value to Procedure Parameter
+Main Success Scenario:
+  1. xxx:fill in
+ 
+ 
+Provide Fewer Parameters to Procedure than Expected
+Main Success Scenario:
+  1. Provide fewer parameters to procedure than expected
+  2. Run procedure call
+  3. See error with "1318" MySQL Error code and the below message text where X is the number of expected params and Y is the number provided
+    Incorrect number of arguments for PROCEDURE [procedure name]; expected X, got Y
+    
+    
+Provide More Parameters to Procedure than Expected
+Main Success Scenario:
+  1. Provide more parameters to procedure than expected
+  2. Run procedure call
+  3. See error with "1318" MySQL Error code and the below message text where X is the number of expected params and Y is the number provided
+    Incorrect number of arguments for PROCEDURE [procedure name]; expected X, got Y
+  
+  
+User A runs query and User B kills query
+Note:
+  -This error will show in the MySQL Error log and not the log you are writing errors to that are generated from your custom SQL code. 
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/error-lost-connection.html
+Main Success Scenario:
+  1. Get credentials for an admin login and refer to it as User A
+  2. Get credentials for a non-admin login and refer to it as User B
+  3. User B: Start running a query that takes at least 1 minute to run 
+  4. User A: Runs the following query to get the Process ID of User B's query
+    Select * From Information_Schema.ProcessList Where COMMAND <> 'Sleep'
+  5. User A: Runs the following query to kill User B's query, where "[ID]" is the process ID retrieved from the previous User A query
+    Kill [ID]
+  6. User A: Sees successful execution message for the KILL query
+  7. User B: Sees an error with a message of "Lost connection to MySQL server during query" and MySQL Code of "2013"
+
+
+Set SQL_MODE to a more restrictive mode that will cause errors
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sql_mode
+    -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html
+    -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
+    -https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
+  -sql_mode system variable is a dynamic parameter in Aurora
+  -The 
+Main Success Scenario:
+  1. Run the following to your SQL instance for this session to throw an error  if a date is zero, part of date is zero, or there is division by zero 
+    SET SESSION sql_mode = 'STRICT_ALL_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO';
+Alternativew:
+  1a. Set sql_mode globally
+    1a1. SET GLOBAL sql_mode = 'STRICT_ALL_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO';
+
 
 
 All Error classes below from https://en.wikipedia.org/wiki/SQLSTATE
