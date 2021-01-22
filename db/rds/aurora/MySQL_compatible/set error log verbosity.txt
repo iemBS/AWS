@@ -3,6 +3,7 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/error-log-filtering.html
     -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity
+  -1 gives you only errors, 2 gives you errors and warnings, 3 gives you errors, warnings, and notes
 Main Success Scenario:
   1. Set verbosity
     SET @@Global.log_error_verbosity = 3;
