@@ -3,7 +3,10 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/error-log-filtering.html
     -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity
+    -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sql_notes
+    -source of errors shown in client @ https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
   -1 gives you only errors, 2 gives you errors and warnings, 3 gives you errors, warnings, and notes
+  -There is not a SHOW NOTES command like SHOW ERRORS or SHOW WARNINGS
 Main Success Scenario:
   1. Set verbosity
     SET @@Global.log_error_verbosity = 3;
