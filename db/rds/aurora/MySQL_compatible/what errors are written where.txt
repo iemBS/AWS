@@ -1,0 +1,43 @@
+What Errors are Written Where
+Note:
+  -Guidance @ 
+    -source of errors shown in client @ https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
+    -https://dev.mysql.com/doc/mysql-errors/5.7/en/error-reference-introduction.html
+    -list of possible errors generated in the MySQL Client Library @ https://dev.mysql.com/doc/mysql-errors/5.7/en/client-error-reference.html
+    -list of possible errors generated in the Server @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+  -IF an interface is running queries on MySQL, errors generated in the MySQL Client Library via MySQL Workbench will not be seen in an alternate interface or the logs used by that alternate interface, if that alternate interface does not use the MySQL Client Library. 
+  -Errors generated in the MySQL Client Library usually involve problems communicating with the server
+  -Whether an error originates from within the client library or is received from the server, a MySQL client program may respond in varying ways. As just illustrated, the client may display the error message so the user can take corrective measures. The client may instead internally attempt to resolve or retry a failed operation, or take other action. Ref @ https://dev.mysql.com/doc/refman/5.7/en/error-message-elements.html#error-elements
+  -Error code ranges for MySQL 8 has map of error source and where it can be written, ref @ https://dev.mysql.com/doc/refman/8.0/en/error-message-elements.html
+  -Format of MySQL Error Number written to destination differs
+    -When the server writes a message to the error log, it pads the error code with leading zeros to six digits and adds a prefix of MY- (examples: MY-000022, MY-010048).
+    -When the server sends a message to a client program, it adds no zero-padding or prefix to the error code (examples: 1036, 3013).
+Main Success Scenario:
+  1. Map of error sources and where they are written
+  
+    Source of Errors:
+      -Errors from MySQL Client Library
+      -Errors from the Server
+      -Third Party application
+      
+    Destinations of Errors:
+      -MySQL Client Library (then passed onto the UI of the client using the MySQL Client Library)
+      -Error Log
+      
+    MySQL Error Code Range map the source to the where it can be shown
+      -Generated in Server 
+        -1,000 to 1,999 sent to MySQL Client Library
+        -10,000 to 49,999 sent to Error Log and NOT sent to MySQL Client Library
+      -Generated in MySQL Client Library 
+        -2,000 to 2,999 sent to MySQL Client Library and NOT sent to Error Log
+        -3,000 to 4,999 sent to MySQL Client Library and NOT sent to Error Log
+      -Generated in X Plugin 
+        -5,000 to 5,999 sent to MySQL Client Library 
+      -Generated in Third Party application
+        -50,000 to 51,999 
+      
+      
+
+  
+    
+  
