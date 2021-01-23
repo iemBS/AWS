@@ -95,3 +95,9 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/derived-tables.html
 Main Success Scenario:
   1. xxx:fill in
+  
+  
+  
+Create Temp Table On-the-Fly with Static Values Generated From Another Table
+Main Success Scenario:
+  1. xxx:fill in
