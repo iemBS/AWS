@@ -41,4 +41,15 @@ Alternatives:
     1c1. xxx:fill in
   1d. Alternative command format that is also treated as a table alter
     1d1. ALTER TABLE ADD INDEX idx_[tableName]_[column names] ON MyTbl (MyCol1,MyCol2);
+  1e. Create index only if it does not already exist (by name)
+    1e1. See code below 
+    
+    Set @x := (Select Count(*) from Information_Schema.Statistics Where Table_Schema = 'MyDB' And Table_Name = 'MyTbl' and Index_Name = 'MyIndex');
+    Set @sql := if(@x > 0, 'select ''Index already exists.''', 'Create Index MyIndex On MyTbl(Col1,Col2,Col3);');
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+  1f. Create index only if it does not already exist (by index definition)
+    1f1. See code below
+      xxx:fill in
+    
   
