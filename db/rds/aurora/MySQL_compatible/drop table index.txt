@@ -1,6 +1,7 @@
 Drop Table Index
 Note:
   -Guidance @ https://www.w3schools.com/sql/sql_create_index.asp
+  -DEALLOCATE is not needed with the prepared statement below. A prepared statement is specific to the session in which it was created. If you terminate a session without deallocating a previously prepared statement, the server deallocates it at session termination.
 Main Success Scenario:
   1. ALTER TABLE MyTbl DROP INDEX idx_MyTbl_MyCols;
 Alternatives:
