@@ -30,6 +30,7 @@ Note:
     -If you always use many columns when selecting from the table, the first column in the index should be the one with the most duplicates, to obtain better compression of the index.
     -If it is very likely that a long string column has a unique prefix on the first number of characters, it is better to index only this prefix, using MySQL's support for creating an index on the leftmost part of the column. Shorter indexes are faster, not only because they require less disk space, but because they also give you more hits in the index cache, and thus fewer disk seeks.
     -Use Partial Index @ https://www.oreilly.com/library/view/high-performance-mysql/0596003064/ch04.html
+  -DEALLOCATE is not needed with the prepared statement below. A prepared statement is specific to the session in which it was created. If you terminate a session without deallocating a previously prepared statement, the server deallocates it at session termination.
 Main Success Scenario:
   1. CREATE INDEX idx_[tableName]_[column names] ON MyTbl (MyCol1,MyCol2);
 Alternatives:
