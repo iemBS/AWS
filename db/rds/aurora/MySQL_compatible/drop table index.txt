@@ -6,3 +6,8 @@ Main Success Scenario:
 Alternatives:
   1a. Alternative command format that is also a table alter
     1a1. Drop Index idx_MyTbl_MyCols On MyTbl;
+  1b. Drop index only if it already exists 
+    Set @x := (Select Count(*) from Information_Schema.Statistics Where Table_Schema = 'MyDB' And Table_Name = 'MyTbl' and Index_Name = 'MyIndex');
+    Set @sql := if(@x = 0, 'select ''Index Does NOT exist.''', 'Drop Index MyIndex On MyTbl;');
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
