@@ -1,0 +1,21 @@
+Set System Variable Value
+Note:
+  -System variables exist at the DB Cluster and Instance (of a DB Cluster) level
+  -List of System variables at the DB Custer and Instance level @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.html#AuroraMySQL.Reference.Parameters.Instance
+Pre-Conditions:
+  -Global scope of system variables cannot be set in a SQL window like the following. You need to set it in the RDS UI or using CLI. 
+    Set @@Global.MySysVar = 'value'
+  -Session scope of system variables can be set in a SQL window like the following:
+    Set @@Session.MySysVar = 'value'
+  -You can set DB Cluster and Instance level system variables 
+Main Success Scenario:
+  1. In the AWS GUI, go to RDS > Databases > [specific database] > Configuration > [DB cluster parameter group]
+  2. See columns 
+       "Modifiable" columnn lets you know if you can change the system variable
+       "Apply Type" column lets you know if you can change it while the DB is running
+       "Name" is the name of the system variable 
+       "Value" is the current value regardless if you can see it when you run Select MySysVar in a SQL client
+  3. Filter on the system variable you want to change
+  4. Check the box on the left and click the "Edit Parameters" button
+  5. Change the value in the "Value" column and click the "Save Parameters" button. (button may not show as clicked after clicking)
+  6. Wait till you can see the new value when you run "select MySysVar" in your MySQL client
