@@ -7,8 +7,16 @@ Note:
     -https://mariadb.com/kb/en/show-variables/
     -https://dev.mysql.com/doc/refman/5.7/en/show-variables.html
   -list of dynamic system variables @ https://dev.mysql.com/doc/refman/5.7/en/dynamic-system-variables.html
-    -Can be set at run time
+    -Can be set at run time:
   -For SHOW VARIABLES, if you specify neither GLOBAL nor SESSION, MySQL returns SESSION values. Ref @ https://dev.mysql.com/doc/refman/5.7/en/using-system-variables.html
+  -Aurora has parameters (aka system variables) at the DB Cluster and DB instance (instance of a DB Cluster) levels. Ref @ https://github.com/sburnell/AWS/edit/master/db/rds/aurora/MySQL_compatible/get%20system%20variable%20value.txt
+    -List of Cluster Level parameters @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.html#AuroraMySQL.Reference.Parameters.Cluster
+    -List of Instance Level parameters @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.html#AuroraMySQL.Reference.Parameters.Instance
+Pre-Conditions:
+  -System Variables where the value is not visible from a MySQL client because of xxx
+    -sql_mode: 
+  -Limitations in Serverless v1:
+    -Session variables not usable when using TLS/SSL between client and Aurora. Ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
 Main Success Scenario:
   1. Show [table name] to see the current values used by the running MySQL instance
        Show Variables 
