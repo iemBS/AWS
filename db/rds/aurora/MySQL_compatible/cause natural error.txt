@@ -47,6 +47,7 @@ Alternatives:
   1c. "Provide Incorrect number of Parameters to Procedure"
   1d. "Provide More Parameters to Procedure than Expected"
   1e. "Set SQL_MODE to a more restrictive mode that will cause errors"
+  1f. "User A Renames Table Before User B Uses it"
   
   
 Get an exclusive write table lock with user A and try to write to table with user B
@@ -118,6 +119,21 @@ Main Success Scenario:
 Alternativew:
   1a. Set sql_mode globally
     1a1. SET GLOBAL sql_mode = 'STRICT_ALL_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO';
+
+
+User A Renames Table Before User B Uses it
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/rename-table.html
+Main Success Scenario:
+  1. User A: Runs query below
+      RENAME TABLE old_table TO new_table;
+  2. User B: Run the query below
+      Select Count(*) From old_table;
+Alternatives:
+  1a. Move table to another database but keep the table name the same
+    1a1. User A: RENAME TABLE current_db.tbl_name TO other_db.tbl_name;
+    1a2. User B: Select Count(*) From current_db.tbl_name;
 
 
 
