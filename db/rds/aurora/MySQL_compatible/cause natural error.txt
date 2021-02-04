@@ -3,6 +3,7 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/common-errors.html
     -https://dev.mysql.com/doc/refman/5.7/en/error-interfaces.html
+  -MESSAGE_TEXT condition of SIGNAL statement limited to 128 characters. Ref @ https://dev.mysql.com/doc/refman/5.7/en/signal.html#signal-condition-information-items
   -Where Errors are born
     -list of all errors @ https://dev.mysql.com/doc/mysql-errors/5.7/en/ix01.html
       -errors born from the server are noted @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
