@@ -3,6 +3,7 @@ Note:
   -Range of SQLSTATE values that can be used by developers, not used by MySQL, and are allowed by MySQL
   -Full list of natural SQLSTATE and MySQL Error # @ https://dev.mysql.com/doc/mysql-errors/5.7/en/ix01.html
   -"HY000" SQLSTATE is the same thing as the "45000" SQLSTATE
+  -MESSAGE_TEXT condition of SIGNAL statement limited to 128 characters. Ref @ https://dev.mysql.com/doc/refman/5.7/en/signal.html#signal-condition-information-items
 Main Success Scenario:
   1. Throw customer unhandled error
     SIGNAL SQLSTATE '45000'
