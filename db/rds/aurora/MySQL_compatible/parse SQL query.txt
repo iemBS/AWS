@@ -1,5 +1,6 @@
 Parse SQL Query
 Note:
   -Parse technology used by MySQL. Ref @ https://www.oreilly.com/library/view/understanding-mysql-internals/0596009577/ch09.html
+    -another Ref @ https://www.oreilly.com/library/view/flex-bison/9780596805418/ch04.html
 Main Success Scenario:
   1. xxx:fill in
