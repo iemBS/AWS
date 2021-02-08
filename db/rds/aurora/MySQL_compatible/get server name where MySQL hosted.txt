@@ -4,7 +4,9 @@ Note:
     -SELECT SUBSTRING_INDEX(USER(), '@', -1) 
     -select host from information_schema.processlist;
 Main Success Scenario:
-  1. Select @@hostname
+  1. Select @@aurora_server_id
 Alternatives:
-  1a. Get using "SHOW VARIABLES"
-    1a1. show variables where Variable_name = 'hostname';
+  1a. Get IP address instead
+    1a1. Select @@hostname
+  1b. Get using "SHOW VARIABLES"
+    1b1. show variables where Variable_name In ('hostname','aurora_server_id');
