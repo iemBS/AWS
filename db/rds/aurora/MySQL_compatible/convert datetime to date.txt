@@ -1,0 +1,8 @@
+Convert DateTime to Date
+Note:
+  -https://www.w3schools.com/sql/func_mysql_now.asp
+Main Success Scenario:
+ 1. See query below
+    select 
+      NOW(),
+      DATE(NOW())
