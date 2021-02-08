@@ -1,6 +1,7 @@
 Convert DateTime to Date
 Note:
   -https://www.w3schools.com/sql/func_mysql_now.asp
+  -https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_date
 Main Success Scenario:
  1. See query below
     select 
