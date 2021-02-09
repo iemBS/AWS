@@ -4,6 +4,7 @@ Note:
   -"X" indicates that the source number is a hex number
   -A unicode hex number of 0x01 would be written as X'01'
   -The _[character set] is an introducer that indicates what character set the hex number is from
+  -Character sets availabe in MySQL @ https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html
 Main Success Scenario:
   1. SELECT _utf8mb4 X'01' # from Unicode Hex Number
 Alternatives:
