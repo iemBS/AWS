@@ -1,0 +1,23 @@
+Convert Character Set Hex Number to Character
+Note:
+  -Guidance for using character set introducer @ https://downloads.mysql.com/docs/mysql-g11n-excerpt-8.0-en.pdf
+  -"X" indicates that the source number is a hex number
+  -A unicode hex number of 0x01 would be written as X'01'
+  -The _[character set] is an introducer that indicates what character set the hex number is from
+Main Success Scenario:
+  1. SELECT _utf8mb4 X'01' # from Unicode Hex Number
+Alternatives:
+  1a. Convert from CP1252 Hex Number
+    1a1. SELECT _latin1 X'01' 
+  1b. Convert from a decimal or hexadecimal number for a charater set to a character 
+    1b1. See query below 
+
+    SELECT 
+      _utf8 X'3B' As semicolon, # Convert a Unicode hexadecimal number of 0x3B to a character
+        CAST(_utf8 X'3B' As Char(1)) As semicolon2, # Convert a Unicode hexadecimal number of 0x3B to a character
+        CAST(CHAR(59) As Char(1)) As semicolon3, # Convert a decimal number between 1 and 127 of the ASCII character set to a character
+      CAST(UNHEX('3B') As Char(1)) As semicolon4, # Convert a hexadecimal number of the [XXX:fill in] character set to a character
+        _utf8mb4 X'3B' as semicolon5, # Convert a Unicode hexadecimal number of 0x3B to a character
+        _latin1 X'3B' as semicolon6, # Convert a CP1252 hexadecimal number of 0x3B to a character
+        Concat('a',_utf8 X'3B','b') As semicolonInString # Convert a Unicode hexadecimal number of 0x3B to a character within a string
+
