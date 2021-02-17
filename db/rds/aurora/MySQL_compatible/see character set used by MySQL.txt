@@ -6,7 +6,27 @@ Main Success Scenario:
   1. USE MyDB; 
      SELECT @@character_set_database; # gives abbreviated name
   2. SHOW CHARACTER SET; # Shows map of abbreviated character set name to full name. Important for "latin1", which is used to refer to CP1252 and ISO 8859-1 character sets depending on who you talk to. 
-  3. See character sets used in other areas of MySQL
+  3. See character sets used in other areas of MySQL for a session
+      SELECT 
+        * 
+      FROM 
+        INFORMATION_SCHEMA.SESSION_VARIABLES
+      WHERE 
+        VARIABLE_NAME IN 
+          (
+          'character_set_client', 
+          'character_set_connection',
+              'character_set_database',
+              'character_set_filesystem',
+          'character_set_results', 
+              'character_set_server',
+              'character_set_system',
+          'collation_connection'
+        ) ORDER BY VARIABLE_NAME;
+Alternatives:
+  3a. See character sets used in other areas of MySQL from a global perspective
+    3a1. See code below
+    
       SELECT 
         * 
       FROM 
