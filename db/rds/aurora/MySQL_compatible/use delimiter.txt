@@ -1,0 +1,13 @@
+Use Delimiter
+Note:
+  -Guidance @ https://www.mysqltutorial.org/mysql-stored-procedure/mysql-delimiter/
+Main Success Scenario:
+  1. See pseudo code below
+        DELIMITER $$
+
+        CREATE PROCEDURE sp_name()
+        BEGIN
+          -- statements
+        END $$
+
+        DELIMITER ;
