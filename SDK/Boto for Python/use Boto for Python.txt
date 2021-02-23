@@ -3,5 +3,7 @@ Note:
   -Guidance @ 
     -https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
     -https://aws.amazon.com/sdk-for-python/
+  -source code @ https://github.com/boto/boto3
+  -docs @ https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
 Main Success Scenario:
   1. xxx:fill in
