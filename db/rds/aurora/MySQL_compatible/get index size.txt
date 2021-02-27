@@ -1,0 +1,78 @@
+Get Index Size
+Note: 
+  -Ignore the index named "PRIMARY" because it is just the table. The query below proves it. 
+    select
+      t.TABLE_SCHEMA As DbNm,
+        t.TABLE_NAME As TblNm,
+        i.index_name as IdxNm,
+        ROUND(((t.data_length) / 1024 / 1024), 2) As TblSizeInMB,
+        ROUND((i.stat_value * @@innodb_page_size) / 1024 / 1024, 2) As IdxSizeInMB
+    From
+      information_schema.TABLES t
+        Inner Join mysql.innodb_index_stats i On 
+        t.TABLE_SCHEMA = i.database_name
+            And
+            t.TABLE_NAME = i.table_name 
+    Where
+      i.stat_name = 'size'
+        And
+      i.index_name = 'PRIMARY'
+Main Success Scenario:
+  1. See query below
+  
+    select
+      t.TABLE_SCHEMA As DbNm,
+        t.TABLE_NAME As TblNm,
+        i.index_name as IdxNm,
+        ROUND(((t.data_length) / 1024 / 1024), 2) As TblMbSize,
+        ROUND((i.stat_value * @@innodb_page_size) / 1024 / 1024, 2) As IdxMbSize,
+        ROUND(((i.stat_value * @@innodb_page_size) / (t.data_length)) * 100,2) As IdxPctOfTblMbSize,
+        tc.TblColCntSize,
+        ic.IdxColCntSize,
+        ROUND((ic.IdxColCntSize / tc.TblColCntSize) * 100,2) As IdxPctOfTblColCntSize
+    From
+      information_schema.TABLES t
+        Inner Join mysql.innodb_index_stats i On 
+        t.TABLE_SCHEMA = i.database_name
+            And
+            t.TABLE_NAME = i.table_name 
+      Inner Join 
+        (
+        Select
+          Table_Schema,
+          Table_Name,
+          Index_Name,
+          Count(Distinct Column_Name) As IdxColCntSize
+        From
+          INFORMATION_SCHEMA.STATISTICS
+        Group By
+          Table_Schema,
+          Table_Name,
+          Index_Name
+      ) ic On 
+        i.database_name = ic.Table_Schema
+            And
+            i.table_name = ic.table_name
+            And
+            i.index_name = ic.index_name 
+      Inner Join 
+        (
+        Select
+          TABLE_SCHEMA,
+                TABLE_NAME,
+                Count(Column_Name) AS TblColCntSize
+        From
+          Information_Schema.Columns
+        Group By
+          TABLE_SCHEMA,
+                TABLE_NAME
+        ) tc On 
+        t.TABLE_SCHEMA = tc.TABLE_SCHEMA
+            And
+            t.TABLE_NAME = tc.TABLE_NAME
+    Where
+      i.stat_name = 'size'
+        And
+        i.index_name <> 'PRIMARY' # Exclude PRIMARY because it is the table
+
+
