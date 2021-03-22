@@ -2,5 +2,8 @@ Get List of All Temp Tables
 Note:
   -This can only be done simplly in MySQL 5.7. Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-temp-table-info.html
   -The "INNODB_TEMP_TABLE_INFO" table does not exist in MySQL 5.6. 
+  -Running "select * from Information_schema.INNODB_TEMP_TABLE_INFO" will not show a temp table creatd with "CREATE TEMPORARY TABLE temp_table (x int) ENGINE=MEMORY". It will, if the table is created with "CREATE TEMPORARY TABLE temp_table (x int) ENGINE=INNODB".
+  -Aurora does not allow for MySQL to create temp tables using the "CREATE TEmporary TAble" statement. See below
+    Aurora is designed to provide support for only InnoDB storage engine for regular tables. Engines other than InnoDB are only supported for session-level temporary tables. With default configuration, when you try to create a table using a storage engine other than InnoDB, Aurora will implicitly create the table as InnoDB. Session level temporary tables are not persistent and they will be dropped once the session is completed.
 Main Success Scenario:
-  1. xxx:fill 
+  1. select * from Information_schema.INNODB_TEMP_TABLE_INFO
