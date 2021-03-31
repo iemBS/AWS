@@ -14,6 +14,7 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-temp-table-info.html
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-temp-table-info-table.html
   -"Space" column in the information_schema.INNODB_TEMP_TABLE_INFO table is the ID of the temporary tablespace where the temporary table resides.
+  -Same temp table name can be used in two different sessions. Ref @ https://www.sqlshack.com/learn-mysql-create-and-drop-temp-tables/
 Main Success Scenario:
   1. Use the smaller of these two values to get the global limit
        select @@tmp_table_size, @@max_heap_table_size;
