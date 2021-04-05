@@ -1,0 +1,7 @@
+Get Identifier Length Limit
+Note:
+  -MySQL 1059 error @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html#error_er_too_long_ident
+Main Success Scenario:
+  1. Look @ https://dev.mysql.com/doc/refman/5.7/en/identifier-length.html
+  2. Use CHAR_LENGTH() to check length of string
+  3. See if running code throws a 1059 error 
