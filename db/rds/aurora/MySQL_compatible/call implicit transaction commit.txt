@@ -1,6 +1,7 @@
 Call Implicit Transaction Commit
 Note:
   -Statements that can cause implicit commits @ https://dev.mysql.com/doc/refman/5.7/en/implicit-commit.html
+  -more guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-autocommit-commit-rollback.html
 Main Success Scenario:
   1. "Call Implicit Commit with a Table or View"
 Alternatives:
