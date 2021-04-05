@@ -31,14 +31,12 @@ Call Implicit Commit with a Temp Table
 Main Success Scenario:
   1. Call ALTER TABLE statement
 Alternatives:
-  1a. "Call Implicit Commit with CREATE INDEX statement"
+  1a. "Call Implicit Commit with CREATE INDEX statement on Temp Table"
   
 
-Call Implicit Commit with CREATE INDEX statement
+Call Implicit Commit with CREATE INDEX statement on Temp Table
 Main Success Scenario:
-  1. xxx
-Alternatives:
-  1a. xxx
+  1. Create index within CREATE Temporary TABLE, in ALTER TABLE after CREATE Temporary TABLE, or in CREATE INDEX after CREATE Temporary TABLE
   
   
 Call Implicit Commit with a View
