@@ -1,0 +1,50 @@
+Call Implicit Transaction Commit
+Note:
+  -Statements that can cause implicit commits @ https://dev.mysql.com/doc/refman/5.7/en/implicit-commit.html
+Main Success Scenario:
+  1. "Call Implicit Commit with a Table or View"
+Alternatives:
+  1a. "Call Implicit Commit with a Routine"
+  
+  
+Call Implicit Commit with a Table or View
+Main Success Scenario:
+  1. "Call Implicit Commit with a Table"
+Alternatives
+  1a. "Call Implicit Commit with a View"
+  
+  
+Call Implicit Commit with a Table
+Main Success Scenario:
+  1. "Call Implicit Commit with a Non-Temp Table"
+Alternatives:
+  1a. "Call Implicit Commit with a Temp Table"
+  
+  
+Call Implicit Commit with a Non-Temp Table
+Main Success Scenario:
+  1. xxx
+  
+  
+Call Implicit Commit with a Temp Table
+Main Success Scenario:
+  1. Call ALTER TABLE statement
+Alternatives:
+  1a. "Call Implicit Commit with CREATE INDEX statement"
+  
+
+Call Implicit Commit with CREATE INDEX statement
+Main Success Scenario:
+  1. xxx
+Alternatives:
+  1a. xxx
+  
+  
+Call Implicit Commit with a View
+Main Success Scenario:
+  1. xxx
+
+
+Call Implicit Commit with a Routine
+Main Success Scenario:
+  1. xxx
