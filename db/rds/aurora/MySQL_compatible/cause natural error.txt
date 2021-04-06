@@ -49,6 +49,7 @@ Alternatives:
   1d. "Provide More Parameters to Procedure than Expected"
   1e. "Set SQL_MODE to a more restrictive mode that will cause errors"
   1f. "User A Renames Table Before User B Uses it"
+  1g. "Leave a MySQL connection incorrectly"
   
   
 Get an exclusive write table lock with user A and try to write to table with user B
@@ -136,7 +137,12 @@ Alternatives:
     1a1. User A: RENAME TABLE current_db.tbl_name TO other_db.tbl_name;
     1a2. User B: Select Count(*) From current_db.tbl_name;
 
-
+Leave a MySQL Connection Incorrectly
+Note:
+  -Possible reasons for "Aborted Connection" Note @ https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/apas02.html
+    -like "010301 14:38:23  Aborted connection 854 to db: 'users' user: 'josh'"
+Main Success Scenario:
+  1. xxx
 
 All Error classes below from https://en.wikipedia.org/wiki/SQLSTATE
 ----------------------------------------------------------------------
