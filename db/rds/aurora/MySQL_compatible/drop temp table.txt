@@ -1,6 +1,11 @@
 Drop Temp Table
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/drop-table.html
+  -Avoid temp table drop in the middle of your query if the buffer is large or you have to do it frequently. This is because the buffer needs to be searched for the associated pages that contain the temp table data. See refs at the locations below:
+    -https://stackoverflow.com/questions/6199909/slow-drop-temporary-table
+    -https://stackoverflow.com/questions/4962797/why-is-this-query-on-a-memory-table-slower-then-its-twin-on-innodb
+  -An alternative to dropping temp tables is to truncate them. See refs below:
+    -https://dba.stackexchange.com/questions/188659/why-does-truncating-a-temp-table-at-the-end-of-the-stored-procedure-that-creates
 Main Success Scenario:
   1. Drop Temporary Table If Exists MyTmpTbl;
 Alternatives:
