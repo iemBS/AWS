@@ -14,6 +14,21 @@ Note:
   -SQLWARNING: Shorthand for the class of SQLSTATE values that begin with '01'.
   -SQLEXCEPTION: Shorthand for the class of SQLSTATE values that do not begin with '00', '01', or '02'.
   -MESSAGE_TEXT parameter in SIGNAL statement has a max length of 146 characters. No error is thrown if the max is reached. The text is truncated on the right. 
+  -If more than one handler exists, then there is precedence. Ref @ https://www.mysqltutorial.org/mysql-error-handling-in-stored-procedures/
+Pre-Condition:
+  -A handler must be...
+    -inside a BEGIN & END of a compound statement for a 
+      -procedure
+      -function
+      -trigger
+      -event
+    -all the below must be done in one of the objects already noted above 
+      -after BEGIN (treated like BEGIN & END)
+      -after BEGIN WORK (treated like BEGIN & END)
+      -inside START TRANSACTION & END
+      -inside BEGIN & END block
+      -inside labeled BEGIN & END block
+    -ref @ https://dev.mysql.com/doc/refman/5.7/en/begin-end.html
 Main Success Scenario:
   1.See code below
     DECLARE EXIT HANDLER FOR SQLEXCEPTION BEGIN END;
