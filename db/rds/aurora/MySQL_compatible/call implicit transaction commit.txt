@@ -32,11 +32,24 @@ Main Success Scenario:
   1. Call ALTER TABLE statement
 Alternatives:
   1a. "Call Implicit Commit with CREATE INDEX statement on Temp Table"
+  1b. "Call Implicit Commit with CREATE TABLE statement on Temp Table"
   
 
 Call Implicit Commit with CREATE INDEX statement on Temp Table
+Pre-Conditions:
+  -Creating an index within a CREATE Temporary TABLE statement will not trigger an implicit commit. 
 Main Success Scenario:
-  1. Create index within CREATE Temporary TABLE, in ALTER TABLE after CREATE Temporary TABLE, or in CREATE INDEX after CREATE Temporary TABLE
+  1. Use ALTER TABLE after CREATE Temporary TABLE
+Alternatives:
+  1a. Use CREATE INDEX after CREATE Temporary TABLE
+  
+  
+Call Implicit Commit with CREATE TABLE statement on Temp Table
+Main Success Scenario:
+  1. Use CREATE Temporary TABLE
+  2. Insert data into temporary table
+  3. Rollback
+  4. Data is removed from the temp table and the temp table still exists 
   
   
 Call Implicit Commit with a View
