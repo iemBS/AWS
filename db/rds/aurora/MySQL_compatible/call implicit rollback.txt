@@ -1,0 +1,15 @@
+Call Implicit Rollback
+Note:
+  -An implicit roll back does not log a rollack call to the audit log
+  -guidance @ 
+    -https://www.burnison.ca/notes/fun-mysql-fact-of-the-day-implicit-rollbacks
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-error-handling.html
+  -During implicit rollbacks, as well as during the execution of an explicit ROLLBACK SQL statement, SHOW PROCESSLIST displays Rolling back in the State column for the relevant connection.
+Main Success Scenario:
+  1. On a duplicate key error, only the statement is rolled back
+Alternatives:
+  1a.If an inserted row is too large, only the statement is rolled back
+  1b. If you run out of disk space, only the statement is rolled back
+  1c. If a deadlock occurs, the entire transaction is rolled-back
+  1d. If a lock wait takes too long, the behaviour depends on it depends on the setting of innodb-rollback-on-timeout.
+  1e. If the server stops or crashes before a commit (or before a statement run in autocommit completes), the entire transaction is rolled-back when the server starts up again.
