@@ -1,0 +1,4 @@
+Use Cloud Insights on Aurora Audit Log
+Main Success Scenario:
+  1. See query below
+       xxx
