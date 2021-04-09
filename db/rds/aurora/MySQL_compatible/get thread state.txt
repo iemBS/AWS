@@ -1,6 +1,7 @@
 Get Thread State
 Note:
-  -Meaning of thread states @ https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
+  -Meaning of thread states @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/thread-information.html
   -Thread States not possible becasue using InnoDB storage engine:
     -Analyzing
@@ -23,6 +24,10 @@ Note:
     -Copying to tmp table on disk
   -Thread states indicate an issue is occuring
     -Rolling back
+  -other thread states
+    -Sending data
+    -cleaned up
+    -cleaning up
 Main Success Scenario:
   1. Get threads run by the current account
       Select * From Information_Schema.ProcessList Where User = SUBSTRING_INDEX(USER(),'@',1) LIMIT 0, 2000
