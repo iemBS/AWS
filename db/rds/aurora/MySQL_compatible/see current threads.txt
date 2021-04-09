@@ -1,7 +1,9 @@
 See Current Threads
 Note:
-  -Guidance @ https://www.mysqltutorial.org/mysql-show-processlist/
-  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/thread-information.html
+  -Guidance @ 
+    -https://www.mysqltutorial.org/mysql-show-processlist/
+    -https://dev.mysql.com/doc/refman/5.7/en/thread-information.html
+    -https://dev.mysql.com/doc/extending-mysql/5.7/en/mysql-threads.html
   -SHOW PROCESSLIST shows currently running threads
   -Columns returned by SHOW PROCESSLIST
     -Id: Clients process id
