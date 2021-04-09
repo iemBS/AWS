@@ -1,0 +1,10 @@
+Convert Time to Milliseconds Since 1970
+Note:
+  -guidance @ 
+    -https://www.w3resource.com/mysql/date-and-time-functions/mysql-unix_timestamp-function.php
+Main Success Scenario:
+  1. See query below
+  
+    Select 
+      UNIX_TIMESTAMP(),
+      UNIX_TIMESTAMP(curtime());
