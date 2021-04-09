@@ -5,6 +5,9 @@ Note:
 Main Success Scenario:
   1. See query below
   
-    Select 
-      UNIX_TIMESTAMP(),
-      UNIX_TIMESTAMP(curtime());
+  Select 
+    UNIX_TIMESTAMP(),
+      UNIX_TIMESTAMP(curtime()),
+      UNIX_TIMESTAMP(curdate()),
+      UNIX_TIMESTAMP(now()),
+      UNIX_TIMESTAMP('2021-04-09 21:05:37');
