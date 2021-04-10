@@ -1,4 +1,17 @@
 Use Cloud Insights on Aurora Audit Log
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-examples.html
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Auditing.html
+    -https://docs.aws.amazon.com/glue/latest/dg/connection-defining.html
 Main Success Scenario:
-  1. See query below
-       xxx
+  1. See query below (commented out limit because it is good to have to set a limit, combined object & return code because of parsing issue)
+  
+    # @timestamp is unix timestamp in microseconds
+    fields @timestamp as EntryTm, @message
+    | parse "*,*,*,*,*,*,*,*,*" as TimeStamp, ServerHost, UserName, UserHost, ConnectionId, QueryId, Operation, Database, ObjectAndReturnCode
+    | filter Database = "MyDB" and Operation = "QUERY" and UserName = "admin" 
+    #| limit 100
+    | sort QueryId
+    | display EntryTm,QueryId,UserHost,ConnectionId,Operation,Database,ObjectAndReturnCodeMy
