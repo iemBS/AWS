@@ -98,6 +98,11 @@ Main Success Scenario:
   
   
   
-Create Temp Table On-the-Fly with Static Values Generated From Another Table
+Create Temp Table On-the-Fly with Static Values From Another Table
+Note:
+  -You cannot use a CREATE TEMPORARY TABLE statement with a VALUES statement. You need to create the temp table first, then insert into it
+  -guidance @
+    -https://www.tutorialspoint.com/mysql/mysql-temporary-tables.htm
 Main Success Scenario:
-  1. xxx:fill in
+  1. create temporary table with a table create script
+  2. Insert data from a VALUES statement into the temp table
