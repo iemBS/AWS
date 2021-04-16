@@ -1,0 +1,13 @@
+Rank Values
+Note:
+  -Guidance @ 
+    -https://www.mysqltutorial.org/mysql-window-functions/mysql-rank-function/
+Pre-Conditions:
+  -Must be using MySQL 8.0 or higher to use the RANK() function
+Main Success Scenario:
+  1. Ranking in order to collapse the rows into fewer rows. Works if there are enough NULL cells to reduce row count.
+    [take the max of the values in columns that are not being grouped on]
+  2. Then get the distinct rows in those values
+Alternatives:
+  1a. Do IFNULL then blank & Distinct 
+    1a1. xxx:fill in
