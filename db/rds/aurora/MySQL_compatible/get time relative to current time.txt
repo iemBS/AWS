@@ -1,0 +1,21 @@
+Get Time Relative to Current Time
+Main Success Scenario:
+  1. Get yesterday's date
+    Select
+      NOW(),
+      DATE_SUB(CURDATE(), INTERVAL 1 DAY) As YesterdaysDate
+Alternatives:
+  1a. Get Tomorrow's date
+    Select
+      NOW(),
+      DATE_SUB(CURDATE(), INTERVAL -1 DAY) As TomorrowsDate
+  1b. Get date 1 week ago
+    1b1. xxx:fill in
+  1c. Get date 1 month ago
+    1c1. xxx:fill in
+  1d. Get date 1 year ago
+    1d1. xxx:fill in
+  1e. Get instance of the current day in the week, in the previous month (need when schedule based on X instance of DayOfWeek in a month)
+    1e1. xxx:fill in
+  1f. Go 3 increments in the past of 24 hours from the current time (needed for cycling based on the current time)
+    1f1. xxx:fill in
