@@ -52,6 +52,6 @@ Alternatives:
     EXECUTE stmt;
   1f. Create index only if it does not already exist (by index definition)
     1f1. See code below
-      xxx:fill in
+      See @ https://dba.stackexchange.com/questions/24531/mysql-create-index-if-not-exists#:~:text=You%20can%20generate%20index%20in,create%20two%20indexes%20without%20checking.
     
   
