@@ -4,7 +4,7 @@ Note:
   -Guidance @ https://stackoverflow.com/questions/22167132/mysql-like-query-with-underscore
   -Underscore characters need to be escaped if searched for in a value
 Main Success Scenario:
-  1. xxx:fill
+  1. Select * From MyTbl Where MyCol Like '%xx%'
 Alternatives:
   1a. Use a variable for the value searched for
     1a1. xxx:fill
@@ -14,3 +14,7 @@ Alternatives:
     1c1. On tbl1.ColumnA Like Concat('%',tbl2.ColumnB,'%') 
   1d. Search for an underscore in a value
     1d1. SELECT id FROM images WHERE img_path LIKE 'abc\_%'
+  1e. Have multiple likes in the filter (searching for dash and "d")
+    1e1. Select & From MyTbl Where MyCol REGEXP '-|d'
+  1e. Have multiple NOT likes in the filter (searching for dash and "d")
+    1e1. Select & From MyTbl Where MyCol NOT REGEXP '-|d'
