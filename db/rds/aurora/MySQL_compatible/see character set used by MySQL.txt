@@ -27,19 +27,29 @@ Alternatives:
   3a. See character sets used in other areas of MySQL from a global perspective
     3a1. See code below
     
-      SELECT 
-        * 
-      FROM 
-        INFORMATION_SCHEMA.SESSION_VARIABLES
-      WHERE 
-        VARIABLE_NAME IN 
-          (
-          'character_set_client', 
-          'character_set_connection',
-              'character_set_database',
-              'character_set_filesystem',
-          'character_set_results', 
-              'character_set_server',
-              'character_set_system',
-          'collation_connection'
-        ) ORDER BY VARIABLE_NAME;
+    SELECT 
+      * 
+    FROM 
+      INFORMATION_SCHEMA.GLOBAL_VARIABLES
+    WHERE 
+      VARIABLE_NAME IN 
+      (
+        # The character set for statements that arrive from the client. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_client
+        'character_set_client', 
+            # The character set used for literals specified without a character set introducer and for number-to-string conversion. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_connection
+        'character_set_connection',
+            # The character set used by the default database. The server sets this variable whenever the default database changes. If there is no default database, the variable has the same value as character_set_server. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_database
+        'character_set_database',
+            # The file system character set. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_filesystem
+        'character_set_filesystem',
+            # The character set used for returning query results to the client. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_results
+        'character_set_results', 
+            # The servers default character set. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_server
+        'character_set_server',
+            # The character set used by the server for storing identifiers. The value is always utf8. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_system
+        'character_set_system',
+            # The collation of the connection character set. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_collation_connection
+        'collation_connection'
+      ) 
+    ORDER BY 
+      VARIABLE_NAME;
