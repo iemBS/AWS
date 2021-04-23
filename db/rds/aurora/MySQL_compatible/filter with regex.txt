@@ -1,6 +1,8 @@
 Filter with Regex
 Note:
-  -Guidance @ https://www.mysqltutorial.org/mysql-regular-expression-regexp.aspx/
+  -Guidance @ 
+    -https://www.mysqltutorial.org/mysql-regular-expression-regexp.aspx/
+    -https://www.oreilly.com/library/view/mysql-cookbook/0596001452/ch04s08.html
   -Commonly used metacharacters and constructs in a regular expression:
     ^: matches the position at the beginning of the searched string
     $: matches the position at the end of the searched string
