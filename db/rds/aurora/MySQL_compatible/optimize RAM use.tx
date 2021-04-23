@@ -152,6 +152,7 @@ Main Success Scenario:
       -internal in-memory temporary table
         -Global scope: xxx
         -Session scope: xxx
+  4. "Remove Not Needed Data From RAM"
 
 Optimize RAM use for MyISAM Storage engine
 Main Success Scenario:
@@ -163,8 +164,24 @@ Main Success Scenario:
       -xxx:fill in
     -Temp Tables 
       -xxx:fill in
-  2. What is the benefit of this RAM usage
+  2. What is the benefit of this RAM usage2. 
     -xxx:fill in
   3. Know how to look at RAM usage
     -xxx:fill in
   x. xxx:fill in
+  
+  
+Remove Not Needed Data From RAM
+Main Success Scenario:
+  1. "Remove Indexes"
+  2. xxx:fill in
+
+Remove Indexes
+Note:
+  -Truncating a table will drop and recreate the table. It will also recreate the index. Even though the index is recreated, it does not have any data in it. Since indexes are stored in RAM, the index data will be removed from RAM.
+Main Success Scenario:
+  1. Check the size of all the indexes on the table
+  2. Check RAM usage
+  3. Truncate a table  
+  4. Check the size of all the indexes on the tables
+  5. Check the size 
