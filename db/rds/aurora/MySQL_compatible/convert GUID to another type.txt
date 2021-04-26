@@ -1,26 +1,44 @@
 Convert GUID to another type
 Note:
   -"Select CAST(UUID() As varchar(36))" throws an error
+  -The value from UUID() is 36 characters long (that includes the dashes too)
+  -With "Set @uuid = UUID()", the value gets stored as a binary data type and the value will not show in the client window.
 Main Success Scenario:
   1. Cast GUID as a char(36)
   
   Select
     UUID() As guid,
     CAST(UUID() As char(36)) As char36
+    
 Alternatives:
   1a. Put GUID into a Varchar(36) column
     1a1. See code below
     
-      Drop Temporary Table If Exists Tmp;
+      Drop Temporary Table If Exists tmp;
       Create Temporary Table tmp(
-        uniqueIdentifier UNIQUEIDENTIFIER,
-        varchar36 varchar(36),
-        char36 char(36)
+      varchar36 varchar(36),
+      char36 char(36)
       );
 
       Insert Into
-        tmp
-      Select
-        UUID();
+      tmp
+      (
+        char36
+      )
+      Values (UUID());
 
-      Select * From tmp
+      Update
+      tmp
+      Set 
+      varchar36 = char36;
+
+      # returns values
+      Select 
+      *
+      From
+      tmp
+      Where
+      char36 = varchar36
+
+
+
