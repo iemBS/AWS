@@ -3,6 +3,7 @@ Note:
   -"Select CAST(UUID() As varchar(36))" throws an error
   -The value from UUID() is 36 characters long (that includes the dashes too)
   -With "Set @uuid = UUID()", the value gets stored as a binary data type and the value will not show in the client window.
+  -https://www.mysqltutorial.org/mysql-uuid/
 Main Success Scenario:
   1. Cast GUID as a char(36)
   
