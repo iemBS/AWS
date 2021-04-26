@@ -12,7 +12,33 @@ Alternatives:
   1b. Get date 1 week ago
     1b1. xxx:fill in
   1c. Get date 1 month ago
-    1c1. xxx:fill in
+    1c1. See code below
+      Select
+        NOW(),
+          concat(
+          yrStr,
+              '-',
+          mthStr,
+              '-',
+          dyStr,
+              ' ',
+          tmStr
+          ) As oneMthAgo
+      From
+        (
+          Select
+            yrNum As yrStr,
+            Right(Concat('0',mthNum),2) As mthStr,
+            Right(Concat('0',dyNum),2) As dyStr,
+                  Time(NOW()) As tmStr
+          From
+            (
+              Select
+                IF(Month(NOW()) = 1,Year(NOW()) - 1,Year(NOW())) as yrNum,
+                IF(Month(NOW()) = 1,12,Month(NOW())-1) As mthNum,
+                Day(NOW()) As dyNum
+            ) num
+        ) str
   1d. Get date 1 year ago
     1d1. xxx:fill in
   1e. Get instance of the current day in the week, in the previous month (need when schedule based on X instance of DayOfWeek in a month)
