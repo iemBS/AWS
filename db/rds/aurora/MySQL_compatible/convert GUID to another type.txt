@@ -1,0 +1,7 @@
+Convert GUID to another type
+Main Success Scenario:
+  1. See code below
+  
+  Select
+    UUID() As guid,
+    CAST(UUID() As char(36)) As char36
