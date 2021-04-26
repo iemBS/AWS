@@ -11,8 +11,11 @@ Alternatives:
   1a. Put GUID into a Varchar(36) column
     1a1. See code below
     
+      Drop Temporary Table If Exists Tmp;
       Create Temporary Table tmp(
-        varchar36 varchar(36)
+        uniqueIdentifier UNIQUEIDENTIFIER,
+        varchar36 varchar(36),
+        char36 char(36)
       );
 
       Insert Into
