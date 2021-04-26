@@ -18,3 +18,12 @@ Alternatives:
     1e1. Select & From MyTbl Where MyCol REGEXP '-|d'
   1e. Have multiple NOT likes in the filter (searching for dash and "d")
     1e1. Select & From MyTbl Where MyCol NOT REGEXP '-|d'
+  1f. Use like to find non-english letters
+    1f1. "Filter with RLIKE"
+
+Filter with RLIKE
+Note:
+  -https://www.w3resource.com/mysql/string-functions/mysql-rlike-function.php
+  -https://stackoverflow.com/questions/9404265/in-mysql-why-is-a-non-ascii-character-really-two-characters
+Main Success Scenario:
+  1. xxx:fill in
