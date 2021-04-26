@@ -1,4 +1,4 @@
-Allowed Conversion Types
+Allowed Data Type Conversions
 Note:
   -https://dev.mysql.com/doc/refman/5.7/en/type-conversion.html
 Main Success Scenario:
