@@ -1,7 +1,23 @@
 Convert GUID to another type
+Note:
+  -"Select CAST(UUID() As varchar(36))" throws an error
 Main Success Scenario:
-  1. See code below
+  1. Cast GUID as a char(36)
   
   Select
     UUID() As guid,
     CAST(UUID() As char(36)) As char36
+Alternatives:
+  1a. Put GUID into a Varchar(36) column
+    1a1. See code below
+    
+      Create Temporary Table tmp(
+        varchar36 varchar(36)
+      );
+
+      Insert Into
+        tmp
+      Select
+        UUID();
+
+      Select * From tmp
