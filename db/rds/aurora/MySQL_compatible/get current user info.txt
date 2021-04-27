@@ -1,10 +1,14 @@
 Get Current User Info
 Note:
-  -Guidance @ https://www.mysqltutorial.org/mysql-show-users/
-  -Guidance @ https://www.w3schools.com/sql/func_mysql_current_user.asp
-  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/information-functions.html#function_current-user
+  -Guidance @ 
+    -https://www.mysqltutorial.org/mysql-show-users/
+    -https://www.w3schools.com/sql/func_mysql_system_user.asp
+    -https://www.w3schools.com/sql/func_mysql_current_user.asp
+    -https://dev.mysql.com/doc/refman/5.6/en/information-functions.html#function_current-user
   -user() and session_user() returns the current session user (also called invoker) with the IP address appended to the right
   -current_user and current_user() returns the account for the user who defined the object. 
+  -system_user() returns the current session user with the IP address appended to the right
+  -system_user() = session_user() = user()
 Main Success Scenario:
   1. SELECT user();
 Alternatives:
