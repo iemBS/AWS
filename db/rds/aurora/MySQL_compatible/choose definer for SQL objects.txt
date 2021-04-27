@@ -51,14 +51,18 @@ Main Success Scenario:
 
       Select * From MyTest;
       
-Alternatives:
-  1a. xxx:fill in
-
     END$$
     DELIMITER ;
+    
 
     # STEP 2: Execute procedure with an account other than the admin account
     CALL MyTestProcedure();
+
+      
+Alternatives:
+  1a. xxx:fill in
+
+
 
   
    
