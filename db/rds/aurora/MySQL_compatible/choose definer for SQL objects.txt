@@ -13,8 +13,52 @@ Note:
     -An object can be orphaned if the account that creates it no longer exists or is an account that never existed
   -Leaving definer as "admin" avoids orphaning SQL objects.
   -Definers are not used for tables and indexes on tables
+  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html
 Main Success Scenario:
-  1. 
+  1. Understand the Users for a procedure 
+  
+    # STEP 1: Run the procedure create as the admin account
+    Drop Procedure If Exists MyTestProcedure;
+    DELIMITER $$
+    CREATE DEFINER=`admin`@`%` PROCEDURE MyTestProcedure()
+    BEGIN
+
+      Drop Table If Exists MyTest;
+      Create Table MyTest(
+        current_userParensVal varchar(50),
+        current_userVal varchar(50),
+        system_userParensVal varchar(50),
+        userParensVal varchar(50),
+        session_userParensVal varchar(50)
+      );
+
+      Insert Into 
+        MyTest
+      SELECT 
+        # Returns the DEFINER on the procedure if the 
+        current_user() As current_userParensVal, 
+            # Returns the DEFINER on the procedure
+        current_user AS current_userVal, 
+            # Version wo parens does not exist. 
+            # This is the server login that was used to access the server.
+            # Same as "User" column in SHOW PROCESSLIST (= "Information_Schema.ProcessList" table)
+        system_user() As system_userParensVal, 
+            # Version wo parens does not exist. 
+            # This is the current user name and host name for the MySQL connection.
+        user() As userParensVal, 
+            # Version wo parens does not exist 
+        session_user() As session_userParensVal; 
+
+      Select * From MyTest;
+      
+Alternatives:
+  1a. xxx:fill in
+
+    END$$
+    DELIMITER ;
+
+    # STEP 2: Execute procedure with an account other than the admin account
+    CALL MyTestProcedure();
 
   
    
