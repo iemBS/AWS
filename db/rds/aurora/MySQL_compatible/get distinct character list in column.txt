@@ -1,3 +1,249 @@
 Get Distinct Character List in Column 
 Main Success Scenario:
-  1. xxx:fill in
+  1. See code below
+  
+
+     
+# Determine what character set you are using. Shows abbreviated character set name.
+SELECT 
+	* 
+FROM 
+	INFORMATION_SCHEMA.GLOBAL_VARIABLES
+WHERE 
+	VARIABLE_NAME IN 
+	(
+		# The character set for statements that arrive from the client. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_client
+		'character_set_client', 
+        # The character set used for literals specified without a character set introducer and for number-to-string conversion. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_connection
+		'character_set_connection',
+        # The character set used by the default database. The server sets this variable whenever the default database changes. If there is no default database, the variable has the same value as character_set_server. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_database
+		'character_set_database',
+        # The file system character set. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_filesystem
+		'character_set_filesystem',
+        # The character set used for returning query results to the client. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_results
+		'character_set_results', 
+        # The servers default character set. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_server
+		'character_set_server',
+        # The character set used by the server for storing identifiers. The value is always utf8. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_system
+		'character_set_system',
+        # The collation of the connection character set. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_collation_connection
+		'collation_connection'
+	) 
+ORDER BY 
+	VARIABLE_NAME;
+        
+# Get the character set name for the abbreviated character set name from above 
+SHOW CHARACTER SET; 
+
+# Generate the integer code and character for all characters in the character set
+/*
+	CP1252 goes from decimal values 0 to 255; decimal values skipped: 129,141,143,144,157; has 251 characters in set; complete set @ https://www.cp1252.com/
+    [add more character sets]
+*/
+
+SET @row := -1;
+Drop Temporary Table If Exists TMP_CharSet;
+Create Temporary Table TMP_CharSet
+Select
+	row As decimalVal,
+    Hex(row) As hexVal,
+    CONVERT(UnHex(Hex(row)) USING latin1) As charVal, # INPUT: Change this to adhere to the character set you are using 
+    0 As CharExistsInData
+From
+	(
+		SELECT 
+			@row := @row + 1 as row
+		FROM 
+			Information_Schema.Tables t, (SELECT @row := -1) r
+    ) x
+Where
+	row <= 255 # INPUT: Change this to adhere to the character set you are using 
+    And
+    row Not In (129,141,143,144,157); # INPUT: Change this to adhere to the character set you are using 
+    
+	# Confirm count of chars in set
+	Select
+		Count(decimalVal)
+	From
+		TMP_CharSet;
+	
+Drop Temporary Table If Exists TMP_Join;
+Create Temporary Table TMP_Join
+Select
+	*
+From
+	TMP_CharSet;
+    
+# Add an index to the column that will be searched
+	#INPUT: Create index on the "MyColumnToCheck" column if one does not already exist 
+    
+   
+# Use the characters to get the distinct list of characters in a column 
+	# Reset in case this is run more than once 
+	Update TMP_CharSet set CharExistsInData = 0; 
+
+	# LIKE wildcard chars
+	Update
+		TMP_CharSet cs
+		Inner Join 
+		(
+			Select Distinct 
+				j.decimalVal
+			From
+				TMP_Join j
+				Inner Join MyTableToCheck c On   # INPUT: DB and Table Name
+					j.charVal In ('%','_') 
+                    And 
+                    c.MyColumnToCheck Like Concat('%$',j.charVal,'%') Escape '$'  # INPUT: Column Name
+		) t On 
+			cs.decimalVal = t.decimalVal
+	Set
+		cs.CharExistsInData = 1;
+        
+        
+	# Not any letters or wildcard chars
+	Update
+		TMP_CharSet cs
+		Inner Join 
+		(
+			Select Distinct 
+				j.decimalVal
+			From
+				TMP_Join j
+				Inner Join MyTableToCheck c On  # INPUT: DB and Table Name
+					j.charVal NOT In ('%','_') 
+                    And 
+					j.charVal NOT REGEXP '[[:alpha:]]' 
+                    And 
+                    c.MyColumnToCheck Like Concat('%',j.charVal,'%')  # INPUT: Column Name
+		) t On 
+			cs.decimalVal = t.decimalVal
+	Set
+		cs.CharExistsInData = 1;
+        
+        
+	# letters (upper case, non-accented)
+	Update
+		TMP_CharSet cs
+		Inner Join 
+		(
+			Select Distinct 
+				j.decimalVal
+			From
+				TMP_Join j
+				Inner Join MyTableToCheck c On  # INPUT: DB and Table Name
+					j.charVal REGEXP '[A-Z]'# Only non-accented letters
+                    And 
+                    j.charVal = binary upper(j.charVal) # Only upper case
+                    And 
+                    c.MyColumnToCheck Like binary Concat('%',j.charVal,'%')  # filters on case  # INPUT: Column Name        
+		) t On 
+			cs.decimalVal = t.decimalVal
+	Set
+		cs.CharExistsInData = 1;
+        
+        
+	# letters (lower case, non-accented)
+	Update
+		TMP_CharSet cs
+		Inner Join 
+		(
+			Select Distinct 
+				j.decimalVal
+			From
+				TMP_Join j
+				Inner Join MyTableToCheck c On  # INPUT: DB and Table Name
+					j.charVal REGEXP '[a-z]' # only non-accented letters
+                    And 
+                    charVal = binary lower(charVal) # only lower case letters 
+                    And 
+                    c.MyColumnToCheck Like binary Concat('%',j.charVal,'%') # filters on case  # INPUT: Column Name 
+		) t On 
+			cs.decimalVal = t.decimalVal
+	Set
+		cs.CharExistsInData = 1;
+        
+
+    # letters (upper case, accented)
+	Update
+		TMP_CharSet cs
+		Inner Join 
+		(
+			Select Distinct 
+				j.decimalVal
+			From
+				TMP_Join j
+				Inner Join MyTableToCheck c On  # INPUT: DB and Table Name
+					j.charVal REGEXP '[[:alpha:]]' And j.charVal NOT REGEXP '[A-Z]' # only accented letters
+                    And
+                    j.charVal = binary upper(j.charVal) # only upper case letters
+                    And 
+                    c.MyColumnToCheck Like binary Concat('%',j.charVal,'%') # filters on letter case  # INPUT: Column Name
+		) t On 
+			cs.decimalVal = t.decimalVal
+	Set
+		cs.CharExistsInData = 1;
+        
+        
+    # letters (lower case, accented)
+	Update
+		TMP_CharSet cs
+		Inner Join 
+		(
+			Select Distinct 
+				j.decimalVal
+			From
+				TMP_Join j
+				Inner Join MyTableToCheck c On  # INPUT: DB and Table Name
+					j.charVal REGEXP '[[:alpha:]]' And j.charVal NOT REGEXP '[a-z]' # only accented letters
+                    And
+                    j.charVal = binary lower(j.charVal) # only lower case letters
+                    And 
+                    c.MyColumnToCheck Like binary Concat('%',j.charVal,'%') # filters on letter case  # INPUT: Column Name
+		) t On 
+			cs.decimalVal = t.decimalVal
+	Set
+		cs.CharExistsInData = 1;
+
+
+# Review the list of characters that are in the columns
+Select
+	*
+From
+	(
+		Select
+			decimalVal,
+			hexVal,
+			charVal,
+			Case
+				When charVal REGEXP '[a-z]' Then 'letter'
+				When charVal REGEXP '[0-9]' Then 'number'
+                when charVal REGEXP '[[:punct:]]' Then 'punctuation'
+                when charVal REGEXP '[[:cntrl:]]' Then 'control'
+                when charVal REGEXP '[[:blank:]]' Then 'whitespace'
+                when charVal REGEXP '[[:alpha:]]' Then 'accented letter'
+				Else 'other'
+			End As charCategory
+		From
+			TMP_CharSet
+		Where 
+			CharExistsInData = 1
+    ) t
+Order By
+	decimalVal;
+    
+# See the column values that have a particular character 
+Set @charVal = "INPUT: character";
+
+Select Distinct 
+	c.MyColumnToCheck  # INPUT: Column Name
+From
+	TMP_Join j
+	Inner Join MyTableToCheck c On  # INPUT: DB and Table Name
+		(j.charVal In ('%','_') And c.MyColumnToCheck Like Concat('%$',j.charVal,'%') Escape '$') # LIKE wildcard chars  # INPUT: Column Name
+		Or 
+		(j.charVal NOT In ('%','_') And c.MyColumnToCheck Like Concat('%',j.charVal,'%')) # not LIKE wildcard chars  # INPUT: Column Name
+Where
+	j.charVal = @charVal
+			
+
