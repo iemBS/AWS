@@ -4,6 +4,7 @@ Note:
   -While loop must also be done in a routine
   -Guidance @ 
     -https://www.mysqltutorial.org/mysql-stored-procedure/mysql-while-loop/
+    -https://www.mysqltutorial.org/mysql-stored-procedure/mysql-leave/
 Main Success Scenario:
   1. See query below 
     Set @EndTm = (SELECT DATE_ADD(NOW(), INTERVAL 5 SECOND));
@@ -21,4 +22,7 @@ Alternatives:
     WHILE (SELECT Count(ID) FROM Information_Schema.ProcessList Where USER = 'ckent') > 0 DO
       Select 'still in while loop'
     END WHILE;
+    
+  1b. Use WHILE loop and exist with LEAVE
+    1b1. xxx:fill in
     
