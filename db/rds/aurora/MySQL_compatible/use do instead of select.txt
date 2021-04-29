@@ -1,0 +1,8 @@
+Use DO Instead of Select
+Note:
+  -https://dev.mysql.com/doc/refman/5.7/en/do.html
+Main Success Scenario:
+  1. Need to run a select statement but do not care about seeing the results
+    DO SLEEP(5)
+Alternatives:
+  1a. xxx:fill in
