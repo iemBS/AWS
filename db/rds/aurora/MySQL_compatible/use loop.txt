@@ -1,6 +1,9 @@
 Use Loop
 Note:
   -Loop must be done in a routine
+  -While loop must also be done in a routine
+  -Guidance @ 
+    -https://www.mysqltutorial.org/mysql-stored-procedure/mysql-while-loop/
 Main Success Scenario:
   1. See query below 
     Set @EndTm = (SELECT DATE_ADD(NOW(), INTERVAL 5 SECOND));
@@ -12,4 +15,10 @@ Main Success Scenario:
           ITERATE  WaitLoop;
     END LOOP;
 Alternatives:
-  1a. xxx:fill in
+  1a. Use WHILE loop instead
+    1a1. See query below
+    
+    WHILE (SELECT Count(ID) FROM Information_Schema.ProcessList Where USER = 'ckent') > 0 DO
+      Select 'still in while loop'
+    END WHILE;
+    
