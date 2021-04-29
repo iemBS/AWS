@@ -5,7 +5,7 @@ Note:
   -"HY000" SQLSTATE is the same thing as the "45000" SQLSTATE
   -MESSAGE_TEXT condition of SIGNAL statement limited to 128 characters. Ref @ https://dev.mysql.com/doc/refman/5.7/en/signal.html#signal-condition-information-items
 Main Success Scenario:
-  1. Throw customer unhandled error
+  1. Throw custom unhandled error
     SIGNAL SQLSTATE '45000'
        SET MESSAGE_TEXT = 'my custom message',
            MYSQL_ERRNO = xxx:fill in
