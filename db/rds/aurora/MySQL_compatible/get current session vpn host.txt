@@ -1,4 +1,6 @@
 Get Current Session VPN Host
+Note:
+  -When your MySQL client uses a VPN connect to connect to MySQL, MySQL sees a different host than the one that you see in the @@hostname variable. That is because it sees only the host provided by the VPN and not the one where you are running the MySQL client.
 Main Success Scenario:
   1. See query below
   
