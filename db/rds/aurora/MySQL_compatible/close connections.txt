@@ -1,5 +1,0 @@
-Close Connections
-Note:
-  -https://dba.stackexchange.com/questions/120584/what-does-cleaning-up-mean-in-mysql-innodb-transaction-status-and-how-to-preve
-Main Success Scenario:
-  1. xxx:fill in

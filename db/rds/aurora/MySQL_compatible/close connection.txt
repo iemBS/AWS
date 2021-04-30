@@ -1,0 +1,10 @@
+Close Connections
+Note:
+  -Guidance @ 
+    -https://dba.stackexchange.com/questions/120584/what-does-cleaning-up-mean-in-mysql-innodb-transaction-status-and-how-to-preve
+    -https://stackoverflow.com/questions/62309771/are-cleaned-up-mysql-connections-from-a-connection-pool-safe-to-delete
+    -https://forums.aws.amazon.com/thread.jspa?messageID=708499
+   -In Aurora the 'cleaned up' state is the final state of a connection whose work is complete but which has not been closed from the client side. In MySQL this field is left blank (no State) in the same circumstance.
+Main Success Scenario:
+  1. See if Command = "SLEEP" and State = "cleaned up" in Information_Schema.ProcessList
+  2. If so, run KILL [ID], where ID is a column in that table
