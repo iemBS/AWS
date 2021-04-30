@@ -45,3 +45,8 @@ Alternatives:
     1e1. xxx:fill in
   1f. Go 3 increments in the past of 24 hours from the current time (needed for cycling based on the current time)
     1f1. xxx:fill in
+  1g. Get time 10 minutes in the future
+    1g1. See code below
+     Select 
+      NOW(),
+      DATE_SUB(NOW(), INTERVAL -10 MINUTE)
