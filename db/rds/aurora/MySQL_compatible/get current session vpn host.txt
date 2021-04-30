@@ -1,0 +1,10 @@
+Get Current Session VPN Host
+Main Success Scenario:
+  1. See query below
+  
+    Select
+      Host 
+    From
+      Information_Schema.ProcessList
+    Where 
+      ID = CONNECTION_ID()
