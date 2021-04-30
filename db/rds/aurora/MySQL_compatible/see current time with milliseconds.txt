@@ -1,0 +1,7 @@
+See Current Time with Milliseconds
+Main Success Scenario:
+  1. See code below
+  
+  select 
+    CURTIME(4),
+      NOW(4)
