@@ -4,6 +4,18 @@ Note:
     -https://www.w3resource.com/mysql/date-and-time-functions/mysql-timediff-function.php
     -https://www.w3resource.com/slides/mysql-date-and-time-functions-slides-presentation.php
     -https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timestampdiff
+    -https://mariadb.com/kb/en/timestampdiff/
+  -Unit keywords allowed in TIMESTAMPDIFF function
+    -YEAR
+    -QUARTER
+    -MONTH
+    -WEEK
+    -DAY
+    -HOUR
+    -MINUTE
+    -SECOND
+    -MICROSECOND
+  -A MICROSECOND is one millionth of a second
 Main Success Scenario:
   1. Show in terms of hours, min, seconds, & smaller time units
     SELECT TIMEDIFF('2009-05-18 15:45:57.005678','2009-05-18 13:40:50.005670') As diff;
