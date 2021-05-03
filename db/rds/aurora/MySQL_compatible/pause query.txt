@@ -1,7 +1,13 @@
 Pause Query
 Note:
-  -https://dev.mysql.com/doc/refman/5.7/en/do.html
-  -https://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html#function_sleep
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/do.html
+    -https://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html#function_sleep
+  -SLEEP can take the following units of a second
+    -X.0
+    -0.X
+    -0.0X
+    -xxx:fill in
 Main Success Scenario:
   1. Use SLEEP function to pause for 5 seconds
     DO SLEEP(5)
