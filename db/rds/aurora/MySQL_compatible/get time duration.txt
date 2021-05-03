@@ -1,0 +1,16 @@
+Get Time Duration
+Note:
+  -Guidance @ 
+    -https://www.w3resource.com/mysql/date-and-time-functions/mysql-timediff-function.php
+    -https://www.w3resource.com/slides/mysql-date-and-time-functions-slides-presentation.php
+    -https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timestampdiff
+Main Success Scenario:
+  1. Show in terms of hours, min, seconds, & smaller time units
+    SELECT TIMEDIFF('2009-05-18 15:45:57.005678','2009-05-18 13:40:50.005670') As diff;
+Alternatives:
+  1a. Show in seconds
+    1a1. SELECT TIMESTAMPDIFF(SECOND,'2003-02-01','2003-05-01 12:05:55');
+  1b. Show in days
+    1b1. SELECT DATEDIFF('2008-05-17 11:31:31','2008-04-28');
+  1c. Show difference between two periods
+    1c1. SELECT PERIOD_DIFF(200905,200811);
