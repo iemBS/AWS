@@ -1,4 +1,7 @@
 Get Time Relative to Current Time
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_date-add
 Main Success Scenario:
   1. Get yesterday's date
     Select
@@ -50,3 +53,10 @@ Alternatives:
      Select 
       NOW(),
       DATE_SUB(NOW(), INTERVAL -10 MINUTE)
+  1h. Use interval variable
+    1h1. See code below
+    
+      Set @minutes = 2;
+      Select 
+        NOW(),
+        DATE_SUB(NOW(), INTERVAL -@minutes MINUTE);
