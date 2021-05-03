@@ -5,6 +5,7 @@ Note:
   -Guidance @ 
     -https://www.mysqltutorial.org/mysql-stored-procedure/mysql-while-loop/
     -https://www.mysqltutorial.org/mysql-stored-procedure/mysql-leave/
+    -https://dev.mysql.com/doc/refman/5.7/en/iterate.html
 Main Success Scenario:
   1. See query below 
     Set @EndTm = (SELECT DATE_ADD(NOW(), INTERVAL 5 SECOND));
@@ -25,4 +26,7 @@ Alternatives:
     
   1b. Use WHILE loop and exist with LEAVE
     1b1. xxx:fill in
+  1c. Go to head of WHILE loop 
+    1c1. See code below, where "MyLoop" is my loop label
+      ITERATE MyLoop
     
