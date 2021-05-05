@@ -1,0 +1,7 @@
+Find Access Error
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+Main Success Scenario:
+  1. Search for "command denied" and "access denied" in the xxx log
+  
