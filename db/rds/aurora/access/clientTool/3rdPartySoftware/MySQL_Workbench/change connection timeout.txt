@@ -5,3 +5,4 @@ Main Success Scenario:
       "DBMS connection keep-alive interval (in seconds)" setting
       "DBMS connection read timeout interval (in seconds)" setting
       "DBMS connection timeout interval (in seconds)" setting
+  2. Restart MySQL Workbench client after making any changes. 
