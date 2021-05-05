@@ -1,0 +1,7 @@
+Change Connection Timeout
+Main Success Scenario:
+  1. Go to ...
+    "Edit" menu > "Preferences..." option > "Workbench Preferences" window > "SQL Editor" tab > "MySQL Session" section
+      "DBMS connection keep-alive interval (in seconds)" setting
+      "DBMS connection read timeout interval (in seconds)" setting
+      "DBMS connection timeout interval (in seconds)" setting
