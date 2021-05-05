@@ -1,0 +1,16 @@
+Set Timeout
+Note: 
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html
+  -All timeout system variables have units in seconds. 
+Main Success Scenario:
+  1. "See Timeout Settings"
+  2. Set X Timeout
+Alternatives:
+  2a. xxx:fill in
+  
+See Timeout Settings
+Main Success Scenario:
+  1. See all the timeout settings in MySQL
+    SHOW VARIABLES LIKE '%timeout'; 
+  
