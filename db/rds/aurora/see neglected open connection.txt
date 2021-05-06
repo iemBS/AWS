@@ -1,0 +1,18 @@
+See Neglected Open Connection
+Note:
+  -Guidance @ 
+    -https://forums.aws.amazon.com/thread.jspa?messageID=708499
+  -The "Cleaned Up" state does not exist in MySQL and will not be mentioned in their documentation. 
+  -AWS adds that state to the Aurora implementation of MySQL. 
+  -Python libraries that can connect to MySQL are known to have auto closing of these connections and you should manually close those connections. 
+Main Success Scenario:
+  1. See code below
+  
+    Select
+      *
+    From
+      Information_Schema.ProcessList
+    Where
+      COMMAND = 'Sleep'
+      And
+      STATE = 'Cleaned Up'
