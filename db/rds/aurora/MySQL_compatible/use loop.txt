@@ -29,4 +29,5 @@ Alternatives:
   1c. Go to head of WHILE loop 
     1c1. See code below, where "MyLoop" is my loop label
       ITERATE MyLoop
-    
+  1d. Loop without a loop construct
+    1d1. See https://stackoverflow.com/questions/32367957/loop-n-times-without-using-a-stored-procedure
