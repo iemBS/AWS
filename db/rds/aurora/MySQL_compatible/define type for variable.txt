@@ -13,6 +13,7 @@ Note:
   -Local variable names are not case-sensitive. Permissible characters and quoting rules are the same as for other identifiers. 
   -The scope of a local variable is the BEGIN ... END block within which it is declared. The variable can be referred to in blocks nested within the declaring block, except those blocks that declare a variable with the same name.
   -If a local variable and a column name in a table are the same, the local variable will be used if the name is in the select clause for a query run against the table. 
+  -If you use user variables in a certain way, you can cause it to cary over values from previous executions of your query. Ref @ https://www.tutorialspoint.com/user-defined-variables-vs-local-variables-in-mysql.
 Main Success Scenario:
   1. DECLARE xname VARCHAR(5);
 Alternatives:
