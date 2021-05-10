@@ -1,0 +1,42 @@
+Define Policy
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html
+Main Success Scenario:
+  1. Define version
+  2. "Define Statement" 
+  
+  
+Define Statement
+Main Success Scenario:
+  1. "Define Effect"
+  2. "Define Action"
+  3. "Define Resource"
+  
+  
+Define Effect
+Note:
+  -Possible Values
+    -xxx:fill in
+Main Success Scenario:
+  1.xxx:fill in
+  
+  
+Define Action
+Note:
+  -Possible Values
+    -xxx:fill in
+Main Success Scenario:
+  1.xxx:fill in
+  
+
+Define Resource
+Note:
+  -Possible Values
+    -xxx:fill in
+Main Success Scenario:
+  1.xxx:fill in
+  
