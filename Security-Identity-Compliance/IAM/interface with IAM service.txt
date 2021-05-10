@@ -1,0 +1,15 @@
+Interface with IAM Service
+Main Success Scenario:
+  1. "Use IAM Console Visual Editor"
+Alternatives:
+  1a. "Use IAM Console JSON Editor"
+  
+
+Use IAM Console Visual Editor
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Use IAM Console JSON Editor
+Main Success Scenario:
+  1. xxx:fill in
