@@ -1,0 +1,5 @@
+Minimize Cost
+Note:
+  -Free service in all AWS accounts
+Main Success Scenario:
+  1. xxx:fill in
