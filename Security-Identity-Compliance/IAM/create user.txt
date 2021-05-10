@@ -1,3 +1,4 @@
 Create User
 Main Success Scenario:
-  1.xxx:fill in
+  1. Root user created with AWS account creation
+  2. Root user creates first IAM User. 
