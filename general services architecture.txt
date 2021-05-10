@@ -1,0 +1,11 @@
+General Services Architecture
+-Hierarchy of host locations
+  -Region
+    -These have city, state, or part of state names
+  -Availability Zone
+    -Multiple, isolated, and physically independent from each other within a region.
+    -All connected in a relgion by redundant, high speed, & low latency network.
+    -Availability Zone names are not shared between users or accounts.
+      -Availability Zone names could be the same across users or accounts, but that is just by chance 
+      -This allows for better use distribution across the availability zones
+-
