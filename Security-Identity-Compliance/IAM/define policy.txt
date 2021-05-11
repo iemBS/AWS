@@ -5,22 +5,46 @@ Note:
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html
+  -IAM policy examples:
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_examples.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-summary-examples.html
+    -https://aws.amazon.com/blogs/security/how-to-use-service-control-policies-to-set-permission-guardrails-across-accounts-in-your-aws-organization/
+    -https://aws.amazon.com/blogs/security/how-to-create-an-aws-iam-policy-to-grant-aws-lambda-access-to-an-amazon-dynamodb-table/
+    -https://aws.amazon.com/blogs/security/how-to-use-resource-based-policies-aws-secrets-manager-console-to-securely-access-secrets-aws-accounts/
 Main Success Scenario:
-  1. Define version
+  1. "Define Version"
   2. "Define Statement" 
   
   
+Define Version
+Note:
+  -Version is a date with a format of YYYY-MM-DD.
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
 Define Statement
+Note:
+  -# of values allowed: 
+    -single statement
+    -array of statements
+  -Order of statement parts
+    -xxx:fill in
 Main Success Scenario:
   1. "Define Effect"
   2. "Define Action"
   3. "Define Resource"
+  4. "Define Condition"
   
   
 Define Effect
 Note:
   -Possible Values
-    -xxx:fill in
+    -Allow
+    -Deny
+  -# of values allowed: 
+    -single value
+    -array of values
 Main Success Scenario:
   1.xxx:fill in
   
@@ -28,15 +52,99 @@ Main Success Scenario:
 Define Action
 Note:
   -Possible Values
+    -*: can do everything
+    -account
+      -ListRegions
+    -aws-portal
+      -ViewAccount
+    -cloudwatch
+      -xxx:fill in
+    -dynamodb
+      -DeleteItem
+      -GetItem
+      -PutItem
+      -Query
+      -UpdateItem
+    -ec2:
+      -*: Can do everything in ec2
+      -xxx:fill in
+    -iam
+      -AccessKey
+      -AddUserToGroup
+      -ChangePassword
+      -CreateAccessKey
+      -CreateUser
+      -DeleteAccessKey
+      -DeleteSigningCertificate
+      -DeleteSSHPublicKey
+      -GetAccountPasswordPolicy
+      -GetGroup
+      -GetSSHPublicKey
+      -GetUser
+      -ListAccessKeys
+      -ListGroups
+      -ListGroupsForUser
+      -ListSigningCertificates
+      -ListSSHPublicKeys
+      -ListUsers
+      -ListVirtualMFADevices
+      -LoginProfile
+      -RemoveUserFromGroup
+      -TagUser
+      -UploadSigningCertificate
+      -UploadSSHPublicKey
+      -UpdateAccessKey
+      -UpdateSigningCertificate
+      -UpdateSSHPublicKey
+    -rds
+      -DeleteDBInstance
+      -ModifyDBInstance
+      -RebootDBInstance
+    -s3
+      -*: Can do everything in S3
+      -ListBucket
+      -xxx:fill in
+    -sts
+      -GetSessionToken
     -xxx:fill in
 Main Success Scenario:
   1.xxx:fill in
+Alternatives:
+  1a. "Define NotAction"
+  
+  
+Define NotAction
+Main Success Scenario:
+  1. xxx:fill in
   
 
 Define Resource
 Note:
   -Possible Values
+    -*: applies to all resources
     -xxx:fill in
 Main Success Scenario:
   1.xxx:fill in
+  
+  
+Define Condition
+Note:
+  -Possible attributes to condition on:
+    -account
+      -DisableRegion
+      -EnableRegion
+      -TargetRegion
+Main Success Scenario:
+  1.xxx:fill in
+Alternatives:
+  1a. "Define Date Condition"
+  
+
+Define Date Condition
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws-dates.html
+Main Success Scenario:
+  1. xxx:fill in
+    
   
