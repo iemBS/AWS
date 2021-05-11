@@ -32,9 +32,10 @@ Note:
     -xxx:fill in
 Main Success Scenario:
   1. "Define Effect"
-  2. "Define Action"
-  3. "Define Resource"
-  4. "Define Condition"
+  2. "Define Principal"
+  3. "Define Action"
+  4. "Define Resource"
+  5. "Define Condition"
   
   
 Define Effect
@@ -45,6 +46,20 @@ Note:
   -# of values allowed: 
     -single value
     -array of values
+Main Success Scenario:
+  1.xxx:fill in
+  
+  
+Define Principal
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+  -Principal allows role permissions to be used by a user or service
+  -Possible values:
+    -AWS
+      -xxx:fill in
+    -Service
+      -xxx:fill in
 Main Success Scenario:
   1.xxx:fill in
   
@@ -71,24 +86,30 @@ Note:
     -iam
       -AccessKey
       -AddUserToGroup
+      -AttachRolePolicy
       -ChangePassword
       -CreateAccessKey
+      -CreateRole
       -CreateUser
       -DeleteAccessKey
       -DeleteSigningCertificate
       -DeleteSSHPublicKey
       -GetAccountPasswordPolicy
       -GetGroup
+      -GetRole
+      -GetRolePolicy
       -GetSSHPublicKey
       -GetUser
       -ListAccessKeys
       -ListGroups
       -ListGroupsForUser
+      -ListRoles
       -ListSigningCertificates
       -ListSSHPublicKeys
       -ListUsers
       -ListVirtualMFADevices
       -LoginProfile
+      -PutRolePolicy
       -RemoveUserFromGroup
       -TagUser
       -UploadSigningCertificate
@@ -104,6 +125,10 @@ Note:
       -*: Can do everything in S3
       -ListBucket
       -xxx:fill in
+    -sqs
+      -*
+      -ReceiveMessage
+      -SendMessage
     -sts
       -GetSessionToken
     -xxx:fill in
@@ -134,6 +159,8 @@ Note:
       -DisableRegion
       -EnableRegion
       -TargetRegion
+    -aws
+      -CurrentTime
 Main Success Scenario:
   1.xxx:fill in
 Alternatives:
