@@ -1,0 +1,6 @@
+Compare Space Use of NULL vs Empty String
+Note:
+  -Guidance @
+    -https://www.tutorialspoint.com/which-one-is-better-to-insert-null-or-empty-string-in-mysql
+Main Success Scenario:
+  1. xxx:fill in
