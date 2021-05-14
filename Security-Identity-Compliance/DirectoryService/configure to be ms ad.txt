@@ -1,0 +1,5 @@
+Configure to be MS AD
+Note:
+  -MS AD is Microsoft Active Directory
+Main Success Scenario:
+  1. xxx:fill in
