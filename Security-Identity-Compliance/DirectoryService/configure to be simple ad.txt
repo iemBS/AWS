@@ -1,0 +1,5 @@
+Configure to be Simple AD
+Note:
+  -Simple AD is Simple Active Directory
+Main Success Scenario:
+  1. xxx:fill in
