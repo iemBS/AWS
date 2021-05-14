@@ -1,1 +1,6 @@
-xxx:fill in
+Minimize Cost
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html#asm_pricing
+Main Success Scenario:
+  1. xxx:fill in
