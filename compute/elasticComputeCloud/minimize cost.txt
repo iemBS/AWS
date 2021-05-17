@@ -1,0 +1,11 @@
+Minimize Cost
+Main Success Scenario:
+  1. "Pay by Time"
+Alternatives:
+  1a. xxx:fill in
+  
+Pay By Time
+Main Success Scenario:
+  1. Pay by Hour
+Alternatives:
+  1a. Pay By Second
