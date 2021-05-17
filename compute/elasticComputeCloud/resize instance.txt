@@ -1,0 +1,24 @@
+Resize Instance
+Main Success Scenario:
+  1. xxx
+  
+  
+    -See CPU Configuration
+      -https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html#
+      -Use "describe-instances" command in AWS CLI
+      -alt: Use EC2 Console. See @ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#view-cpu-options
+    -Change CPU Count
+        @ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html
+      -CPUs are virtual
+      -2 to 96 CPUs can be chosen
+    -Change CPU Core Count
+      -Define cores per CPU @ https://www.howtogeek.com/194756/cpu-basics-multiple-cpus-cores-and-hyper-threading-explained/
+      -1 to 48 cores per CPU
+    -Change CPU Core Thread Count
+      -1 to 2 threads per core
+    -Change CPU Type
+      -
+    -Change RAM Size
+    -Change Drive Size
+    -Change Drive Type?
+      -Drive types are SSD or HDD?
