@@ -1,4 +1,6 @@
 Resize Instance
+Note:
+  -EC2 features @ https://aws.amazon.com/ec2/features/
 Main Success Scenario:
   1. xxx
   
@@ -20,5 +22,10 @@ Main Success Scenario:
       -
     -Change RAM Size
     -Change Drive Size
-    -Change Drive Type?
-      -Drive types are SSD or HDD?
+    -Change Storage Type
+      -Use Local Storage
+        -Types are SSD and HDD
+      -Use Non-Local Storage
+        -Types are Amazon Elastic Block Store and Elastic File System
+          -https://aws.amazon.com/ebs/
+          -https://aws.amazon.com/efs/
