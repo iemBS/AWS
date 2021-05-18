@@ -1,0 +1,23 @@
+Truncate Table
+Note:
+  -Guidance @ 
+    -https://stackoverflow.com/questions/25394493/truncate-table-only-if-it-exists-to-avoid-errors
+Main Success Scenario:
+  1. See code below
+  
+  IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'accesslog')
+      TRUNCATE accesslog
+      
+Alternatives:
+  1a. Use procedure dedicated to truncating any table
+    1a1. See code below
+    
+      CREATE PROCEDURE tbl_delete(IN table_name CHAR(255),IN database_name CHAR(255))
+      BEGIN
+          IF @table_name IN (SELECT table_name FROM information_schema.tables WHERE table_schema = database_name)
+          THEN
+              SET @query = CONCAT("TRUNCATE TABLE ", @database_name, ".", @table_name);
+              PREPARE stmt FROM @query;
+              EXECUTE stmt;
+          END IF;
+      END ;
