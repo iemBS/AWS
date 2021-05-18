@@ -5,8 +5,8 @@ Note:
 Main Success Scenario:
   1. See code below
   
-  IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'accesslog')
-      TRUNCATE accesslog
+  IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'accesslog') THEN 
+      TRUNCATE Table accesslog
       
 Alternatives:
   1a. Use procedure dedicated to truncating any table
