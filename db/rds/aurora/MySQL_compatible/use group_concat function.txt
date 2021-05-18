@@ -1,0 +1,6 @@
+Use Group_Concat Function
+Note:
+  -Guidance @
+    -https://www.mysqltutorial.org/mysql-group_concat/
+Main Success Scenario:
+  1. xxx:fill in
