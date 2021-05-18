@@ -43,3 +43,35 @@ Main Success Scenario:
       Specific_Schema,
         Routine_Type,
         Specific_Name
+        
+Alternatives:
+  1a. More compact way of getting routine params on a single line
+    1a1. See code below
+
+      Select
+        Specific_Schema,
+        Routine_Type,
+        Specific_Name,
+        Group_Concat(
+        Concat(Ordinal_Position,'|',Parameter_Mode,'|',Parameter_Name,'|',DTD_Identifier,'|',IFNULL(Character_Set_Name,''),'|',IFNULL(Collation_Name,'')) 
+          Order By Concat(Ordinal_Position,'|',Parameter_Mode,'|',Parameter_Name,'|',DTD_Identifier,'|',IFNULL(Character_Set_Name,''),'|',IFNULL(Collation_Name,'')) 
+          SEPARATOR ';'
+        ) As RtnParamsDef
+      From
+        Information_Schema.Parameters
+      Where
+        Routine_Type In ('PROCEDURE','FUNCTION')
+        And
+        Specific_Schema Not In 
+        (
+          'mysql',
+          'sys'
+        )
+      Group By
+        Specific_Schema,
+        Routine_Type,
+        Specific_Name
+      Order By # order only exists to confirm the results of this query, if not used to using it
+        Specific_Schema,
+        Routine_Type,
+        Specific_Name
