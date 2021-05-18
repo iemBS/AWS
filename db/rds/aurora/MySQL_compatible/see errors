@@ -33,3 +33,5 @@ Alternatives:
   1c. Errors gone since max_error_count was exceeded
     1c1. The oldest warning, error, and note messages in SHOW WARNINGS have been pushed out to limit to the number of messages in max_error_count
     1c2. END
+  1d. Find permissions related errors
+    1d1. Search for "access denied" and "command denied" text in error messages 
