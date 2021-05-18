@@ -1,0 +1,15 @@
+Set How Run As is Determined
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.6/en/stored-objects-security.html
+    -https://dev.mysql.com/doc/refman/5.7/en/information-schema-routines-table.html
+  -Security_Type column in Information_Schema.Routines indicates DEFINER or INVOKER
+  -The "MODIFIES SQL DATA" or "READS SQL DATA" characteristic only serves as documentation as of MySQL 5.5. Ref @ https://stackoverflow.com/questions/9446974/mysql-create-function-modifies-sql-data
+    -These values and others like them can be found in the SQL_DATA_ACCESS column of the Information_Schema.Routines table.
+Main Success Scenario:
+  1. Use the object definer
+    xxx:fill in
+Alternatives:
+  1a. Use the object invoker
+    1a1. See code below
+      xxx:fill in
