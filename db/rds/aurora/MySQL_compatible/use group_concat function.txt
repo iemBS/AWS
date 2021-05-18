@@ -3,4 +3,43 @@ Note:
   -Guidance @
     -https://www.mysqltutorial.org/mysql-group_concat/
 Main Success Scenario:
-  1. xxx:fill in
+  1. Get Parameter defs on a single line per routine
+  
+    Select
+      Specific_Schema,
+      Routine_Type,
+      Specific_Name,
+        Group_Concat(
+        RtnParamDef
+          Order By RtnParamDef
+          SEPARATOR ';'
+        ) As RtnParamsDef
+    From
+      (
+        Select
+          Specific_Schema,
+          Routine_Type,
+          Specific_Name,
+          Concat(
+            Ordinal_Position,'|',
+            Parameter_Mode,'|',
+            Parameter_Name,'|',
+            DTD_Identifier,'|', 
+            IFNULL(Character_Set_Name,''),'|',
+            IFNULL(Collation_Name,'')
+          ) As RtnParamDef
+        From
+          Information_Schema.Parameters
+        Where
+          Routine_Type In ('PROCEDURE','FUNCTION')
+                And
+                Specific_Schema Not In 
+                (
+            'mysql',
+                    'sys'
+                )
+        ) t
+    Group By
+      Specific_Schema,
+        Routine_Type,
+        Specific_Name
