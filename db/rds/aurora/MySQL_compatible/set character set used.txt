@@ -1,0 +1,10 @@
+Set Character Set Used
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/set-names.html
+    -https://dev.mysql.com/doc/refman/5.7/en/charset-connection.html
+  -Using "SET NAMES utf8mb4" will set the character_set_client, character_set_connection, and character_set_results system variables
+    -Setting character_set_connection to charset_name also sets collation_connection to the default collation for charset_name.
+  -utf8mb4 explained @ https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-utf8mb4.html
+Main Success Scenario:
+  1. SET NAMES utf8mb4
