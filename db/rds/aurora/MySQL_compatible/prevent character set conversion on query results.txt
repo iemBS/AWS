@@ -1,0 +1,10 @@
+Prevent Character Set Conversion in Query Results
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/charset-connection.html
+    -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_results
+Main Success Scenario:
+  1. SET character_set_results = NULL;
+Alternatives:
+  1a. Another way to prevent and see the same in the client
+    1a1. SET character_set_results = binary;
