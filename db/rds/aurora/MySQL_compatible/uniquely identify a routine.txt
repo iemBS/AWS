@@ -1,0 +1,65 @@
+Unique Identify a Routine
+Main Success Scenario:
+  1. See code below
+
+  Select
+      NOW() As ServerTm,
+      If(@@time_zone='SYSTEM',@@Global.system_time_zone,@@Global.time_zone) As ServerTmZone,
+    b.ServerNm,
+      b.DbNm,
+      b.ObjTyp,
+      b.ObjNm,
+      b.CreatedTm,
+      b.LastModTm,
+      concat_ws('|',b.ObjTyp,b.ObjNm) As ConcatenatedNm,
+      CRC32(Concat(p.ParamDef,b.BodyDef,RunAsPathDef,DataAccessDef)) As ObjDefCheckSum
+  From
+    (
+      select 
+        @@aurora_server_id AS ServerNm,
+        Routine_Schema As DbNm,
+        Routine_Type AS ObjTyp,
+        Concat_WS('.',Routine_Schema,Routine_Name) AS ObjNm,
+        Routine_Definition As BodyDef,
+              Security_Type As RunAsPathDef,
+              Sql_Data_Access As DataAccessDef, # As of MySQL 5.5 it does nothing and only serves as documentation. 
+        Created As CreatedTm,
+        Last_Altered As LastModTm
+      From
+        Information_Schema.Routines
+      Where
+        Routine_Type In ('PROCEDURE','FUNCTION')
+        And
+              Routine_Schema Not In ('mysql','sys')
+    ) b
+      Inner Join 
+      (
+      Select
+        Specific_Schema As DbNm,
+        Routine_Type As ObjTyp,
+        Concat_WS('.',Specific_Schema,Specific_Name) As ObjNm,
+        Group_Concat(
+        Concat(Ordinal_Position,'|',Parameter_Mode,'|',Parameter_Name,'|',DTD_Identifier,'|',IFNULL(Character_Set_Name,''),'|',IFNULL(Collation_Name,'')) 
+          Order By Concat(Ordinal_Position,'|',Parameter_Mode,'|',Parameter_Name,'|',DTD_Identifier,'|',IFNULL(Character_Set_Name,''),'|',IFNULL(Collation_Name,'')) 
+          SEPARATOR ';'
+        ) As ParamDef
+      From
+        Information_Schema.Parameters
+      Where
+        Routine_Type In ('PROCEDURE','FUNCTION')
+        And
+              Specific_Schema Not In ('mysql','sys')
+      Group By
+        Specific_Schema,
+        Routine_Type,
+        Specific_Name
+      ) p On 
+      b.DbNm = p.DbNm
+          And
+          b.ObjTyp = p.ObjTyp
+          And
+          b.ObjNm = p.ObjNm
+  Order By
+      b.DbNm,
+      b.ObjTyp,
+      b.ObjNm
