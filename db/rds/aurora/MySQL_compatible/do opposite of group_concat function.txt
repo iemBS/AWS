@@ -1,0 +1,6 @@
+Do Opposite of Group_Concat Function
+Note:
+  -Guidance @
+    -https://stackoverflow.com/questions/17308669/what-is-the-opposite-of-group-concat-in-mysql
+Main Success Scenario:
+  1. xxx:fill in
