@@ -31,3 +31,5 @@ Alternatives:
       ITERATE MyLoop
   1d. Loop without a loop construct
     1d1. See https://stackoverflow.com/questions/32367957/loop-n-times-without-using-a-stored-procedure
+  1e. Use Repeat instead
+    1e1. See https://dev.mysql.com/doc/refman/5.7/en/repeat.html
