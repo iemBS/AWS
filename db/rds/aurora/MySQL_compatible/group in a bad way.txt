@@ -1,0 +1,72 @@
+Group In A Bad Way
+Main Success Scenario:
+  1. See code below
+
+
+# Typically, you want to group on all the non-aggregated columns in the select statement. MySQL has some flex around this that will not throw an error and will give you incorrect results. 
+
+
+# If a Group By only groups on a sub set of the non-aggregated columns that are in the SELECT statement, then if there is more than one col2 value for each value of col1, only one of the col2 values will be returned for each value of col1. That single col2 value is chosen randomly by MySQL.
+	# See ref @ https://stackoverflow.com/questions/22177767/why-does-mysql-allow-you-to-group-by-columns-that-are-not-selected
+Select 
+	col1, 
+    col2
+From 
+	TableA
+Group By 
+	col1;
+
+# Real Example of what I described above using the system view that lists all the tables and their columns 
+  # Notice how only one column is being returned for each table and no error is returned 
+Select
+	Table_Name,
+    Column_name
+From
+	Information_Schema.Columns
+Where
+	Table_Schema = 'ODSH_Paris'
+Group By
+	Table_Name
+Order By
+	Table_Name,
+    Column_Name;
+    
+# If we run the below query, the above query will throw an error. 
+  # By default, MySQL has this setting in the SQL_MODE variable
+  # By default, Aurora does not have this setting in the SQL_MODE variable
+  # see ref @ https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html
+  # The MySQL documentation I reference above notes that the above query will even run with the SQL_MODE set to "ONLY_FULL_GROUP_BY" if there is only a single value for col2. 
+SET SQL_MODE=ONLY_FULL_GROUP_BY;
+
+# If we set the session perspective of the SQL_MODE variable and then run the real example above, then we can see an error produced
+	# Error Code: 1055. Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'information_schema.Columns.COLUMN_NAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by	
+SET SESSION SQL_MODE = 'ONLY_FULL_GROUP_BY';
+
+
+# The below query will also run if the SQL_MODE does not have the setting above. 
+  # If there is more than one combination of col1 and col2 values for each col3 value, MySQL will randomly choose one value of col3 to let through. With this scenario you do not see one col3 value was chosen to determine the results.
+Select 
+	col1, 
+    col2
+From 
+	TableA
+Group By 
+	col3;
+    
+# Real Example of what I described above using the system view that lists all the tables and their columns 
+  # If you run it, then run it again with "Data_Type" in the select statement, you will notice how only one row for each data_type is being returned 
+Select
+	Table_Name,
+    Column_name
+From
+	Information_Schema.Columns
+Where
+	Table_Schema = 'ODSH_Paris'
+Group By
+	Data_Type
+Order By
+	Table_Name,
+    Column_Name;
+    
+
+
