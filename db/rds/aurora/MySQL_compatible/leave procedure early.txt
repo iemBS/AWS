@@ -8,5 +8,20 @@ Note:
   -LEAVE cannot be used to exit a DECLARE HANDLER block. 
     -If attempted, you will get a 1308 MySQL error
 Main Success Scenario:
-  1.xxx:fill in
+  1.Leave procedure early
+    
+    CREATE DEFINER=`myUser`@`%` PROCEDURE `myProcedure`()
+    lvEarly:BEGIN
+
+      If 1=1 THEN
+        LEAVE lvEarly;
+      END IF;
+
+    END
+
+Alternatives:
+  1a. Leave a part of a procedure early
+    1a1. xxx:fill in
+  
+  
 
