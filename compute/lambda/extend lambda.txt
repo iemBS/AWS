@@ -26,10 +26,24 @@ Main Success Scenario:
   
   
 Extend Internally
+Note:
+  -An internal extension runs as part of the runtime process. Your function accesses internal extensions by using wrapper scripts or in-process mechanisms such as JAVA_TOOL_OPTIONS.
+  -The runtime environment may be edited for an internal extension. See ref @ https://docs.aws.amazon.com/lambda/latest/dg/runtimes-modify.html
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Modify Lambda Runtime Environment
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/runtimes-modify.html
 Main Success Scenario:
   1. xxx:fill in
   
   
 Extend Externally
+Note:
+  -An external extension runs as an independent process in the execution environment and continues to run after the function invocation is fully processed. Because extensions run as separate processes, you can write them in a different language than the function.
+  -Lambda runtimes that support external extensions @ https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
 Main Success Scenario:
   1. xxx:fill in
