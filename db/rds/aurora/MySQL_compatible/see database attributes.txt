@@ -1,0 +1,19 @@
+See Database Attributes
+Main Success Scenario:
+  1. See code below
+  
+  Select
+    Schema_Name,
+    Default_Character_Set_Name,
+      Default_Collation_Name,
+      SQL_Path
+  From
+    Information_Schema.Schemata
+  Where
+    Schema_Name Not In 
+      (
+      'information_schema',
+          'mysql',
+          'sys',
+          'performance_schema'
+      )
