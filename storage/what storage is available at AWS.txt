@@ -1,2 +1,20 @@
 What Storage is Available at?
   -Guidance @ https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html
+  
+  
+File storage
+  Used By:
+    -
+  Ex: 
+    -elasticFileSystem
+    -FSx for Windowds File Server
+Block storage
+  Used By:
+    -ec2 to store its files
+  Ex: 
+    -elasticBlockStore
+Object Storage
+  Used By:
+    -
+  Ex: 
+    -simpleStorageService
