@@ -22,12 +22,14 @@ Main Success Scenario:
    9."Minimize use of other AWS services on your S3 objects"
    10.Avoid renaming folders
 
+
 Minimize distance between accessors and S3
 Main Success Scenario:
   1.Find geo location of source data
   2.Find geo location of the data consumer
   3.Find the AWS region closes to the source and consumer
-  
+
+
 Minimize S3 Features
 Note:
   -Requester Pays bucket = the requester will pay the cost of requests and downloads of your Amazon S3 data
@@ -46,18 +48,21 @@ Main Success Scenario:
    9.Avoid Intelligent-Tiering
    10.Use Lifecycle Management
 
+
 Minimize use of S3 Transfer Acceleration
 Main Success Scenario:
    1.Do not use S3 Transfer Acceleration into S3 if normal source to S3 connection is weaker
    2.Do not use S2 Transfer Acceleration out of S3 if normal S3 to destination connection is weaker
    3.Do not use S3 Transfer Acceleration if you do not need the extra speed
-   
+
+
 Miniimize S3 Batch Operations
 Note:
   -You are charged for S3 Batch Operations jobs, objects, and requests in addition to any charges associated with the operation that S3 Batch Operations performs on your behalf, including data transfer, requests, and other charges.
 Main Success Scenario:
   1.Minimize # of jobs you have
   2.Minimize # of object operations performed
+   
    
 Minimize use of other AWS services on your S3 objects
 Note:
