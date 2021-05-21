@@ -1,0 +1,35 @@
+Invoke Lambda Function
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
+Main Success Scenario:
+  1. "Invoke From GUI"
+Alternatives:
+  1a. "Invoke From Lambda API"
+  1b. "Invoke From AWS SDK"
+  1c. "Invoke From AWS CLI"
+  1d. "Invoke From AWS toolkits"
+  
+  
+Invoke From GUI
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html#get-started-invoke-manually
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Invoke Synchronously
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Invoke Asynchronously
+Main Success Scenario:
+  1. xxx:fill in
