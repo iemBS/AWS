@@ -1,0 +1,5 @@
+-Has an application
+-Has libraries
+  -These are the specific libraries needed by your application
+-Can summarize it as a program in a self contained computer so that it runs properly
+-Containers can be deployed anywhere in the cloud container service
