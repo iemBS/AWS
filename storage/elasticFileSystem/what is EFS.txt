@@ -1,0 +1,10 @@
+placeholder
+xxx:fill in
+
+
+-Needed for hosting files on system where the processes are executed
+-two different storage classes
+  -standard
+  -infrequent access
+-auto grows and shrinks as you add and remove files
+-encryption enabled by default
