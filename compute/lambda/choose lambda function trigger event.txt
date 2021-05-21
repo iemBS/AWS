@@ -1,0 +1,19 @@
+Choose Lambda Function Trigger Event
+Main Success Scenario:
+  x. Choose from "Lambda function can be triggered by these events" list below
+  2. xxx:fill in
+  
+  
+Lambda function can be triggered by these events, 
+  -ref @ 
+    -https://www.serverless.com/framework/docs/providers/aws/guide/events/
+    -https://www.serverless.com/framework/docs/providers/aws/events/
+
+
+AWS Services that Lambda reads from
+-DynamoDB
+-Kinesis
+-MQ
+-Managed Streaming for Apache Kafka
+-self-managed Apache Kafka
+-Simple Queue Service
