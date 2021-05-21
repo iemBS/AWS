@@ -1,0 +1,35 @@
+Extend Lambda
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html
+Main Success Scenario:
+  1. "Extend with a AWS Lambda Partner solution"
+Alternatives:
+  1a. "Extend wtih a custom solution"
+    1a1. xxx:fill in
+    
+    
+Extend with a AWS Lambda Partner solution
+Note:
+  -Guidance @
+    -https://aws.amazon.com/lambda/partners/?partner-solutions-cards.sort-by=item.additionalFields.partnerNameLower&partner-solutions-cards.sort-order=asc&awsf.partner-solutions-filter-partner-type=*all
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Extend with a custom solution
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/runtimes-extensions-api.html
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Extend Internally
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Extend Externally
+Main Success Scenario:
+  1. xxx:fill in
