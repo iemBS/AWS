@@ -6,3 +6,8 @@ What is Storage Gateway?
   -The gateway connects to AWS storage services, such as Amazon S3, Amazon S3 Glacier, Amazon S3 Glacier Deep Archive, Amazon EBS, and AWS Backup.
   -Providing storage for files, volumes, snapshots, and virtual tapes in AWS
   -The service includes a highly-optimized data transfer mechanism, with bandwidth management, automated network resilience, and efficient data transfer.
+  -Access to unlimited cloud storage on-premise
+  -types
+    -File Gateway: stores files in S3
+    -Tape Gateway: Virtual Tape library on local network, can use S3 Glacier or S3 Deep Archive
+    -Volume Gateway: iSCSI block storage volume to your on-premise applications
