@@ -13,7 +13,7 @@ Notes:
 Main Success Scenario:
    1.Minimize amount of data hosted
    2.Make file access predictable
-   3.Reduce # of access times
+   3."Reduce # of access times"
    4."Minimize distance between accessors and S3"
    5.Choose output data to go to another AWS services instead of the internet
    6.Check for Tax impact
@@ -81,5 +81,9 @@ Main Success Scenario:
    7.Avoid using Macie
    
 
+Reduce # of access times
+Main Success Scenario:
+  1. Reduce the number of times you access
+  2. See if S3 Glacier can be used if accessed infrequent enough.
    
    
