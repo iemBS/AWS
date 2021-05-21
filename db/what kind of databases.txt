@@ -1,0 +1,8 @@
+Relational
+Key-value
+in-memory
+document
+graph
+times series
+wide column
+ledger
