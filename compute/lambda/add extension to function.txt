@@ -1,0 +1,19 @@
+Add Extension to Function
+Main Success Scenario:
+  1. "Add Extension to Function via Lambda Console"
+Alternatives:
+  1a. xxx:fill in
+  
+  
+Add Extension to Function via Lambda Console
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html
+Main Success Scenario:
+  1. Open the Functions page on the Lambda console.
+  2. Choose a function.
+  3. Choose the Code tab if it is not already selected.
+  4. Under Layers, choose Edit.
+  5. For Choose a layer, choose Specify an ARN.
+  6. For Specify an ARN, enter the Amazon Resource Name (ARN) of an extension layer.
+  7. Choose Add.
