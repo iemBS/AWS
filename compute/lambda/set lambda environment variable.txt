@@ -1,0 +1,6 @@
+Set Lambda Environment Variable
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html
+Main Success Scenario:
+  1. xxx:fill in
