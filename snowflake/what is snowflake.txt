@@ -1,0 +1,1 @@
+Snowflake is not a AWS software product, but it can be hosted on AWS. It can also be hosted in Google Cloud and MS Azure. 
