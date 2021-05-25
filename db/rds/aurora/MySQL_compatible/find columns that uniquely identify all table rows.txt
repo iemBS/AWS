@@ -1,6 +1,61 @@
 Find Columns that Unique Identify All Table Rows
-Note:
-  -
 Main Success Scenario:
-  1. 
-  x. Confirm these are the minimum number of columns that can uniquely identify all the rows.
+  1. Use the query below
+  
+    # Try a single column
+    /*
+      Generate the SQL statements that will go into the second sub query. Specify the table_schema and table_name and then run the query.
+
+        Select 
+          Concat("Select '",column_name,"' As colNm,Count(Distinct IFNULL(",column_name,",'')) As colValCnt From ",Table_Schema,".",Table_Name," Union All ") As qry
+        From
+          Information_Schema.Columns
+        Where
+          Table_Schema = 'Table_Schema'
+          And
+          Table_Name = 'Table_Name'
+    */
+    Select
+      tmpTbl2.colNm,
+        tmpTbl2.colValCnt,
+      tmpTbl1.tblRowCnt,
+        (tmpTbl2.colValCnt/tmpTbl1.tblRowCnt) * 100 As pctOfTblRowCnt
+    From
+      (
+        Select
+          Count(ColNm) As tblRowCnt # INPUT: specify ColNm
+        From
+          TableNm # INPUT: specify TableNm
+      ) tmpTbl1
+        Inner Join 
+        (
+        [fill in using query in comments above]
+        ) tmpTbl2;
+
+
+    # Try two specified columns
+    /*
+      Generate the SQL statements that will go into the second sub query. Specify the table_schema and table_name and then run the query.
+
+        Select 'colNm1,colNm2' As colNm,Count(Distinct Concat(IFNULL(colNm1,''),IFNULL(colNm2,'')) As colValCnt From TableNm Union All 
+
+    */
+    Select
+      tmpTbl2.colNm,
+        tmpTbl2.colValCnt,
+      tmpTbl1.tblRowCnt,
+        (tmpTbl2.colValCnt/tmpTbl1.tblRowCnt) * 100 As pctOfTblRowCnt
+    From
+      (
+        Select
+          Count(ColNm) As tblRowCnt # INPUT: specify ColNm
+        From
+          TableNm # INPUT: specify TableNm
+      ) tmpTbl1
+        Inner Join 
+        (
+        [fill in using queries of the format noted in the comments above]
+        ) tmpTbl2;
+
+  2. If using two columns does not uniquely identify rows enough, then add more columns to the check
+  3. Confirm these are the minimum number of columns that can uniquely identify all the rows.
