@@ -1,0 +1,14 @@
+See Policy Permission
+Note:
+  -Guidance @
+    -https://aws.amazon.com/iam/features/manage-permissions/
+Main Success Scenario:
+  1. Log into AWS site
+  2. Go to Identity and Access Management (IAM) service
+  3. On the left side bar, under "Access management", click on "Policies"
+  4. Put policy name into "Search" textbox at the top of the list of policies and click "enter" on your keyboard
+  5. In the "Policy name" column, click on the policy name link
+  6. Read the JSON doc
+  7. Click on the "Policy usage" tab
+  8. Expand "Permissions boundaries"
+  9. See the boundaries
