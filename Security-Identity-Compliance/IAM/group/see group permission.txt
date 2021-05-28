@@ -1,3 +1,5 @@
 See Group Permission
+Note:
+  -Group is associated to onre or more policies. The permissions are on each policy.
 Main Success Scenario:
   1. xxx:fill in
