@@ -11,4 +11,7 @@ Main Success Scenario:
   5. In the "Role name" column, click on the role name link
   6. On "Permissions" tab, in "Policy name" column, click on a policy name link
   7. Read the JSON doc
+  8. Click on the "Policy usage" tab
+  9. Expand "Permissions boundaries"
+  10. See the boundaries
  
