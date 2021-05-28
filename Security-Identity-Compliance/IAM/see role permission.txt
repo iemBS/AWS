@@ -1,7 +1,8 @@
-See Role Permissions
+See Role Permission
 Note:
   -Guidance @
     -https://aws.amazon.com/iam/features/manage-permissions/
+  -These are actually permissions on a policy and the policy is associated to the role
 Main Success Scenario:
   1. Log into AWS site
   2. Go to Identity and Access Management (IAM) service
