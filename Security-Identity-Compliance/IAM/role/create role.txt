@@ -1,3 +1,6 @@
 Create Role
+Question:
+  -Why is a role associated to an entity?
+  -What is the difference between an Identity Provider and an Identity?
 Main Success Scenario:
   1. xxx:fill in
