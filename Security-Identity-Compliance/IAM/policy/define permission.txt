@@ -1,4 +1,4 @@
-Define Policy
+Define Permission
 Note:
   -Guidance @ 
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
