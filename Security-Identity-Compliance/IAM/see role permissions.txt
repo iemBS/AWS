@@ -1,0 +1,13 @@
+See Role Permissions
+Note:
+  -Guidance @
+    -https://aws.amazon.com/iam/features/manage-permissions/
+Main Success Scenario:
+  1. Log into AWS site
+  2. Go to Identity and Access Management (IAM) service
+  3. On the left side bar, under "Access management", click on "Roles"
+  4. Put role name into "Search" textbox at the top of the list of roles and click "enter" on your keyboard
+  5. In the "Role name" column, click on the role name link
+  6. On "Permissions" tab, in "Policy name" column, click on a policy name link
+  7. Read the JSON doc
+ 
