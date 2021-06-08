@@ -24,7 +24,7 @@ Select
 From
 	Information_Schema.Columns
 Where
-	Table_Schema = 'ODSH_Paris'
+	Table_Schema = 'mySchema'
 Group By
 	Table_Name
 Order By
@@ -61,7 +61,7 @@ Select
 From
 	Information_Schema.Columns
 Where
-	Table_Schema = 'ODSH_Paris'
+	Table_Schema = 'mySchema'
 Group By
 	Data_Type
 Order By
