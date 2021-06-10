@@ -31,12 +31,24 @@ Note:
   -Order of statement parts
     -xxx:fill in
 Main Success Scenario:
+  x. "Define Sid"
   1. "Define Effect"
   2. "Define Principal"
+  x. "Define NotPrincipal"
   3. "Define Action"
+  x. "Define NotAction"
   4. "Define Resource"
   5. "Define Condition"
+  x. "Define Variable or Tag"
   
+  
+Define Sid
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_sid.html
+ Main Success Scenario:
+   1. xxx:fill in
+   
   
 Define Effect
 Note:
@@ -161,6 +173,8 @@ Main Success Scenario:
 
 Define Resource
 Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html
   -Possible Values
     -*: applies to all resources
     -xxx:fill in
