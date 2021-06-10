@@ -40,6 +40,8 @@ Main Success Scenario:
   
 Define Effect
 Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html
   -Possible Values
     -Allow
     -Deny
@@ -54,6 +56,7 @@ Define Principal
 Note:
   -Guidance @
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
   -Principal allows role permissions to be used by a user or service
   -Possible values:
     -AWS
@@ -64,8 +67,18 @@ Main Success Scenario:
   1.xxx:fill in
   
   
+Define NotPrincipal
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html
+Main Success Scenario:
+  1.xxx:fill in
+  
+  
 Define Action
 Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html
   -Possible Values
     -*: can do everything
     -account
@@ -139,6 +152,9 @@ Alternatives:
   
   
 Define NotAction
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html
 Main Success Scenario:
   1. xxx:fill in
   
@@ -152,8 +168,18 @@ Main Success Scenario:
   1.xxx:fill in
   
   
+Define NotResource
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notresource.html
+Main Success Scenario:
+  1.xxx:fill in    
+  
+  
 Define Condition
 Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html
   -Possible attributes to condition on:
     -account
       -DisableRegion
@@ -171,6 +197,14 @@ Define Date Condition
 Note:
   -Guidance @
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws-dates.html
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Define Variable or Tag
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html
 Main Success Scenario:
   1. xxx:fill in
     
