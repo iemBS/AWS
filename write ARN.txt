@@ -1,0 +1,49 @@
+Write ARN
+Note: 
+  -guidance @ 
+    -https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
+    -
+    -JSON spec @ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+  -Amazon Resource Names (ARNs) uniquely identify AWS resources
+  -AWS requires an ARN when you need to specify a resource unambiguously across all of AWS
+  -values in the partition part of an ARN
+    -Standard AWS regions use "aws"
+    -A non-standard one, like China (Beijing) has "aws-cn"
+  -values in the service part of an ARN
+    -The service namespace that identifies the AWS product
+    -like s3 for S3, iam for IAM
+  -values in the region part of an ARN
+    -xxx:fill in
+  -values in the account ID part of an ARN
+    -xxx:fill in
+  -Resources that must include region in the 4th position 
+    -xxx:fill in
+  -Resources that do not need to include region in the 4th position 
+    -xxx:fill in
+  -Resources that do not need to include account ID in the 5th position 
+    -xxx:fill in
+  -example ARN explained
+    -
+Pre-Conditions:
+  -All ARN must include:
+    -"arn" prefix
+    -partition and in the 2nd position of the arn
+    -service and in the 3rd position of the arn
+  -Some ARN must include:
+    -region in the 4th position of the arn
+    -account id in the 5th position of the arn
+Main Success Scenario:
+  1. Use a format of arn:partition:service:region:account-id:resource-id
+Alternatives:
+  1a. Use a format where the ARN includes a resource type 
+    1a1. arn:partition:service:region:account-id:resource-type/resource-id
+  1b. Use an alternate format where the ARN includes a resource type
+    1b1. arn:partition:service:region:account-id:resource-type:resource-id
+  1c. Use a format where the ARN includes a parent resource
+    1c1. arn:partition:service:region:account-id:sub-resource-type/parent-resource/sub-resource
+  1d. Use a format where the ARN includes a qualifier
+    1d1. arn:partition:service:region:account-id:resource-name:qualifier
+  1e. Use a format where the ARN includes an asterisk
+    1e1. xxx:fill in
+  1f. Use a format where region and account ID are omitted 
+    1f1. arn:aws:s3:::resource
