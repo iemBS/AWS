@@ -1,4 +1,4 @@
-Write ARN
+Define ARN
 Note: 
   -guidance @ 
     -https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
@@ -6,12 +6,16 @@ Note:
     -JSON spec @ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
   -Amazon Resource Names (ARNs) uniquely identify AWS resources
   -AWS requires an ARN when you need to specify a resource unambiguously across all of AWS
+  -partition is xxx:fill in
+  -service is the service namespace that identifies the AWS product
   -values in the partition part of an ARN
     -Standard AWS regions use "aws"
     -A non-standard one, like China (Beijing) has "aws-cn"
-  -values in the service part of an ARN
-    -The service namespace that identifies the AWS product
-    -like s3 for S3, iam for IAM
+  -values in the service part of an ARN, ref @ https://docs.aws.amazon.com/general/latest/gr/glos-chap.html
+    -S3: s3
+    -IAM: iam
+    -Secure Token Service: sts
+    -find more at referenced link
   -values in the region part of an ARN
     -xxx:fill in
   -values in the account ID part of an ARN
