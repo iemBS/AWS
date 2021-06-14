@@ -1,0 +1,17 @@
+Execute Select Without Query Cache
+Note:
+  -Guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/query-cache-in-select.html
+    -https://dev.mysql.com/doc/refman/5.7/en/query-cache-operation.html
+  -The "RESET QUERY CACHE" query needs RELOAD privileges
+  -"FLUSH QUERY CACHE" does NOT clear out the query cache, it simply defrags it leaving the cached query results in place
+Question
+  -Are there instances where "RESET QUERY CACHE" does not work?
+Main Success Scenario:
+  1. Run the select statement with the "SQL_NO_CACHE" option
+    SELECT SQL_NO_CACHE id, name FROM customer;
+Alternatives:
+  1a. Clear the query cache after you have already run the query
+    1a1. Run the query below
+      RESET QUERY CACHE 
+    1a2. Run query again 
