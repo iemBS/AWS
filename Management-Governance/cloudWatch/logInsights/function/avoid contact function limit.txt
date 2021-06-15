@@ -1,0 +1,4 @@
+Avoid Contact Function Limit
+Main Success Scenario:
+  1. Have 10 arguments or less
+  2. xxx:fill in
