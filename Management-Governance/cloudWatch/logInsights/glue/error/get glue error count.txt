@@ -1,0 +1,55 @@
+Get Glue Error Count
+Main Success Scenario:
+  1. See code below
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | parse @log "*:*" As logNm,logPth
+    | stats count(*) as errCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by logPth
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display logPth,periodStartTs,periodEndTs,errCnt
+    | sort periodStartTs
+  2. See the detail to understand the summary numbers above
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | parse @log "*:*" As logNm,logPth
+    | display @timestamp,logPth,@message # msg varies too much to parse
+    | sort @timestamp
+Alternatives:
+  1a. "Get Glue Error Count by Category"
+  2a. "Get Glue Error Detail with Categories"
+  
+  
+Get Glue Error Count by Category
+Note:
+  -Replace the xxx,yyy, and zzz with text you want to look for
+    -This is regex, so escape regex characters like you would if you treated as a literal string
+Main Success Scenario:
+  1. See code below
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | parse @log "*:*" As logNm,logPth
+    | parse @message /(?<@err1>(xxx))/
+    | parse @message /(?<@err2>(yyy))/
+    | parse @message /(?<@err3>(zzz))/
+    | field Concat(@err1,@err2,@err3) As errType
+    | stats count(*) as errCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by logPth,errType
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display periodStartTs,periodEndTs,logPth,errType,errCnt
+    | sort periodStartTs
+  
+  
+Get Glue Error Detail with Categories
+Main Success Scenario:
+  1. See code below
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | parse @log "*:*" As logNm,logPth
+    | parse @message /(?<@err1>(xxx))/
+    | parse @message /(?<@err2>(yyy))/
+    | parse @message /(?<@err3>(zzz))/
+    | field Concat(@err1,@err2,@err3) As errType
+    | display @timestamp,logPth,errType,@message # msg varies too much to parse
+    | sort @timestamp
+  
+
+ 
