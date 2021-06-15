@@ -1,0 +1,3 @@
+Get Glue Error Detail
+Main Success Scenario:
+  1. xxx:fill in
