@@ -1,0 +1,10 @@
+Use Concat
+Main Success Scenario:
+  1. Have 10 arguments or less
+    | field Concat(@arg1,@arg2,@arg3,@arg4,@arg5,@arg6,@arg7,@arg8,@arg9,@arg10) As entryType
+  2. xxx:fill in
+Alternatives:
+  1a. Have more than 10 arguments 
+    1a1. See code snipet below
+    | field Concat(@arg1,@arg2,@arg3,@arg4,@arg5,@arg6,@arg7,@arg8,@arg9,@arg10) As entryType1
+    | field Concat(entryType1,@arg11,@arg12,@arg13) As entryType
