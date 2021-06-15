@@ -1,0 +1,44 @@
+Get Entry Count by User
+Main Success Scenario:
+  1. See below code
+    xxx:fill in
+Alternatives:
+  1a. "Get Query Entry Count by User"
+  1b. "Get Read Entry Count by User"
+  1c. "Get Write Entry Count by User"
+
+  
+Get Query Entry Count by User
+Main Success Scenario:
+  1. See below code
+    fields @message,@timestamp
+    | filter @message like ",QUERY," 
+    | parse @message "*,*,*,*,*,*,*,*,*" as ts,svrNm,usr,ip,processId,logId,eventType,db,qry
+    | stats count(*) as recCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by usr
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display usr,periodStartTs,periodEndTs,recCnt
+    | sort usr
+    
+    
+Get Read Entry Count by User
+Main Success Scenario:
+  1. See below code
+    fields @message,@timestamp
+    | filter @message like ",READ," 
+    | parse @message "*,*,*,*,*,*,*,*,*" as ts,svrNm,usr,ip,processId,logId,eventType,db,qry
+    | stats count(*) as recCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by usr
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display usr,periodStartTs,periodEndTs,recCnt
+    | sort usr
+
+
+Get Write Entry Count by User
+Main Success Scenario:
+  1. See below code
+    fields @message,@timestamp
+    | filter @message like ",WRITE," 
+    | parse @message "*,*,*,*,*,*,*,*,*" as ts,svrNm,usr,ip,processId,logId,eventType,db,qry
+    | stats count(*) as recCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by usr
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display usr,periodStartTs,periodEndTs,recCnt
+    | sort usr
