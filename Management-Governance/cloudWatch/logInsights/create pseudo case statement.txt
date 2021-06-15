@@ -1,0 +1,5 @@
+Create Pseudo Case Statement
+Note
+  -Could also call this a pseudo switch statement
+Main Success Scenario:
+  1. xxx:fill in
