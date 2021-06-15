@@ -31,7 +31,7 @@ Main Success Scenario:
     | parse @message /(?<@err1>(xxx))/
     | parse @message /(?<@err2>(yyy))/
     | parse @message /(?<@err3>(zzz))/
-    | field Concat(@err1,@err2,@err3) As errType
+    | field Concat(@err1,@err2,@err3) As errType # @errX values need to be unique enough to not overlap with each other
     | stats count(*) as errCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by logPth,errType
     | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
     | display periodStartTs,periodEndTs,logPth,errType,errCnt
@@ -47,7 +47,7 @@ Main Success Scenario:
     | parse @message /(?<@err1>(xxx))/
     | parse @message /(?<@err2>(yyy))/
     | parse @message /(?<@err3>(zzz))/
-    | field Concat(@err1,@err2,@err3) As errType
+    | field Concat(@err1,@err2,@err3) As errType  # @errX values need to be unique enough to not overlap with each other
     | display @timestamp,logPth,errType,@message # msg varies too much to parse
     | sort @timestamp
   
