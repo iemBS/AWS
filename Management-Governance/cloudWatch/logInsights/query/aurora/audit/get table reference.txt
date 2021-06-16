@@ -14,3 +14,6 @@ Main Success Scenario:
    1a. Get table reference detail
      1a1. See code below
        xxx:fill in
+   1b. Get count of references for more than one table at a time
+     1b1. See code below
+       xxx:fill in
