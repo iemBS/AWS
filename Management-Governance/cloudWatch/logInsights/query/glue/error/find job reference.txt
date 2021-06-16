@@ -1,0 +1,29 @@
+Find Job Reference
+Note:
+  -xxx, yyy, & zzz placeholders for glue job names 
+Main Success Scenario:
+  1.See job reference counts
+    fields @message,@timestamp,@log
+    | parse @message /(?<@job1>(xxx))/
+    | parse @message /(?<@job2>(yyy))/
+    | parse @message /(?<@job3>(zzz))/
+    | field Concat(@job1,@job2,@job3) As job
+    | filter job like /(?i)(xxx|yyy|zzz)/ # case in-sensitive
+    | parse @log "*:*" As logNm,logPth
+    | stats count(*) As recCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by logPth,job
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display periodStartTs,periodEndTs,logPth,job,recCnt
+    | sort periodStartTs
+Alternatives:
+  1a. See job reference detail 
+    fields @message,@timestamp,@log
+    | parse @message /(?<@job1>(xxx))/
+    | parse @message /(?<@job2>(yyy))/
+    | parse @message /(?<@job3>(zzz))/
+    | field Concat(@job1,@job2,@job3) As job
+    | filter job like /(?i)(xxx|yyy|zzz)/ # case in-sensitive
+    | parse @log "*:*" As logNm,logPth
+    | display logPth,@timestamp,job,@message 
+    | sort @timestamp
+    
+    
