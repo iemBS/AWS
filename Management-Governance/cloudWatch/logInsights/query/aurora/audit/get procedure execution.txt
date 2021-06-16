@@ -1,0 +1,23 @@
+Get Procedure Execution
+Pre-Conditions:
+  -Replace "MyProcPart" with a common procedure prefix or suffix that is only used in a group of procedures
+  -Replace the My1stPrc, My2ndPrc, and My3rdPrc with procedure names you want to search for
+Main Success Scenario:
+  1. See count of procedure executions 
+    xxx:fill in
+  2. See procedure execution detail 
+    fields @message,@timestamp
+    | filter @message like ",QUERY," 
+    | filter @message like /(?i)MyProcPart/ # non-case sensitive filter
+    | filter @message not like "'CREATE DEFINER=`"
+    | filter @message not like "'Drop Procedure "
+    | filter @message not like "'SHOW CREATE PROCEDURE `"
+    | filter @message not like "SET @_"
+    | parse @message /(?<@prc1>(My1stPrc))/
+    | parse @message /(?<@prc2>(My2ndPrc))/
+    | parse @message /(?<@prc3>(My3rdPrc))/
+    | field Concat(@qry1,@qry2,@qry3) As prc
+    | filter prc like /(?i)(My1stPrc|My2ndPrc|My3rdPrc)/
+    | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
+    | display @timestamp,db,prc,usr,qry
+    | sort @timestamp
