@@ -1,0 +1,15 @@
+Get Common Aurora Error as Note
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html
+  -By default, these messages are notes, but configurations may be able to be made in Aurora to make them into error type messages in the Aurora error log
+Main Success Scenario:
+  1. See code below
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)\[NOTE\]/ # non-case sensitive filter
+    | parse @log "*:*" As logNm,logPth
+    | parse @message /(?<@nte1>(\[Note\] Aborted connection))/
+    | parse @message /(?<@nte2>(xxx))/
+    | field Concat(@nte1,@nte2) As nteType
+    | display logPth,@timestamp,nteType,@message 
+    | sort @timestamp
