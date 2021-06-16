@@ -1,0 +1,19 @@
+Get Common Aurora Error 
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Troubleshooting.html
+    -https://dev.mysql.com/doc/refman/5.7/en/common-errors.html
+Main Success Scenario:
+  1. See code below
+
+Alternatives:
+  1a. Get a less common error 
+    1a1. See possible list of errors that are written to the server 
+      https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+      
+
+      
+      
+
+
+
