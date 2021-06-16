@@ -1,0 +1,34 @@
+Get Values in One Table and Not In Another
+Note:
+  -Guidance @
+    -https://www.tutorialspoint.com/what-is-the-equivalent-of-except-in-mysql
+  -Except command that exists in MS SQL Server does not exist in MySQL. So, you need to use NOT IN instead.
+Main Success Scenario:
+  1. See query below
+  
+    Select  
+      Table_Type,
+      Table_Schema,
+        Table_Name
+    From
+      Information_Schema.Tables 
+    Where
+      Table_Type = 'BASE TABLE'
+        And
+      Table_Schema Not In 
+        (
+        'information_schema',
+            'performance_schema',
+            'sys',
+            'mysql'
+      )
+        And
+      Concat(Table_Schema,'|',Table_Name) Not In 
+        (
+        Select
+          Concat(Table_Schema,'|',Table_Name)
+        From
+          Information_Schema.Columns
+        Where
+          Column_Name = 'MyCol'
+        )
