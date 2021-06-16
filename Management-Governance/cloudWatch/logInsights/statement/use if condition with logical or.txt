@@ -1,3 +1,3 @@
-Use Logical OR
+Use IF condition with Logical OR
 Main Success Scenario:
   1. xxx:fill in
