@@ -1,0 +1,16 @@
+Get Table Reference
+Pre-Conditions:
+  -Replace "MyTable" in the code below with the name of your table. Use the same case as has in Aurora
+Main Success Scenario:
+  1. Get count of table references
+    fields @message,@timestamp
+    | filter @message like "MyTable" 
+    | parse @message "*,*,*,*,*,*,*,*,*" as ts,svrNm,usr,ip,processId,logId,eventType,db,qry
+    | stats count(*) as recCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by usr
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display usr,periodStartTs,periodEndTs,recCnt
+    | sort usr
+ Alternatives:
+   1a. Get table reference detail
+     1a1. See code below
+       xxx:fill in
