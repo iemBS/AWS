@@ -1,3 +1,0 @@
-Get Aurora Warning Detail
-Main Success Scenario:
-  1. xxx:fill in
