@@ -1,6 +1,8 @@
 Get Table Reference
 Pre-Conditions:
   -Replace "MyTable" in the code below with the name of your table. Use the same case as has in Aurora
+Note:
+  -When looking for more than one table, if any table name is a substring of another, look for the longer named table first. This will prevent mis-identifying the table.
 Main Success Scenario:
   1. Get count of table references
     fields @message,@timestamp
@@ -10,10 +12,18 @@ Main Success Scenario:
     | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
     | display usr,periodStartTs,periodEndTs,recCnt
     | sort usr
+   2. Get table reference detail
+     xxx:fill in
  Alternatives:
-   1a. Get table reference detail
-     1a1. See code below
-       xxx:fill in
-   1b. Get count of references for more than one table at a time
+   1a. Get count of references for more than one table at a time
      1b1. See code below
+       xxx:fill in
+   1b. Get count of table references by event type
+     1b1. see code below
+       xxx:fill in
+   2a. Get reference detail for more than one table at a time
+     2a1. See code below
+       xxx:fill in
+   2b. Get table reference detail with event type
+     2b1. see code below
        xxx:fill in
