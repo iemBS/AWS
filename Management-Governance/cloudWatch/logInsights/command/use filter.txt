@@ -1,3 +1,15 @@
 Use Filter
 Main Success Scenario:
+  1. "Use Equality operator"
+Alternatives:
+  1a. "Use Like operator"
+  
+  
+Use Equality operator
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Use Like operator
+Main Success Scenario:
   1. xxx:fill in
