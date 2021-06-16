@@ -3,10 +3,25 @@ Note:
   -Guidance @ 
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Troubleshooting.html
     -https://dev.mysql.com/doc/refman/5.7/en/common-errors.html
+    -https://dev.mysql.com/doc/refman/5.7/en/commands-out-of-sync.html
+Question:
+  -What are otehr common errors in Aurora? xxx:fill in
 Main Success Scenario:
   1. See code below
-
-Alternatives:
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | parse @log "*:*" As logNm,logPth
+    | parse @message /(?<@err1>(Connection refused))/
+    | parse @message /(?<@err2>(Can\'t connect to MySQL server on))/
+    | parse @message /(?<@err3>)(failed to retrieve account attributes, certain console functions may be impaired.))/
+    | parse @message /(?<@err4>(Could not open connection to the host))/
+    | parse @message /(?<@err5>(Can\'t initialize character set))/
+    | parse @message /(?<@err6>(doesn\'t exist))/
+    | parse @message /(?<@err7>(Commands out of sync; you can\'t run this command now))/
+    | field Concat(@err1,@err2,@err3,@err4,@err5,@err6,@err7,@err8) As errType
+    | display logPth,@timestamp,errType,@message 
+    | sort @timestamp
+Alternatives:7
   1a. Get a less common error 
     1a1. See possible list of errors that are written to the server 
       https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
