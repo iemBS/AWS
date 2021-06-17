@@ -7,4 +7,7 @@ Main Success Scenario:
     | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
     | display periodStartTs,periodEndTs,wrnCnt
   2. Get Warning detail
-    xxx:fill in
+    fields @message,@timestamp
+    | filter @message like /(?i)(\[Warning\])/
+    | display @timestamp,@message 
+    | sort @timestamp
