@@ -1,0 +1,5 @@
+Get Time Between Procedure Executions
+Pre-Conditions:
+  -Can only do this if you know one procedure always follows another and only starts after the first one completes
+Main Success Scenario:
+  1. xxx
