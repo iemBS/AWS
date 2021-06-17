@@ -3,10 +3,8 @@ Main Success Scenario:
   1. See code below
     fields @message,@timestamp
     | filter @message like /(?i)(\[Warning\])/
-    | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
-    | stats count(*) as wrnCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by db,usr
+    | stats count(*) as wrnCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs
     | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
-    | display periodStartTs,periodEndTs,db,usr,wrnCnt
-    | sort periodStartTs
+    | display periodStartTs,periodEndTs,wrnCnt
   2. Get Warning detail
     xxx:fill in
