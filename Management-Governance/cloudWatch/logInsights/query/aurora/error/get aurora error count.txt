@@ -3,10 +3,8 @@ Main Success Scenario:
   1. See code below
     fields @message,@timestamp
     | filter @message like /(?i)(\[Error\])/
-    | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
-    | stats count(*) as errCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by db,usr
+    | stats count(*) as errCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs
     | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
-    | display periodStartTs,periodEndTs,db,usr,errCnt
-    | sort periodStartTs
+    | display periodStartTs,periodEndTs,errCnt
   2. Get error detail
     xxx:fill in
