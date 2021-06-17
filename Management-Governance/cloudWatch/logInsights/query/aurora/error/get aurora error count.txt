@@ -7,4 +7,7 @@ Main Success Scenario:
     | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
     | display periodStartTs,periodEndTs,errCnt
   2. Get error detail
-    xxx:fill in
+    fields @message,@timestamp
+    | filter @message like /(?i)(\[Error\])/
+    | display @timestamp,@message 
+    | sort @timestamp
