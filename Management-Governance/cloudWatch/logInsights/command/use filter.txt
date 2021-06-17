@@ -3,6 +3,7 @@ Main Success Scenario:
   1. "Use Equality operator"
 Alternatives:
   1a. "Use Like operator"
+  1b. "Use IN"
   
   
 Use Equality operator
@@ -13,3 +14,12 @@ Main Success Scenario:
 Use Like operator
 Main Success Scenario:
   1. xxx:fill in
+  
+  
+Use IN
+Note:
+  -Where xxx,yyy, and zzz are values obtained by parsing @message and putting the value into the "val" field
+Main Success Scenario:
+  1. see code below
+    | filter val like /(?i)(xxx|yyy|zzz)/ # is case insensitive
+
