@@ -2,7 +2,7 @@ Get Aurora Error Count
 Main Success Scenario:
   1. See code below
     fields @message,@timestamp
-    | filter msgType like /(?i)(\[Error\])/
+    | filter @message like /(?i)(\[Error\])/
     | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
     | stats count(*) as errCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by db,usr
     | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
