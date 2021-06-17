@@ -1,5 +1,26 @@
 Get Time Between Procedure Executions
 Pre-Conditions:
   -Can only do this if you know one procedure always follows another and only starts after the first one completes
+  -Replace "MyProcPart" with a prefix or suffix of all the procedures you want to catch with this query
+  -Replace MyProc1 and MyProc2 with proc names
 Main Success Scenario:
-  1. xxx
+  1. see code below
+    fields @message,@timestamp
+    | filter @message like ",QUERY," 
+    | filter @message like "MyProcPart"
+    | filter @message not like "'CREATE DEFINER=`"
+    | filter @message not like "'Drop Procedure "
+    | filter @message not like "'SHOW CREATE PROCEDURE `"
+    | filter @message not like "SET @_"
+    | parse @message /(?<@prc1>(MyProc1))/
+    | parse @message /(?<@prc2>(MyProc2))/
+    | field Concat(@prc1,@prc2) As prc0
+    | filter prc0 like /(?i)(MyProc1|MyProc2)/
+    | field "MyProc1" As prc
+    | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
+    | stats earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by db,prc
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | field (periodEndMs - periodStartMs)/1000 As runS
+    | field runS/60 As runMn
+    | display db,prc,periodStartTs,periodEndTs,runS,runMn # periodEndTs is later than it should be
+    | sort periodStartTs
