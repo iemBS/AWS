@@ -1,1 +1,3 @@
 Securely deliver data, videos and applications to customers globally with low latency and high transfer speeds
+
+Is between your website and the people visiting your website. Elasticache on the other hand, is between your web site and your database. 
