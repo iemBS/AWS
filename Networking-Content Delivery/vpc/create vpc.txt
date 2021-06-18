@@ -1,4 +1,9 @@
 Create VPC
+Note:
+  -private networks can only start with these ip addresses
+    -10.0.0.1
+    -172.16.0.1
+    -192.168.0.1
 Main Success Scenario:
   1. Specify "IPv4 CIDR block"
   2. Choose "IPv6 CIDR block"
