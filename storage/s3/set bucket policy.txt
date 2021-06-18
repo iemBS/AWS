@@ -1,4 +1,4 @@
-Add Bucket Policy
+Set Bucket Policy
 Notes:
   -Guidance @ https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html
 Main Success Scenario:
