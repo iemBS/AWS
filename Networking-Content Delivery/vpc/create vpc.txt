@@ -1,0 +1,7 @@
+Create VPC
+Main Success Scenario:
+  1. Specify "IPv4 CIDR block"
+  2. Choose "IPv6 CIDR block"
+  3. Choose "Tenancy"
+Extensions:
+  3a. Can also specify "Name tag" (optional)
