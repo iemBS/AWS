@@ -27,4 +27,35 @@ Main Success Scenario:
     Group By
       col
     Having
+      count(col) = 1;
+      
+Alternatives;
+  1a. Another columnn is added to the group by and the count is not limited to the the single column
+    1a1. See code below
+    
+    drop temporary table if exists tbl;
+    create temporary table tbl
+    (
+      col int,
+      col2 char(1)
+    );
+
+    Insert Into 
+      tbl
+    values (1,'a'),(1,'b'),(2,'a'),(3,'a');
+
+    Select
+      *
+    From
+      tbl;
+
+    Select
+      col,
+      col2
+    From
+      tbl
+    Group By
+      col,
+      col2
+    Having
       count(col) = 1
