@@ -1,0 +1,6 @@
+Find Job Reference
+Note:
+  -Guidance @
+    -https://medium.com/swlh/my-top-10-tips-for-working-with-aws-glue-a1cd880961fe
+Main Success Scenario:
+  1. xxx:fill in
