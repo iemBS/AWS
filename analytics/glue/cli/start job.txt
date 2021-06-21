@@ -1,6 +1,9 @@
 Start Job
 Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/reference/glue/index.html
   -Replace "MyJobNm" with a real glue job name
+  -"glue" is a command and "start-job-run" is a sub command
 Main Success Scenario:
   1. aws glue start-job-run --job-name MyJobNm
 Alternatives:
