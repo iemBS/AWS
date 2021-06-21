@@ -4,4 +4,8 @@ Note:
 Main Success Scenario:
   1. aws glue start-job-run --job-name MyJobNm
 Alternatives:
-  1a. xxx:fill in
+  1a. Start more than one job
+    1a1. See code below
+      aws glue start-job-run --job-name MyJobNm1
+      aws glue start-job-run --job-name MyJobNm2
+  1b. xxx:fill in
