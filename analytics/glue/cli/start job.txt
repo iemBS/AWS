@@ -1,0 +1,7 @@
+Start Job
+Note:
+  -Replace "MyJobNm" with a real glue job name
+Main Success Scenario:
+  1. aws glue start-job-run --job-name MyJobNm
+Alternatives:
+  1a. xxx:fill in
