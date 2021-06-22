@@ -1,0 +1,1 @@
+Automate operations with Chef and Puppet
