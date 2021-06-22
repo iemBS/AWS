@@ -1,0 +1,6 @@
+Create Template
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
+Main Success Scenario:
+  1. xxx:fill in
