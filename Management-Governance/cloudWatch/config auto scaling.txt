@@ -1,0 +1,5 @@
+Config Auto Scaling
+Note:
+  -https://aws.amazon.com/autoscaling/
+Main Success Scenario:
+  1. xxx:fill in
