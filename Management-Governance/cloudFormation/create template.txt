@@ -2,6 +2,7 @@ Create Template
 Note:
   -Guidance @
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
+    -https://aws.amazon.com/cloudformation/resources/templates/
   -Can write template using JSON or YAML
 Main Success Scenario:
   1. xxx:fill in
