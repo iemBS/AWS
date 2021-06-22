@@ -1,3 +1,7 @@
 Use Built-In Metric
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html
+    -best practices for monitoring @ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_best_practices.html
 Main Success Scenario:
   1. xxx:fill in
