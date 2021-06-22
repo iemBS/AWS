@@ -1,0 +1,8 @@
+Scale with Template
+Main Success Scenario:
+  1. Configure template before deployment to another region
+  2. Deploy template to another region
+Alternatives:
+  1a. Configure template to have multi-region functionality
+    1a1. xxx:fill in
+
