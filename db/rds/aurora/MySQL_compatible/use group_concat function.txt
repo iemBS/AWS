@@ -105,3 +105,6 @@ Alternatives:
         Specific_Schema,
         Routine_Type,
         Specific_Name
+        
+  1c. Use DISTINCT in Group_Concat to remove duplicates in the group before concatenating them
+    1c1. xxx:fill in
