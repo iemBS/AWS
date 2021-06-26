@@ -1,0 +1,18 @@
+Instrumentation
+Note:
+  -In the context of computer programming, instrumentation refers to the measure of a product's performance, to diagnose errors, and to write trace information. Instrumentation can be of two types: source instrumentation and binary instrumentation.
+    -ref @ https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)
+  -Instrumentation interface in MySQL @ https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_PFS_PSI.
+  -See the list of instruments in the "performance_schema.setup_instruments" table in MySQL. The serverless version of Aurora does not show rows in this view
+    -setup_instruments table defined @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-setup-instruments-table.html
+    -See more @ https://forums.aws.amazon.com/thread.jspa?threadID=307502
+    -list of all values @ https://mariadb.com/kb/en/performance-schema-setup_instruments-table/
+    -There seems to be an instrumentation for every state you see in the "STATE" column of the "ProcessList" view. 
+  -"STATE" column in ProcessList view can be an action, event, or state that indicates what the thread is doing
+    -ref @ https://dev.mysql.com/doc/refman/8.0/en/performance-schema-processlist-table.html
+    -general thread states @ https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
+   -Events produced from execution of an instrument have an EVENT_NAME value that is taken from the instrument NAME value. (Events do not really have a “name,” but this provides a way to associate events with instruments.)
+     -ref @ https://dev.mysql.com/doc/refman/5.7/en/performance-schema-setup-instruments-table.html
+    
+Main Success Scenario:
+  1. xxx:fill in
