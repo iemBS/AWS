@@ -1,0 +1,114 @@
+Categorize ProcessList State
+Main Success Scenario:
+  1. See code below
+  
+Drop Temporary Table If Exists TMP_ProcessListStateCategory;
+Create Temporary Table TMP_ProcessListStateCategory(InMySQL bool,InAurora bool,ProcessListStateCategory varchar(10),ProcessListState varchar(40));
+
+Insert Into 
+	TMP_ProcessListStateCategory # https://dev.mysql.com/doc/refman/8.0/en/performance-schema-processlist-table.html
+Values
+	# action @ xxx
+	(0,0,'action','xxx'),
+
+	# event 
+    # https://mariadb.com/kb/en/performance-schema-setup_instruments-table/
+  (1,1,'event','checking query cache for query'),
+  (0,1,'event','delayed commit ok initiated'), # A thread state in Aurora MySQL which indicates the thread has started the async commit process but is waiting for it to be ack’d. You will not find this thread state in MySQL as  MySQL  does not use our async commit protocal, it is Aurora MySQL specific. This is  usually the genuine commit time of a transaction. Ref @ http://datavirtualizer.com/delayed-commit-ok-initiated-aurora-mysql/
+  (0,1,'event','delayed send ok initiated'),
+  (1,1,'event','Opening tables'),
+
+	# state 
+      # https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
+      # https://mariadb.com/kb/en/general-thread-states/
+	(1,0,'state',''), # This in MySQL is equal to 'cleaned up' in Aurora
+	(1,1,'state','After create'),
+	(1,1,'state','Analyzing'),
+	(1,1,'state','checking permissions'),
+	(1,1,'state','Checking table'),
+  (0,1,'state','cleaned up'), # In MySQL, the STATE column is an empty string
+	(1,1,'state','cleaning up'),
+	(1,1,'state','closing tables'),
+	(1,1,'state','converting HEAP to Aria'),
+	(1,1,'state','converting HEAP to MyISAM'),
+	(1,1,'state','copy to tmp table'),
+	(1,1,'state','Copying to group table'),
+	(1,1,'state','Copying to tmp table'),
+	(1,1,'state','Copying to tmp table on disk'),
+	(1,1,'state','Creating index'),
+	(1,1,'state','Creating sort index'),
+	(1,1,'state','creating table'),
+	(1,1,'state','Creating tmp table'),
+	(1,1,'state','deleting from main table'),
+	(1,1,'state','deleting from reference tables'),
+	(1,1,'state','discard_or_import_tablespace'),
+	(1,1,'state','end'),
+	(1,1,'state','executing'),
+	(1,1,'state','Execution of init_command'),
+	(1,1,'state','filling schema table'),
+	(1,1,'state','freeing items'),
+	(1,1,'state','Flushing tables'),
+	(1,1,'state','FULLTEXT initialization'),
+	(1,1,'state','init'),
+	(1,1,'state','Killed'),
+	(1,1,'state','Locked'),
+	(1,1,'state','logging slow query'),
+	(1,1,'state','NULL'),
+	(1,1,'state','login'),
+	(1,1,'state','manage keys'),
+	(1,1,'state','Opening table[s]'),
+	(1,1,'state','optimizing'),
+	(1,1,'state','preparing'),
+	(1,1,'state','Purging old relay logs'),
+	(1,1,'state','query end'),
+	(1,1,'state','Reading file'),
+	(1,1,'state','Reading from net'),
+	(1,1,'state','Removing duplicates'),
+	(1,1,'state','removing tmp table'),
+	(1,1,'state','rename'),
+	(1,1,'state','rename result table'),
+	(1,1,'state','Reopen tables'),
+	(1,1,'state','Repair by sorting'),
+	(1,1,'state','Repair done'),
+	(1,1,'state','Repair with keycache'),
+	(1,1,'state','Rolling back'),
+	(1,1,'state','Saving state'),
+	(1,1,'state','Searching rows for update'),
+	(1,1,'state','Sending data'),
+  (1,1,'state','Sending to client'),
+	(1,1,'state','setup'),
+	(1,1,'state','Sorting for group'),
+	(1,1,'state','Sorting for order'),
+	(1,1,'state','Sorting index'),
+	(1,1,'state','Sorting result'),
+  (1,1,'state','starting'),
+	(1,1,'state','statistics'),
+	(1,1,'state','System lock'),
+	(1,1,'state','Table lock'),
+	(1,1,'state','update'),
+	(1,1,'state','Updating'),
+	(1,1,'state','updating main table'),
+	(1,1,'state','updating reference tables'),
+	(1,1,'state','updating status'),
+	(1,1,'state','User lock'),
+	(1,1,'state','User sleep'),
+	(1,1,'state','Waiting for commit lock'),
+	(1,1,'state','Waiting for global read lock'),
+	(1,1,'state','Waiting for table level lock'),
+	(1,1,'state','Waiting for xx lock'),
+	(1,1,'state','Waiting on cond'),
+	(1,1,'state','Writing to net');
+
+
+Select Distinct 
+	t.InMySQL,
+    t.InAurora,
+	t.ProcessListStateCategory,
+    h.STATE 
+From
+	Information_Schema.ProcessList h
+    Left Outer Join TMP_ProcessListStateCategory t On 
+		h.STATE = t.ProcessListState
+Order By
+	t.ProcessListStateCategory,
+    h.STATE 
