@@ -1,0 +1,18 @@
+Get Aurora Rollbacks
+Pre-Conditions:
+  -Replace "commonPartOfJobName" with the common part of your job names
+  -Explicit rollbacks done in custom SQL code that is being called by Glue Jobs, will show in the Glue error logs
+Main Success Scenario:
+  1. See code below
+    fields @message,@timestamp,@log
+    | filter job like /(?i)(commonPartOfJobName)/ # case in-sensitive, common part of job names
+    | filter job like /(?i)(rollback)/ # case in-sensitive, find rollback
+    | parse @message /(?<@job1>(xxx))/
+    | parse @message /(?<@job2>(yyy))/
+    | parse @message /(?<@job3>(zzz))/
+    | field Concat(@job1,@job2,@job3) As job
+    | parse @log "*:*" As logNm,logPth
+    | stats count(*) As recCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by logPth,job
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display periodStartTs,periodEndTs,logPth,job,recCnt
+    | sort periodStartTs
