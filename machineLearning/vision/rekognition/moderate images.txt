@@ -1,0 +1,6 @@
+Moderate Images
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html
+Main Success Scenario:
+  1. xxx:fill in
