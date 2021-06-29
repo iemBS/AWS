@@ -1,0 +1,6 @@
+Compare Faces
+Note:
+  -Guidance @ 
+    -https://aws.amazon.com/getting-started/hands-on/detect-analyze-compare-faces-rekognition/
+Main Success Scenario:
+  1. xxx:fill in
