@@ -1,0 +1,7 @@
+Detect PPE
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/rekognition/latest/dg/ppe-detection.html
+  -PPE is Personal Protective Equipment 
+Main Success Scenario:
+  1. xxx:fill in
