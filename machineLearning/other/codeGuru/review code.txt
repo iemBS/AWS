@@ -7,5 +7,8 @@ Note:
     -detect critical issues
     -find security vulnerabilities
     -point out hard-to-find bugs
+    -detect deviations from best practices
+      -has 9 categories of best practices
+  -Links directly to your code repo and points out the specific lines it is referencing 
 Main Success Scenario:
   1. xxx
