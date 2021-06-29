@@ -14,8 +14,10 @@ Values
 	# event 
     # https://mariadb.com/kb/en/performance-schema-setup_instruments-table/
   (1,1,'event','checking query cache for query'),
+  (0,1,'event','delayed commit ok done'), # ref @ https://forums.aws.amazon.com/thread.jspa?messageID=708499
   (0,1,'event','delayed commit ok initiated'), # A thread state in Aurora MySQL which indicates the thread has started the async commit process but is waiting for it to be ack’d. You will not find this thread state in MySQL as  MySQL  does not use our async commit protocal, it is Aurora MySQL specific. This is  usually the genuine commit time of a transaction. Ref @ http://datavirtualizer.com/delayed-commit-ok-initiated-aurora-mysql/
-  (0,1,'event','delayed send ok initiated'),
+  (0,1,'event','delayed send ok done'), # ref @ https://forums.aws.amazon.com/thread.jspa?messageID=708499
+  (0,1,'event','delayed send ok initiated'), # ref @ https://forums.aws.amazon.com/thread.jspa?messageID=708499
   (1,1,'event','Opening tables'),
 
 	# state 
