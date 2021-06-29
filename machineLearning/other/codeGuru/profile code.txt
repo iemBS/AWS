@@ -1,0 +1,15 @@
+Profile Code
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/codeguru/latest/profiler-ug/what-is-codeguru-profiler.html
+  -Points out resource expensive lines of code
+    -% of total run time
+    -CPU cost to run the code per year
+    -% of time in each thread state
+      -idle
+      -runnable
+      -waiting
+      -native
+    -CodeGuru Profiler provides you suggestions on how to change your code 
+Main Success Scenario:
+  1. xxx:fill in
