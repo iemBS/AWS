@@ -1,3 +1,6 @@
 Analyze Face
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/rekognition/latest/dg/faces.html
 Main Success Scenario:
   1. xxx:fill in
