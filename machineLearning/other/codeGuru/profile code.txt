@@ -11,5 +11,9 @@ Note:
       -waiting
       -native
     -CodeGuru Profiler provides you suggestions on how to change your code 
+    -can only profile these languages, ref @ https://aws.amazon.com/codeguru/faqs/
+      -Java
+      -Python (in preview)
+      -JVM languages (such as Scala and Kotlin)
 Main Success Scenario:
   1. xxx:fill in
