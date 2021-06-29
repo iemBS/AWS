@@ -1,0 +1,4 @@
+See Known Bugs
+Main Success Scenario:
+  1. Look @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.MySQLBugs.html
+  
