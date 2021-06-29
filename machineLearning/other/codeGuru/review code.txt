@@ -1,0 +1,11 @@
+Review Code
+Note:
+  -Guidance @
+    -https://aws.amazon.com/getting-started/hands-on/review-source-code-using-amazon-codeguru-reviewer/
+  -ML is being used to review your code. Not a full replacement for a human code reviewer, but it helps enough for there to be a service
+  -Can 
+    -detect critical issues
+    -find security vulnerabilities
+    -point out hard-to-find bugs
+Main Success Scenario:
+  1. xxx
