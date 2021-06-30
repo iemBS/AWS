@@ -1,0 +1,41 @@
+Get Procedure Execution Per Day
+Pre-Conditions:
+  -Replace "ProcName" with the procedure name
+Main Success Scenario:
+  1. See code below
+  
+    fields @message,@timestamp
+    | filter @message like ",QUERY," 
+    | filter @message like "ProcName"
+    # remove records that will return proc references that we do not want
+    | filter @message not like "'CREATE DEFINER=`"
+    | filter @message not like "'Drop Procedure "
+    | filter @message not like "'SHOW CREATE PROCEDURE `"
+    # get day of run
+    | field datefloor(@timestamp, 1day) As dy
+    # parse record 
+    | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
+    # get runs per day
+    | stats count(*) as runCnt by dy
+    # display 
+    | display dy,runCnt,usr
+    | sort dy desc
+    
+ 2. See detail for the above query
+ 
+    fields @message,@timestamp
+    | filter @message like ",QUERY," 
+    | filter @message like "ProcName"
+    # remove records that will return proc references that we do not want
+    | filter @message not like "'CREATE DEFINER=`"
+    | filter @message not like "'Drop Procedure "
+    | filter @message not like "'SHOW CREATE PROCEDURE `"
+    # get day of run
+    | field datefloor(@timestamp, 1day) As dy
+    # parse record 
+    | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
+    # get runs per day
+    | stats count(*) as runCnt by dy,qry
+    # display 
+    | display dy,runCnt,usr,qry
+    | sort dy desc,qry asc
