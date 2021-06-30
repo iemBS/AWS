@@ -6,7 +6,7 @@ Main Success Scenario:
   
     fields @message,@timestamp
     | filter @message like ",QUERY," 
-    | filter @message like "ProcName"
+    | filter @message like "ProcName("
     # remove records that will return proc references that we do not want
     | filter @message not like "'CREATE DEFINER=`"
     | filter @message not like "'Drop Procedure "
@@ -25,7 +25,7 @@ Main Success Scenario:
  
     fields @message,@timestamp
     | filter @message like ",QUERY," 
-    | filter @message like "ProcName"
+    | filter @message like "ProcName("
     # remove records that will return proc references that we do not want
     | filter @message not like "'CREATE DEFINER=`"
     | filter @message not like "'Drop Procedure "
