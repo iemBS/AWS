@@ -9,10 +9,21 @@ Note:
   -SQLSTATE values @ https://en.wikipedia.org/wiki/SQLSTATE
   -ER_SIGNAL_WARN, ER_SIGNAL_NOT_FOUND and ER_SIGNAL_EXCEPTION constants are not accessible from SQL so probably it makes sense to say that they are respectively 1642, 1643 and 1644.
 Main Success Scenario:
-  1. "Create Error Message"
+  1. "Create Status Message"
 Alternatives:
   1a. Create Warning Message
-    1a1. 
+    1a1. xxx:fill in
+  1b. "Create Error Message"
+    1b1. xxx:fill in
+    
+    
+Create Status Message
+Note:
+  -Shared MariaDB and MySQL error codes @ https://mariadb.com/kb/en/mariadb-error-codes/
+  -MariaDB SQL States @ https://mariadb.com/kb/en/sqlstate/
+  -There is no SQLSTATE value to indicate a note. The closest is a SQLSTATE of 01000, that is a warning
+Main Success Scenario:
+  1. DO SIGNAL SQLSTATE '01000' SET MESSAGE_TEXT = 'hi from the error log'; 
   
   
 Create Error Message
