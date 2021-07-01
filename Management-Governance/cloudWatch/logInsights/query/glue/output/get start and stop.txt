@@ -1,0 +1,42 @@
+Get Start and Stop
+Pre-Conditions:
+  -Need to write custom messages to the log to the glue log to indicate start and stop positions within the glue job code
+  -Start and Stop positions need to have common code between them and the same text needs to be unique among all messages written to the log
+  -Replace "CommonStartStopText" with common text
+Main Success Scenario:
+  1. Get detail of stop and start
+  
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)(CommonStartStopText)/ # case in-sensitive; common text in start and end text
+    | parse @message /(?<@tbl1>(xxx))/
+    | parse @message /(?<@tbl2>(yyy))/
+    | parse @message /(?<@tbl3>(zzz))/
+    | field Concat(@tbl1,@tbl2,@tbl3) As tbl
+    | filter tbl like /(?i)(xxx|yyy|zzz)/ # case in-sensitive
+    | parse @log "*:*" As logNm,logPth
+    | display logPth,@timestamp,@message,tbl
+    | sort @timestamp
+    
+  2. Get duration between the start and stop for a single day (must have max of one run per start and stop)
+
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)(CommonStartStopText)/ # case in-sensitive; common text in start and end text
+    | parse @message /(?<@tbl1>(xxx))/
+    | parse @message /(?<@tbl2>(yyy))/
+    | parse @message /(?<@tbl3>(zzz))/
+    | field Concat(@tbl1,@tbl2,@tbl3) As tbl
+    | filter tbl like /(?i)(xxx|yyy|zzz)/ # case in-sensitive
+    | parse @log "*:*" As logNm,logPth
+    | stats earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by logPth,tbl
+    | field ((periodEndMs-periodStartMs)/1000) As periodInSec
+    | field periodInSec/60 As periodInMin
+    | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
+    | display logPth,periodStartTs,periodEndTs,periodInSec,periodInMin,tbl
+    | sort periodStartTs
+    
+Alternatives:
+  2a. Get average duration between start and stop (must have max of one run per start and stop per day)
+    2a1. see code below
+      xxx:fill in
+  2b. Get duration between start and stop for several days (must have max of one run per start and stop per day)
+    2b1. xxx:fill in
