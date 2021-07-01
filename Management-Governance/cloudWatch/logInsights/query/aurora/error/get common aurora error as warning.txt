@@ -1,0 +1,25 @@
+Get Common Aurora Error as Warning
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html
+  -By default, these messages are notes, but configurations may be able to be made in Aurora to make them into error type messages in the Aurora error log
+Main Success Scenario:
+  1. See code below
+
+    fields @message,@timestamp,@log
+    | filter @message like /(?i)\[WARNING\]/ # non-case sensitive filter
+    | parse @log "*:*" As logNm,logPth
+    # Attempted use of "secure_auth" system variable, ref @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_secure_auth
+    # This error can occur on server start up
+    | parse @message /(?<@wrn1>('--secure-auth' is deprecated))/ 
+    # ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
+    | parse @message /(?<@wrn2>(\"Lambda Function\" is not supported))/
+    # Backtrack was used when the feature is not avaiable on this version, ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html#AuroraMySQL.Managing.Backtrack.Overview
+    | parse @message /(?<@wrn3>(\"Backtrack\" is not supported))/
+    | parse @message /(?<@wrn4>(\"Performance Insights\" is not supported))/
+    # understand errors related to
+      # ref @ https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_slave_updates
+    | parse @message /(?<@wrnX>(xxx))/
+    | field Concat(@wrn1,@wrn2,@wrn3,@wrn4) As wrnType
+    | display logPth,@timestamp,wrnType,@message 
+    | sort @timestamp  
