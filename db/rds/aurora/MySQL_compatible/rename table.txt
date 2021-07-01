@@ -1,0 +1,9 @@
+Rename Table
+Note:
+  -Guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/rename-table.html
+Main Success Scenario:
+  1. see code below
+  
+    Use MyDB;
+    Rename Table My1stTbl to My2ndTbl;
