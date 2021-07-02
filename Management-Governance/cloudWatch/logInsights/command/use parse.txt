@@ -33,9 +33,9 @@ Pre-Conditions:
   -Understand common logged errors in Aurora
   -Understand your project specific logged errors in Aurora 
 Main Success Scenario:
-  1. Filter on xxx
-    xxx:fill in
-  2. xxx:fill in
+  1. Break up warning into UTC time stamp, Warning flag, and true message
+      full message in log record: 2020-03-22T23:45:52.496426Z 0 [Warning] My True message here
+      line in Log Insights query: parse @message "*[*]*" As tsUtc,wrnFlg,msg
 Alternatives:
   1a. xxx:fill in
     1a1. xxx:fill in
