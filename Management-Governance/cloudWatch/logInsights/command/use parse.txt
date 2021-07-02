@@ -3,4 +3,47 @@ Note:
   -Guidance @
     -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-examples.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. "Use Common Parse Template"
+  2. xxx:fill in
+  
+  
+Use Common Parse Template
+Main Success Scenario:
+  1. "Use Common Aurora Parse Template"
+Alternatives:
+  1a. "Use Common Glue Parse Template"
+  
+  
+Use Common Aurora Parse Template
+Main Success Scenario:
+  1. "Use Common Aurora Audit Parse Template"
+Alternatives:
+  1a. "Use Common Aurora Error Parse Template"
+  1b. "Use Common Aurora SlowQuery Parse Template"
+  1c. "Use Common Aurora General Parse Template"
+  
+  
+Use Common Aurora Audit Parse Template
+Main Success Scenario:
+  1. parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
+  
+  
+Use Common Aurora Error Parse Template
+Pre-Conditions:
+  -Understand common logged errors in Aurora
+  -Understand your project specific logged errors in Aurora 
+Main Success Scenario:
+  1. Filter on xxx
+    xxx:fill in
+  2. xxx:fill in
+Alternatives:
+  1a. xxx:fill in
+    1a1. xxx:fill in
+    1a2. xxx:fill in
+
+  
+Use Common Glue Parse Template
+Main Success Scenario:
+  1. "Use Common Glue Error Parse Template"
+Alternatives:
+  1a. "Use Common Glue Output Parse Template"
