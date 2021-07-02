@@ -1,0 +1,11 @@
+Use abs
+Pre-Conditions:
+  -A number is expected in the abs function
+Note:
+  -Guidance @
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html
+Main Success Scenario:
+  1. See the following line of code
+Alternatives:
+  1a. See absolute value of difference between two columns
+    1a1. | field abs(f3-f4) As absDiff
