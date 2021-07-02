@@ -4,3 +4,8 @@ Note:
     -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html#CWL_QuerySyntax-regex
 Main Success Scenario:
   1. xxx:fill in
+
+Do for:
+and
+or
+not
