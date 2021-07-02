@@ -7,11 +7,9 @@ Main Success Scenario:
 
 
 Do this for:
-=
-!=
-<
->
-<=
->=
-
-Does <> or == work?
++
+-
+*
+/
+^
+%
