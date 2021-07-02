@@ -2,7 +2,7 @@ Get Glue Error Count
 Main Success Scenario:
   1. See code below
     fields @message,@timestamp,@log
-    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | filter @message like /(?i) ERROR / # non-case sensitive filter, spaces needed on either side
     | parse @log "*:*" As logNm,logPth
     | stats count(*) as errCnt,earliest(@timestamp) As periodStartMs,latest(@timestamp) As periodEndMs by logPth
     | fields fromMillis(periodStartMs) As periodStartTs,fromMillis(periodEndMs) As periodEndTs
@@ -10,7 +10,7 @@ Main Success Scenario:
     | sort periodStartTs
   2. See the detail to understand the summary numbers above
     fields @message,@timestamp,@log
-    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | filter @message like /(?i) ERROR / # non-case sensitive filter, spaces needed on either side
     | parse @log "*:*" As logNm,logPth
     | display @timestamp,logPth,@message # msg varies too much to parse
     | sort @timestamp
@@ -26,7 +26,7 @@ Note:
 Main Success Scenario:
   1. See code below
     fields @message,@timestamp,@log
-    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | filter @message like /(?i) ERROR / # non-case sensitive filter, spaces needed on either side
     | parse @log "*:*" As logNm,logPth
     | parse @message /(?<@err1>(xxx))/
     | parse @message /(?<@err2>(yyy))/
@@ -42,7 +42,7 @@ Get Glue Error Detail with Categories
 Main Success Scenario:
   1. See code below
     fields @message,@timestamp,@log
-    | filter @message like /(?i)ERROR/ # non-case sensitive filter
+    | filter @message like /(?i) ERROR / # non-case sensitive filter, spaces needed on either side
     | parse @log "*:*" As logNm,logPth
     | parse @message /(?<@err1>(xxx))/
     | parse @message /(?<@err2>(yyy))/
