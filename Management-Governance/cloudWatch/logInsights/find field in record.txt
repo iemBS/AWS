@@ -1,0 +1,10 @@
+Find Field in Record
+Pre-Conditions:
+  -Does not include fields CloudWatch provides you
+    -noted @ https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html
+  -Looking for pre-defined fields that are in the message that is in a record that is in a log.
+Main Success Scenario:
+  1. Get field name prefixed with space, field name followed by colon & space, field value surrounded by single quotes
+    xxx:fill in
+Alternatives:
+  1a. xxx:fill in
