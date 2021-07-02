@@ -8,10 +8,13 @@ Note:
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html
 Main Success Scenario:
   1. DO NOT need to pull from S3 and insert into a table 
-  2. xxx:fill in
+  2. DO NOT need to use a replica server (except for auto scaling)
+  3. xxx:fill in 
 Alternatives:
   1a. Within a procedure, need to pull data from S3 and insert into a table 
     1a1. Use a dedicated server, ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.html
+  2a. Need to use a replica server
+    2a1. Use a dedicated server, ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations
 
 
   
