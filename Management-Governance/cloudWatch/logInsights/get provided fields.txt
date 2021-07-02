@@ -1,0 +1,8 @@
+Get Provided Fields
+Note:
+  -These are the fields that CloudWatch provides you. 
+  -These fields are prefixed with "@"
+  -These fields are noted @ https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html
+  -The fields provided depend on the AWS service used
+Main Success Scenario:
+  1. xxx:fill in
