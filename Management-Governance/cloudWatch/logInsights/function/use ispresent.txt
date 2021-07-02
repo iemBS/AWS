@@ -1,0 +1,11 @@
+Use ispresent 
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html
+    -https://stackoverflow.com/questions/56047913/how-to-filter-cloudwatch-log-insights-with-ispresent-function
+Main Success Scenario:
+  1. See if status field exists 
+    fields @timestamp, status | filter ispresent(status)
+Alternatives:
+  1a. See if status field does not exist
+    1a1. fields @timestamp, status | filter !ispresent(status)
