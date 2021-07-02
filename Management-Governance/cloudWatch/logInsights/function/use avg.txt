@@ -1,0 +1,7 @@
+Use avg
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html
+Main Success Scenario:
+  1. xxx:fill in
+  
