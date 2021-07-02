@@ -1,0 +1,16 @@
+Use Like
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html#CWL_QuerySyntax-regex
+Main Success Scenario:
+  1. Use a like 
+    filter f1 like /Exception/
+Alternatives:
+  1a. Use an operand for the like
+    1a1. filter f1 =~ /Exception/
+  1b. Make like use a substring match
+    1b1. filter f1 =~ "Exception"
+  1c. Make like non-case sensitive
+    1c1. filter f1 like /(?i)Exception/ 
+  1d. Make like look for exact value and is case sensitive 
+    1d1. fields f1, f2, f3 | filter f1 =~ /^(?i)Exception$/
