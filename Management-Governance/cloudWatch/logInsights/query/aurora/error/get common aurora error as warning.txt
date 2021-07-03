@@ -17,10 +17,36 @@ Main Success Scenario:
     | parse @message /(?<@wrn2>(\"Lambda Function\" is not supported))/
     # Backtrack was used when the feature is not avaiable on this version, ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html#AuroraMySQL.Managing.Backtrack.Overview
     | parse @message /(?<@wrn3>(\"Backtrack\" is not supported))/
+    # https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations
+    # performance_insights schema is not supported in serverless Aurora
     | parse @message /(?<@wrn4>(\"Performance Insights\" is not supported))/
-    # understand errors related to
-      # ref @ https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_slave_updates
-    | parse @message /(?<@wrnX>(xxx))/
-    | field Concat(@wrn1,@wrn2,@wrn3,@wrn4) As wrnType
-    | display logPth,@timestamp,wrnType,@message 
-    | sort @timestamp  
+    # https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting
+    # https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user
+    # MySQL 5.7 has "NO_AUTO_CREATE_USER" in the default value for sql_mode, but aurora has no default value for sql_mode
+    # Think the error occurs because the value is expected to be in the sql_mode system variable and it is not
+    | parse @message /(?<@wrn5>(\'NO_AUTO_CREATE_USER\' sql mode was not set))/
+    # https://dba.stackexchange.com/questions/185846/mysql-proxies-priv-ignored-in-skip-name-resolve-mode
+    | parse @message /(?<@wrn6>(\'user\' entry \'.*@.*\' ignored in --skip-name-resolve mode))/
+    # This is cert self signed by RDS. Self signing may allow for someone else to insert their certificate instead 
+    # https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_checksums
+    # Default value is ON in MySQL 5.7, but Aurora default and current value is OFF
+    # May be throwing warning because MySQL call ON a default, but Aurora sets the value to OFF. 
+    | parse @message /(?<@wrn8>(InnoDB: Setting innodb_checksums to OFF is DEPRECATED))/
+    # https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html
+    # https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html
+    # https://aws.amazon.com/rds/mysql/faqs/
+    # Run "SHOW ENGINES" in a MySQL query window to see if MyISAM is a supported engine
+    # Intrinsic temp tables are internal temp tables created by MySQL, ref @ https://dev.mysql.com/doc/refman/5.7/en/glossary.html
+    # Replicas are used with auto scaling. Replicas are read-only. Temp tables cannot be created on a read-only server. The "MyISAM" engine. 
+    | parse @message /(?<@wrn9>(Read-only servers cannot create intrinsic temp tables in InnoDB))/
+    # This warning message is similar to the one above, where those temp tables were created by MySQL and these temp tables are created by your code
+    | parse @message /(?<@wrn10>(Read-only servers cannot create temp tables in InnoDB))/
+    # https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_slave_updates
+    # https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-concepts.html
+    | parse @message /(?<@wrn11>(You need to use --log-bin to make --log-slave-updates work))/
+    | field Concat(@wrn1,@wrn2,@wrn3,@wrn4,@wrn5,@wrn6,@wrn7,@wrn8,@wrn9,@wrn10) As wrnType1
+    | field Concat(wrnType1,@wrn11) As wrnType
+    #| filter isblank(wrnType) # limit to non-typed warnings
+    | parse @message "*[*]*" As tsUtc,wrnFlg,msg # allows for sorting on true message
+    | display logPth,@timestamp,wrnType,msg
+    | sort @timestamp
