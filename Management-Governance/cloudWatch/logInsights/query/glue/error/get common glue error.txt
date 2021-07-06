@@ -1,5 +1,1 @@
-Get Common Glue Error
-Main Success Scenario:
-  1. See query below
-  
- xxx:fill in
+xxx:fill in
