@@ -1,0 +1,9 @@
+Allow for Auto Scaling
+Note:
+  -auto scaling for serverless v1 @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling
+  -use cases for serverless v1 @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.use-cases
+  -limitations for serverless v1 @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations
+  -limitations for serverless v2 @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-2.limitations.html
+  -auto scaling for serverless v2 @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-2.how-it-works.html#aurora-serverless-2.how-it-works.autoscaling
+Main Success Scenario:
+  1. xxx:fill in
