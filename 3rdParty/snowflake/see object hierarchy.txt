@@ -1,4 +1,18 @@
 See Object Hierarchy
+Note:
+  -Guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/create.html
+Main Success Scenario:
+  1. "See Account Level Objects"
+  2. "See Database Level Objects"
+
+
+See Account Level Objects
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+See Database Level Objects
 Main Success Scenario:
   1. See hierarchy
 
