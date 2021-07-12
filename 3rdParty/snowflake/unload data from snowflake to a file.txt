@@ -1,0 +1,7 @@
+Unload Data from Snowflake to a File
+Pre-Conditions:
+  -Cannot unload to AVRO, ORC, XML, standard JSON, or comma seperated JSON
+Note:
+  -Can unload to NDJSON, parquet (binary), and CSV (any variable can separate)
+Main Success Scenario:
+  1. xxx:fill in
