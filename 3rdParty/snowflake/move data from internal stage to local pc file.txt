@@ -1,4 +1,4 @@
-Move data from Internal Stage to Local PC
+Move data from Internal Stage to Local PC File
 Note:
   -Guidance @
     -https://docs.snowflake.com/en/sql-reference/sql/get.html
