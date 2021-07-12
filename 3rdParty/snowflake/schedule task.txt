@@ -1,1 +1,6 @@
-placeholder
+Schedule Task
+Note:
+  -Guidance @
+    -https://docs.snowflake.com/en/user-guide/tasks.html
+Main Success Scenario:
+  1. xxx:fill in
