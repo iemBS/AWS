@@ -1,0 +1,6 @@
+Link Tasks
+Note:
+  -Guidance @
+    -https://docs.snowflake.com/en/user-guide/tasks-intro.html#simple-tree-of-tasks
+Main Success Scenario:
+  1. xxx:fill in
