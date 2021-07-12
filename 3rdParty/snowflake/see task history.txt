@@ -1,0 +1,6 @@
+See Task History
+Note:
+  -Guidance @ 
+    -https://docs.snowflake.com/en/user-guide/tasks-intro.html#viewing-the-task-history-for-your-account
+Main Success Scenario:
+  1. xxx:fill in
