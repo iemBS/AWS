@@ -1,0 +1,6 @@
+How to Use Workgroup
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/athena/latest/ug/user-created-workgroups.html
+Main Success Scenario:
+  1. xxx:fill in
