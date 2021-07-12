@@ -1,3 +1,6 @@
 Create Internal Stage
+Note:
+  -Guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/create-stage.html#internal-stages
 Main Success Scenario:
   1. xxx:fill in
