@@ -1,0 +1,6 @@
+Secure Task
+Note:
+  -Guidance @ 
+    -https://docs.snowflake.com/en/user-guide/tasks-intro.html#task-security
+Main Success Scenario:
+  1. xxx:fill in
