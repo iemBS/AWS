@@ -1,0 +1,6 @@
+Change Data Retention Period
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/streams/latest/dev/kinesis-extended-retention.html
+Main Success Scenario:
+  1. xxx:fill in
