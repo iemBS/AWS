@@ -1,0 +1,6 @@
+Load Data from File Into Snowflake
+Note:
+  -Snowflake stores all data internally in the UTF-8 character set
+  -Data is converted into UTF-8 before it is loaded into Snowflake
+Main Success Scenario:
+  1. xxx:fill in
