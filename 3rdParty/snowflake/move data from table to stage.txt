@@ -1,0 +1,8 @@
+Move Data from Table to Stage
+Main Success Scenario:
+  1. See code below
+  
+    Copy Into
+      @Export_Internal_Stg/customer.csv.gz 
+    From
+      Snowflake_Sample_Data.Tpch_sf1.Customer;
