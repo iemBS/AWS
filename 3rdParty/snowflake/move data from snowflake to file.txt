@@ -1,4 +1,4 @@
-Unload Data from Snowflake to a File
+Move Data from Snowflake to File
 Pre-Conditions:
   -Cannot unload to AVRO, ORC, XML, standard JSON, or comma seperated JSON
 Note:
