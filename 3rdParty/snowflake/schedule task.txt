@@ -2,5 +2,6 @@ Schedule Task
 Note:
   -Guidance @
     -https://docs.snowflake.com/en/user-guide/tasks.html
+    -https://docs.snowflake.com/en/user-guide/tasks-intro.html#task-scheduling
 Main Success Scenario:
   1. xxx:fill in
