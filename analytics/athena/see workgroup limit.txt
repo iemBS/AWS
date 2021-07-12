@@ -1,0 +1,6 @@
+See Workgroup Limit
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/athena/latest/ug/user-created-workgroups.html#limitations-workgroups
+Main Success Scenario:
+  1. xxx:fill in
