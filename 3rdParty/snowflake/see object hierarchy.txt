@@ -1,0 +1,9 @@
+See Object Hierarchy
+Main Success Scenario:
+  1. See hierarchy
+
+    -pipe
+      -task tree
+        -task object (object = nm, warehouse, schedule, comment, query)
+          -task instance (state = suspended (default), started, scheduled, succeeded, xxx:fill in)
+      -stream
