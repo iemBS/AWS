@@ -1,0 +1,6 @@
+Alter Internal Stage
+Note:
+  -Guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/alter-stage.html#alter-stage
+Main Success Scenario:
+  1. xxx:fill in
