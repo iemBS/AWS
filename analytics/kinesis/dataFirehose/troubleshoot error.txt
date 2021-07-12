@@ -1,0 +1,6 @@
+Troubleshoot Error
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/firehose/latest/dev/troubleshooting.html#data-not-delivered-to-s3
+Main Success Scenario:
+  1. xxx:fill in
