@@ -1,0 +1,9 @@
+Move data from Internal Stage to Local PC
+Note:
+  -Guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/get.html
+  -GET does not support downloading files from external stages. 
+Main Success Scenario:
+  1. Download all files in the stage for the mytable table to the /tmp/data local directory (in a Linux or macOS environment):
+  
+    get @%mytable file:///tmp/data/;
