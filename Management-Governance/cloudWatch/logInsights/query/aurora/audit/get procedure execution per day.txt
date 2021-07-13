@@ -1,22 +1,28 @@
 Get Procedure Execution Per Day
 Pre-Conditions:
   -Replace "ProcName" with the procedure name
+  -Replace "SHIFT" with the time zone offset
+  -datetime value used in datefloor is a utc value. So, if we are displaying in local time, the timestamp must have the offset applied before the datefloor function and before displaying. 
 Main Success Scenario:
   1. See code below
   
     fields @message,@timestamp
-    | filter @message like ",QUERY," 
-    | filter @message like "ProcName("
+    | filter @message like /(?i),QUERY,/ # non-case sensitive filter
+    | filter @message like /(?i)ProcName\(/ # non-case sensitive filter
     # remove records that will return proc references that we do not want
-    | filter @message not like "'CREATE DEFINER=`"
-    | filter @message not like "'Drop Procedure "
-    | filter @message not like "'SHOW CREATE PROCEDURE `"
+    | filter @message not like /(?i)'CREATE DEFINER=`/ # non-case sensitive filter
+    | filter @message not like /(?i)'Drop Procedure / # non-case sensitive filter
+    | filter @message not like /(?i)'SHOW CREATE PROCEDURE `/ # non-case sensitive filter
     # get day of run
-    | field datefloor(@timestamp, 1day) As dy
+    | field SHIFT * 60 * 60 * 1000 As ShiftHrsInMs
+    | field toMillis(@timestamp) As utcTimestampInMs
+    | field fromMillis(utcTimestampInMs - ShiftHrsInMs) As localTimestamp # create local time value
+    | field datefloor(localTimestamp,1day) as localDay # applied on local time value
+    | field fromMillis(toMillis(localDay) + ShiftHrsInMs) As dy # convert to utc because display value will be auto converted to local time
     # parse record 
     | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
     # get runs per day
-    | stats count(*) as runCnt by dy
+    | stats count(*) as runCnt by dy,usr
     # display 
     | display dy,runCnt,usr
     | sort dy desc
@@ -24,18 +30,19 @@ Main Success Scenario:
  2. See detail for the above query
  
     fields @message,@timestamp
-    | filter @message like ",QUERY," 
-    | filter @message like "ProcName("
+    | filter @message like /(?i),QUERY,/ # non-case sensitive filter
+    | filter @message like /(?i)ProcName\(/ # non-case sensitive filter
     # remove records that will return proc references that we do not want
-    | filter @message not like "'CREATE DEFINER=`"
-    | filter @message not like "'Drop Procedure "
-    | filter @message not like "'SHOW CREATE PROCEDURE `"
+    | filter @message not like /(?i)'CREATE DEFINER=`/ # non-case sensitive filter
+    | filter @message not like /(?i)'Drop Procedure / # non-case sensitive filter
+    | filter @message not like /(?i)'SHOW CREATE PROCEDURE `/ # non-case sensitive filter
     # get day of run
-    | field datefloor(@timestamp, 1day) As dy
+    | field SHIFT * 60 * 60 * 1000 As ShiftHrsInMs
+    | field toMillis(@timestamp) As utcTimestampInMs
+    | field fromMillis(utcTimestampInMs - ShiftHrsInMs) As localTimestamp # create local time value
+    | field datefloor(localTimestamp,1day) as localDay # applied on local time value
+    | field fromMillis(toMillis(localDay) + ShiftHrsInMs) As dy # convert to utc because display value will be auto converted to local time
     # parse record 
     | parse @message "*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry
-    # get runs per day
-    | stats count(*) as runCnt by dy,qry
-    # display 
-    | display dy,runCnt,usr,qry
-    | sort dy desc,qry asc
+    | display @timestamp,dy,usr,db,qry
+    | sort @timestamp desc
