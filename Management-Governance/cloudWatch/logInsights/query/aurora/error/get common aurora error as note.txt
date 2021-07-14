@@ -3,6 +3,7 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html
   -By default, these messages are notes, but configurations may be able to be made in Aurora to make them into error type messages in the Aurora error log
+  -Rollbacks are flagged as notes, because they are an accepted path flow in MySQL
 Main Success Scenario:
   1. See code below
 
