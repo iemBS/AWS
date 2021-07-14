@@ -16,10 +16,27 @@ Main Success Scenario:
     # xxx:fill in
     | parse @message /(?<@nte3>(\[Note\] InnoDB: Completed initialization of buffer pool))/
     # xxx:fill in
-    | parse @message /(?<@nte4>(\[Note\] IPv6 is available))/
-      # create entry for: [Note] InnoDB: Rollback of trx with id 42960065 completed
+    | parse @message /(?<@nte4>(\[Note\] IPv6 is available))/ 
+    # xxx:fill in 
+    | parse @message /(?<@nte5>(\[Note\] InnoDB: Rollback of trx with id [0-9]*? completed))/
+    # xxx:fill in 
+    | parse @message /(?<@nte6>(\[Note\] InnoDB: Creating shared tablespace for temporary tables))/
+    # xxx:fill in
+    | parse @message /(?<@nte7>(\[Note\] InnoDB: Rollback of non-prepared transactions completed))/
+    # xxx:fill in
+    | parse @message /(?<@nte8>(\[Note\] InnoDB: page_cleaner worker priority: .*?))/
+    # xxx:fill in
+    | parse @message /(?<@nte9>(\[Note\] InnoDB: [0-9]*? transaction\(s\) which must be rolled back or cleaned up in total [0-9]*? row operations to undo))/
+    # xxx:fill in 
+    | parse @message /(?<@nte10>(\[Note\] InnoDB: .*? non-redo rollback segment\(s\) are active))/
+    # xxx:fill in 
+    | parse @message /(?<@nte11>(\[Note\] InnoDB: [0-9]*? redo rollback segment\(s\) found. [0-9]*? redo rollback segment\(s\) are active))/
+    # xxx:fill in 
+    | parse @message /(?<@nte12>(\[Note\] InnoDB: Initializing buffer pool, total size = .*?G, instances = .*?, chunk size = .*?G))/
     | parse @message /(?<@nteX>(xxx))/
-    | field Concat(@nte1,@nte2,@nte3,@nte4) As nteType
+    | field Concat(@nte1,@nte2,@nte3,@nte4,@nte5,@nte6,@nte7,@nte8,@nte9) As nteType1
+    | field Concat(nteType1,,@nt10,@nte11,@nte12) As nteType
     | filter isblank(nteType) # limit to non-typed notes
-    | display logPth,@timestamp,nteType,@message 
-    | sort @timestamp
+    | parse @message "*[*]*" As tsUtc,nteFlg,msg # allows for sorting on true message
+    | display logPth,@timestamp,nteType,msg 
+    | sort msg
