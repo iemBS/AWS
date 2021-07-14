@@ -9,7 +9,10 @@ Main Success Scenario:
     fields @message,@timestamp,@log
     | filter @message like /(?i)\[NOTE\]/ # non-case sensitive filter
     | parse @log "*:*" As logNm,logPth
-    # xxx:fill in
+    # Aborted connections are due to an unclean disconnection between the server and client. 
+    # https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html
+    # https://cloud.google.com/sql/docs/mysql/diagnose-issues#connection
+    # https://www.percona.com/blog/2016/05/16/mysql-got-an-error-reading-communication-packet-errors/
     | parse @message /(?<@nte1>(\[Note\] Aborted connection))/
     # https://dev.mysql.com/doc/refman/5.7/en/innodb-read-only-instance.html#:~:text=When%20the%20server%20is%20run,merges%20from%20the%20change%20buffer.&text=As%20a%20consequence%2C%20SHOW%20ENGINE,does%20not%20produce%20any%20output.
     | parse @message /(?<@nte2>(\[Note\] InnoDB: Started in read only mode))/
@@ -17,9 +20,10 @@ Main Success Scenario:
     | parse @message /(?<@nte3>(\[Note\] InnoDB: Completed initialization of buffer pool))/
     # xxx:fill in
     | parse @message /(?<@nte4>(\[Note\] IPv6 is available))/ 
-    # xxx:fill in 
+    # Indicates the rollback of a transaction has been completed. The start of the transaction should be findable using the transaction id
     | parse @message /(?<@nte5>(\[Note\] InnoDB: Rollback of trx with id [0-9]*? completed))/
-    # xxx:fill in 
+    # Non-compressed, user-created temporary tables and on-disk internal temporary tables are created in a shared temporary tablespace
+    # https://dev.mysql.com/doc/refman/5.7/en/innodb-temporary-tablespace.html
     | parse @message /(?<@nte6>(\[Note\] InnoDB: Creating shared tablespace for temporary tables))/
     # xxx:fill in
     | parse @message /(?<@nte7>(\[Note\] InnoDB: Rollback of non-prepared transactions completed))/
