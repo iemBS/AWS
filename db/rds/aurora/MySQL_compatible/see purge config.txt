@@ -1,0 +1,5 @@
+See Purge Config
+Note:
+  -https://dev.mysql.com/doc/refman/5.7/en/innodb-purge-configuration.html
+Main Success Scenario:
+  1. xxx:fill in
