@@ -1,0 +1,4 @@
+See MySQL Source Code
+Main Success Scenario:
+  1. Get latest @ https://dev.mysql.com/doc/dev/mysql-server/latest/os0atomic_8h_source.html
+  1. Get latest & past versions @ https://github.com/mysql/mysql-server
