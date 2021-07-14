@@ -1,5 +1,6 @@
 Create General Tablespace
 Note:
   -https://dev.mysql.com/doc/refman/5.7/en/create-tablespace.html
+  -general tablespace ref @ https://dev.mysql.com/doc/refman/5.7/en/innodb-tablespace.html
 Main Success Scenario:
   1. xxx:fill in
