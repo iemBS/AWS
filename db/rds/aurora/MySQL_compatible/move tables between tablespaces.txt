@@ -1,0 +1,5 @@
+Move Tables between Tablespaces
+Note:
+  -https://dev.mysql.com/doc/refman/5.7/en/general-tablespaces.html#general-tablespaces-moving-non-partitioned-tables
+Main Success Scenario:
+  1. xxx:Fill in
