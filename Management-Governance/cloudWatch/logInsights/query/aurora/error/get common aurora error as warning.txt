@@ -38,14 +38,15 @@ Main Success Scenario:
     # Run "SHOW ENGINES" in a MySQL query window to see if MyISAM is a supported engine
     # Intrinsic temp tables are internal temp tables created by MySQL, ref @ https://dev.mysql.com/doc/refman/5.7/en/glossary.html
     # Replicas are used with auto scaling. Replicas are read-only. Temp tables cannot be created on a read-only server. The "MyISAM" engine. 
-    | parse @message /(?<@wrn9>(Read-only servers cannot create intrinsic temp tables in InnoDB))/
-    # This warning message is similar to the one above, where those temp tables were created by MySQL and these temp tables are created by your code
-    | parse @message /(?<@wrn10>(Read-only servers cannot create temp tables in InnoDB))/
+    # Similar warnings exist where those temp tables are created by your code
+    | parse @message /(?<@wrn9>(Read-only servers cannot create .*?temp tables in InnoDB))/
     # https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_slave_updates
     # https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-concepts.html
     | parse @message /(?<@wrn11>(You need to use --log-bin to make --log-slave-updates work))/
-    | field Concat(@wrn1,@wrn2,@wrn3,@wrn4,@wrn5,@wrn6,@wrn7,@wrn8,@wrn9,@wrn10) As wrnType1
-    | field Concat(wrnType1,@wrn11) As wrnType
+    # xxx:fill in
+    | parse @message /(?<@wrn12>(InnoDB: Allocated tablespace ID [0-9]+ for .*?, old maximum was 0))/
+    | field Concat(@wrn1,@wrn2,@wrn3,@wrn4,@wrn5,@wrn6,@wrn8,@wrn9) As wrnType1
+    | field Concat(wrnType1,@wrn11,@wrn12) As wrnType
     #| filter isblank(wrnType) # limit to non-typed warnings
     | parse @message "*[*]*" As tsUtc,wrnFlg,msg # allows for sorting on true message
     | display logPth,@timestamp,wrnType,msg
