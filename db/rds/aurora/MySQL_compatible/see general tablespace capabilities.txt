@@ -1,0 +1,5 @@
+See General Tablespace Capabilities
+Note:
+  -https://dev.mysql.com/doc/refman/5.7/en/general-tablespaces.html#general-tablespaces-capabilities
+Main Success Scenario:
+  1. xxx:fill in
