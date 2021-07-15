@@ -16,32 +16,46 @@ Main Success Scenario:
     # https://www.percona.com/blog/2016/05/16/mysql-got-an-error-reading-communication-packet-errors/
     | parse @message /(?<@nte1>(\[Note\] Aborted connection))/
     # https://dev.mysql.com/doc/refman/5.7/en/innodb-read-only-instance.html#:~:text=When%20the%20server%20is%20run,merges%20from%20the%20change%20buffer.&text=As%20a%20consequence%2C%20SHOW%20ENGINE,does%20not%20produce%20any%20output.
-    | parse @message /(?<@nte2>(\[Note\] InnoDB: Started in read only mode))/
+    | parse @message /(?<@nte2>(InnoDB: Started in read only mode))/
     # xxx:fill in
-    | parse @message /(?<@nte3>(\[Note\] InnoDB: Completed initialization of buffer pool))/
+    | parse @message /(?<@nte3>(InnoDB: Completed initialization of buffer pool))/
     # xxx:fill in
     | parse @message /(?<@nte4>(\[Note\] IPv6 is available))/ 
     # Indicates the rollback of a transaction has been completed. The start of the transaction should be findable using the transaction id
-    | parse @message /(?<@nte5>(\[Note\] InnoDB: Rollback of trx with id [0-9]*? completed))/
+    | parse @message /(?<@nte5>(InnoDB: Rollback of trx with id [0-9]*? completed))/
     # Non-compressed, user-created temporary tables and on-disk internal temporary tables are created in a shared temporary tablespace
     # https://dev.mysql.com/doc/refman/5.7/en/innodb-temporary-tablespace.html
-    | parse @message /(?<@nte6>(\[Note\] InnoDB: Creating shared tablespace for temporary tables))/
+    | parse @message /(?<@nte6>(InnoDB: Creating shared tablespace for temporary tables))/
     # xxx:fill in
-    | parse @message /(?<@nte7>(\[Note\] InnoDB: Rollback of non-prepared transactions completed))/
+    | parse @message /(?<@nte7>(InnoDB: Rollback of non-prepared transactions completed))/
     # xxx:fill in
-    | parse @message /(?<@nte8>(\[Note\] InnoDB: page_cleaner worker priority: .*?))/
+    | parse @message /(?<@nte8>(InnoDB: page_cleaner worker priority: .*?))/
     # xxx:fill in
-    | parse @message /(?<@nte9>(\[Note\] InnoDB: [0-9]*? transaction\(s\) which must be rolled back or cleaned up in total [0-9]*? row operations to undo))/
+    | parse @message /(?<@nte9>(InnoDB: [0-9]*? transaction\(s\) which must be rolled back or cleaned up in total [0-9]*? row operations to undo))/
     # xxx:fill in 
-    | parse @message /(?<@nte10>(\[Note\] InnoDB: .*? non-redo rollback segment\(s\) are active))/
+    | parse @message /(?<@nte10>(InnoDB: [0-9]*? non-redo rollback segment\(s\) are active))/
     # xxx:fill in 
-    | parse @message /(?<@nte11>(\[Note\] InnoDB: [0-9]*? redo rollback segment\(s\) found. [0-9]*? redo rollback segment\(s\) are active))/
+    | parse @message /(?<@nte11>(InnoDB: [0-9]*? redo rollback segment\(s\) found. [0-9]*? redo rollback segment\(s\) are active))/
     # xxx:fill in 
-    | parse @message /(?<@nte12>(\[Note\] InnoDB: Initializing buffer pool, total size = .*?G, instances = .*?, chunk size = .*?G))/
+    | parse @message /(?<@nte12>(InnoDB: Initializing buffer pool, total size = .*?G, instances = .*?, chunk size = .*?G))/
+    # xxx
+    | parse @message /(?<@nte13>(InnoDB: File '\.\/ibtmp1' size is now [0-9]*? MB))/
+    # xxx
+    | parse @message /(?<@nte14>(InnoDB: Rolling back trx with id [0-9]*?, [0-9]*? rows to undo InnoDB: Progress in percents))/
+    # xxx
+    | parse @message /(?<@nte15>(InnoDB: Rolling back trx with id [0-9]*?, [0-9]*? rows to undo [0-9]*?))/
+    # xxx
+    | parse @message /(?<@nte16>(InnoDB: Setting file '\.\/ibtmp1' size to [0-9]*? MB\. Physically writing the file full\.))/
+    # xxx
+    | parse @message /(?<@nte17>(InnoDB: Starting in background the rollback of uncommitted transactions))/
+    # xxx
+    | parse @message /(?<@nte18>(InnoDB: Trx id counter is [0-9]*?))/
+    # xxx
+    | parse @message /(?<@nte19>(InnoDB: Waiting for purge to start))/
     | parse @message /(?<@nteX>(xxx))/
-    | field Concat(@nte1,@nte2,@nte3,@nte4,@nte5,@nte6,@nte7,@nte8,@nte9) As nteType1
-    | field Concat(nteType1,,@nt10,@nte11,@nte12) As nteType
-    | filter isblank(nteType) # limit to non-typed notes
+    | field Concat(@nte1,@nte2,@nte3,@nte4,@nte5,@nte6,@nte7,@nte8,@nte9,@nt10) As nteType1
+    | field Concat(nteType1,@nte11,@nte12,@nte13,@nte14,@nte15,@nte16,@nte17,@nte18,@nte19) As nteType
+    #| filter isblank(nteType) # limit to non-typed notes
     | parse @message "*[*]*" As tsUtc,nteFlg,msg # allows for sorting on true message
     | display logPth,@timestamp,nteType,msg 
     | sort msg
