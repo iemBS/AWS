@@ -1,0 +1,10 @@
+Get Server Start Error
+Note:
+  -source code class that starts the InnoDB server @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/srv/srv0start.cc
+Main Success Scenario:
+  1. xxx:fill in 
+Alternatives:
+  1a. error as warning
+    1a1. xxx:fill in
+  1b. error as note
+    1b1. xxx:fill in
