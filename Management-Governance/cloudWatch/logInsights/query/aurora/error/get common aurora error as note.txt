@@ -52,10 +52,14 @@ Main Success Scenario:
     | parse @message /(?<@nte18>(InnoDB: Trx id counter is [0-9]*?))/
     # xxx
     | parse @message /(?<@nte19>(InnoDB: Waiting for purge to start))/
+    # Msg may be due to the underlying Linux file system supporting PUNCH HOLE
+    # https://dev.mysql.com/doc/refman/5.7/en/innodb-page-compression.html
+    | parse @message /(?<@nte20>(InnoDB: PUNCH HOLE support not available))/
     | parse @message /(?<@nteX>(xxx))/
     | field Concat(@nte1,@nte2,@nte3,@nte4,@nte5,@nte6,@nte7,@nte8,@nte9,@nt10) As nteType1
-    | field Concat(nteType1,@nte11,@nte12,@nte13,@nte14,@nte15,@nte16,@nte17,@nte18,@nte19) As nteType
-    #| filter isblank(nteType) # limit to non-typed notes
+    | field Concat(nteType1,@nte11,@nte12,@nte13,@nte14,@nte15,@nte16,@nte17,@nte18,@nte19) As nteType2
+    | field Concat(nteType2,@nte20) As nteType
+    | filter isblank(nteType) # limit to non-typed notes
     | parse @message "*[*]*" As tsUtc,nteFlg,msg # allows for sorting on true message
     | display logPth,@timestamp,nteType,msg 
     | sort msg
