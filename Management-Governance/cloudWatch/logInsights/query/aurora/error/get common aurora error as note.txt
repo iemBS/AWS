@@ -29,7 +29,8 @@ Main Success Scenario:
     # Indicates the rollback of a transaction has been completed. The start of the transaction should be findable using the transaction id
     | parse @message /(?<@nte5>(InnoDB: Rollback of trx with id [0-9]*? completed))/
     # Non-compressed, user-created temporary tables and on-disk internal temporary tables are created in a shared temporary tablespace.
-    # Temporary tablespace is stored in the file with the "ibtmp1" extension 
+    # Temporary tablespace is stored in the "ibtmp1" file 
+    # When "ibtmp1" file is auto extended, it stays at its extended size until the server is restarted
     # Message shows at server start
     # https://dev.mysql.com/doc/refman/5.7/en/innodb-temporary-tablespace.html
     # Triggered in "srv_open_tmp_tablespace" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/srv/srv0start.cc
@@ -53,7 +54,9 @@ Main Success Scenario:
     | parse @message /(?<@nte11>(InnoDB: [0-9]*? redo rollback segment\(s\) found. [0-9]*? redo rollback segment\(s\) are active))/
     # Message triggered in "srv_start" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/srv/srv0start.cc
     | parse @message /(?<@nte12>(InnoDB: Initializing buffer pool, total size = .*?G, instances = .*?, chunk size = .*?G))/
-    # File with the "ibtmp1" extension holds the temporary tablespace
+    # "ibtmp1" file holds the temporary tablespace
+    # There is one "ibtmp1" file per server 
+    # When "ibtmp1" file is auto extended, it stays at its extended size until the server is restarted
     # "size is now" message generated in source code at https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/fsp/fsp0sysspace.cc
     | parse @message /(?<@nte13>(InnoDB: File '\.\/ibtmp1' size is now [0-9]*? MB))/
     # Rolling back a transaction and indicating how many rows to rollback
@@ -61,7 +64,9 @@ Main Success Scenario:
     | parse @message /(?<@nte14>(InnoDB: Rolling back trx with id [0-9]*?, [0-9]*? rows to undo InnoDB: Progress in percents))/
     # xxx
     | parse @message /(?<@nte15>(InnoDB: Rolling back trx with id [0-9]*?, [0-9]*? rows to undo [0-9]*?))/
-    # File with the "ibtmp1" extension holds the temporary tablespace
+    # "ibtmp1" file holds the temporary tablespace
+    # There is one "ibtmp1" file per server 
+    # When "ibtmp1" file is auto extended, it stays at its extended size until the server is restarted
     # Message triggered in "set_size" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/fsp/fsp0sysspace.cc
     # "set_size" function fills file with zeros
     | parse @message /(?<@nte16>(InnoDB: Setting file '\.\/ibtmp1' size to [0-9]*? MB\. Physically writing the file full\.))/
