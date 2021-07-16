@@ -42,13 +42,15 @@ Main Success Scenario:
     # This and the "Trx id counter is" message are called when a database is started. Both messages occur in a function that creates and initializes the central memory structures for the transaction system.
     # https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/trx/trx0sys.cc
     | parse @message /(?<@nte9>(InnoDB: [0-9]*? transaction\(s\) which must be rolled back or cleaned up in total [0-9]*? row operations to undo))/
-    # xxx:fill in 
+    # Non-redo rollback segments are used for temp tables. Noted in "trx_undo_prev_version_build" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/trx/trx0rec.cc
+    # These will NOT be kept or rolled back
     | parse @message /(?<@nte10>(InnoDB: [0-9]*? non-redo rollback segment\(s\) are active))/
-    # xxx:fill in 
+    # Redo rollback segments are used for non-temp tables. Noted in "trx_undo_prev_version_build" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/trx/trx0rec.cc
+    # MySQL will try to roll these back
     | parse @message /(?<@nte11>(InnoDB: [0-9]*? redo rollback segment\(s\) found. [0-9]*? redo rollback segment\(s\) are active))/
     # xxx:fill in 
     | parse @message /(?<@nte12>(InnoDB: Initializing buffer pool, total size = .*?G, instances = .*?, chunk size = .*?G))/
-    # File with the "ibtmp1" extension hold the temporary tablespace
+    # File with the "ibtmp1" extension holds the temporary tablespace
     # "size is now" message generated in source code at https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/fsp/fsp0sysspace.cc
     | parse @message /(?<@nte13>(InnoDB: File '\.\/ibtmp1' size is now [0-9]*? MB))/
     # Rolling back a transaction and indicating how many rows to rollback
@@ -56,13 +58,10 @@ Main Success Scenario:
     | parse @message /(?<@nte14>(InnoDB: Rolling back trx with id [0-9]*?, [0-9]*? rows to undo InnoDB: Progress in percents))/
     # xxx
     | parse @message /(?<@nte15>(InnoDB: Rolling back trx with id [0-9]*?, [0-9]*? rows to undo [0-9]*?))/
-    # xxx
+    # File with the "ibtmp1" extension holds the temporary tablespace
     | parse @message /(?<@nte16>(InnoDB: Setting file '\.\/ibtmp1' size to [0-9]*? MB\. Physically writing the file full\.))/
     # Error message occurs in the "trx_rollback_or_clean_recovered" function in the source code. 
-    # What "trx_rollback_or_clean_recovered" function does: Rollback or clean up any incomplete transactions which were
- encountered in crash recovery.  If the transaction already was
- committed, then we clean up a possible insert undo log. If the
- transaction was not yet committed, then we roll it back.
+    # What "trx_rollback_or_clean_recovered" function does: Rollback or clean up any incomplete transactions which were encountered in crash recovery.  If the transaction already was committed, then we clean up a possible insert undo log. If the transaction was not yet committed, then we roll it back.
     # https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/trx/trx0roll.cc
     | parse @message /(?<@nte17>(InnoDB: Starting in background the rollback of uncommitted transactions))/
     # Latest transaction number 
