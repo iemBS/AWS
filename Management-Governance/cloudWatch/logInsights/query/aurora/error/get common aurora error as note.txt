@@ -72,13 +72,18 @@ Main Success Scenario:
     # Message triggered by "srv_start_wait_for_purge_to_start" function in https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/srv/srv0start.cc
     | parse @message /(?<@nte19>(InnoDB: Waiting for purge to start))/
     # Msg may be due to the underlying Linux file system NOT supporting PUNCH HOLE
+    # This appears to be a build issue found in 2015 and the MySQL team is not willing to fix. 
     # https://dev.mysql.com/doc/refman/5.7/en/innodb-page-compression.html
+    # https://bugs.mysql.com/bug.php?id=77974
     | parse @message /(?<@nte20>(InnoDB: PUNCH HOLE support not available))/
+    # Always shows at server start
+    # https://bugs.mysql.com/bug.php?id=80248
+    | parse @message /(?<@nte21>(InnoDB: Number of pools: .*?))/
     | parse @message /(?<@nteX>(xxx))/
     | field Concat(@nte1,@nte2,@nte3,@nte4,@nte5,@nte6,@nte7,@nte8,@nte9,@nt10) As nteType1
     | field Concat(nteType1,@nte11,@nte12,@nte13,@nte14,@nte15,@nte16,@nte17,@nte18,@nte19) As nteType2
-    | field Concat(nteType2,@nte20) As nteType
-    | filter isblank(nteType) # limit to non-typed notes
+    | field Concat(nteType2,@nte20,@nte21) As nteType
+    #| filter isblank(nteType) # limit to non-typed notes
     | parse @message "*[*]*" As tsUtc,nteFlg,msg # allows for sorting on true message
     | display logPth,@timestamp,nteType,msg 
     | sort msg
