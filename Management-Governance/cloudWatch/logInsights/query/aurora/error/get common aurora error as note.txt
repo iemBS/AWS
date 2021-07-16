@@ -29,7 +29,9 @@ Main Success Scenario:
     | parse @message /(?<@nte5>(InnoDB: Rollback of trx with id [0-9]*? completed))/
     # Non-compressed, user-created temporary tables and on-disk internal temporary tables are created in a shared temporary tablespace.
     # Temporary tablespace is stored in the file with the "ibtmp1" extension 
+    # Message shows at server start
     # https://dev.mysql.com/doc/refman/5.7/en/innodb-temporary-tablespace.html
+    # Triggered in "srv_open_tmp_tablespace" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/srv/srv0start.cc
     | parse @message /(?<@nte6>(InnoDB: Creating shared tablespace for temporary tables))/
     # A non-prepared transaction may be refering to an XA transaction that is not in the PREPARED state
     # https://dev.mysql.com/doc/refman/5.7/en/xa.html
