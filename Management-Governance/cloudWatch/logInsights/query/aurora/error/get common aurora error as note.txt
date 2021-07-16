@@ -96,10 +96,13 @@ Main Success Scenario:
     # Message triggered by "srv_start" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/srv/srv0start.cc
     # This message is seen in the server start
     | parse @message /(?<@nte22>(InnoDB: Compressed tables use zlib .*?))/
+    # Messaged triggered in "srv_start" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/srv/srv0start.cc
+    # Message occurrs at server start only, when the server is set to read-only
+    | parse @message /(?<@nte23>(InnoDB: Disabling background log and ibuf IO write threads))/
     | parse @message /(?<@nteX>(xxx))/
     | field Concat(@nte1,@nte2,@nte3,@nte4,@nte5,@nte6,@nte7,@nte8,@nte9,@nt10) As nteType1
     | field Concat(nteType1,@nte11,@nte12,@nte13,@nte14,@nte15,@nte16,@nte17,@nte18,@nte19) As nteType2
-    | field Concat(nteType2,@nte20,@nte21,@nte22) As nteType
+    | field Concat(nteType2,@nte20,@nte21,@nte22,@nte23) As nteType
     #| filter isblank(nteType) # limit to non-typed notes
     | parse @message "*[*]*" As tsUtc,nteFlg,msg # allows for sorting on true message
     | display logPth,@timestamp,nteType,msg 
