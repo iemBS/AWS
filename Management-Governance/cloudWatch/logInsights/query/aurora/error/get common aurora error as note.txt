@@ -15,6 +15,7 @@ Main Success Scenario:
     # https://cloud.google.com/sql/docs/mysql/diagnose-issues#connection
     # https://www.percona.com/blog/2016/05/16/mysql-got-an-error-reading-communication-packet-errors/
     | parse @message /(?<@nte1>(\[Note\] Aborted connection))/
+    # Message occurs at server start. This is not found in the MySQL source code. 
     # https://dev.mysql.com/doc/refman/5.7/en/innodb-read-only-instance.html#:~:text=When%20the%20server%20is%20run,merges%20from%20the%20change%20buffer.&text=As%20a%20consequence%2C%20SHOW%20ENGINE,does%20not%20produce%20any%20output.
     | parse @message /(?<@nte2>(InnoDB: Started in read only mode))/
     # Buffer initialiation occurs at server start up
