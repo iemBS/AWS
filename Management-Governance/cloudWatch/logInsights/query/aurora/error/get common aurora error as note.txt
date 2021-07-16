@@ -51,7 +51,7 @@ Main Success Scenario:
     # Redo rollback segments are used for non-temp tables. Noted in "trx_undo_prev_version_build" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/trx/trx0rec.cc
     # MySQL will try to roll these back
     | parse @message /(?<@nte11>(InnoDB: [0-9]*? redo rollback segment\(s\) found. [0-9]*? redo rollback segment\(s\) are active))/
-    # xxx:fill in 
+    # Message triggered in "srv_start" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/srv/srv0start.cc
     | parse @message /(?<@nte12>(InnoDB: Initializing buffer pool, total size = .*?G, instances = .*?, chunk size = .*?G))/
     # File with the "ibtmp1" extension holds the temporary tablespace
     # "size is now" message generated in source code at https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/fsp/fsp0sysspace.cc
