@@ -62,6 +62,8 @@ Main Success Scenario:
     # xxx
     | parse @message /(?<@nte15>(InnoDB: Rolling back trx with id [0-9]*?, [0-9]*? rows to undo [0-9]*?))/
     # File with the "ibtmp1" extension holds the temporary tablespace
+    # Message triggered in "set_size" function @ https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/fsp/fsp0sysspace.cc
+    # "set_size" function fills file with zeros
     | parse @message /(?<@nte16>(InnoDB: Setting file '\.\/ibtmp1' size to [0-9]*? MB\. Physically writing the file full\.))/
     # Error message occurs in the "trx_rollback_or_clean_recovered" function in the source code. 
     # What "trx_rollback_or_clean_recovered" function does: Rollback or clean up any incomplete transactions which were encountered in crash recovery.  If the transaction already was committed, then we clean up a possible insert undo log. If the transaction was not yet committed, then we roll it back.
