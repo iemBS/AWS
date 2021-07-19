@@ -47,3 +47,8 @@ Main Success Scenario:
   1. "Use Common Glue Error Parse Template"
 Alternatives:
   1a. "Use Common Glue Output Parse Template"
+
+
+Use Common Glue Error Parse Template
+Main Success Scenario:
+  1. xxx
