@@ -1,16 +1,19 @@
 Get Ignored Glue Message
 Main Success Scenario:
   1. See code below
-fields @timestamp, @message
-# get info/note
-| filter @message not like /(?i)(^INFO)/ and 
+  
+fields @message,@timestamp,@log
+| filter 
+         # info/note
+         @message not like /(?i)(^INFO)/ and 
          @message not like /(?i)( INFO )/ and
-         # get warning
+         # warning
          @message not like /(?i)(^WARN)/ and 
          @message not like /(?i)(^WARNING:)/ and
          @message not like /(?i)( WARN )/ and 
          @message not like /(?i)( WARNING )/ and 
-         # get error 
+         # error 
          @message not like /(?i)( ERROR )/ and
          @message not like /(?i)(\.err\.)/
-| display @timestamp,@message
+| parse @log "*:*" As ts,logPth
+| display @timestamp,logPth,@message
