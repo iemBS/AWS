@@ -1,1 +1,25 @@
-xxx:fill in
+Get Common Glue Warning
+Main Success Scenario:
+  1. see code below 
+
+fields @message,@timestamp,@log
+| filter 
+         @message like /(?i)(^WARN\s)/ or 
+         @message like /(?i)(^WARNING:\s)/ or
+         @message like /(?i)(\sWARN\s)/ or 
+         @message like /(?i)(\sWARNING\s)/ 
+| filter 
+         # ignore common glue warning
+         @message not like /(?i)(Glue ETL Marketplace)/ and 
+         @message not like /(?i)(utils.ApacheUtils)/ and 
+         @message not like /(?i)(nio.NioEventLoop)/ and  
+         @message not like /(?i)(netty.Dispatcher)/
+| parse @message /(?<@wrn1>(^WARN\s))/ 
+| parse @message /(?<@wrn2>(^WARNING:\s))/ 
+| parse @message /(?<@wrn3>(\sWARN\s))/ 
+| parse @message /(?<@wrn4>(\sWARNING\s))/ 
+| field Concat(@wrn1,@wrn2,@wrn3,@wrn4) As wrnTyp
+| parse @log "*:*" As ts,logPth
+#| parse @message "*-*-* *:*:*,* * *)):*" As yr,mth,dy,hr,mn,s,ms,msgTyp,errPos,msg
+| display wrnTyp,@timestamp,logPth,@message
+| sort @message
