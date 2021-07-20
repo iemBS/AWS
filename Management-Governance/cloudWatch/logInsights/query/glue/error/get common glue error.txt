@@ -1,1 +1,12 @@
-xxx:fill in
+Get Common Glue Error
+Main Success Scenario:
+  1. see code below 
+  
+fields @message,@timestamp,@log
+| filter 
+         @message like /(?i)( ERROR )/ or
+         @message like /(?i)(\.err\.)/
+| parse @log "*:*" As ts,logPth
+| parse @message "*-*-* *:*:*,* * *)):*" As yr,mth,dy,hr,mn,s,ms,msgTyp,errPos,msg
+| filter msg like /(?i)ERROR/ # non-case sensitive filter
+| display @timestamp,logPth,msg
