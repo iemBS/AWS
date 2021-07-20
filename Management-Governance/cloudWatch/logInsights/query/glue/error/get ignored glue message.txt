@@ -1,0 +1,16 @@
+Get Ignored Glue Message
+Main Success Scenario:
+  1. See code below
+fields @timestamp, @message
+# get info/note
+| filter @message not like /(?i)(^INFO)/ and 
+         @message not like /(?i)( INFO )/ and
+         # get warning
+         @message not like /(?i)(^WARN)/ and 
+         @message not like /(?i)(^WARNING:)/ and
+         @message not like /(?i)( WARN )/ and 
+         @message not like /(?i)( WARNING )/ and 
+         # get error 
+         @message not like /(?i)( ERROR )/ and
+         @message not like /(?i)(\.err\.)/
+| display @timestamp,@message
