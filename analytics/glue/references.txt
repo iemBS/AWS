@@ -1,3 +1,4 @@
 https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
+https://spark.apache.org/docs/latest/api/java/index-all.html
 https://stackoverflow.com/questions/54094382/aws-gluecontext-read-doesnt-allow-a-sql-query
 https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-pyspark-extensions-glue-context.html
