@@ -1,0 +1,153 @@
+Get Common Glue Info
+Note:
+  -guidance @ 
+    -https://github.com/apache/spark
+    -https://spark.apache.org/docs
+  -Spark references
+    -ACL @ https://spark.apache.org/docs/2.3.1/security.html
+    -SchedulerBackend @ https://spark.apache.org/docs/latest/api/java/org/apache/spark/scheduler/package-summary.html
+    -MapOutputTracker @ https://spark.apache.org/docs/1.2.1/api/java/org/apache/spark/MapOutputTracker.html
+    -MemoryStore @ https://spark.apache.org/docs/1.2.1/api/java/org/apache/spark/storage/MemoryStore.html
+    -OutputCommitCoordinator @ https://spark.apache.org/docs/1.3.1/api/java/org/apache/spark/scheduler/OutputCommitCoordinator.html
+    -driver @ https://spark.apache.org/docs/latest/cluster-overview.html
+    -NettyBlockTransferService @ https://spark.apache.org/docs/1.3.0/api/java/org/apache/spark/SecurityManager.html
+    -DAGScheduler @ https://spark.apache.org/docs/1.2.1/api/java/org/apache/spark/scheduler/DAGScheduler.html
+    -StateStoreCoodinator @ https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/execution/streaming/state/StateStoreCoordinator.scala
+  -JES for IBM means job entry subsystem. JES there is meant to receive jobs into the operating system, to schedule them for processing by OS, and to control their output processing.
+    -ref @ https://www.ibm.com/docs/en/zos-basic-skills?topic=jobs-what-is-jes
+  -https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html
+Main Success Scenario:
+  1. See code below (This query is too big to run in Log insights. So, use uncommented shortcut filters instead.)
+  
+fields @message,@timestamp,@log
+| filter 
+         @message like /(?i)(^INFO\s)/ or 
+         @message like /(?i)(\sINFO\s)/ 
+| filter 
+         # *ignore common glue notes*
+         # glue
+         @message not like /(?i)(GlueMetrics not configured)/ and
+         @message not like /(?i)(Glue ETL Marketplace)/ and 
+         @message not like /(?i)(Configuring Proxy\. Proxy Host: [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3} Proxy Port: [0-9]{1,5})/ and 
+         @message not like /(?i)(polling for JES task status)/ and 
+         @message not like /(?i)(JESSchedulerBackend)/ and  
+         @message not like /(?i)(postprocessing)/ and 
+         # spark
+         @message not like /(?i)(Migrated [0-9]*? channel\(s\) to the new Selector)/ and  
+         @message not like /(?i)(Started daemon with process name)/ and 
+         @message not like /(?i)(Shutdown hook called)/ and 
+         @message not like /(?i)(Fetching spark:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5}\/files\/site-packages.zip to \/tmp\/spark-.*?\.tmp)/ and
+         @message not like /(?i)(Fetching spark:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5}\/files\/site-packages.zip with timestamp [0-9]{11})/ and
+         @message not like /(?i)(Added file site-packages.zip at spark:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5}\/files\/site-packages\.zip with timestamp [0-9]{11})/ and
+         @message not like /(?i)(Copying \/tmp\/site-packages\.zip to)/ and 
+         @message not like /(?i)(Running Spark version)/ and 
+         @message not like /(?i)(: Copying \/tmp\/spark-.*?_cache to \/tmp\/\.\/site-packages\.zip)/ and 
+         @message not like /(?i)(Setting hive\.metastore\.warehouse\.dir \('null'\) to the value of spark\.sql\.warehouse\.dir \('file:\/tmp\/spark-warehouse'\))/ and 
+         @message not like /(?i)(Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy)/ and
+         @message not like /(?i)(Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information)/ and 
+         @message not like /(?i)(Registering MapOutputTracker)/ and
+         @message not like /(?i)(MapOutputTrackerMasterEndpoint stopped!)/ and 
+         @message not like /(?i)(MemoryStore cleared)/ and 
+         @message not like /(?i)(MemoryStore started with capacity [0-9]*?\.[0-9]*? GB)/ and  
+         @message not like /(?i)(Successfully started service 'org\.apache\.spark\.network\.netty\.NettyBlockTransferService' on port [0-9]{1,5})/ and
+         @message not like /(?i)(Successfully stopped SparkContext)/ and
+         @message not like /(?i)(Registering\sOutputCommitCoordinator)/ and 
+         @message not like /(?i)(OutputCommitCoordinator stopped!)/ and 
+         @message not like /(?i)(Warehouse path is 'file:\/tmp\/spark-warehouse')/ and 
+         @message not like /(?i)(Registered StateStoreCoordinator endpoint)/ and 
+         @message not like /(?i)(Removed TaskSet [0-9]*?\.[0-9]*?, whose tasks have all completed, from pool)/ and
+         @message not like /(?i)(Starting job: collect at .*?\.py:[0-9]*?)/ and 
+         @message not like /(?i)(Submitting ResultStage [0-9]*? \(MapPartitionsRDD\[[0-9]*?] at collect at .*?\.py:[0-9]*?\), which has no missing parents)/ and 
+         @message not like /(?i)(ResultStage [0-9]*? \(collect at .*?\.py:[0-9]*?\) finished in [0-9]*?\.[0-9]*? s)/ and 
+         @message not like /(?i)(Submitting [0-9]*? missing tasks from ResultStage [0-9]*?)/ and 
+         @message not like /(?i)(Final stage: ResultStage [0-9]*? \(collect at .*?\.py:[0-9]*?\))/ and  
+         @message not like /(?i)(Code generated in [0-9]*?\.[0-9]*? ms)/ and 
+         @message not like /(?i)(Registered signal handler for [a-zA-Z]*?)/ and 
+         @message not like /(?i)(Adding task set [0-9]*?\.[0-9]*? with [0-9]*? tasks)/ and  
+         @message not like /(?i)(Successfully created connection to \/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5} after [0-9]*? ms \([0-9]*? ms spent in bootstraps\))/ and  
+         @message not like /(?i)(Created local directory at)/ and  
+         @message like /(?i)(Deleting directory \/.*?)/ and 
+         @message not like /(?i)(Server created on [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5})/ and 
+         @message not like /(?i)(Invoking stop\(\) from shutdown hook)/ and  
+         @message not like /(?i)(Parents of final stage: List\(\))/ and 
+         @message not like /(?i)(Found inactive connection to \/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5}, creating a new one\.)/ and 
+         # spark.ACLs (access control lists)
+           # shortcut filter: @message not like /(?i)(acls)/ and 
+         @message not like /(?i)(Changing view acls to: spark)/ and 
+         @message not like /(?i)(Changing modify acls to: spark)/ and 
+         @message not like /(?i)(Changing view acls groups to:)/ and 
+         @message not like /(?i)(Changing modify acls groups to:)/ and 
+         # spark.accumulator
+         @message not like /(?i)(Cleaned accumulator [0-9]*?)/ and 
+         # spark.block
+         @message not like /(?i)(Block .*? stored as values in memory)/ and 
+         @message not like /(?i)(Block .*? stored as bytes in memory)/ and 
+         # spark.block.manager   
+           # shortcut filter: @message not like /(?i)(BlockManager|block manager)/ and 
+         @message not like /(?i)(BlockManager stopped)/ and 
+         @message not like /(?i)(Initialized BlockManager:)/ and 
+         @message not like /(?i)(Registered BlockManager BlockManagerId)/ and 
+         @message not like /(?i)(Registering block manager [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5} with [0-9]*?\.[0-9]*? GB RAM, BlockManagerId\([0-9]*?, [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}, [0-9]{1,5}, None\))/ and
+         @message not like /(?i)(Registering block manager [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5} with [0-9]*?\.[0-9]*? GB RAM, BlockManagerId\(driver, [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}, [0-9]{1,5}, None\))/ and
+         @message not like /(?i)(Registering BlockManager BlockManagerId\([0-9]*?, [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}, [0-9]{1,5}, None\))/ and
+         @message not like /(?i)(Registering BlockManager BlockManagerId\(driver, [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}, [0-9]{1,5}, None\))/ and
+         # spark.block.manager.master
+           # shortcut filter: @message not like /(?i)(BlockManagerMaster)/ and 
+         @message not like /(?i)(BlockManagerMaster stopped)/ and 
+         @message not like /(?i)(Registering BlockManagerMaster)/ and
+         # spark.block.manager.master.endpoint
+         @message not like /(?i)(BlockManagerMasterEndpoint up)/ and 
+         # spark.broadcast
+           # shortcut filter: @message not like /(?i)(broadcast)/ and 
+         @message not like /(?i)(Created broadcast [0-9]*? from broadcast at DynamoConnection\.scala:[0-9]*?)/ and 
+         @message not like /(?i)(Removed broadcast.*? on [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5} in memory)/ and 
+         @message not like /(?i)(Added broadcast.*? in memory on [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5})/ and 
+         @message not like /(?i)(Created broadcast [0-9]*? from broadcast at)/ and 
+         @message not like /(?i)(Reading broadcast variable [0-9]*? took [0-9]*? ms)/ and
+         # spark.context
+         @message not like /(?i)(Submitted application:)/ and 
+         # spark.driver'
+         @message not like /(?i)(Connecting to driver: spark:\/\/CoarseGrainedScheduler@[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5})/ and 
+         @message not like /(?i)(Driver commanded a shutdown)/ and 
+         @message not like /(?i)(Driver from [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5} disconnected during shutdown)/ and 
+         @message not like /(?i)(Successfully started service 'sparkDriver' on port)/ and 
+         # spark.executor
+           # shortcut filter: @message not like /(?i)(executor)/ and 
+         @message not like /(?i)(Asking each executor to shut down)/ and
+         @message not like /(?i)(connected executor [0-9]*?)/ and 
+         @message not like /(?i)(creating executor task for executor [0-9]*?)/ and
+         @message not like /(?i)(executor [0-9]*?\s.*?\sstatus is RUNNING)/ and  
+         @message not like /(?i)(executor [0-9]*?\s.*?\sstatus is PENDING_EXECUTION)/ and 
+         @message not like /(?i)(Got executor added event for [0-9]*? @ [0-9]*?)/ and 
+         @message not like /(?i)(Registered executor NettyRpcEndpointRef)/ and
+         @message not like /(?i)(executor [0-9]*?\s.*?\sstatus is RECEIVED_BY_TASKRUNNER)/ and
+         @message not like /(?i)(polling [0-9]*? pending JES executor tasks for status)/ and
+         @message not like /(?i)(Starting executor ID [0-9]*? on host [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})/ and
+         @message not like /(?i)(Shutting down all executors)/ and
+         @message not like /(?i)(Successfully registered with driver)/ and 
+         # spark.executor.task
+         @message not like /(?i)(executor task [0-9]*?\s.*?\screated for executor [0-9]*?)/ and 
+         @message not like /(?i)(executor task .*?\screated for executor [0-9]*?)/ and 
+         @message not like /(?i)(getting status for executor task .*?)/ and
+         @message not like /(?i)(polling for executor task status)/ and 
+         @message not like /(?i)(Finished task [0-9]*?\.[0-9]*? in stage [0-9]*?\.[0-9]*? \(TID [0-9]*?\) in [0-9]*? ms on [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3} \(executor [0-9]*?\))/ and
+         @message not like /(?i)(Got assigned task [0-9]*?)/ and 
+         @message not like /(?i)(Finished task [0-9]*?\.[0-9]*? in stage [0-9]*?\.[0-9]*? \(TID [0-9]*?\)\. [0-9]*? bytes result sent to driver)/ and
+         @message not like /(?i)(Executor task launch worker for task [0-9]*?.*?:\sclosed connection)/ and  
+         @message not like /(?i)(Running task [0-9]*?\.[0-9]*? in stage [0-9]*?\.[0-9]*? \(TID [0-9]*?\))/ and
+         # spark.job
+         @message not like /(?i)(Got job [0-9]*? \(collect at .*?\.py:[0-9]*?\) with [0-9]*? output partitions)/ and 
+         # spark.scheduler
+         @message not like /(?i)(SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: [0-9]*?\.[0-9]*?)/ and 
+         @message not like /(?i)(Missing parents: List\(\))/ and
+         @message not like /(?i)(Job [0-9]*? finished: collect at .*?\.py:[0-9]*?, took [0-9]*?\.[0-9]*? s)/ and
+         # spark.securityManager
+         @message not like /(?i)(SecurityManager: authentication enabled;)/ and    
+         # template
+         @message not like /(?i)(xxx)/
+| parse @message /(?<@nte1>(^INFO\s))/ 
+| parse @message /(?<@nte2>(\sINFO\s))/ 
+| field Concat(@nte1,@nte2) As nteTyp
+| parse @log "*:*" As ts,logPth
+| parse @message "*-*-* *:*:*,* * *)):*" As yr,mth,dy,hr,mn,s,ms,msgTyp,errPos,msg
+| display nteTyp,@timestamp,logPth,msg
