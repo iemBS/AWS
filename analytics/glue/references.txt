@@ -4,3 +4,4 @@ https://stackoverflow.com/questions/54094382/aws-gluecontext-read-doesnt-allow-a
 https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-pyspark-extensions-glue-context.html
 https://github.com/awslabs/aws-glue-libs
 https://github.com/apache/spark
+https://docs.aws.amazon.com/glue/latest/dg/glue-dg.pdf
