@@ -1,3 +1,6 @@
 Create Bucket
+Note:
+  -Bucket name cannot contain spaces or uppercase letters
+  -An S3 bucket name is globally unique, and the namespace is shared by all AWS accounts. This means that after a bucket is created, the name of that bucket cannot be used by another AWS account in any AWS Region until the bucket is deleted. S3 creates buckets in a Region that you specify.
 Main Success Scenario:
   1.xxx:fill in
