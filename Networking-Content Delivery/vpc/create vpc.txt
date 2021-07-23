@@ -4,9 +4,47 @@ Note:
     -10.0.0.1
     -172.16.0.1
     -192.168.0.1
+  -"IPv4 CIDR block" specifies the range of IP addresses that can be used within the VPC.
+Question:
+  -What does "Tenancy" do?
 Main Success Scenario:
-  1. Specify "IPv4 CIDR block"
-  2. Choose "IPv6 CIDR block"
-  3. Choose "Tenancy"
+  1. Click "Your VPCs" link on left side bar
+  2. Click blue "Create VPC" button at top
+  3. Specify "Name tag"
+  4. Specify "IPv4 CIDR block"
+  5. Choose "IPv6 CIDR block" option
+  6. Choose "Tenancy" option
+  7. Click blue "Yes, Create" button
+  8. See that VPC, ACL, and Route Table were created  
 Extensions:
-  3a. Can also specify "Name tag" (optional)
+  1a. Use Wizard
+    1a1. "Create VPC with Wizard"
+    1a2. xxx:fill in
+  
+  
+Create VPC with Wizard
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Create Internet Gateway
+Pre-Conditions:
+  -VPC already created 
+Main Success Scenario:
+  1. Click "Internet Gateway" on left side bar
+  2. Click blue "Create Internet Gateway" button 
+  3. Specify "Name tag"
+  4. Click blue "Create" button
+  5. See Internet Gateway ID
+  6. See "State" is "detached"
+  
+  
+Associate Internet Gateway to VPC
+Pre-Conditions:
+  -VPC already exists
+  -Internet Gateway already exists
+Main Success Scenario:
+  1. See internet Gateway list within VPC dashboard
+  2. Select Internet Gateway you want to associate to a VPC
+  3. Click "Actions" drop down and choose "Attach to VPC"
+  4. xxx:fill in
