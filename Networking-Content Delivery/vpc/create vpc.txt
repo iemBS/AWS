@@ -23,6 +23,8 @@ Extensions:
   
   
 Create VPC with Wizard
+Note:
+  -Assumes pre-set setting
 Main Success Scenario:
   1. xxx:fill in
   
@@ -47,4 +49,82 @@ Main Success Scenario:
   1. See internet Gateway list within VPC dashboard
   2. Select Internet Gateway you want to associate to a VPC
   3. Click "Actions" drop down and choose "Attach to VPC"
-  4. xxx:fill in
+  4. See "Attach to VPC" screen
+  5. Choose the VPC to associate with from the "VPC" drop down.
+  6. Click blue "Attach" button
+  7. See "State" shows "attached"
+  
+  
+Create Subnet
+Pre-Conditions:
+  -VPC exists
+  -Internet Gateway exists
+  -Route Table exists 
+  -NACL exists 
+Main Success Scenario:
+  1. Go to "Subnets" link on left side bar
+  2. Click "Create Subnet" button
+  3. Specify "Name tag"
+  4. Choose you VPC from "VPC" drop down
+  5. Choose availability zone
+  6. Specify "IPv4 CIDR block"
+  7. Click "Create" button
+  
+
+Associate NACL to Subnet
+Pre-Conditions:
+  -NACL exists
+Main Success Scenario:
+  1. Go to your subnet
+  2. Go to "Network ACL" tab
+  3. Click blue "Edit network ACL association" button
+  4. Choose your NACL from the "Change to" drop down
+  5. Click "Save" button
+  
+  
+Create Network Access Control List
+Note:
+  -NACL is stateless
+  -NACL controls access between subnets and sub net to internet
+Pre-Conditions:
+  -VPC exists
+  -Internet Gateway exists
+  -Route Table exists 
+Main Success Scenario:
+  1. Under "Security" on the left side bar, click "Network ACLs"
+  2. See default NACL from when we created our VPC
+  3. Select the default NACL
+  4. See default entries on "Inbound Rules" and "Outbound Rules" tabs
+  5. Click blue "Create Network ACL" button
+  6. Specify "Name tag"
+  7. Choose your VPC from the "VPC" drop down
+  8. Click blue "Yes, Create" button"
+  9. Select your new NACL
+  10. See default entries on "Inbound Rules" and "Outbound Rules" tabs
+  11. On "Inbound Rules" tab, click "Edit" button
+  12. Click "Add Another Rule" button
+  13. Set Rule #, Type, and Source
+  14. Click blue "Save" button
+  15. Click "Outbound Rules" tab
+  16. Click "Edit" button
+  17. Click "Add Another Rule" button
+  18. Set Rule #, Type, and Destinatio
+  19. Click "Save" button
+  
+  
+Create Route Table
+Pre-Conditions:
+  -VPC exists
+  -Internet Gateway exists
+Main Success Scenario:
+  1. Click "Route Tables" link on left side bar
+  2. See default route table entry that is associated to the VPC we created
+  3. Click "Routes" tab
+  4. See default entry that is targeting local
+  5. Click "Edit" button
+  6. Click "Add another route" button
+  7. Specify "Destination" 
+  8. On "Target" choose your internet gateway you created from the drop down
+  9. Click "Save" button
+  
+  
