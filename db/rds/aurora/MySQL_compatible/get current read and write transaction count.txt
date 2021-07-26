@@ -1,0 +1,6 @@
+Get Current Read and Write Transaction Count
+Note:
+  -Read-only transactions do not exist in the INNODB_TRX view and are not assigned a transaction ID
+    -The lack of a transaction ID for read-only transactions is because there is enough overhead in it
+Main Success Scenario:
+  1. SELECT count(*) FROM INFORMATION_SCHEMA.INNODB_TRX
