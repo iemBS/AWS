@@ -1,0 +1,16 @@
+Calculate Concurrent Transaction Limit
+Note:
+  -https://dev.mysql.com/doc/refman/5.7/en/innodb-undo-logs.html
+Main Success Scenario:
+  1. Each transaction performs either an INSERT, UPDATE, or DELETE , the 
+    # of concurrent read-write transactions InnoDB is capable of supporting  = (innodb_page_size / 16) * (innodb_rollback_segments - 32)
+Alternatives:
+  1a. Each transaction performs an INSERT and an UPDATE or DELETE
+    1a1. # of concurrent read-write transactions InnoDB is capable of supporting  = innodb_page_size / 16 / 2) * (innodb_rollback_segments - 32)
+  1b. Each transaction performs an INSERT operation on a temporary table
+    1b1. # of concurrent read-write transactions InnoDB is capable of supporting  = (innodb_page_size / 16) * 32
+  1c. Each transaction performs an INSERT and an UPDATE or DELETE operation on a temporary table
+    1c1. # of concurrent read-write transactions InnoDB is capable of supporting  = innodb_page_size / 16 / 2) * 32
+  1d. Max limit of concurrent transactions
+    1d1. xxx:fill in
+    
