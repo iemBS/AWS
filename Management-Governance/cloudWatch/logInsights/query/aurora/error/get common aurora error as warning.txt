@@ -39,6 +39,7 @@ Main Success Scenario:
     # Intrinsic temp tables are internal temp tables created by MySQL, ref @ https://dev.mysql.com/doc/refman/5.7/en/glossary.html
     # Replicas are used with auto scaling. Replicas are read-only. Temp tables cannot be created on a read-only server. The "MyISAM" engine. 
     # Similar warnings exist where those temp tables are created by your code
+    # AWS support says that temp tables created using MyISAM, will just be created using InnoDB. 
     | parse @message /(?<@wrn9>(Read-only servers cannot create .*?temp tables in InnoDB))/
     # https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_slave_updates
     # https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-concepts.html
