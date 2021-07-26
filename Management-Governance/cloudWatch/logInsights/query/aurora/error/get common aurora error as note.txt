@@ -88,6 +88,7 @@ Main Success Scenario:
     | parse @message /(?<@nte19>(InnoDB: Waiting for purge to start))/
     # Msg may be due to the underlying Linux file system NOT supporting PUNCH HOLE
     # This appears to be a build issue found in 2015 and the MySQL team is not willing to fix. 
+    # AWS support says this message is by design and does not indicate a problem with Aurora.
     # https://dev.mysql.com/doc/refman/5.7/en/innodb-page-compression.html
     # https://bugs.mysql.com/bug.php?id=77974
     | parse @message /(?<@nte20>(InnoDB: PUNCH HOLE support not available))/
