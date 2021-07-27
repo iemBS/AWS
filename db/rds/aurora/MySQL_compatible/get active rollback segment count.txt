@@ -1,0 +1,6 @@
+Get Active Rollback Segment Count
+Note:
+  -https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_available_undo_logs
+  -https://dev.mysql.com/doc/refman/5.7/en/innodb-undo-logs.html
+Main Success Scenario:
+  1. xxx:fill in
