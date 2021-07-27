@@ -6,6 +6,7 @@ Note:
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
   -Can write template using JSON or YAML
   -Value in "AWSTemplateFormatVersion" is not the same as the API or WSDL version.
+  -Values in "Resources" are logical resources. When the template is run it creates corresponding physical resources. 
 Pre-Conditions:
   -Limited to YAML and JSON formats
 Main Success Scenario:
