@@ -1,0 +1,15 @@
+Flush Server Status Variable
+Note:
+  -https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html
+  -https://dev.mysql.com/doc/refman/5.7/en/flush.html#flush-status
+  -The following session status variables will be flushed
+    -
+  -The following global status varaibles will be flushed
+    -
+Main Success Scenario:
+  1. See code below
+  
+  FLUSH STATUS;
+
+
+  
