@@ -3,9 +3,43 @@ Note:
   -Guidance @
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
     -https://aws.amazon.com/cloudformation/resources/templates/
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
   -Can write template using JSON or YAML
+  -Value in "AWSTemplateFormatVersion" is not the same as the API or WSDL version.
+Pre-Conditions:
+  -Limited to YAML and JSON formats
 Main Success Scenario:
-  1. xxx:fill in
+  1. Specify "AWSTemplateFormatVersion"
+  2. Specify "Description" (if used, must always follow "AWSTemplateFormatVersion")
+  3. Specify "Metadata"
+  4. Specify "Parameters"
+  5. Specify "Rules"
+  6. Specify "Mappings"
+  7. Specify "Conditions"
+  8. Specify "Transform"
+  9. Specify "Resources"
+  10. Specify "Outputs"
 Alternatives:
-  1a. Create Nested Template
-    1a1. xxx:fill in
+  1a. Skip "AWSTemplateFormatVersion" because specifying the version is optional and will not impact your software
+    1a1. Go to step 2
+  2a. Skip "Description" because it is optional and does not help you
+    2a1. Go to step 3
+  3a. Skip "Metadata" because it is optional and not needed
+    3a1. Go to step 4
+  4a. Skip "Parameters" because it is optional and you will not be passing in parameters
+    4a1. Go to step 5
+  5a. Skip "Rules" because it is optional, you do not have parameters, or you do not need to validate parameters
+    5a1. Go to step 6
+  6a. Skip "Mappings" because it is optional and you do not need mappings
+    6a1. Go to step 7
+  7a. Skip "Conditions" because it is optional and you do not need to have conditions for how the template works
+    7a1. Go to step 8. 
+  8a. Skip "Transform" because it is optional and you do not need it
+    8a1. Go to step 9. 
+  10a. Skip "Outputs" because it is optional and you do not need to output anything
+    10a1. End
+  
+  
+
+  Xa. Create Nested Template
+    Xa1. xxx:fill in
