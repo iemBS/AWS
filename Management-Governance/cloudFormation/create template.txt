@@ -7,6 +7,8 @@ Note:
   -Can write template using JSON or YAML
   -Value in "AWSTemplateFormatVersion" is not the same as the API or WSDL version.
   -Values in "Resources" are logical resources. When the template is run it creates corresponding physical resources. 
+  -The collection of logical resources in "Resources" is a stack
+  -"Mappings" and "Conditions" can make use of values from "Parameters"
 Pre-Conditions:
   -Limited to YAML and JSON formats
 Main Success Scenario:
