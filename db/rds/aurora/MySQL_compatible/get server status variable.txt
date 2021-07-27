@@ -1,0 +1,73 @@
+Get Server Status Variable
+Main Success Scenario:
+  1. See query below
+
+
+Select
+	Scope,
+	VARIABLE_NAME,
+	VARIABLE_VALUE
+From
+	(
+		Select
+			'Global' As FilterScope,
+            'Global' As Scope,
+			VARIABLE_NAME,
+			VARIABLE_VALUE
+		From
+			Information_Schema.GLOBAL_STATUS
+
+		Union All
+
+		Select
+			'Both' As FilterScope,
+            'Session' As Scope,
+			VARIABLE_NAME,
+			VARIABLE_VALUE
+		From
+			Information_Schema.SESSION_STATUS
+            
+		Union All 
+        
+		Select
+			'Both' As FilterScope,
+            'Global' As Scope,
+			VARIABLE_NAME,
+			VARIABLE_VALUE
+		From
+			Information_Schema.GLOBAL_STATUS
+	  ) t 
+	Where
+		Concat(t.FilterScope,'|',t.VARIABLE_NAME) In 
+        (
+			# only global scope exists, CAN be cleared by FLUSH STATUS query 
+		    'GLOBAL|Aborted_clients', # The number of connections that were aborted because the client died without closing the connection properly. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Aborted_clients
+		    'GLOBAL|Max_used_connections', # The maximum number of connections that have been in use simultaneously since the server started. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Max_used_connections
+			# only global scope exists, CANNOT be cleared by FLUSH STATUS query, must restart server to clear
+			'GLOBAL|Innodb_row_lock_time', # The total time spent in acquiring row locks for InnoDB tables, in milliseconds. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_row_lock_time
+			'GLOBAL|Innodb_row_lock_time_avg', # The average time to acquire a row lock for InnoDB tables, in milliseconds. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_row_lock_time_avg
+			'GLOBAL|Innodb_row_lock_waits', # The number of times operations on InnoDB tables had to wait for a row lock. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_row_lock_waits
+            # only global scope exists, unknown if cleared by FLUSH STATUS query
+            'GLOBAL|Aborted_connects', # The number of failed attempts to connect to the MySQL server. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Aborted_connects
+            'GLOBAL|Table_locks_waited', # The number of times that a request for a table lock could not be granted immediately and a wait was needed. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Table_locks_waited
+			# unknown if only global scope exists, CANNOT be cleared by FLUSH STATUS query, must restart server to clear. 
+			'BOTH|AuroraDb_select_stmt_duration',
+			'BOTH|AuroraDb_insert_stmt_duration',
+			'BOTH|AuroraDb_update_stmt_duration',
+			'BOTH|AuroraDb_delete_stmt_duration',
+            # unknown if only global scope exists, unknown if cleared by FLUSH STATUS query
+            'BOTH|AuroraDb_thread_deadlocks',
+			# global and session scopes exist, only session scope CAN be cleared by FLUSH STATUS query, restart server to clear global scope 
+            'BOTH|Table_open_cache_misses', # Indicates if table_open_cache is too low. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Table_open_cache_misses
+            'BOTH|Select_scan', # The number of joins that did a full scan of the first table. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Select_scan
+            'BOTH|Created_tmp_disk_tables', # The number of internal on-disk temporary tables created by the server while executing statements. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Created_tmp_disk_tables
+            'BOTH|Created_tmp_tables', # The number of internal temporary tables created by the server while executing statements. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Created_tmp_tables
+            # global and session scopes exist, unknown if either scope cleared by FLUSH STATUS query
+            'BOTH|Innodb_row_lock_current_waits', # The number of row locks currently being waited for by operations on InnoDB tables. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_row_lock_current_waits
+            # global and session scopes exist, unknown if session scope can be cleared by FLUSH STATUS query, global scope cleared by server restart 
+            'BOTH|Com_rollback', # Indicate the number of times each rollback statement has been executed. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Com_xxx
+            'BOTH|Sort_scan' # The number of sorts that were done by scanning the table. Ref @ https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Sort_scan
+        )
+	Order By
+		t.VARIABLE_NAME,
+        t.Scope
