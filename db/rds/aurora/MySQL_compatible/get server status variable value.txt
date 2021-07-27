@@ -1,4 +1,4 @@
-Get Server Status Variable
+Get Server Status Variable Value
 Main Success Scenario:
   1. See query below
 
