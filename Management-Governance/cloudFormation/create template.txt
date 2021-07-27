@@ -9,6 +9,7 @@ Note:
   -Values in "Resources" are logical resources. When the template is run it creates corresponding physical resources. 
   -The collection of logical resources in "Resources" is a stack
   -"Mappings" and "Conditions" can make use of values from "Parameters"
+  "Transform" usually used for serverless resources
 Pre-Conditions:
   -Limited to YAML and JSON formats
 Main Success Scenario:
