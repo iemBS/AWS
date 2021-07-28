@@ -1,0 +1,20 @@
+Get Max and Count of the Max in Group By
+Main Success Scenario:
+  1. See code below
+
+  Select
+		table_schema,
+		max_column_name,
+    Round(((Length(column_name_lst) - Length(Replace(column_name_lst,concat(max_column_name,';'),''))) + Length(concat(max_column_name,';'))) / Length(concat(max_column_name,';')),0) As column_name_cnt_for_max
+	From
+		(
+			select 
+				table_schema,
+        concat(group_concat(column_name SEPARATOR ';'),';') As column_name_lst,
+				max(column_name) As max_column_name
+			from
+				information_schema.columns
+			group by
+				table_schema
+		) t
+        
