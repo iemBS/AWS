@@ -20,6 +20,8 @@ Alternatives:
     4a1. xxx:fill in
   4b. Choose "Create a template in Designer"
     4b1. xxx:fill in
+  5a. Choose "Amazon S3 URL"
+    5a1. xxx:fill in
     
   
 Config New Stack
