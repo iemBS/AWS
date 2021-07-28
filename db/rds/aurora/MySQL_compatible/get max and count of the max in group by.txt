@@ -1,4 +1,6 @@
 Get Max and Count of the Max in Group By
+Note:
+  -Make sure deliminator used in group_concat function does not exist in the values
 Main Success Scenario:
   1. See code below
 
