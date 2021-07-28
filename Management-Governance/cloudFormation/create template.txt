@@ -47,6 +47,8 @@ Alternatives:
     
     
 Specify Resources
+Note:
+  -Resource type identifier reference @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
 Pre-Conditions:
   -Focuses on "Resources" part of template 
   -This section is required 
