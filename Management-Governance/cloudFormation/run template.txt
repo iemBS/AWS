@@ -1,3 +1,72 @@
 Run Template
 Main Success Scenario:
+  1. "Create Stack"
+  
+  
+Create Stack
+Main Success Scenario:
+  1. Open CloudFormation service in AWS
+  2. Choose "With new resources (standard)" option on "Create Stack" menu at top right
+  3. See "Create Stack" screen
+  4. Under "Prepare template" section, choose "Template is ready" radio button
+  5. Under "Template source" section, choose "Upload a tempalte file" radio button
+  6. Click "Choose file" button and select your template file
+  7. Click "Next" button
+  8. "Config New Stack"
+  9. Click "Next" button
+  10. Click "Create Stack" button
+Alternatives:
+  4a. Choose "Use a sample template"
+    4a1. xxx:fill in
+  4b. Choose "Create a template in Designer"
+    4b1. xxx:fill in
+    
+  
+Config New Stack
+Main Success Scenario:
+  1. Specify unique value in "Stack name"
+  2. Under "Parameters", specify values
+  3. Click "Next" button
+  4. "Specify Tag"
+  5. "Specify Permission"
+  6. "Specify Stack Policy"
+  7. "Specify Rollback Config"
+  8. "Specify Notification Option"
+  9. "Specify Stack Creation Option"
+Alternatives:
+  1a. Stack name is not unique
+    1a1. xxx:Fill in
+  2a. Skip "Parameters" section
+    2a1. Go to step 3
+    
+    
+Specify Tag
+Main Success Scenario:
   1. xxx:fill in
+  
+  
+Specify Permission
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Specify Stack Policy
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Specify Rollback Config
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Specify Notification Option
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Specify Stack Creation Option
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
