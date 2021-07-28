@@ -21,7 +21,7 @@ Main Success Scenario:
   6. Specify "Mappings"
   7. Specify "Conditions"
   8. Specify "Transform"
-  9. Specify "Resources"
+  9. "Specify Resources"
   10. Specify "Outputs"
 Alternatives:
   1a. Skip "AWSTemplateFormatVersion" because specifying the version is optional and will not impact your software
@@ -42,8 +42,16 @@ Alternatives:
     8a1. Go to step 9. 
   10a. Skip "Outputs" because it is optional and you do not need to output anything
     10a1. End
-  
-  
-
   Xa. Create Nested Template
     Xa1. xxx:fill in
+    
+    
+Specify Resources
+Pre-Conditions:
+  -Focuses on "Resources" part of template 
+  -This section is required 
+Main Success Scenario:
+  1. Skip "Properties"
+Alternatives:
+  1a. Specify "Properties"
+    1a1. xxx:fill in
