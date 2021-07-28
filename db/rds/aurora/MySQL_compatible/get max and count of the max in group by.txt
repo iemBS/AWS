@@ -1,5 +1,5 @@
 Get Max and Count of the Max in Group By
-Note:
+Pre-Conditions:
   -Make sure deliminator used in group_concat function does not exist in the values
 Main Success Scenario:
   1. See code below
@@ -7,7 +7,7 @@ Main Success Scenario:
   Select
 		table_schema,
 		max_column_name,
-    Round(((Length(column_name_lst) - Length(Replace(column_name_lst,concat(max_column_name,';'),''))) + Length(concat(max_column_name,';'))) / Length(concat(max_column_name,';')),0) As column_name_cnt_for_max
+    Round(((Length(column_name_lst) - Length(Replace(column_name_lst,concat(max_column_name,';'),'')))) / Length(concat(max_column_name,';')),0) As column_name_cnt_for_max
 	From
 		(
 			select 
