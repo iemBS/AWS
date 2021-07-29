@@ -3,6 +3,7 @@ Note:
   -Guidance @ 
     -https://stackoverflow.com/questions/4940036/mysql-function-returning-a-value-from-a-query
     -https://www.sqlshack.com/learn-sql-user-defined-functions/
+  -Cannot return a table from a user defined function
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
