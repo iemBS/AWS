@@ -15,6 +15,7 @@ Main Success Scenario:
   8. "Config New Stack"
   9. Click "Next" button
   10. Click "Create Stack" button
+  11. Watch stack creation status on "Events" tab
 Alternatives:
   4a. Choose "Use a sample template"
     4a1. xxx:fill in
