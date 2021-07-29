@@ -3,6 +3,9 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/view-restrictions.html
   -Indexes cannot be created for views but you can get a view to use the index in the underlying query. 
     -https://stackoverflow.com/questions/13944946/how-do-i-get-mysql-to-use-an-index-for-view-query
+Pre-Conditions:
+  -Now allowed to add comments to view
+  -If you add comments to a view, they disappear when you create or alter the view 
 Main Success Scenario:
   1. xxx:fill in
   
