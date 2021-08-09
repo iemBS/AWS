@@ -1,0 +1,5 @@
+Create Materialized View
+Note:
+  -https://fromdual.com/mysql-materialized-views
+Main Success Scenario:
+  1. xxx:Fill in
