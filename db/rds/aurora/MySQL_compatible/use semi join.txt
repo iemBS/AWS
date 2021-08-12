@@ -1,0 +1,6 @@
+Use Semi Join
+Note:
+  -Half Join that returns records from the left table, when matching records are found in the right table. Even if more than one match is found in the right table for a given record, the result contains that record just once.
+Main Success Scenario:
+  1. Run code below 
+    select col1, col2, col3 from tblA a where exists (Select b.col1,b.col2,b.col3 from tblB b where b.col1 = a.col1);
