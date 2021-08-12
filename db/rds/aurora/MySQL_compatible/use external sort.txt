@@ -1,0 +1,7 @@
+Use External Sort
+Note:
+  -guidance @ 
+    -https://en.wikipedia.org/wiki/External_sorting
+  -Also called file sort
+Main Success Scenario:
+  1. xxx:fill in 
