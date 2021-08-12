@@ -1,0 +1,11 @@
+Provision DB Instance
+Main Success Scenario:
+  1. Choose database engine
+  2. Choose license model
+  3. Choose DB engine version
+  4. Choose DB instance class
+  5. Choose Multi-AZ deployment 
+  6. Choose storage type and size
+  7. Choose backups
+  8. Choose monitoring
+  9. Choose maintenance window 
