@@ -1,4 +1,14 @@
 Provision DB Instance
+Note:
+  -Available DB engines:
+    -MySQL
+    -MariaDB
+    -PostgreSQL
+    -Oracle
+    -SQL Server
+    -Aurora 
+      -MySQL
+      -PostgreSQL
 Main Success Scenario:
   1. Choose database engine
   2. Choose license model
