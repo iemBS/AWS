@@ -5,3 +5,4 @@ What is RDS
 -Can easily configure your software
 -Can configure your hardware using preset templates and with ease
 -https://aws.amazon.com/rds/
+-Uses EC2 under the hood
