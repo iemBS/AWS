@@ -1,5 +1,8 @@
 Use Semi Join
 Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.6/en/semijoins.html
+    -https://dev.mysql.com/doc/refman/5.7/en/semijoins.html
   -Half Join that returns records from the left table, when matching records are found in the right table. Even if more than one match is found in the right table for a given record, the result contains that record just once.
 Main Success Scenario:
   1. Run code below 
