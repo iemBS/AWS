@@ -1,0 +1,901 @@
+
+
+Create Internal Temp Table 
+Note:
+  -guide @ 
+    -explain statement defined @ https://dev.mysql.com/doc/refman/5.7/en/explain.html
+    -internal temp table use by MySQL is defined @ https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html
+    -explain statement output @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
+    -table column of the explain statement output @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_table
+    -Subqueries, Derived Tables, and View References with Semijoin Transformations @ https://dev.mysql.com/doc/refman/5.7/en/semijoins.html
+    -Derived Tables and View References with Merging or Materialization @ https://dev.mysql.com/doc/refman/5.7/en/derived-table-optimization.html
+    -Subqueries with the EXISTS @ https://dev.mysql.com/doc/refman/5.7/en/subquery-optimization-with-exists.html
+    -switchable optimizations @ https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html
+    -InnoDB internal temp table @ https://mysqlserverteam.com/mysql-5-7-innodb-intrinsic-tables/
+    -force internal temp tables to be created on disk directly @ https://mysqlserverteam.com/how-to-force-temporary-tables-to-be-created-on-disk-directly/
+    -Subqueries with Materialization @ https://dev.mysql.com/doc/refman/5.7/en/subquery-materialization.html
+  -EXPLAIN statement does not necessarily say "Using temporary" for derived or materialized internal temp tables
+  -Order of rows in EXPLAIN statement result, is lowest "id" column value is the last step in the execution 
+  -"table" column in EXPLAIN statement results will show...
+    -<unionM,N> when the row refers to the union of the rows with id values of M and N
+    -<derivedN> when the row refers to the derived table result for the row with an id value of N. A derived table may result, for example, from a subquery in the FROM clause
+    -<subqueryN> when the row refers to the result of a materialized subquery for the row with an id value of N
+    -persistent table name 
+    -explicitly created table name (created by developer)
+  -MySQL uses materialization to convert a subquery result to an internal temp table 
+  -EXPLAIN statement result rows where the "select_type" column has values of "DERIVED", "UNION", "xxx"; is the row where an internal temp table is created. An internal temp table can be created on a row where the value is "SIMPLE". 
+  -Derived internal temp tables occur when...
+    -xxx
+  -Materialized temp tables occur when ...
+    -xxx 
+  -meaning of values in "select_type" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_select_type
+  -meaning of values in "extra" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain-extra-information
+  -meaning of values in "type" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain-join-types
+  -meaning of values in "id" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_id
+  -internal tables are also known as intrinsic tables 
+  -internal temp tables will use the following storage engines in the Aurora implementation of MySQL
+    -run "show engines" to see that MEMORY and InnoDB storage engines are used for internal temp tables 
+    -internal temp tables using MEMORY are in ram and those using InnoDB are on disk
+Question:
+  -What is the difference between a derived table and materialized subquery?
+Pre-Conditions:
+  -Assume "col1" is a column in the "tblA" table 
+Main Success Scenario:
+  1. "Create Internal Temp Table Due to Statement"
+Alternatives: 
+  1c. "Create Internal Temp Table Due to Clause"
+  1d. "Create Internal Temp Table Due to Hint"
+  1e. "Create Internal Temp Table Due to System Variable Flag"
+  1f. "Create Internal Temp Table Due to Query"
+  1g. "Create Internal Temp Table Due to Subquery"
+  1h. "Create Internal Temp Table Due to View Definition"
+
+
+Create Internal Temp Table Due to Statement
+Main Success Scenario:
+  1. "Use UNION in Query"
+  2. End 
+Alternatives:
+  1a. Use UPDATE statement instead 
+    1a1. "Use UPDATE in Query"
+    1a2. Go to step 2
+  1b. Use UNION statement instead 
+    1b1. "Use UNION in Query"
+    1b2. Go to step 2
+  1c. Use DISTINCT instead 
+    1c1. "Use DISTINCT in Query"
+    1c2. Go to step 2  
+  1d. Use IN instead 
+    1d1. "Use IN in Query"
+    1d2. Go to step 2 
+  1e. Use NOT IN instead 
+    1e1. "Use NOT IN in Query"
+    1e2. Go to step 2
+
+
+Create Internal Temp Table Due to Clause
+Main Success Scenario:
+  1. "Use GROUP BY in Query"
+  2. End 
+Alternatives:
+  1a. Use ORDER BY instead 
+    1a1. "Use ORDER By in Query"
+    1a2. Go to step 2
+
+
+Create Internal Temp Table Due to Hint
+Note:
+  -This tells MySQL to use an execution plan that will use an internal temp table 
+Main Success Scenario:
+  1. "Use SQL_SMALL_RESULT in Query"
+  2. End 
+
+
+Create Internal Temp Table Due to System Variable Flag
+Main Success Scenario:
+  1. "Use derived_merge Flag in the optimizer_switch System Variable in Query"
+  2. End 
+
+
+Create Internal Temp Table Due to Query
+Main Success Scenario:
+  1. "Use UNION in Query"
+  2. End
+Alternatives:
+  1b. Use GROUP BY
+    1b1. "Use Aggregation in Query"
+    1b2. Go to step 2
+  1c. Use DISTINCT
+    1c1. "Use DISTINCT in Query"
+    1c2. Go to step 2
+  1d. Use HAVING
+    2d1. "Use HAVING in Query"
+    2d1. Go to step 2
+  1e. Use LIMIT
+    1e1. "Use LIMIT in Query"
+    1e2. Go to step 2
+  1g. Use user variable assignment
+    1g1. "Use User Variable Assignment in Query"
+    1g2. Go to step 2
+  1h. Use only literal values 
+    1h1. "Use Only Literal Values in Query"
+    1h2. Go to step 2
+  1i. Use hint  
+    1i1. "Use SQL_SMALL_RESULT in Query"
+    1i2. Go to step 2
+  1j. Use flag in system variable 
+    1j1. "Use derived_merge Flag in the optimizer_switch System Variable in Query"
+    1j2. Go to step 2 
+
+
+Select From and Insert Into the Same Table
+Note:
+  -MySQL creates an internal temporary table to hold the rows from the SELECT, then inserts those rows into the target table
+Main Success Scenario:
+  1. xxx
+
+
+Use UNION in Query 
+Note:
+  -UNION is the same as UNION DISTINCT 
+  -An internal temp table will not be created, when the Union is not in the top-level query block of an INSERT | REPLACE ... SELECT statement
+Main Success Scenario:
+  1. Run code below 
+    explain Select col1 From tblA UNION Select col1 From tblB;
+  2. See "Using temporary" in 3rd row (1st step) of the "Extra" column of the EXPLAIN statement results 
+  3. See name of the internal temp table is "<union1,2>" in the 3rd row (1st step) of the "table" column of the EXPLAIN statement results
+
+
+Use UPDATE in Query
+Note:
+  -Even though the below doc notes that internal temp tables are created with multi table update statements, I am not seeing it in the EXPLAIN statement results 
+    https://dev.mysql.com/doc/refman/5.7/en/internal-temporary-tables.html
+Main Success Scenario:
+  1. Run code below 
+    Drop Table If Exists tbl1;
+    Create Table tbl1(
+        id int,
+        nm varchar(10)
+    );
+    Insert Into tbl1 Values (1,'one'),(2,'two'),(3,'three');
+    Drop Table If Exists tbl2;
+    Create Table tbl2(
+        id int,
+        nm varchar(10)
+    );
+    Insert Into tbl2 Values (1,'one'),(2,'two'),(3,'three');
+    Drop Table If Exists tbl3;
+    Create Table tbl3(
+        id int,
+        nm varchar(10)
+    );
+    Insert Into tbl3 Values (1,'one'),(2,'two'),(3,'three');
+  2. Run code below 
+    explain Update tbl1,tbl2 SET tbl1.nm = concat(tbl1.nm,'_upd') WHERE tbl1.Id = tbl2.id;
+  3. See no internal temp table mentioned as being created in the EXPLAIN statemet results 
+  4. End 
+Alternatives:
+  2a. Join two tables using join   
+    2a1. explain Update tbl1 t1 Inner Join tbl2 t2 On t1.Id = t2.Id set t1.nm = concat(t1.nm,'_upd'),t2.nm = concat(t2.nm,'_upd');
+    2a2. Go to step 3
+  2b. Join three tables using where clause 
+    2b1. explain Update tbl1,tbl2,tbl3 SET tbl1.nm = concat(tbl1.nm,'_upd') WHERE tbl1.Id = tbl2.id and tbl2.id = tbl3.id;
+    2b2. Go to step 3
+  2c. Join three tables using join 
+    2c1. explain Update tbl1 t1 Inner Join tbl2 t2 On t1.Id = t2.Id Inner Join tbl3 t3 On t2.Id = t3.Id set t1.nm = concat(t1.nm,'_upd'),t2.nm = concat(t2.nm,'_upd'),t3.nm = concat(t3.nm,'_upd');
+    2c2. Go to step 3
+
+
+Use IN in Query
+Note:
+  -subquery materialization for IN statement @ https://dev.mysql.com/doc/refman/5.7/en/subquery-materialization.html
+  -The following restrictions apply to the use of subquery materialization:
+    -The types of the inner and outer expressions must match. 
+      -For example, the optimizer might be able to use materialization if both expressions are integer or both are decimal, but cannot if one expression is integer and the other is decimal.
+    -The inner expression cannot be a BLOB.
+  -Use of EXPLAIN with a query provides some indication of whether the optimizer uses subquery materialization:
+    -Compared to query execution that does not use materialization, select_type may change from DEPENDENT SUBQUERY to SUBQUERY. 
+      -This indicates that, for a subquery that would be executed once per outer row, materialization enables the subquery to be executed just once.
+  -an internal temp table is used if one of these strategies is used with an IN statement 
+    -semijoin
+    -materialization 
+Main Success Scenario:
+  1. Run code below 
+    explain select * from tblA t1 Where t1.col1 In (Select t2.col1 from tblB t2)
+  2. See "MATERIALIZED" in 3rd row (1st step) of the "select_type" column of the EXPLAIN statement result 
+  3. See "<subquery2>" in 2nd row (2nd step) of the "table" column of the EXPLAIN statement result 
+  4. End 
+Alternatives:
+  1a. Join main table to subquery 
+    1a1. explain select * from tblA t1 Where t1.col1 In (Select t2.col1 from tblB t2 Where t1.SourceSystemId = t2.SourceSystemId)
+    1a2. internal temp table NOT created because sub query was executed per row of the main table 
+    1a3. Go to step 4
+
+
+Use NOT IN in Query
+Note:
+  -subquery materialization for NOT IN statement @ https://dev.mysql.com/doc/refman/5.7/en/subquery-materialization.html
+  -The following restrictions apply to the use of subquery materialization:
+    -The types of the inner and outer expressions must match. 
+      -For example, the optimizer might be able to use materialization if both expressions are integer or both are decimal, but cannot if one expression is integer and the other is decimal.
+    -The inner expression cannot be a BLOB.
+  -Use of EXPLAIN with a query provides some indication of whether the optimizer uses subquery materialization:
+    -Compared to query execution that does not use materialization, select_type may change from DEPENDENT SUBQUERY to SUBQUERY. 
+      -This indicates that, for a subquery that would be executed once per outer row, materialization enables the subquery to be executed just once.
+  -an internal temp table is used if the materialization strategy is used with a NOT IN statement 
+Main Success Scenario:
+  1. Run code below 
+    explain select * from tblA t1 Where t1.col1 Not In (Select t2.col1 from tblB t2)
+  2. See "SUBQUERY" in 2nd row (1st step) of "select_type" column in EXPLAIN statement result 
+  3. End 
+Alternatives:
+  1a. Use semijoin that will cause subquery to be executed per row in the main table and cause the optimizer to NOT convert the subquery into an internal temp table 
+    1a1. Run code below 
+      explain select * from tblA t1 Where t1.col1 Not In (Select t2.col1 from tblB t2 Where t1.SourceSystemId = t2.SourceSystemId)
+    1a2. See "DEPENDENT SUBQUERY" in 2nd row (1st step) of "select_type" column in EXPLAIN statement result 
+
+
+Use SQL_SMALL_RESULT in Query
+Note:
+  -This tells MySQL to use an execution plan that will use an internal temp table 
+Main Success Scenario:
+  1. xxx
+
+
+Use Use derived_merge Flag in the optimizer_switch System Variable in Query
+Main Success Scenario:
+  1. xxx
+
+
+Use Aggregation in Query
+Main Success Scenario:
+  1. "Use GROUP BY in Query"
+  2. End 
+Alternatives:
+  1a. Use aggregation function but not GROUP BY in Query
+    1a1. "Use Aggregation Function in Query"
+    1a2. Go to step 2
+  1b. Use group by and aggregation function in query 
+    1b1. "Use GROUP BY and Aggregation Function in Query"
+    1b2. Go to step 2 
+
+
+Use GROUP BY in Query 
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html
+  -Specifying only NULL after the GROUP BY clause, will cause an internal temp table to not be created 
+Pre-Conditions:
+  -Leave out aggregation functions, because a function alone can cause an internal temp table to be created 
+Main Success Scenario:
+  1. Run code below 
+    explain Select col2 From tblA Group By col2;
+  2. See "Using temporary" in 1st row (only row) of the "Extra" column of the EXPLAIN statement results 
+  3. End 
+
+
+Use Aggregation Function in Query
+Note:
+  -list of MySQL aggregation functions @ https://dev.mysql.com/doc/refman/5.7/en/aggregate-functions.html
+Pre-Conditions:
+  -Leave out GROUP BY clause, because that clause alone can cause internal temp tables to be created 
+Main Success Scenario:
+  1. Run code below 
+    explain Select Count(Distinct col1) AS col1Cnt From tblA;
+  2. No internal temp table created 
+  3. End 
+Alternatives:
+  1a. Remove count aggregation function 
+    1a1. Run code below 
+      explain Select col1 AS col1Cnt From tblA;
+    1a2. Go to step 2
+  1b. Use sum aggregation function instead 
+    1b1. Run code below 
+      Select Sum(col1) AS col1Sum From tblA
+    1b2. Go to step 2
+  1c. Use max aggregation function instead
+    1b1. Run code below 
+      Select Max(col1) AS col1Sum From tblA
+    1b2. Go to step 2
+  1d. Use min aggregation function instead
+    1d1. Run code below 
+      Select Min(col1) AS col1Sum From tblA
+    1d2. Go to step 2
+  1e. Use group_concat aggregation function instead 
+    1e1. xxx 
+
+
+Use GROUP BY and Aggregation Function in Query 
+Main Success Scenario:
+  1. Run code below 
+    explain Select col2,Count(col1) From tblA Group By col2;
+  2. See "Using temporary" in 1st row (only row) of the "Extra" column of the EXPLAIN statement results 
+  3. End 
+
+
+Use HAVING in Query 
+Main Success Scenario:
+  1. Run code below 
+    explain Select col2 As Val From tblA Having Min(col1) > 2;
+  2. No internal temp table created 
+  3. End 
+
+
+Use LIMIT in Query 
+Main Success Scenario:
+  1. Run code below 
+    explain Select col2 As Val From tblA Limit 10;
+  2. No internal temp table created 
+  3. End 
+
+
+Use User Variable Assignment in Query 
+Main Success Scenario:
+  1. Run code below 
+    explain SELECT (@var:=col1) As varA,(@var:=col2) As varB From tblA;
+  2. No internal temp table created 
+  3. End 
+
+
+Use Only Literal Values in Query 
+Main Success Scenario:
+  1. Run code below 
+    explain Select 1 as col1;
+  2. No internal temp table created 
+  3. End 
+
+
+Use DISTINCT in Query 
+Note:
+  -An internal temp table is created, no matter how many rows are returned in the result
+Main Success Scenario:
+  1. Run code below 
+    explain Select Distinct col1 From tblA;
+  2. See "Using temporary" in the "Extra" column in the EXPLAIN result
+  3. End 
+
+
+Create Internal Temp Table Due to Subquery
+Main Success Scenario:
+  1. "Use UNION in Subquery"
+  2. End
+Alternatives:
+  1b. Use GROUP BY
+    1b1. "Use GROUP BY in Subquery"
+    1b2. Go to step 2
+  1c. Use DISTINCT
+    1c1. "Use DISTINCT in Subquery"
+    1c2. Go to step 2
+  1d. Use HAVING
+    2d1. "Use HAVING in Subquery"
+    2d1. Go to step 2
+  1e. Use LIMIT
+    1e1. "Use LIMIT in Subquery"
+    1e2. Go to step 2
+  1f. Use subquery
+    1f1. "Use Subquery in Subquery"
+    1f2. Go to step 2
+  1g. Use user variable assignment
+    1g1. "Use User Variable Assignment in Subquery"
+    1g2. Go to step 2
+  1h. Use only literal values 
+    1h1. "Use Only Literal Values in Subquery"
+    1h2. Go to step 2
+  1i. Use flag in system variable 
+    1i1. "Use derived_merge Flag in the optimizer_switch System Variable in Subquery"
+    1i2. Go to step 2
+
+
+Use derived_merge Flag in the optimizer_switch System Variable in Subquery
+xxx
+
+
+Use UNION in Subquery
+Note:
+  -UNION is the same as UNION DISTINCT 
+  -Internal temp table created within the subquery is just like the one created in "Use UNION in Query"
+  -UNION/UNION DISTINCT needs to get a subset of the data that occurred with the UNION ALL
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select col1 From tblA UNION Select col1 From tblB) t;
+  2. See "Using temporary" in 4th row (1st step) of the "Extra" column of the EXPLAIN statement results 
+  3. See name of the internal temp table is "<union2,3>" (1st internal temp table created) in the 4th row (1st step) of the "table" column of the EXPLAIN statement results
+  4. See name of the internal temp table is "<derived2>" (2nd internal temp table created) in the 1st row (last step) of the "table" column of the EXPLAIN statement results
+  5. End 
+Alternatives:
+  1a. Use UNION ALL instead
+    1a1. Run code below 
+      explain Select * From (Select col1 From tblA UNION ALL Select col1 From tblB) t;
+    1a2. See name of the internal temp table is "<derived2>" (only internal temp table created) in the 1st row (last step) of the "table" column of the EXPLAIN statement results
+    1a3. Go to step 5
+  1b. Confirm UNION DISTINCT will create "<union2,3>" internal temp table even if it is not a subset of the UNION ALL
+    1b1. Run code below 
+      explain Select * From (Select 1 UNION Select 2) t;
+    1b2. See name of the internal temp table is "<union2,3>" (1st internal temp table created) in the 4th row (1st step) of the "table" column of the EXPLAIN statement results
+    1b3. See name of the internal temp table is "<derived2>" (2nd internal temp table created) in the 1st row (last step) of the "table" column of the EXPLAIN statement results
+    1b4. Go to step 5
+
+
+Use IN in Subquery 
+Main Success Scenario:
+  1. xxx
+
+
+Use NOT IN in Subquery
+Main Success Scenario:
+  1. xxx
+
+
+Use SQL_SMALL_RESULT in Subquery 
+Main Success Scenario:
+  1. xxx
+      
+
+Use GROUP BY in Subquery
+Note:
+  -Internal temp table created within the subquery is just like the one created in "Use GROUP BY in Query" and "Use GROUP BY in View Definition"
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select col2 From tblA Group By col2) t;
+  2. See "Using temporary" (internal temp table created) in the 2nd row (1st step) of the "Extra" column of the EXPLAIN statement result 
+  3. See "<derived2>" (referencing the newly created internal temp table) in the 1st row (last step) of the "table" column of the EXPLAIN statement result
+  4. End
+Alternatives:
+  1a. No internal temp table is created when GROUP BY is removed 
+    1a1. Run code below 
+      explain Select * From (Select col2 From tblA) t;
+    1a2. DO NOT see "Using temporary" in the "Extra" column of the EXPLAIN statement result 
+    1a3. DO NOT see "<derived2>" in the "table" column of the EXPLAIN statement result
+    1a4. Go to step 4
+
+
+Use Aggregation Function in Subquery
+Note:
+  -list of MySQL aggregation functions @ https://dev.mysql.com/doc/refman/5.7/en/aggregate-functions.html
+  -Internal temp table creation does not depend on if the COUNT function uses DISTINCT or not
+  -Internal temp table creation does not depend on if the COUNT function is used on an indexed column or not 
+Pre-Conditions:
+  -Leave out GROUP BY clause, because that clause and aggregation functions can cause internal temp tables to be created 
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select Count(Distinct col1) AS col1Cnt From tblA) t;
+  2. See "<derived2>" in "table" column of EXPLAIN statement result
+  3. End 
+Alternatives:
+  1a. Remove count aggregation function 
+    1a1. Run code below 
+      explain Select * From (Select col1 AS col1Cnt From tblA) t;
+    1a2. See no internal temp table created 
+    1a3. Go to step 3
+  1b. Use sum aggregation function instead 
+    1b1. Run code below 
+      explain Select * From (Select Sum(col1) AS col1Sum From tblA) t;
+    1b2. Go to step 2
+  1c. Use max aggregation function instead
+    1c1. Run code below 
+      explain Select * From (Select Max(col1) AS col1Max From tblA) t;
+    1c2. Go to step 2
+  1d. Use min aggregation function instead
+    1d1. Run code below 
+      explain Select * From (Select Min(col1) AS col1Min From tblA) t;
+    1d2. Go to step 2 
+  1e. Use group_concat aggregation function instead 
+    1e1. xxx 
+
+
+Use GROUP BY and Aggregation Function in Subquery  
+Note:
+  -Internal temp table created within the subquery is just like the one created in "Use GROUP BY and Aggregation Function in Query"
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select Count(col2) From tblA Group By col2) t;
+  2. See "Using temporary" (internal temp table created) in 2nd row (1st step) of the "Extra" column of the EXPLAIN statement results 
+  3. See "<derived2>" (using that internal temp table) in the 1st row (last step) in the "table" column of the EXPLAIN statement result 
+  4. End 
+Alternatives:
+  1a. Move COUNT function to outer query 
+    1a1. Run code below 
+      explain Select Count(col2) From (Select col2 From tblA Group By col2) t;
+    1a2. See "Using temporary" (internal temp table created) in 2nd row (1st step) of the "Extra" column of the EXPLAIN statement results 
+    1a3. See "<derived2>" (using that internal temp table) in the 1st row (last step) in the "table" column of the EXPLAIN statement result 
+    1a4. Go to step 4
+
+
+Use DISTINCT in Subquery
+Note:
+  -Internal temp table created within the subquery is just like the one created in "Use DISTINCT in Query" and "Use DISTINCT in View Definition"
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select Distinct col1 From tblA) t;
+  2. See "Using temporary" (internal temp table created) in the 2nd row (1st step) of the "Extra" column of the EXPLAIN statement result 
+  3. See "<derived2>" (using newly created internal temp table) in the 1st row (last step) of the "table" column of the EXPLAIN statement result
+  4. End
+Alternatives:
+  1a. No internal temp table is created without the DISTINCT  
+    1a1. Run code below 
+      explain Select * From (Select col1 From tblA) t;
+    1a2. DO NOT see "Using temporary" in the "Extra" column of the EXPLAIN statement result 
+    1a3. DO NOT see "<derived2>" in the "table" column of the EXPLAIN statement result
+    1a4. Go to step 4
+
+
+Use HAVING in Subquery
+Note:
+  -Internal temp table created within the subquery is just like the one created in "Use HAVING in View Definition"
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select col2 As Val From tblA Having Min(col1) > 2) t;
+  2. See "<derived2>" in the 1st row (only step) of the "table" column of the EXPLAIN statement result
+  3. End 
+
+
+Use LIMIT in Subquery
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/view-algorithms.html
+    -https://dev.mysql.com/doc/refman/5.7/en/derived-table-optimization.html
+  -LIMIT clause will prevent merging and an internal temp table will need to be created instead 
+    -This is similar to how the MERGE algorithm in a view is ignored if the query in the view is using a LIMIT clause 
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select col1 From tblA Limit 10) t;
+  2. DO NOT see "Use temporary" in 2nd row (st step) of the "Extra" column in the EXPLAIN results 
+  3. See "<derived2>" in 1st row (last step) of "table" column in EXPLAIN results 
+  4. End 
+Alternatives:
+  1a. No derived internal temp table created without the LIMIT clause 
+    1a1. Run code below
+      explain Select * From (Select col1 From tblA) t;
+    1a2. DO NOT see "Use temporary" in 2nd row (st step) of the "Extra" column in the EXPLAIN results 
+    1a3. DO NOT see "<derived2>" in 1st row (last step) of "table" column in EXPLAIN results 
+    1a4. End 
+  
+
+Use Subquery in Subquery
+Pre-Conditions:
+  -Have no construct used with or without a subquery that will cause an internal temp table to be created. 
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select * From (Select col1 From tblA) t) t2;
+  2. No internal temp table created 
+  3. End 
+
+
+Use User Variable Assignment in Subquery
+Note:
+  -user defined variables @ https://dev.mysql.com/doc/refman/5.7/en/user-variables.html
+  -https://dev.mysql.com/doc/refman/5.7/en/derived-table-optimization.html
+  -It is possible to disable merging by using user variable assignment in the query 
+Pre-Conditions:
+  -Do not use the "SET" method of setting user variables 
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (SELECT (@var:=col1) As varA,(@var:=col2) As varB From tblA) t 
+  2. See "<derived2>" in 1st row (last step) of "table" column in EXPLAIN result 
+  3. End 
+Alternatives:
+  1a. Run code without user variable assignment 
+    1a1. explain Select * From (Select col1,col2 From tblA) t 
+    1a2. No internal temp table is created 
+    1a3. Go to step 3
+
+
+Use Only Literal Values in Subquery
+Main Success Scenario:
+  1. Run code below 
+    explain Select * From (Select 1 as col1) t;
+  2. See "<derived2>" in 1st row (last step) of "table" column in EXPLAIN result 
+  3. End 
+Alternatives:
+  1a. Do not use literal values 
+    1a1. explain Select * From (Select col1,col2 From tblA) t 
+    1a2. No internal temp table is created 
+    1a3. Go to step 3
+
+
+Create Internal Temp Table Due to View Definition
+Note:
+  -guide
+    -optimizer_switch system variable explained @ https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch
+  -Setting ALGORITHM to "TEMPTABLE" in the view definition takes precendence over the "derived_merge" flag in the "optimizer_switch" system variable. 
+Main Success Scenario:
+  1. "Use UNION in View Definition"
+  2. End
+Alternatives:
+  1a. Set ALGORITHM to TEMPTABLE 
+    1a1. "Set ALGORITHM to TEMPTABLE in View Definition"
+    1a2. Go to step 2
+  1b. Use GROUP BY
+    1b1. "Use GROUP BY in View Definition"
+    1b2. Go to step 2
+  1c. Use DISTINCT
+    1c1. "Use DISTINCT in View Definition"
+    1c2. Go to step 2
+  1d. Use HAVING
+    2d1. "Use HAVING in View Definition"
+    2d1. Go to step 2
+  1e. Use LIMIT
+    1e1. "Use LIMIT in View Definition"
+    1e2. Go to step 2
+  1f. Use subquery
+    1f1. "Use Subquery in View Definition"
+    1f2. Go to step 2
+  1g. Use user variable assignment
+    1g1. "Use User Variable Assignment in View Definition"
+    1g2. Go to step 2
+  1h. Use only literal values 
+    1h1. "Use Only Literal Values in View Definition"
+    1h2. Go to step 2
+  1i. Set ALGORITHM to UNDEFINED 
+    1i1. "Set ALGORITHM to UNDEFINED in View Definition"
+    1i2. Go to step 2
+  1j. Use IN 
+    1j1. "Use IN in View Definition"
+    1j2. Go to step 2
+  1k. Use NOT IN 
+    1k1. "Use NOT IN in View Definition"
+    1k2. Go to step 2
+  1l. Use hint 
+    1l1. "Use SQL_SMALL_RESULT in View Definition"
+    1l2. Go to step 2
+  1m. Use flag in system variable 
+    1m1. "Use derived_merge Flag in the optimizer_switch System Variable in Query"
+    1m2. Go to step 2
+
+
+Use derived_merge Flag in the optimizer_switch System Variable in Query
+Main Success Scenario:
+  1. xxx
+
+
+Set ALGORITHM to UNDEFINED in View Definition
+Main Success Scenario:
+  1. xxx
+
+
+Use Only Literal Values in View Definition
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/derived-table-optimization.html
+  -It is possible to disable merging by using only literal values (meaning no underlying table) in the query 
+  -Internal temp table created within the query part of the view definition is just like the one created in "Use Only Literal Values in Query"
+Main Success Scenario:
+  1. Run code below 
+    Drop View If Exists vw1;
+    CREATE 
+        ALGORITHM = MERGE 
+        DEFINER = `myLogin`@`%` 
+        SQL SECURITY DEFINER
+    VIEW vw1 AS
+        SELECT 1 as col1, 2 as col2;
+    explain Select * From vw1;
+  2. DO NOT see "Using temporary" in the 2nd row (1st step) of the "Extra" column of the EXPLAIN statement result
+  3. Internal temp table created in 1st row (2nd step) of the EXPLAIN statement result 
+  4. End 
+
+
+Use LIMIT in View Definition
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/derived-table-optimization.html
+    -https://www.mysqltutorial.org/mysql-limit.aspx
+  -It is possible to disable merging by using LIMIT clause in the query 
+Main Success Scenario:
+  1. Run code below 
+    Drop View If Exists vw1;
+    CREATE 
+        ALGORITHM = MERGE 
+        DEFINER = `myLogin`@`%` 
+        SQL SECURITY DEFINER
+    VIEW vw1 AS
+        SELECT col1 FROM tblA Limit 10;
+    explain Select * From vw1;
+  2. DO NOT see "Using temporary" in the 2nd row (1st step) of the "Extra" column of the EXPLAIN statement result
+  3. Internal temp table created in 1st row (2nd step) of the EXPLAIN statement result 
+  4. End 
+    
+
+Use HAVING in View Definition
+Note:
+  -Guidance @ 
+    -https://www.mysqltutorial.org/mysql-having.aspx
+    -https://dev.mysql.com/doc/refman/5.7/en/derived-table-optimization.html
+  -The HAVING clause is often used with the GROUP BY clause to filter groups based on a specified condition. If you omit the GROUP BY clause, the HAVING clause behaves like the WHERE clause.
+  -It is possible to disable merging by using a HAVING clause in the query 
+  -Internal temp table created within the query part of the view definition is just like the one created in "Use HAVING in SubQuery"
+Main Success Scenario:
+  1. Run code below
+    Drop View If Exists vw1;
+    CREATE 
+        ALGORITHM = MERGE 
+        DEFINER = `myLogin`@`%` 
+        SQL SECURITY DEFINER
+    VIEW vw1 AS
+        SELECT Count(col1) FROM tblA having Count(col1) > 1;
+    explain Select * From vw1;
+  2. DO NOT see "Using temporary" in the 2nd row (1st step) of the "Extra" column of the EXPLAIN statement result
+  3. Internal temp table created in 1st row (2nd step) of the EXPLAIN statement result 
+  4. End 
+
+
+Use DISTINCT in View Definition
+Note:
+  -Even when ALGORITHM is set to "TEMPTABLE" the "Using temproary" will still show in the EXPLAIN result 
+  -Internal temp table created within the query part of the view definition is just like the one created in "Use DISTINCT in Query" and "Use DISTINCT in Subquery"
+Main Success Scenario:
+  1. Run code below
+    Drop View If Exists vw1;
+    CREATE 
+        ALGORITHM = MERGE 
+        DEFINER = `myLogin`@`%` 
+        SQL SECURITY DEFINER
+    VIEW vw1 AS
+        SELECT Distinct col1 FROM tblA;
+    explain extended Select * From vw1;
+  2. See "Using temporary" in "Extra" column of EXPLAIN statement result
+  3. End
+Alternatives:
+  1a. Set "ALGORITHM" to "TEMPTABLE"
+    1a1. Run code below
+        Drop View If Exists vw1;
+        CREATE 
+            ALGORITHM = TEMPTABLE 
+            DEFINER = `myLogin`@`%` 
+            SQL SECURITY DEFINER
+        VIEW vw1 AS
+            SELECT Distinct col1 FROM tblA;
+        explain extended Select * From vw1;
+    1a2. Go to step 2
+
+
+Use UNION in View Definition
+Note:
+  -UNION defaults to UNION DISTINCT 
+  -Internal temp table created within the query part of the view definition is just like the one created in "Use UNION in Query"
+Main Success Scenario:
+  1. Use UNION or UNION DISTINCT statement within view definition
+    Drop View If Exists vw1;
+    CREATE 
+        ALGORITHM = UNDEFINED 
+        DEFINER = `myLogin`@`%` 
+        SQL SECURITY DEFINER
+    VIEW vw1 AS
+        SELECT col1 AS col1 FROM tblA 
+        UNION 
+        SELECT col1 AS col1 FROM tblB;
+    explain Select * From vw1;
+  2. See "Using temporary" in "Extra" column of EXPLAIN statement result
+  3. End 
+Alternatives:
+  1a. Use UNION ALL statement within view definition
+    1a1. Run code below
+        Drop View If Exists vw1;
+        CREATE 
+            ALGORITHM = UNDEFINED 
+            DEFINER = `myLogin`@`%` 
+            SQL SECURITY DEFINER
+        VIEW vw1 AS
+            SELECT col1 AS col1 FROM tblA 
+            UNION ALL
+            SELECT col1 AS col1 FROM tblB;
+        explain Select * From vw1;
+    1a2. No internal temp table is created 
+    1a3. Go to step 3
+
+
+Use IN in View Definition 
+Main Success Scenario:
+  1. xxx
+
+
+Use NOT IN in View Definition
+Main Success Scenario:
+  1. xxx
+
+
+Use SQL_SMALL_RESULT in View Definition 
+Main Success Scenario:
+  1. xxx
+
+
+Set ALGORITHM to TEMPTABLE in View Definition
+Note:
+  -A view can create the internal temp table in the 1st step for any Subquery, statement, clause, hint, variable assignment, or literal reference that will cause an internal temp table to be created for a query. In this case, we used a SELECT DISTINCT statement.
+Main Success Scenario:
+  1. Run code below
+        Drop View If Exists vw1;
+        CREATE 
+            ALGORITHM = TEMPTABLE 
+            DEFINER = `myLogin`@`%` 
+            SQL SECURITY DEFINER
+        VIEW vw1 AS
+            SELECT col1 FROM tblA;
+        explain extended Select * From vw1;
+  2. Do not see "Using temporary" in "Extra" column of EXPLAIN statement result
+  3. See "<derived2>" in 1st row (last step) of "table" column of EXPLAIN statement result 
+  4. End
+Alternatives:
+  1a. Additional internal temp table created from the query in the view definition 
+    1a1. Run code below 
+        Drop View If Exists vw1;
+        CREATE 
+            ALGORITHM = TEMPTABLE 
+            DEFINER = `myLogin`@`%` 
+            SQL SECURITY DEFINER
+        VIEW vw1 AS
+            SELECT Distinct col1 FROM tblA;
+        explain extended Select * From vw1;
+    1a2. See "Using temporary" in 2nd row (1st step) of the "Extra" column in the EXPLAIN result
+    1a3. Go to step 3
+
+
+Use GROUP BY in View Definition
+Note:
+  -Internal temp table created within the query part of the view definition is just like the one created in "Use GROUP BY in Query" and "Use GROUP BY in View Definition"
+Main Success Scenario:
+  1. Run code below
+    Drop View If Exists vw1;
+    CREATE 
+        ALGORITHM = MERGE 
+        DEFINER = `myLogin`@`%` 
+        SQL SECURITY DEFINER
+    VIEW vw1 AS
+        SELECT col2,Count(col1) FROM tblA group by col2;
+    explain extended Select * From vw1;
+  2. See "Using temporary" in 2nd row (1st step) of the "Extra" column in the EXPLAIN result
+  3. End 
+Alternatives:
+  1a. Additional internal temp table created because ALGORITHM was set to "TEMPTABLE"
+    1a1. Run code below
+        Drop View If Exists vw1;
+        CREATE 
+            ALGORITHM = TEMPTABLE 
+            DEFINER = `myLogin`@`%` 
+            SQL SECURITY DEFINER
+        VIEW vw1 AS
+            SELECT col2,Count(col1) FROM tblA group by col2;
+        explain extended Select * From vw1;
+    1a2. The 1st row (last step) of the EXPLAIN statement result created an internal temp table, but does not indicate that 
+    1a3. Go to step 3
+
+
+Use Aggregation Function in View Definition
+Note:
+  -list of MySQL aggregation functions @ https://dev.mysql.com/doc/refman/5.7/en/aggregate-functions.html
+  -Internal temp table creation does not depend on if the COUNT function uses DISTINCT or not
+  -Internal temp table creation does not depend on if the COUNT function is used on an indexed column or not 
+  -Internal temp table created within the query part of the view definition is just like the one created in "Use Aggregation Function in View Definition"
+Pre-Conditions:
+  -Leave out GROUP BY clause, because that clause and aggregation functions can cause internal temp tables to be created 
+Main Success Scenario:
+  1. Run code below 
+    xxx
+  2. See "<derived2>" in "table" column of EXPLAIN statement result
+  3. End 
+Alternatives:
+  1a. Remove count aggregation function 
+    1a1. Run code below 
+      xxx
+    1a2. See no internal temp table created 
+    1a3. Go to step 3
+  1b. Use sum aggregation function instead 
+    1b1. Run code below 
+      xxx
+    1b2. Go to step 2
+  1c. Use max aggregation function instead
+    1c1. Run code below 
+      xxx
+    1c2. Go to step 2
+  1d. Use min aggregation function instead
+    1d1. Run code below 
+      xxx
+    1d2. Go to step 2 
+  1e. Use group_concat aggregation function instead 
+    1e1. xxx 
+
+
+Use GROUP BY and Aggregation Function in View Definition  
+Note:
+  -Internal temp table created within the query part of the view definition is just like the one created in "Use GROUP BY and Aggregation Function in View Definition"
+Main Success Scenario:
+  1. xxx 
