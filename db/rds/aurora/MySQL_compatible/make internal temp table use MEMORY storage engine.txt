@@ -1,0 +1,6 @@
+Make Internal Temp Table use MEMORY storage engine
+Note:
+  -https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html
+  -https://dev.mysql.com/doc/refman/5.7/en/innodb-storage-engine.html
+Main Success Scenario:
+  1. xxx:fill in
