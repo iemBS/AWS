@@ -14,6 +14,11 @@ Note:
     -InnoDB internal temp table @ https://mysqlserverteam.com/mysql-5-7-innodb-intrinsic-tables/
     -force internal temp tables to be created on disk directly @ https://mysqlserverteam.com/how-to-force-temporary-tables-to-be-created-on-disk-directly/
     -Subqueries with Materialization @ https://dev.mysql.com/doc/refman/5.7/en/subquery-materialization.html
+    -Derived table defined @ https://dev.mysql.com/doc/refman/5.7/en/derived-tables.html
+    -meaning of values in "select_type" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_select_type
+    -meaning of values in "extra" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain-extra-information
+    -meaning of values in "type" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain-join-types
+    -meaning of values in "id" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_id
   -EXPLAIN statement does not necessarily say "Using temporary" for derived or materialized internal temp tables
   -Order of rows in EXPLAIN statement result, is lowest "id" column value is the last step in the execution 
   -"table" column in EXPLAIN statement results will show...
@@ -28,10 +33,6 @@ Note:
     -xxx
   -Materialized temp tables occur when ...
     -xxx 
-  -meaning of values in "select_type" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_select_type
-  -meaning of values in "extra" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain-extra-information
-  -meaning of values in "type" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain-join-types
-  -meaning of values in "id" column of EXPLAIN statement result @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_id
   -internal tables are also known as intrinsic tables 
   -internal temp tables will use the following storage engines in the Aurora implementation of MySQL
     -run "show engines" to see that MEMORY and InnoDB storage engines are used for internal temp tables 
