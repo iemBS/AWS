@@ -5,3 +5,4 @@ What is Aurora?
 -May be the lowest cost DB engine offered in AWS RDS
 -https://aws.amazon.com/rds/aurora/
 -MySQL source code @ https://github.com/mysql/mysql-server/
+-AWS has swapped out the lower storage and logging layers of MySQL and PostgreSQL to make them more cloud native. 
