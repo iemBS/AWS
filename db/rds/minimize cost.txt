@@ -1,3 +1,15 @@
 Minimize Cost
+Note:
+  -What contributes to cost
+    -instance hours
+      -base on region, instance type, DB engine, and license
+    -DB storage
+    -Backup storage
+      -size of backups stored in AWS
+      -no charge for backup storage up to 100% of total database storage
+    -Data transfer
+      -outgoing traffic only
+      -regional data transfer pricing
+      -includes copying region to region 
 Main Success Scenario:
   1. xxx:fill in
