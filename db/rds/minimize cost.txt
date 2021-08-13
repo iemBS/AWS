@@ -11,5 +11,8 @@ Note:
       -outgoing traffic only
       -regional data transfer pricing
       -includes copying region to region 
+  -Tagging can escpecially help in companies with multiple systems or teams 
 Main Success Scenario:
-  1. xxx:fill in
+  1. Use AWS Cost Explorer
+  2. Use tags to get a better breakdown
+  3. Reserve instances if you can
