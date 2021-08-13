@@ -10,6 +10,208 @@ Note:
       -MySQL
       -PostgreSQL
 Main Success Scenario:
+  1. "Provision without Wizard"
+  2. End 
+Alternatives:
+  1a. Provision with wizard
+    1a1. "Provision with Wizard" 
+    1z2. Go to step 2
+    
+    
+Provision with Wizard
+Note:
+  -Cost depends on
+    -DB engine 
+    -DB engine version
+    -license model
+    -DB instance class
+    -multi-AZ deployment
+    -storage type and storage allocation 
+Main Success Scenario:
+  x. Choose License Model with Wizard
+  x. Choose DB instance class with Wizard'
+  x. Choose Muilti-AZ Deployment with Wizard 
+  x. Choose Storage Type and Allocation with Wizard
+  x. "Choose DB Instance Identifier"
+  x. "Specify Credentials"
+  x. "Choose Network Configuration"
+  x. "Specify DB Name"
+  x. "Specify DB Port"
+  x. "Specify DB Parameter Group"
+  x. "Specify DB Option Group"
+  x. "Specify DB Option Encryption"
+  x. "Specify Enhanced Monitoring"
+  x. "Choose Backups"
+  x. "Choose Maintenance"
+  
+  
+Choose Maintenance
+Main Success Scenario:
+  1. "Choose Auto Version Upgrade"
+  2. "Choose Maintenance Window"
+  
+  
+Choose Auto Version Upgrade
+Note:
+  -This automatically updates minor versions
+    -With the version number format of X.Y.Z, the minor version is Z
+  -DB engine upgrades require downtime
+  -minor version upgrades are automatic or manual (you decide)
+  -major version upgrades are manually applied because they can cause compatibility issues
+  -version deprecation have a 3 to 6 month notification before scheduled upgrades
+Main Success Scenario:
+  1. xxx:fillin 
+  
+
+Choose Maintenance Window
+Note:
+  -Aimed at patching upgrades
+  -Once a week time range when maintenance occurs 
+  
+Main Success Scenario:
+  1. xxx:fillin 
+  
+  
+Choose Backups
+Main Success Scenario:
+  1. "Choose Backup Retention Period"
+  2. "Choose Backup Window"
+  3. "Copy Tags to Snapshots"
+  
+  
+Choose Backup Window
+Note:
+  -Daily time range wehn automated backups occur
+Main Success Scenario:
+  1. xxx:fill in
+  
+
+Copy Tags to Snapshots
+Main Success Scenario:
+  1. xxx:fill in
+  
+Choose Backup Retention Period
+Note:
+  -Range is 0 - 35 days 
+Main Success Scenario:
+  1. xxx:fill in 
+ 
+ 
+Specify Enhanced Monitoring
+Note:
+  -Enhanced monitoring metrics allow you to see how different processes or threads use the CPU
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Specify DB Option Encryption
+Note:
+  -Encryption at rest for your DB instance 
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Specify DB Option Group
+Note:
+  -Optional functionality you would ilke to enable on the DB instance
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Specify DB Parameter Group
+Note:
+  -A group of params which define the config of the DB instance
+Main Success Scenario:
+  1. xxx:fill in
+  
+
+Specify DB Port
+Note: 
+  -Usually, left as the default 
+  -TCP/IP port that applications will use to connect to the DB instance
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Specify DB Name
+Main Success Scenario:
+  1. Name of the default DB that will be created
+  
+
+Choose Network Configuration
+Note:
+  -VPC define the virtual networking environment for the DB instance
+  -Subnet group defines which subnets and IP ranges the DB instance can use in the VPC you selected
+  -Public accessiblity makes the DB instance accessible from outside the VPC
+  -AZ is usually let to the default
+  -VPC security groups can use inbound and outbound rules 
+Main Success Scenario:
+  1. Create VPC
+  2. Create Subnet Group
+  3. Create Public Accessibility
+  4. Availability Zone
+  5. VPC Security Groups 
+  
+  
+Specify Credentials
+Note:
+  -This is the master user account (varies across DB engines)
+Main Success Scenario:
+  1. Set master user name
+  2. Set master user password
+
+
+Choose DB Instance Identifier
+Note:
+  -Identifies the DB instance
+  -Must be unqiue for your account across the AWS region
+Main Success Scenario:
+  1. 
+
+Choose Storage Type and Allocation with Wizard
+Note:
+  -RDS storage types @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html
+  -MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server use AWS EBS volumes
+  -Aurora uses proprietary storage system
+Main Success Scenario:
+  1. Choose GP2
+Alternatives:
+  1a. Choose IO1
+  1b. Choose Magnetic 
+  
+
+Choose Muilti-AZ Deployment with Wizard 
+Note:
+  -Achieve high availability in the case of failure
+  -Two DB nodes running with replication
+  -Primary and standby in different AZs
+  -AWS AZs @ https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+  -Price of two AZ is 2x as much as one AZ
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Choose License Model with Wizard
+Note:
+  -Only used for Oracle
+    -choice of On-Demand license (license cost is included) or BYO license 
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+Choose DB instance class with Wizard
+Note:
+  -Database instance class is related to the EC2 instance type the DB rides on
+  -There are 3 EC2 instance types used here
+    -T2/T3 family
+    -M3/M4 family
+    -R3/R4 family
+Main Success Scenario:
+  1. xxx
+    
+    
+Provision without Wizard
+Main Success Scenario:
   1. Choose database engine
   2. Choose license model
   3. Choose DB engine version
