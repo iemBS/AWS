@@ -1,0 +1,34 @@
+Scale DB Instance
+Main Success Scenario:
+  1. "Scale Compute or Memory Vertically"
+  
+
+Scale Compute or Memory Vertically
+Note:
+  -new host is attached to existing volumes
+  -In Multi-AZ, secondary resizes first
+  -Storage and instance type are decoupled
+  -min down time when scaling multi-AZ env
+    -single AZ will be unavailable during the scaling operation 
+Pre-Conditions:
+  -Ensure correct licensing is in place
+Main Success Scenario:
+  1. Choose when to apply change (immediately, maintenance window)
+  2. Modify RDS instance
+  3. Change the DB instance class
+  
+
+Scale Amazon EBS storage
+Note:
+  -No downtime 
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Scale wtih Read Replicas 
+Note:
+  -This is horizontal scaling
+Main Success Scenario:
+  1. Only some DB engines
+  2. Help scale read traffic only
+  3. No downtime
