@@ -19,6 +19,7 @@ Notes:
   -Settings for replica will default to those that match the original
   -A read replica is a node that is part of a database instance 
   -Primary host is the host/node wtihin the DB instance which handles the traffic from the client. It handles read and write traffic. 
+  -Secondary Host (or Standby) is the host/node within a DB instance which is not actively handling write traffic for your application. It acts as a redundancy layer (takes over in case of failover)
 Main Success Scenario:
   1. Go to "Databases" on the left side bar
   2. Click on your db name
