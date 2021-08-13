@@ -32,6 +32,7 @@ Main Success Scenario:
   x. Choose DB instance class with Wizard'
   x. Choose Muilti-AZ Deployment with Wizard 
   x. Choose Storage Type and Allocation with Wizard
+  x "Choose Storage Autoscaling with Wizard"
   x. "Choose DB Instance Identifier"
   x. "Specify Credentials"
   x. "Choose Network Configuration"
@@ -43,6 +44,14 @@ Main Success Scenario:
   x. "Specify Enhanced Monitoring"
   x. "Choose Backups"
   x. "Choose Maintenance"
+  
+  
+Choose Storage Autoscaling with Wizard
+Note:
+  -Provides dynamic scaling support for your DB's stroage based on your apps needs
+Main Success Scenario:
+  1. Check "Enable storage autoscaling" box
+  2. Specify "Maxium storage threshold" (min 21 GiB, max 16384 GiB)
   
   
 Choose Maintenance
