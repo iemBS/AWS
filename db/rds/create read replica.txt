@@ -18,6 +18,7 @@ Notes:
     -Cross-region support vs Single Region
   -Settings for replica will default to those that match the original
   -A read replica is a node that is part of a database instance 
+  -Primary host is the host/node wtihin the DB instance which handles the traffic from the client. It handles read and write traffic. 
 Main Success Scenario:
   1. Go to "Databases" on the left side bar
   2. Click on your db name
