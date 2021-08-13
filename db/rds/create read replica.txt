@@ -1,6 +1,7 @@
 Create Read Replica
 Notes:
-  -Guidance @ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
+  -Guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
   -Asynchronus replication
   -Cross-Region support
   -read only
@@ -16,6 +17,7 @@ Notes:
     -Asynchronous vs Synchronous
     -Cross-region support vs Single Region
   -Settings for replica will default to those that match the original
+  -A read replica is a node that is part of a database instance 
 Main Success Scenario:
   1. Go to "Databases" on the left side bar
   2. Click on your db name
