@@ -1,0 +1,74 @@
+Allow Serverless Auto Scale
+Note:
+  -guidance @ 
+    -auto scaling for v1 of Aurora serverless @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling
+    -Limitations of v1 Aurora serverless @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations
+    -use cases for v1 of Aurora serverless @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.use-cases
+    -aurora serverless best practice @ https://aws.amazon.com/blogs/database/best-practices-for-working-with-amazon-aurora-serverless/
+    -using replicas for auto scaling @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html
+  -temp tables created by developer are called explicit temp table
+  -temp table created by MySQL are called internal, intrinsic, or implicit temp tables 
+  -Aurora Serverless v1 tries to find a scaling point for 5 minutes (300 seconds). If Aurora Serverless can't find a scaling point within 5 minutes, the autoscaling operation times out.
+Main Success Scenario:
+  1. "Do Not Create Temp Table"
+  2. "Minimize Aurora Connection"
+  3. "Minimize Table Lock"
+  4. Reduce query duration 
+  5. Reduce transaction use and/or duration
+  6. Understand what resource usage triggers an auto scale
+  7. Provide windows in which auto scaling can occur 
+
+
+Do Not Create Temp Table
+Main Success Scenario:
+  1. Do not create explicit temp table
+  2. Do not create implicit temp table 
+  3. End 
+
+
+Minimize Aurora Connection
+Note:
+  -Aurora will run the following query to check for connections before attempting to auto scale
+    -SELECT VARIABLE_VALUE FROM INFORMATION_SCHEMA.GLOBAL_STATUS WHERE VARIABLE_NAME = 'TIME_SINCE_ZERO_CONNECTIONS'
+Question:
+  -This applies to inbound connections, but what about outbound connections?
+Main Success Scenario:
+  1. Open as late as possible
+  2. "Close Aurora Connection"
+  
+ 
+Close Aurora Connection
+Note: 
+  -Do not rely on developer client connection auto close to close unused connections. 
+Main Success Scenario:
+  1. Close Aurora inbound connection as soon as possible, when not used
+  2. End
+Alternatives:
+  1a. Error occurs
+    1a1. Close inbound connection as soon as possible
+    1a2. Go to step 2
+  1b. Developer leaves connection open
+    1b1. Have server level process that auto closes unused developer connections 
+    1b2. Go to step 2
+  1c. There are several developer connections left open
+    1c1. Have Aurora force developer connections closed before priority tasks are run
+    1c1. Go to step 2
+    
+    
+Minimize Table Lock
+Question:
+  -Does this include row locks within a table?
+Main Success Scenario:
+  1. xxx:fill in
+    
+    
+** Put the below use case in another file**    
+Set Proper Min Capacity
+Main Success Scenario:
+  1. 
+Alternatives:
+  1a. Min capacity is set too low
+    1a1. xxx:fill in
+  1b. Too busy to pause transactions
+    1b1. 
+    
