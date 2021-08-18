@@ -6,12 +6,16 @@ Main Success Scenario:
   -. Reduce data as soon as possible
   -. "Use Union All with 1 Insert or Just Inserts"
   -. "Reduce Temp Space Usage"
-  -. Avoid use of "distinct"
+  -. "Avoid use of Distinct"
   -. "Use Correct Join"
   -."Add all Possible Filters"
   -."Use Union instead of Multiple Inserts"
   -. xxx:fill
   
+Avoid use of Distinct
+Main Success Scenario:
+  1. Use semi join to avoid duplicating rows in the left table
+  2. xxx:fill in
   
 Use Union All with 1 Insert or Just Inserts
 -xxx:fill
