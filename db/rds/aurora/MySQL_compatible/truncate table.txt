@@ -2,6 +2,14 @@ Truncate Table
 Note:
   -Guidance @ 
     -https://stackoverflow.com/questions/25394493/truncate-table-only-if-it-exists-to-avoid-errors
+    -https://dev.mysql.com/doc/refman/5.7/en/truncate-table.html
+  -Truncate bypasses the DML method of deleting rows. Instead it drops and recreates the table. 
+  -Truncate cannot be rolled back
+    -If you have a rollback, then throw an exception, then truncating a table in the middle of the scxript is not an issue
+    -If you have a rollback, then continue, then truncating a table in the middle of the script, instead of at the end, may be an issue
+  -Truncation operations cannot be performed if the session holds an active table lock
+  -The TRUNCATE TABLE statement does not invoke ON DELETE triggers
+  -On a system with a large InnoDB buffer pool and innodb_adaptive_hash_index enabled, TRUNCATE TABLE operations may cause a temporary drop in system performance due to an LRU scan that occurs when removing an InnoDB table's adaptive hash index entries. 
 Main Success Scenario:
   1. See code below
   
