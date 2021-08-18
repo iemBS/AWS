@@ -1,0 +1,24 @@
+Insert Into Table with Ignore
+Note:
+  -guidance @ 
+    -https://www.mysqltutorial.org/mysql-insert-ignore/
+    -https://dev.mysql.com/doc/refman/5.7/en/insert.html
+  -If trying to avoid errors due to the following, then it is helpful to use
+    -unique constraint (aka unique index)
+    -primary key 
+  -IGNORE does not work with just matching rows 
+Pre-Conditions:
+  -Need any insert errors to be ignored and show only as warnings 
+Main Success Scenario:
+  1. See code below 
+  
+    CREATE TABLE subscribers (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        email VARCHAR(50) NOT NULL UNIQUE
+    );
+
+    INSERT IGNORE INTO subscribers(email)
+    VALUES('john.doe@gmail.com'), 
+          ('jane.smith@ibm.com');
+
+  
