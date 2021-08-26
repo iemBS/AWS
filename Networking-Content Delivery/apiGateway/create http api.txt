@@ -1,0 +1,5 @@
+Create HTTP API
+Note:
+  -https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html
+Main Success Scenario:
+  1. xxx:fill in
