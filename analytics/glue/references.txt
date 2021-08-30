@@ -5,3 +5,4 @@ https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-pyspark-extensio
 https://github.com/awslabs/aws-glue-libs
 https://github.com/apache/spark
 https://docs.aws.amazon.com/glue/latest/dg/glue-dg.pdf
+https://docs.aws.amazon.com/glue/
