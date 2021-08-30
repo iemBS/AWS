@@ -1,3 +1,26 @@
 View CloudWatch Log
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/monitoring-cloudwatchlogs.html
+    -
+  -attributes in log entry
+    -Timestamp: Event time in Lambda
+    -Ingestion time: Time log entry ingested into the log
+    -Message: Message details 
+    -Event Id: xxx
+    -Log stream name: xxx
+  -"Message" attribute format
+    -Format 1
+      -START RequestId: [REQUEST_ID]: $LATEST
+        -"[REQUEST_ID]" is the request ID
+    -Format 2
+      -[MSG_TYPE]	[DATETIME_UTC]	[MSG]
+        -where "[MSG_TYPE]" is INFO, xxx, or xxx. 
+    -Example 2
+      -[INFO]	2021-05-05T17:01:08.324Z		successfully patched module botocore
+    -Format 3
+      [MSG]
+    -Example 3
+      -/opt/python/lib/python3.8/site-packages/cerberus/validator.py:1674: UserWarning: No validation schema is defined for the arguments of rule 'whitespace'
 Main Success Scenario:
   1. xxx:fill in
