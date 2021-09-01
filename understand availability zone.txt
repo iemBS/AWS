@@ -1,0 +1,13 @@
+Understand Availability Zone
+Note:
+  -An availability zone is
+    -Isolated distinct data center in the same region
+    -connected via a low latency link
+  
+  -Secondary host used in multi-az, does not improve performance of your DB instance. That is because the secondary host does not handle active write traffic. The secondary host is used for failover scenarios. Writes to a multi-AZ DB instance are slightly slower. 
+  -backup time is improved because they are taking of the passive secondary host rather than of the primary host. 
+  -Having a primary and secondary host is twice the cost of the primary alone. 
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
