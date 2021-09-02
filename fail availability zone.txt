@@ -1,0 +1,15 @@
+Fail Availability Zone
+Note:
+  -Fail over type definitions:
+    -Manual Failover: A manual failover of the DB instnace is initiated using reboot wtih failvoer. 
+    -Availability Zone Outage: An Availability Zone outage occurs
+    -DB Instance Fails: The primary DB instance fails
+    -DB Instance Class changed: The DB instance's DB instance class is changed
+    -Sotware Patching: The operating system of the DB instance is undergoing software patching
+Main Success Scenario:
+  1. Manual Failover
+Alternatives:
+  1a. DB Instance Class changed
+  1b. Software Patching
+  1c. DB Instance Fails
+  1d. Availability Zone Outage
