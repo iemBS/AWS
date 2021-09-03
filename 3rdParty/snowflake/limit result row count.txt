@@ -1,0 +1,4 @@
+Limit Result Row Count
+Main Success Scenario:
+  1. select * from ACCOUNT_USAGE.query_history limit 5 
+    
