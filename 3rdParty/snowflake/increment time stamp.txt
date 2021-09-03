@@ -1,0 +1,7 @@
+Incremement Time Stamp
+Note:
+  -guidance @ 
+    -https://docs.snowflake.com/en/sql-reference/functions/dateadd.html
+Main Success Scenario:
+  1. See code below
+    select dateadd(hour,-1,current_timestamp(4));
