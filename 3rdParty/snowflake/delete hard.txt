@@ -1,0 +1,3 @@
+Delete Hard
+Main Success scenario:
+  1. Delete data in the archive
