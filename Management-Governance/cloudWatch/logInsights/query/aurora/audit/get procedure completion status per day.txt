@@ -1,4 +1,26 @@
 Get Procedure Completion Status per Day
+Note:
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/audit-log-file-formats.html
+  -Status_Code of 0 is success and a non-zero value is an error
 Main Success Scenario:
-  1. 
-  
+  1. See summary level query
+    xxx:fill in
+  2. See associated detail level query, swap out "ProcName" and "SHIFT" with good values. SHIFT is the ofset from UTC (if preceding UTC leave positive, if after UTC make negative). 
+    fields @message,@timestamp
+    | filter @message like /(?i),QUERY,/ # non-case sensitive filter
+    | filter @message like /(?i)ProcName\(/ # non-case sensitive filter
+    # remove records that will return proc references that we do not want
+    | filter @message not like /(?i)'CREATE DEFINER=`/ # non-case sensitive filter
+    | filter @message not like /(?i)'Drop Procedure / # non-case sensitive filter
+    | filter @message not like /(?i)'SHOW CREATE PROCEDURE `/ # non-case sensitive filter
+    # get day of run
+    | field SHIFT * 60 * 60 * 1000 As ShiftHrsInMs
+    | field toMillis(@timestamp) As utcTimestampInMs
+    | field fromMillis(utcTimestampInMs - ShiftHrsInMs) As localTimestamp # create local time value
+    | field datefloor(localTimestamp,1day) as localDay # applied on local time value
+    | field fromMillis(toMillis(localDay) + ShiftHrsInMs) As dy # convert to utc because display value will be auto converted to local time
+    # parse record 
+    | parse @message "*,*,*,*,*,*,*,*,*(*)',*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry,params,status_cd
+    | display @timestamp,dy,usr,db,qry,status_cd 
+    | sort @timestamp desc
