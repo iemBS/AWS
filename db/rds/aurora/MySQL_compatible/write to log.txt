@@ -11,6 +11,9 @@ Main Success Scenario:
 
 
 Write to Aurora Audit log
+Note:
+  -Using a DO instead, like below, will not write to the audit log
+    DO 'ACTION_START:ckentAction'
 Main Success Scenario:
   1. Run code that will show in the log
     Select 'ACTION_START:ckentAction'
