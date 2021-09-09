@@ -13,4 +13,6 @@ Main Success Scenario:
 Write to Aurora Audit log
 Main Success Scenario:
   1. Run code that will show in the log
-    xxx:fill in
+    Select 'ACTION_START:ckentAction'
+Alternatives:
+  1a. xxx:fill in
