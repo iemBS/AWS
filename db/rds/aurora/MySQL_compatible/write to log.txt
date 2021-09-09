@@ -1,0 +1,16 @@
+Write to Log
+Main Success Scenario:
+  1. "Write to Aurora Error log"
+Alternatives:
+  1a. "Write to Aurora Audit log"
+  
+
+Write to Aurora Error log
+Main Success Scenario:
+  1.  throw an error
+
+
+Write to Aurora Audit log
+Main Success Scenario:
+  1. Run code that will show in the log
+    xxx:fill in
