@@ -1,0 +1,17 @@
+Create Trace ID
+Main Success Scenario:
+  1. Create function that creates a human meaningful, unique trace ID
+
+    CREATE DEFINER=`ckent`@`%` FUNCTION `fn_CreateTraceId`() RETURNS varchar(50) CHARSET latin1
+    BEGIN
+      SET @TimeZone2Use = 'US/Pacific'; # SELECT @@system_time_zone will return the current system time zone
+      SET @AuditId = (Select Concat(Replace(SESSION_USER(),"@","_"),'_on_',Right(Replace(CURDATE(),'-',''),6),'_',Right(Concat('00',hour(CONVERT_TZ(CURTIME(),'UTC', @TimeZone2Use))),2),Right(concat('00',Minute(CONVERT_TZ(CURTIME(),'UTC', @TimeZone2Use))),2),'_',@TimeZone2Use));
+    RETURN @AuditId;
+    END
+    
+  2. Run function
+  3. See result that contains the login that called the function, IP they are connecting from, datetime they are connecting, and the timezone of that datetime
+    ckent_11.5.33.146_on_210910_1804_US/Pacific
+Alternatives:
+  3a. Time units used in Trace ID are not small enough
+    3a1. xxx:fill in
