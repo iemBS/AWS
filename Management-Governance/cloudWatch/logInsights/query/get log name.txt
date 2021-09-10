@@ -1,4 +1,6 @@
 Get Log Name
 Main Success Scenario:
   1. See code below
-    field @logStream
+    fields @log
+    | parse @log /(?<@logName>([^:]*$))/ # get task name, 80683384545:/aws/rds/cluster/dmgmt-sds-dev-aurora-serverless/audit
+    | display @logName
