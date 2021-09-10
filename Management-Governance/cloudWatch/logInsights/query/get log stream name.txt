@@ -1,0 +1,4 @@
+Get Log Stream Name
+Main Success Scenario:
+  1. See code below
+    field @logStream
