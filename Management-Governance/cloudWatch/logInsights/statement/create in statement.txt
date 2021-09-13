@@ -1,0 +1,24 @@
+Create IN Statement
+Note:
+  -Guidance @ 
+    -https://stackoverflow.com/questions/60168449/filtering-aws-cloudwatch-raw-log-events-by-multiple-values-aws-cli
+Main Success Scenario:
+  1. See code below
+    fields  @message
+    | parse @message /.*entry (?<id>\d+).*/
+    | filter id in [1257, 1456]
+    | limit 10
+  2. End 
+Alternatives:
+  1a. Use a like instead of IN 
+    1a1. See code below
+      fields  @message
+      | filter @message like /entry [1456|1257]/
+      | limit 10
+    1a2. Go to step 2
+  1b. Use a like and parenthesis instead of square brackets around the multiple values
+    1b1. See code below
+      fields  @message
+      | filter @message like /entry (1456|1257)/
+      | limit 10
+    1b2. Go to step 2
