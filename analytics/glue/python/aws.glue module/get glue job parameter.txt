@@ -1,0 +1,16 @@
+Get Glue Job Parameter
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-pyspark-extensions-get-resolved-options.html
+Main Success Scenario:
+  1. See code below
+      import sys
+      from awsglue.utils import getResolvedOptions
+
+      args = getResolvedOptions(sys.argv,
+                                ['JOB_NAME',
+                                 'day_partition_key',
+                                 'hour_partition_key',
+                                 'day_partition_value',
+                                 'hour_partition_value'])
+      print "The job name is: ", args['JOB_NAME']
