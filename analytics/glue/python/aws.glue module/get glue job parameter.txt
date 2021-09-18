@@ -2,6 +2,9 @@ Get Glue Job Parameter
 Note:
   -guidance @ 
     -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-pyspark-extensions-get-resolved-options.html
+    -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html
+  -Identifying a particular run of a glue job allows for comparison of different runs of the same job. It also allows for results of a a particular run to be identified. 
+  -The Job Run ID can be passed along to systems a job does work on and be used as a trace ID that relates a glue job to tasks in other systems. 
 Main Success Scenario:
   1. See code below
       import sys
@@ -14,3 +17,4 @@ Main Success Scenario:
                                  'day_partition_value',
                                  'hour_partition_value'])
       print "The job name is: ", args['JOB_NAME']
+      print "The job run ID is: ", args['JOB_RUN_ID']
