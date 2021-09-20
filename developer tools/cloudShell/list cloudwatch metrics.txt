@@ -1,0 +1,6 @@
+List CloudWatch Metrics
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/list-metrics.html
+Main Success Scenario:
+  1. aws cloudwatch list-metrics
