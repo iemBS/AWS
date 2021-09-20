@@ -1,0 +1,13 @@
+Get Glue Job Runs
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/reference/glue/get-job-runs.html
+Main Success Scenario:
+  1. aws glue get-job-runs --job-name myJobName
+  2. see job runs
+  3. End 
+Alternatives:
+  1a. Get glue job runs for specific window 
+    1a1. xxx:fill in 
+    1a2. Go to step 2. 
+ 
