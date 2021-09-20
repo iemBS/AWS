@@ -1,0 +1,6 @@
+Convert ETL to use Glue
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.html
+Main Success Scenario:
+  1. xxx:fill in
