@@ -3,4 +3,7 @@ Note:
   -guidance @ 
     -https://docs.aws.amazon.com/cli/latest/reference/glue/list-jobs.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. aws glue list-jobs
+Alternatives:
+  1a. List only the glue jobs I care about
+    1a1. xxx:fill in
