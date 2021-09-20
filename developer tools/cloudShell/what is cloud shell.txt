@@ -3,4 +3,7 @@ Guidance from
   -https://aws.amazon.com/cli/
   -glue
     -https://docs.aws.amazon.com/cli/latest/reference/glue/
+  -rds
+    -https://docs.aws.amazon.com/cli/latest/reference/rds/index.html
+    -https://docs.aws.amazon.com/cli/latest/reference/rds-data/index.html
   
