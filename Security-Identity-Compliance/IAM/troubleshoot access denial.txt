@@ -1,0 +1,6 @@
+Troubleshoot Access Denial
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_cant-assume-role
+Main Success Scenario:
+  1. xxx:fill in 
