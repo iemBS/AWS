@@ -1,3 +1,4 @@
 Guidance from 
   -https://docs.aws.amazon.com/cli/index.html
+  -https://aws.amazon.com/cli/
   
