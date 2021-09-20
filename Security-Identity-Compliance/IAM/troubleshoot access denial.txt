@@ -4,4 +4,13 @@ Note:
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_cant-assume-role
     -https://aws.amazon.com/iam/faqs/
 Main Success Scenario:
-  1. xxx:fill in 
+  1. Can enter AWS via Web GUI
+  2. Cannot see objects where I saw them before 
+  3. Region is set to incorrect one
+  4. Change Region to correct one
+  5. See objects I saw before 
+Alternatives:
+  3a. xxx:fill in
+    3a1. xxx:fill in
+    3a2. xxx:fill in
+    3a3. go to step 5
