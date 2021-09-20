@@ -1,0 +1,7 @@
+List DB Instance level Events
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/reference/rds/describe-events.html
+  -These events are considered recent and can be list with an instance restart. An instance restart occurs during auto scaling of a serverless instance.
+Main Success Scenario:
+  1. aws rds describe-events --source-type db-instance
