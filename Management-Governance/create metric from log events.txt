@@ -1,0 +1,6 @@
+Create Metrics from Log Events
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html
+Main Success Scenario:
+  1. xxx:fill in
