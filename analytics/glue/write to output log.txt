@@ -1,0 +1,20 @@
+Write to Output Log
+Main Success Scenario:
+  1. "Spark Type Job Write to Output log"
+  2. End
+Alternatives:
+  1a. Use a Python shell type job instead
+    1a1. "Python Shell Type Job Write to Output log"
+    1a2. Go to step 2
+    
+Spark Type Job Write to Output log
+Note:
+  -Writes to the output log can be seen before the job is complete
+Main Success Scenario:
+  1. xxx:fill in
+  
+Python Shell Type Job Write to Output log
+Note:
+  -Writes to the output log CANNOT be seen before the job is complete
+Main Success Scenario:
+  1. xxx:fill in
