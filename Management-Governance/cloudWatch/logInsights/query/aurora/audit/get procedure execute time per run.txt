@@ -4,12 +4,15 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/audit-log-file-formats.html
   -Status_Code of 0 is success and a non-zero value is an error
 Main Success Scenario:
-  1. See summary level query
-    xxx:fill in
-  2. See associated detail level query, swap out "ProcName" and "SHIFT" with good values. SHIFT is the ofset from UTC (if preceding UTC leave positive, if after UTC make negative). 
+  1. See summary level query, swap out "myProcA", "myProcB", and "SHIFT" with good values. SHIFT is the ofset from UTC (if preceding UTC leave positive, if after UTC make negative). 
     fields @message,@timestamp
-    | filter @message like /(?i),QUERY,/ # non-case sensitive filter
-    | filter @message like /(?i)ProcName\(/ # non-case sensitive filter
+    # base filter
+    | filter @message like /(?i),QUERY,/ 
+    | filter @message like /(?i),'SET @/ or @message like /(?i),'CALL / # Get start and end of a procedure call 
+    | parse @message /(?<@proc1>(\.myProcA))/ # INPUT: procedure name to search for
+    | parse @message /(?<@proc2>(\.myProcB))/ # INPUT: procedure name to search for
+    | fields concat(@proc1,@proc2) as proc
+    | filter (strlen(trim(proc)) > 0)
     # remove records that will return proc references that we do not want
     | filter @message not like /(?i)'CREATE DEFINER=`/ # non-case sensitive filter
     | filter @message not like /(?i)'Drop Procedure / # non-case sensitive filter
@@ -21,6 +24,13 @@ Main Success Scenario:
     | field datefloor(localTimestamp,1day) as localDay # applied on local time value
     | field fromMillis(toMillis(localDay) + ShiftHrsInMs) As dy # convert to utc because display value will be auto converted to local time
     # parse record 
-    | parse @message "*,*,*,*,*,*,*,*,*(*)',*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry,params,status_cd
-    | display @timestamp,dy,usr,db,qry,status_cd 
-    | sort @timestamp desc
+    | parse @message "*,*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry,other
+    # aggregate
+    | field ltrim(proc,".") as prc
+    | stats count(logId) as sourceRowCount,min(@timestamp) as runStart,max(@timestamp) as runEnd,(max(runEnd)-min(runStart))/1000 as runDuration by usr,ip,processId,db,prc 
+    # display
+    | display runStart,runEnd,runDuration,usr,ip,processId,db,prc,sourceRowCount
+    | sort runStart 
+
+  2. See associated detail level query, swap out "myProcA", "myProcB", and "SHIFT" with good values. SHIFT is the ofset from UTC (if preceding UTC leave positive, if after UTC make negative). 
+    xxx:fill in
