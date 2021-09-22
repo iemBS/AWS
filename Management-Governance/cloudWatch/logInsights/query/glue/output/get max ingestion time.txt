@@ -1,0 +1,7 @@
+Get Max Ingestion Time
+Main Success Scenario:
+  1. See code below
+      fields @timestamp, @message, @ingestionTime
+      | fields ((toMillis(@ingestionTime)-toMillis(@timestamp))/1000) as ingestDuration # in seconds
+      | stats max(ingestDuration) as maxIngestDuration 
+      | display maxIngestDuration
