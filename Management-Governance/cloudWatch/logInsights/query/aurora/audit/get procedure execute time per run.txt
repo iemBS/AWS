@@ -8,6 +8,7 @@ Note:
     -https://stackoverflow.com/questions/12310978/check-if-string-ends-with-certain-pattern
   -Status_Code of 0 is success and a non-zero value is an error
   -This is returning an end, even if the procedure did not end successfully. So, this gives the actual run end time for all procedures.
+  -A log entry written at the beginning of a procedure can be seen in the log before the procedure is completed. 
 Main Success Scenario:
   1. See summary level query, swap out "myProcA", "myProcB", and "SHIFT" with good values. SHIFT is the ofset from UTC (if preceding UTC leave positive, if after UTC make negative). 
     fields @message,@timestamp
