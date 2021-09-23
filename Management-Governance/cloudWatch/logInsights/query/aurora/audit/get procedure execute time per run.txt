@@ -3,6 +3,7 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/audit-log-file-formats.html
   -Status_Code of 0 is success and a non-zero value is an error
+  -This is returning an end, even if the procedure did not end successfully. So, this gives the actual run end time for all procedures.
 Main Success Scenario:
   1. See summary level query, swap out "myProcA", "myProcB", and "SHIFT" with good values. SHIFT is the ofset from UTC (if preceding UTC leave positive, if after UTC make negative). 
     fields @message,@timestamp
@@ -27,10 +28,10 @@ Main Success Scenario:
     | parse @message "*,*,*,*,*,*,*,*,*,*" as ts0,svrNm,usr,ip,processId,logId,eventType,db,qry,other
     # aggregate
     | field ltrim(proc,".") as prc
-    | stats count(logId) as sourceRowCount,min(@timestamp) as runStart,max(@timestamp) as runEnd,(max(runEnd)-min(runStart))/1000 as runDuration by usr,ip,processId,db,prc 
+    | stats count(logId) as sourceRowCount,min(@timestamp) as runStart,max(@timestamp) as runEnd,(max(runEnd)-min(runStart))/1000 as runDuration by usr,ip,processId,db,prc,dy 
     # display
-    | display runStart,runEnd,runDuration,usr,ip,processId,db,prc,sourceRowCount
-    | sort runStart 
+    | display dy,runStart,runEnd,runDuration,usr,ip,processId,db,prc,sourceRowCount
+    | sort dy,runStart 
 
   2. See associated detail level query, swap out "myProcA", "myProcB", and "SHIFT" with good values. SHIFT is the ofset from UTC (if preceding UTC leave positive, if after UTC make negative). 
     xxx:fill in
