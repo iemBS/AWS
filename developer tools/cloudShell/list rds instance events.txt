@@ -2,9 +2,12 @@ List DB Instance level Events
 Note:
   -guidance @ 
     -https://docs.aws.amazon.com/cli/latest/reference/rds/describe-events.html
+    -https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-output-format.html
   -These events are considered recent and can be list with an instance restart. An instance restart occurs during auto scaling of a serverless instance.
   -source-type param value must be one of these:
 	  db-instance | db-cluster | db-parameter-group | db-security-group | db-snapshot | db-cluster-snapshot
+  -only a max of 14 days can be pulled for recent events
+  -duration parameter is in minutes 
 Main Success Scenario:
   1. Get all RDS instance events for the last 7 days
     aws rds describe-events --duration 10080
@@ -14,3 +17,6 @@ Alternatives:
   1a. Get all RDS db cluster level events for the last 7 days, swap out "[DB cluster ID]" with the DB cluster ID for your instance
     1a1. aws rds describe-events --source-identifier [DB cluster ID] --source-type db-cluster --duration 10080
     1a2. Go to step 2
+  1b. Get all RDS db cluster level events for the last 14 days, in text format, only the Date and Message attributes, and swap out "[DB cluster ID]" with the DB cluster ID for your instance
+    1b1. aws rds describe-events --source-identifier [DB cluster ID] --source-type db-cluster --duration 20160 --query 'Events[*].[Date,Message]' --output text
+    1b2. Go to step 2
