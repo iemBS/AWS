@@ -1,6 +1,7 @@
 Guidance from 
   -https://docs.aws.amazon.com/cli/index.html
   -https://aws.amazon.com/cli/
+  -https://docs.aws.amazon.com/cli/latest/index.html
   -glue
     -https://docs.aws.amazon.com/cli/latest/reference/glue/
   -rds
