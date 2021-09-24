@@ -1,0 +1,16 @@
+List DB Instance level Events
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/reference/rds/describe-events.html
+  -These events are considered recent and can be list with an instance restart. An instance restart occurs during auto scaling of a serverless instance.
+  -source-type param value must be one of these:
+	  db-instance | db-cluster | db-parameter-group | db-security-group | db-snapshot | db-cluster-snapshot
+Main Success Scenario:
+  1. Get all RDS instance events for the last 7 days
+    aws rds describe-events --duration 10080
+  2. See JSON result
+  3. End
+Alternatives:
+  1a. Get all RDS db cluster level events for the last 7 days, swap out "[DB cluster ID]" with the DB cluster ID for your instance
+    1a1. aws rds describe-events --source-identifier [DB cluster ID] --source-type db-cluster --duration 10080
+    1a2. Go to step 2
