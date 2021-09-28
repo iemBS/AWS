@@ -1,3 +1,6 @@
 Use Multi Availability Zones
+Note:
+ -guidance @ 
+   -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html
 Main Success Scenario:
   1. xxx:fill in 
