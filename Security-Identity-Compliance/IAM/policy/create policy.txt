@@ -1,6 +1,11 @@
 Create Policy
 Main Success Scenario:
   1. "Create Policy for Glue"
+  2. xxx:fill in
+Alternatives:
+  1a. Create Policy for xxx
+    1a1. xxx:fill in
+    1a2. Go to step 2
   
   
 Create Policy for Glue
