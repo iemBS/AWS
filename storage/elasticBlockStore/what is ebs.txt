@@ -1,5 +1,7 @@
 What is EBS
--Guidance @ https://aws.amazon.com/ebs/
+-Guidance @ 
+  -https://aws.amazon.com/ebs/
+  -https://aws.amazon.com/ebs/faqs/
 -Elastic Block Storage
 -EBS snapshot data stored in S3
 -xxx:fill in
