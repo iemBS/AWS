@@ -1,0 +1,35 @@
+Python Shell Glue Job Writes to Output Log
+Note:
+  -Guidance @ 
+    -https://aws.amazon.com/premiumsupport/knowledge-center/glue-not-writing-logs-cloudwatch/
+Question:
+  -Why is continuous logging disabled? Why does having continuous logging disabled for spark type glue jobs not hurt logging?
+Main Success Scenario:
+  x. Ensure you are checking the correct CloudWatch log group
+  x. "Look for Glue Auto Mesages in the Log"
+  1. "Ensure the AWS Glue job has the required IAM permissions"
+  2. "Ensure the AWS KMS key allows the CloudWatch Logs service to use the key"
+  3. "Ensure that the IAM permission logs:AssociateKmsKey is attached to the AWS Glue role"
+  4. If you haven't turned on continuous logging for your AWS Glue Spark ETL job, then check if the job failed before log aggregation
+  
+  
+Look for Glue Auto Mesages in the Log
+Note: 
+  -Even if you do not see your own custom messages in the log, look for auto messages from the glue job making it into the log. This because any messages from the glue job existing in the log indicates the glue job has permission to write to the log. 
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Ensure the AWS Glue job has the required IAM permissions
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Ensure the AWS KMS key allows the CloudWatch Logs service to use the key
+Main Success Scenario:
+  1. xxx:fill in 
+  
+
+Ensure that the IAM permission logs:AssociateKmsKey is attached to the AWS Glue role
+Main Success Scenario:
+  1. xxx:fill in 
