@@ -1,3 +1,10 @@
 Use Read Replica
+Note:
+  -five use cases for using read replicas
+    -scaling
+    -Source DB unavailable
+    -Reporting or Data WArehouse
+    -Disaster Recovery
+    -Lower Latency
 Main Success Scenario:
   1. xxx:fill in
