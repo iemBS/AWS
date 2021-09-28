@@ -1,0 +1,8 @@
+Spark Type Glue Job Write to Output Log
+Note:
+  -guidance @ 
+    -https://aws.amazon.com/premiumsupport/knowledge-center/glue-not-writing-logs-cloudwatch/
+  -If you haven't turned on continuous logging for your AWS Glue Spark ETL job, then log aggregation happens after the job run is completed
+  -If a spark type glue job, with continuous logging disabled, fails before log aggregation, then the logs might not get pushed to CloudWatch. 
+Main Success Scenario:
+  1. xxx:fill in
