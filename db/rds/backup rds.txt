@@ -1,0 +1,22 @@
+Backup RDS
+Main Success Scenario:
+  1. "Backup Automatically"
+  2. End
+Alternatives:
+  1a. Do manual snapshot
+    1a1. "Snapshot Manually"
+    1a2. Go to step 2
+    
+Backup Automatically
+Main Success Scenario:
+  1. Use a Multi-AZ env
+  2. The EBS volumes that RDS uses are snapshotted daily into an RDS owned S3 bucket
+  3. Transaction logs are taken every 5 minutes
+  4. End 
+Alternatives:
+  1a. Use a Single-AZ env
+    1a1. xxx:fill in
+  
+Snapshot Manually
+Main Success Scenario:
+  1. 
