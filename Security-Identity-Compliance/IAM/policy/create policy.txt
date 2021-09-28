@@ -1,3 +1,11 @@
 Create Policy
 Main Success Scenario:
+  1. "Create Policy for Glue"
+  
+  
+Create Policy for Glue
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/glue/latest/dg/create-service-policy.html
+Main Success Scenario:
   1. xxx:fill in
