@@ -2,5 +2,6 @@ Use Multi Availability Zones
 Note:
  -guidance @ 
    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html
+ -The high-availability feature isn't a scaling solution for read-only scenarios; you can't use a standby replica to serve read traffic. To serve read-only traffic, you use a read replica instead.
 Main Success Scenario:
   1. xxx:fill in 
