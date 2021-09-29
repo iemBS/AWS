@@ -15,6 +15,48 @@ Main Success Scenario:
   
 Python Shell Type Job Write to Output log
 Note:
-  -Writes to the output log CANNOT be seen before the job is complete
+  -guidance @ 
+    -https://stackoverflow.com/questions/59904637/python-logging-getlogger-not-working-in-aws-glue-python-shell-job
+    -https://docs.python.org/3/howto/logging.html
+    -https://stackoverflow.com/questions/50714316/how-to-use-logging-getlogger-name-in-multiple-modules
+  -If continuous logging is disabled, writes to the output log CANNOT be seen before the job is complete
+    -This also means that failed jobs may not write any messages to the output log
 Main Success Scenario:
-  1. xxx:fill in
+  1. See code below
+    import sys
+    import logging
+    
+    logger = logging.getLogger()
+    log_format = "[%(asctime)s %(levelname)-8s %(message)s"
+    
+    date_format = "%a, %d %b %Y %H:%M:%S %Z"
+    log_stream = sys.stdout
+    if logger.handlers:
+      for handler in logger.handlers:
+        logger.removeHandler(handler)
+    logging.basicConfig(
+      level = logging.INFO, 
+      format = log_format, 
+      stream = log_stream, 
+      datefmt = date_format
+    )
+    logger.info("My test message")
+  2. See the message in the default "/aws-glue/python-jobs/output" log directly, Log Insights, or from Glue
+  3. End 
+Alternatives:
+  1a. Write to the "/aws-glue/python-jobs/error" log instead
+    1a1. See code below
+      import sys
+      import logging
+
+      log_format = "[%(asctime)s %(levelname)-8s %(message)s"
+      date_format = "%a, %d %b %Y %H:%M:%S %Z"
+      logging.basicConfig(
+        format = log_format, 
+        datefmt = date_format
+      )
+      logger = logging.getLogger("placeInCodeIamLoggingFrom")
+      logger.setLevel(logging.INFO)
+      logger.info("My test message")
+    1a2. See the message in the default "/aws-glue/python-jobs/error" log via Log Insights only
+    1a3. Go to step 3. 
