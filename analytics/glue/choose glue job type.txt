@@ -1,0 +1,58 @@
+Choose Glue Job Type
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/glue/latest/dg/add-job.html
+    -https://aws.amazon.com/about-aws/whats-new/2019/01/introducing-python-shell-jobs-in-aws-glue/
+Main Success Scenario:
+  1. "See Suggested Conditions by Glue Job Type"
+  2. "See Example Uses by Glue Job Type"
+  3. "Use your own Python Library by Glue Job Type"
+  4. "Define Properties by Glue Job Type"
+  
+  
+See Suggested Conditions by Glue Job Type
+Note:
+  -Python Shell type glue jobs are pre-loaded with these libraries: https://docs.aws.amazon.com/glue/latest/dg/add-job-python.html#python-shell-supported-library
+Main Success Scenario:
+  1. See spark type suggeted conditions
+       -when you want to scale horizontally, vertically, or both
+       -when fine grain control is needed
+  2. See spark streaming type suggested conditions
+       -xxx:fill in
+  3. See python shell type suggested conditions
+      -when you DO NOT need much compute power
+      -when you want to do less development
+      
+      
+ See Example Uses by Glue Job Type
+ Main Success Scenario:
+  1. See spark type example uses
+  2. See spark streaming type example uses
+  3. See python shell type exampmle uses
+       -submit SQL query to redshift, Athena, or EMR
+       
+ 
+ Use your own Python Library by Glue Job Type
+ Main Success Scenario:
+   1. For spark type 
+     https://aws.amazon.com/blogs/big-data/building-python-modules-from-a-wheel-for-spark-etl-workloads-using-aws-glue-2-0/
+   2. For spark streaming type
+     xxx:fill in
+   3. For python shell type
+     https://docs.aws.amazon.com/glue/latest/dg/add-job-python.html#python-shell-supported-library
+     
+     
+ Define Properties by Glue Job Type
+ Note:
+   -https://docs.aws.amazon.com/glue/latest/dg/add-job.html#create-job
+ Main Success Scenario:
+   1. For spark type
+        https://docs.aws.amazon.com/glue/latest/dg/add-job.html#create-job
+   2. For spark streaming type
+        xxx:fill in
+   3. For Python Shell type
+        https://docs.aws.amazon.com/glue/latest/dg/add-job-python.html#python-shell-supported-library
+   
+  
+ 
+       
