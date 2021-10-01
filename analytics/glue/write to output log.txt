@@ -19,8 +19,9 @@ Note:
     -https://stackoverflow.com/questions/59904637/python-logging-getlogger-not-working-in-aws-glue-python-shell-job
     -https://docs.python.org/3/howto/logging.html
     -https://stackoverflow.com/questions/50714316/how-to-use-logging-getlogger-name-in-multiple-modules
-  -If continuous logging is disabled, writes to the output log CANNOT be seen before the job is complete
+  -Docs state that if the continuous logging is disabled, writes to the output log CANNOT be seen before the job is complete.
     -This also means that failed jobs may not write any messages to the output log
+    -I am not seeing that with the python shell type glue jobs. 
 Main Success Scenario:
   1. See code below
     import sys
