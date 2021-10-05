@@ -1,0 +1,6 @@
+List SQS Queues
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/reference/sqs/list-queues.html
+Main Success Scenario:
+  1. xxx:fill in 
