@@ -1,0 +1,23 @@
+Define Job Run Concurrency
+Note:
+  -guidance @ 
+    -https://stackoverflow.com/questions/52159072/relationship-between-glue-dpu-and-max-concurrency
+    -https://docs.aws.amazon.com/glue/latest/dg/troubleshooting-service-limits.html
+    -https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html
+    -https://docs.aws.amazon.com/general/latest/gr/glue.html
+    -https://docs.aws.amazon.com/glue/latest/dg/add-job.html
+Main Success Scenario:
+  1. "Define Server Limits"
+  2. "Define Glue Job Parameters"
+  x. xxx:fill in
+  
+  
+Define Server Limits
+Main Success Scenario:
+  x. xxx:fill in 
+  
+
+Define Glue Job Parameters
+Main Success Scenario:
+  1. Under the "Security configuration, script libraries, and job parameters" category (these are all optional), set "Max concurrency" parameter.
+  x. xxx:fill in 
