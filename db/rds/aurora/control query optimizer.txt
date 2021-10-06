@@ -1,0 +1,6 @@
+Control Query Optimizer
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/controlling-optimizer.html
+Main Success Scenario:
+  1. xxx:fill in 
