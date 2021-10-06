@@ -1,0 +1,5 @@
+Optimize InnoDB Buffer Pool
+Note:
+  -guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool-optimization.html
+Main Success Scenario:
+  1. xxx:fill in 
