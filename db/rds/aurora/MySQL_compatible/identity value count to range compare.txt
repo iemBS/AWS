@@ -1,0 +1,15 @@
+Identity Value Count to Range Compare
+Main Success Scenario:
+  1. See code below
+  
+    Select
+      (MyColIdCnt / ((MyColIdMax - MyColIdMin) + 1)) * 100 As PctMyColIdValRetained
+    From
+      (
+        Select
+          Count(MyColId) As MyColIdCnt,
+          Max(MyColId) As MyColIdMax,
+          Min(MyColId) As MyColIdMMin
+        From
+          MyTable
+        ) t
