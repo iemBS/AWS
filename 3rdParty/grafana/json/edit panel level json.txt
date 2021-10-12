@@ -3,4 +3,32 @@ Note:
   -guidance @ 
     -https://grafana.com/docs/grafana/latest/dashboards/json-model/
 Main Success Scenario:
-  1. xxx:fill in 
+  1. "Edit Table Visual JSON"
+Alternatives:
+  1a. "Edit Text Visual JSON"
+  1b. "Edit "
+  xxx:fill in 
+
+
+Edit Table Visual JSON
+Note:
+  -A multi-column sort can also be specified in the GUI. Just hold the shift key, while clicking the column names. The order in which the columns where clicked will set the primary, secondary, tertiary, etc sort. 
+Main Success Scenario:
+  1. Sort on more than one column by adding an element to the "sortBy" value array
+    
+    "options": {
+      "showHeader": true,
+      "sortBy": [
+        {
+          "displayName": "col1_name",
+          "desc": false
+        },
+        {
+          "displayName": "col2_name",
+          "desc": false
+        }
+      ]
+    }
+    
+Alternatives:
+  1a. xxx:fill in 
