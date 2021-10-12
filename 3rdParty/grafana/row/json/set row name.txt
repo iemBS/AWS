@@ -1,0 +1,10 @@
+Set Row Name
+Note:
+  -The row name is at the end of the row block. 
+  -Looking for "type": "row" will show you where the row name is set 
+Main Success Scenario:
+  1. See code below 
+  
+      "title": "MyRowName",
+      "type": "row"
+    },
