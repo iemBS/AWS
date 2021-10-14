@@ -1,0 +1,6 @@
+Troubleshoot Missing Edit View Field Tab
+Main Success Scenario:
+  1. Look at panel level JSON
+  2. "type" key has a value of "table"
+Alternatives:
+  1. xxx:fill in 
