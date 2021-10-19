@@ -29,6 +29,9 @@ Note:
     -ERROR_FOR_DIVISION_BY_ZERO: https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero
     -NO_ENGINE_SUBSTITUTION: https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution
 Main Success Scenario:
-  1. Add "ANSI_QUOTES" mode to SQL_MODE to force double quotes to act like ` quotes to identify SQL objects
+  1. Add "ANSI_QUOTES" mode to SQL_MODE system variable to force double quotes to act like ` quotes to identify SQL objects
+  2. End 
 Alternatives:
-  1a. xxx:fill in
+  1a. Set SQL_MODE in connection instead
+    1a1. xxx:fill in 
+    1a2. Go to step 2
