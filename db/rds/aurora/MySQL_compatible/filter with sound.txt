@@ -1,0 +1,6 @@
+Filter with Sound
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_soundex
+Main Success Scenario:
+  1. xxx:fill in 
