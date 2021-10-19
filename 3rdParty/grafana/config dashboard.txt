@@ -1,8 +1,15 @@
 Config Dashboard
 Main Success Scenario:
   1. "Set Default Time Window"
+  2. "Set Auto Refresh"
  
  
 Set Default Time Window
 Main Success Scenario:
   1. xxx:fill in 
+  
+ 
+Set Auto Refresh
+Main Success Scenario:
+  1. xxx:fill in 
+  
