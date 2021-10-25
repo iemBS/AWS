@@ -1,0 +1,24 @@
+Understand RDS Object Hierarchy
+Main Success Scenario:
+  1. xxx:fill in 
+
+Hierarchy Level
+------------------
+-DB Cluster
+--Instance
+
+Level Meaning
+---------------
+-Instance: A database on the DB Cluster
+--DB Identifier: Name of DB
+--Role: Instance Type
+---Possible Value: Instance, Serverless
+
+-DB Cluster: 
+--DB Cluster ID: Name of DB Cluster
+
+
+
+
+
+
