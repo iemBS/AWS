@@ -1,4 +1,6 @@
 Drop Table
+Note:
+  -Why "truncate table" changed to a drop and re-create table. See @ https://dba.stackexchange.com/questions/28055/truncate-table-statement-sometimes-hangs
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
