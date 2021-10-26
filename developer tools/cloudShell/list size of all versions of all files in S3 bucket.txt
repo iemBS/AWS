@@ -1,0 +1,6 @@
+List Size of All Versions of Files in S3 Bucket
+Note:
+  -guidance @ 
+    -https://stackoverflow.com/questions/43150572/how-to-get-size-of-all-files-in-an-s3-bucket-with-versioning
+Main Success Scenario:
+  1. aws s3api list-object-versions --bucket my-bucket --query 'Versions[*].Size'
