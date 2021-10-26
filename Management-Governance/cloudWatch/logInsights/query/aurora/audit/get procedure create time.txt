@@ -1,0 +1,9 @@
+Get Procedure Create Time
+Note:
+  -Use the following parts to find procedure creations in the Aurora Audit Log
+    ",QUERY,"
+    [Proc DB]
+    "CREATE DEFINER"
+    [Proc Name]
+Main Success Scenario:
+  1. xxx:fill in
