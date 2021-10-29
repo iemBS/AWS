@@ -6,3 +6,4 @@ https://github.com/awslabs/aws-glue-libs
 https://github.com/apache/spark
 https://docs.aws.amazon.com/glue/latest/dg/glue-dg.pdf
 https://docs.aws.amazon.com/glue/
+https://aws.amazon.com/glue/resources/
