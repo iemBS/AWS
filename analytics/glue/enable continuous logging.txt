@@ -1,0 +1,6 @@
+Enable Continuous Logging
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/glue/latest/dg/monitor-continuous-logging-enable.html
+Main Success Scenario:
+  1. xxx:fill in 
