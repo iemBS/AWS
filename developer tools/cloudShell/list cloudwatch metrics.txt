@@ -2,5 +2,29 @@ List CloudWatch Metrics
 Note:
   -guidance @
     -https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/list-metrics.html
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html
 Main Success Scenario:
   1. aws cloudwatch list-metrics
+  2. See results in terminal
+Alternatives:
+  1a. List cloudwatch metrics for RDS
+    1a1. aws cloudwatch list-metrics --namespace AWS/RDS
+    1a2. Go to step 2
+  1b. List CloudWatch metrics for SQS
+    1b1. aws cloudwatch list-metrics --namespace AWS/SQS
+    1b2. Go to step 2
+  1c. List CloudWatch metrics for S3
+    1c1. aws cloudwatch list-metrics --namespace AWS/S3
+    1c2. Go to step 2
+  1d. List CloudWatch metrics for SNS
+    1d1. aws cloudwatch list-metrics --namespace AWS/SNS
+    1d2. Go to step 2
+  1e. List CloudWatch metrics for Lambda
+    1e1. aws cloudwatch list-metrics --namespace AWS/Lambda
+    1e2. Go to step 2
+  1f. List CloudWatch metrics for Kinesis Data Firehose
+    1f1. aws cloudwatch list-metrics --namespace AWS/Firehose
+    1f2. Go to step 2
+  1g. List CloudWatch metrics for Glue
+    1g. aws cloudwatch list-metrics --namespace Glue
+    1g1. Go to step 2
