@@ -1,3 +1,5 @@
 https://aws.amazon.com/sqs/
+https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
+
 What is SQS
 -xxx:fill in
