@@ -2,5 +2,20 @@ Enable Continuous Logging
 Note:
   -guidance @ 
     -https://docs.aws.amazon.com/glue/latest/dg/monitor-continuous-logging-enable.html
+    -https://aws.amazon.com/premiumsupport/knowledge-center/glue-not-writing-logs-cloudwatch/
+Question:
+  -Do the custom log entries continue to go to the same output log group that was used before the continuous logging was turned on?
 Main Success Scenario:
   1. xxx:fill in 
+  x. "Choose Log Filtering"
+
+
+Choose Log Filtering
+Pre-Condition:
+  -Required
+Main Success Scenario:
+  1. Choose Standard Filter
+  x. End 
+Alternatives:
+  1a. Choose No Filter
+    1a1. xxx:fill in 
