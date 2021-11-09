@@ -8,6 +8,15 @@ Main Success Scenario:
       | stats avg(ingestDuration) as avgIngestDuration group by date
       | display date,avgIngestDuration
       | sort date
-      
+  2. End
 Alternatives:
-  1a. xxx:fill in 
+  1a. Limit to specific glue job
+    1a1. See code below
+      fields @timestamp, @message, @ingestionTime
+      | filter @message like /(?i)(MyGlueJob)/ # case in-sensitive
+      | field ((toMillis(@ingestionTime)-toMillis(@timestamp))/1000) as ingestDuration # in seconds
+      | field datefloor(@timestamp, 1d) as date
+      | stats avg(ingestDuration) as avgIngestDuration group by date
+      | display date,avgIngestDuration
+      | sort date
+    1a2. Go to step 2
