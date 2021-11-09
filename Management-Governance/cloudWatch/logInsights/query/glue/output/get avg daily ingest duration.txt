@@ -1,4 +1,4 @@
-Avg Daily Ingest Duration
+Get Avg Daily Ingest Duration
 Main Success Scenario:
   1. See code below 
   
