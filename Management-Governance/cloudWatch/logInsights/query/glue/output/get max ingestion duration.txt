@@ -1,4 +1,4 @@
-Get Max Ingestion Time
+Get Max Ingestion Duration
 Main Success Scenario:
   1. See code below
       fields @timestamp, @message, @ingestionTime
