@@ -1,0 +1,7 @@
+Get Disk Read Latency
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html
+  -"MyDbCluster" is my DB cluster name. 
+Main Success Scenario:
+  1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="ReadLatency" DBClusterIdentifier="MyDbCluster"','Average',300)
