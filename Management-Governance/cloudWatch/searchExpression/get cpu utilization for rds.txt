@@ -1,0 +1,10 @@
+Get CPU Utilization for RDS
+Note:
+  -"CPUUtilization" is a default RSD cloudwatch metric 
+Main Success Scenario:
+  1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="CPUUtilization"','Average',300)
+  2. End 
+Alternatives:
+  1a. Look at max instead
+    1a1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="CPUUtilization"','Max',300)
+    1a2. Go to step 2
