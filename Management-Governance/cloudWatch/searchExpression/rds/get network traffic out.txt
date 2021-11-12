@@ -1,0 +1,8 @@
+Get Network Traffic Out
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html
+  -"MyDbCluster" is my DB cluster
+  -The period parameter indicates the time range to aggregate over. 300 seconds is 5 minutes.
+Main Success Scenario:
+  1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="NetworkTransmitThroughput" DBClusterIdentifier="MyDbCluster"','Average',300)
