@@ -1,0 +1,36 @@
+Convert to Integer Time
+Note:
+  -Some systems put time in milliseconds since Jan 1st 1970 @ midnight and others use seconds since the same time
+    -If milliseconds are used, they may just take the seconds value and multiply by 1000. So, those valuse have "000" on the end. 
+Main Success Scenario:
+  1. See query below
+
+    Select
+      dateTime,
+      dateTimeWithMs,
+      secondsSince19700101WithoutMs, # format of unix of epoch, which is integer seconds
+      secondsSince19700101WithMs,
+      miliSecondsSince19700101,  
+      timeBasedOnSecondsSince,
+      timeBasedOnFractionalSecondsSince,
+        length(secondsSince19700101WithoutMs) as secondsValueLength,
+        length(miliSecondsSince19700101) as miliSecondsValueLength
+    From
+      (
+        Select
+          dateTime,
+          dateTimeWithMs,
+          secondsSince19700101WithoutMs,
+          secondsSince19700101WithMs,
+          round((secondsSince19700101WithoutMs * 1000) + ((secondsSince19700101WithMs-secondsSince19700101WithoutMs)*1000),0) as miliSecondsSince19700101,  
+          from_unixtime(secondsSince19700101WithoutMs) as timeBasedOnSecondsSince,
+          from_unixtime(secondsSince19700101WithMs) as timeBasedOnFractionalSecondsSince
+        From
+          (
+            select 
+              now() as dateTime,
+              now(3) as dateTimeWithMs,
+              UNIX_TIMESTAMP(now()) as secondsSince19700101WithoutMs, # since midnight on that day
+              UNIX_TIMESTAMP(now(3)) as secondsSince19700101WithMs # since midnight on that day
+          ) t
+      ) t2
