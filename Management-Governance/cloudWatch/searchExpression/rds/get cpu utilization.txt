@@ -1,5 +1,7 @@
 Get CPU Utilization
 Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html
   -"CPUUtilization" is a default RSD cloudwatch metric 
 Main Success Scenario:
   1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="CPUUtilization"','Average',300)
