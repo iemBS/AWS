@@ -1,0 +1,8 @@
+Get Network Traffic In 
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html
+  -"MyDbCluster" is the name of my DB cluster
+  -Metric is in Bytes/Second
+Main Success Scenario:
+  1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="NetworkReceiveThroughput" DBClusterIdentifier="MyDbCluster"','Average',300)
