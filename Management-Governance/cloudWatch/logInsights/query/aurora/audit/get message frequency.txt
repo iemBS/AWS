@@ -1,0 +1,29 @@
+Get Message Frequency
+Note:
+  -The query is so general it can be used on other logs as well.
+Main Success Scenario:
+  1. See query below
+  
+    fields @message,@timestamp
+    | field SHIFT * 60 * 60 * 1000 As ShiftHrsInMs # Set "SHIFT" variable, for Pacific it is -7 or -8
+    | field toMillis(@timestamp) As utcTimestampInMs
+    | field fromMillis(@timestamp) as utcTimestamp
+    | field fromMillis(utcTimestampInMs + ShiftHrsInMs) As localTimestamp
+    | fields FROM as utcFltrRangeStart,TO as utcFltrRangeEnd # Set "FROM" and "TO" to millisecond values of the the time range filters
+    | stats 
+      ((max(utcTimestampInMs) - min(utcTimestampInMs))/1000) / count(utcTimestampInMs) as avgMsgFreqInSeconds,
+      min(fromMillis(utcFltrRangeStart)) as filterRangeStart,
+      min(utcTimestamp) as dataRangeStart,
+      min(utcTimestampInMs) - min(utcFltrRangeStart) as filterToDataRangeStartDiffInMs,
+      max(utcTimestamp) as dataRangeEnd,
+      max(fromMillis(utcFltrRangeEnd)) as filterRangeEnd,
+      max(utcFltrRangeEnd) - max(utcTimestampInMs) as dataToFilterRangeEndDiffInMs
+    # display 
+    | display 
+      avgMsgFreqInSeconds,
+      filterRangeStart,
+      dataRangeStart,
+      filterToDataRangeStartDiffInMs,
+      dataRangeEnd,
+      filterRangeEnd,
+      dataToFilterRangeEndDiffInMs
