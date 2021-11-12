@@ -1,0 +1,10 @@
+Get Last Message Time
+Note:
+  -query is so general it could be used on other logs too
+Main Success Scenario:
+  1. See query below
+  
+    fields @timestamp
+    | stats max(fromMillis(@timestamp)) as lastMsgTime
+    # display 
+    | display lastMsgTime
