@@ -1,0 +1,8 @@
+Get Invocation Count
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-access-metrics.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html
+  -"MyFunc" is my function name
+Main Success Scenario:
+  1. SEARCH('{AWS/Lambda,FunctionName} MetricName="Invocations" FunctionName="MyFunc"','Average',300)
