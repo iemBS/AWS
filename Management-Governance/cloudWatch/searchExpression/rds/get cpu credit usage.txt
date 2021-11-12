@@ -1,0 +1,8 @@
+Get CPU Credit Usage
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html
+  -"MyDbCluster" is my DB cluster
+  -CPU credit metrics are available at a five-minute frequency only
+Main Success Scenario:
+  1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="CPUCreditUsage" DBClusterIdentifier="MyDbCluster"','Average',300)
