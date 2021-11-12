@@ -1,0 +1,4 @@
+What is CloudWatch Search Expression
+-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/search-expression-syntax.html
+-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-search-expressions.html
+-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/search-expression-examples.html
