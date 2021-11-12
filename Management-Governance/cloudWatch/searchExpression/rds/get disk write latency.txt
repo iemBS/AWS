@@ -1,0 +1,7 @@
+Get Disk Write Latency
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html
+  -"MyDbCluster" is the name of my DB cluster
+Main Success Scenario:
+  1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="WriteLatency" DBClusterIdentifier="MyDbCluster"','Average',300)
