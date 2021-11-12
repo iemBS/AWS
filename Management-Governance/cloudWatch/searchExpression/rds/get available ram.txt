@@ -1,5 +1,7 @@
 Get Available RAM
 Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html
   -"MyDbCluster" is the name of my DB cluster 
   -Last parameter indicates the period size (in seconds) defining what the aggregation is calculated over
   -In some cases 300 seconds is the minimum period 
