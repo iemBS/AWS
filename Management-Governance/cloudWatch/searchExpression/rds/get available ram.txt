@@ -1,0 +1,7 @@
+Get Available RAM
+Note:
+  -"MyDbCluster" is the name of my DB cluster 
+  -Last parameter indicates the period size (in seconds) defining what the aggregation is calculated over
+  -In some cases 300 seconds is the minimum period 
+Main Success Scenario:
+  1. SEARCH('{AWS/RDS,DBClusterIdentifier} MetricName="FreeableMemory" DBClusterIdentifier="MyDbCluster"','Average',300)
