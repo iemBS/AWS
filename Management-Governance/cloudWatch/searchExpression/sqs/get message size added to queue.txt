@@ -1,0 +1,7 @@
+Get Message Size Added to Queue
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-available-cloudwatch-metrics.html
+  -"MyQueue" is the queue name
+Main Success Scenario:
+  1. SEARCH('{AWS/SQS,QueueName} MetricName="SentMessageSize" QueueName="MyQueue"','Average',300)
