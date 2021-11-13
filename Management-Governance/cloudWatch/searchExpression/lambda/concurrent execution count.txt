@@ -1,0 +1,7 @@
+Concurrent Execution Count
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html
+  -"MyFunc" is the name of my function
+Main Success Scenario:
+  1. SEARCH('{AWS/Lambda,FunctionName} MetricName="ConcurrentExecutions" FunctionName="MyFunc"','Average',300)
