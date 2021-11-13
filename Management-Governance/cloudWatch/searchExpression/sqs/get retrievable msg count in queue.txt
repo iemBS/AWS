@@ -1,0 +1,7 @@
+Get Retreivable Msg Count in Queue
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-available-cloudwatch-metrics.html
+  -"MyQueue" is name of my queue
+Main Success Scenario:
+  1. SEARCH('{AWS/SQS,QueueName} MetricName="ApproximateNumberOfMessagesVisible" QueueName="MyQueue"','Average',300)
