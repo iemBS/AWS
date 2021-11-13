@@ -1,0 +1,7 @@
+Get Invocation Error Count
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html
+  -"MyFunc" is the name of the function that errors out
+Main Success Scenario:
+  1. SEARCH('{AWS/Lambda,FunctionName} MetricName="Errors" FunctionName="MyFunc"','Average',300)
