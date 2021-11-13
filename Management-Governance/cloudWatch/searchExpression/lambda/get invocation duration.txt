@@ -1,0 +1,7 @@
+Get Invocation Duration
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html
+  -"MyFunc" is my funtion name
+Main Success Scenario:
+  1. SEARCH('{AWS/Lambda,FunctionName} MetricName="Duration" FunctionName="MyFunc"','Average',300)
