@@ -1,0 +1,5 @@
+Get Msg Count Added to Queue
+Note:
+  -"MyQueue" is my queue name
+Main Success Scenario:
+  1. SEARCH('{AWS/SQS,QueueName} MetricName="NumberOfMessagesSent" QueueName="MyQueue"','Average',300)
