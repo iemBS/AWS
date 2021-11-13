@@ -1,4 +1,4 @@
-Get Message Size Added to Queue
+Get Msg Size Added to Queue
 Note:
   -guidance @ 
     -https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-available-cloudwatch-metrics.html
