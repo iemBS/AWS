@@ -1,0 +1,12 @@
+See Temp Table Definition
+Note:
+  -Temp table definitions do not show in either of the views below:
+    -information_schema.tables
+    -information_schema.columns 
+Main Success Scenario:
+  1. See code below
+  
+    Create Temporary Table TEMP_tst
+    Select 1 as col1;
+
+    SHOW CREATE TABLE TEMP_tst;
