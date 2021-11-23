@@ -3,6 +3,7 @@ Note:
   -Temp table definitions do not show in either of the views below:
     -information_schema.tables
     -information_schema.columns 
+  -Handy for understanding definition of temp tables dynamically created. 
 Main Success Scenario:
   1. See code below
   
