@@ -6,6 +6,7 @@ Note:
 Main Success Scenario:
   1. See code below
   
+    Drop Temporary table if exists TEMP_tst;
     Create Temporary Table TEMP_tst
     Select 1 as col1;
 
