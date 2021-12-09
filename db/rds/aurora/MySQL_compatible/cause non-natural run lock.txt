@@ -1,0 +1,14 @@
+Cause Non-Natural Run Lock
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
+    -https://dev.mysql.com/doc/refman/5.7/en/locking-functions.html#function_is-free-lock
+    -https://dev.mysql.com/doc/refman/5.7/en/locking-service.html
+  -A named lock used by a user is called an advisory lock
+  -A named lock will work within and across sessions
+  -A named lock lets you lock a certain path through your SQL code
+  -A named lock impedes auto scaling in aurora serverless though, because the named lock cannot be replicated.
+  -The lock is identified by name 
+  -An attempt to get a lock with the GET_LOCK function has you specify a timeout in seconds to stop trying to get a lock if it is already being used. 
+Main Success Scenario:
+  1. xxx:fill in 
