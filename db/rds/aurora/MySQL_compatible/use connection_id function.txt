@@ -1,0 +1,37 @@
+Use CONNECTION_ID() Function
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/information-functions.html#function_connection-id
+    -https://dev.mysql.com/doc/refman/5.7/en/information-schema-processlist-table.html
+    -https://dev.mysql.com/doc/refman/5.7/en/performance-schema-threads-table.html
+    -https://dev.mysql.com/doc/refman/5.7/en/sys-processlist.html
+    -https://dev.mysql.com/doc/refman/5.7/en/sys-session.html
+    -https://dba.stackexchange.com/questions/241152/whats-the-difference-between-a-thread-vs-a-process
+    -https://en.wikipedia.org/wiki/Process_identifier
+    -https://stackoverflow.com/questions/3232401/windows-pid-0-valid
+  -Connection ID is also called a Thread ID, Process ID, PID, or Process Identifier. 
+  -PIDs start at 0 and go up. 
+  -PID = 0 is a system idle process in a MS Windows OS
+  -PID = 1 is usually the init process primarily responsible for starting and shutting down the system
+  -Defaulting a PID value to -1 would clearly indicate a non-valid value. 
+  -The same values coming from CONNECTION_ID() exist in:
+    -Information_Schema.ProcessList.ID column
+      -Information_Schema.ProcessList is a table
+    -ID column of the SHOW ProcessList command
+    -Performance_Schema.Threads.ProcessList_ID column
+      -The use of the Performance_Schema schema may not be enabled in an Aurora instance 
+      -For a background thread (not associated with a user connection), PROCESSLIST_ID is NULL, so the values are not unique.
+    -sys.processlist.conn_id
+      -sys.processlist is a view
+      -view name can be case sensitive 
+    -sys.x$processlist.conn_id
+      -sys.x$processlist is a view 
+    -sys.session.conn_id
+      -sys.session is a view
+      -view name can be case sensitive 
+    -sys.x$session.conn_id
+      -sys.x$session is a view 
+  -Changing the session value of the pseudo_thread_id system variable changes the value returned by the CONNECTION_ID() function.
+  -In MySQL, one connection uses one thread (or process).
+Main Success Scenario:
+  1. 
