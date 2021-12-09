@@ -21,6 +21,7 @@ Note:
     -Performance_Schema.Threads.ProcessList_ID column
       -The use of the Performance_Schema schema may not be enabled in an Aurora instance 
       -For a background thread (not associated with a user connection), PROCESSLIST_ID is NULL, so the values are not unique.
+      -The thread type, either FOREGROUND or BACKGROUND. User connection threads are foreground threads. Threads associated with internal server activity are background threads. Examples are internal InnoDB threads, “binlog dump” threads sending information to replicas, and replication I/O and SQL threads.
     -sys.processlist.conn_id
       -sys.processlist is a view
       -view name can be case sensitive 
