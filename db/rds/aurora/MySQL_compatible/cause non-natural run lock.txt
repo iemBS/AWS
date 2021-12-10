@@ -4,11 +4,19 @@ Note:
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
     -https://dev.mysql.com/doc/refman/5.7/en/locking-functions.html#function_is-free-lock
     -https://dev.mysql.com/doc/refman/5.7/en/locking-service.html
-  -A named lock used by a user is called an advisory lock
+    -https://bugs.mysql.com/bug.php?id=87620
+    -https://mariadb.com/kb/en/get_lock/
+    -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
+  -A named lock used by a user is called an advisory or user level lock
   -A named lock will work within and across sessions
   -A named lock lets you lock a certain path through your SQL code
   -A named lock impedes auto scaling in aurora serverless though, because the named lock cannot be replicated.
   -The lock is identified by name 
   -An attempt to get a lock with the GET_LOCK function has you specify a timeout in seconds to stop trying to get a lock if it is already being used. 
+  -Locks obtained with GET_LOCK() do not interact with transactions. That is, committing a transaction does not release any such locks obtained during the transaction
+  -The "str" parameter is case sensitive in the MySQL lock functions
+  -These locks are saved in a hash table in the server and implemented with pthread_mutex_lock( ) and pthread_mutex_unlock( ) for high speed.
+Question:
+  -How frequently does GET_LOCK check to see if it can get the lock. The answer may be at the following location, but I am not finding it: https://github.com/mysql/. 
 Main Success Scenario:
   1. xxx:fill in 
