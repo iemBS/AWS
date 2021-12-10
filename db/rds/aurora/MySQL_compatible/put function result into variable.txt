@@ -1,0 +1,6 @@
+Put Function Result Into Variable
+Note:
+  -guidance @ 
+    -https://www.oreilly.com/library/view/mysql-cookbook/0596001452/ch01s15.html
+Main Success Scenario:
+  1. SELECT @last_id := LAST_INSERT_ID();
