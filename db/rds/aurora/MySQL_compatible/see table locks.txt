@@ -6,6 +6,8 @@ Note:
     -https://dba.stackexchange.com/questions/189804/how-to-avoid-lock-wait-timeout-exceed-and-improve-mysql-innodb-write-speed
     -Use the following link to see table locks and the transactions associated to them
       -https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-transactions.html
+  -"innodb_lock_wait_timeout" system variable determine how a table waits to get a table lock. 
+    -ref @ https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout
 Main Success Scenario:
   1. See tables that have or requested a lock
     SHOW OPEN TABLES Where In_Use > 0;
