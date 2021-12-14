@@ -20,7 +20,7 @@ Main Success Scenario:
     # See where all the locks are. Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html
     Select
       TRX_WEIGHT, # number of rows altered and locked by a transaction
-        TRX_STATE, # state of the transaction
+        TRX_STATE, # State of the transaction. Values are RUNNING, LOCK WAIT (waiting for a table lock), ROLLING BACK, and COMMITTING. 
         TRX_STARTED, # time transaction started
         TRX_WAIT_STARTED, #  time when the transaction started waiting on the lock
         TRX_MYSQL_THREAD_ID, # MySQL thread ID
