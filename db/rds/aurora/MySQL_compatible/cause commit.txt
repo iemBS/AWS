@@ -4,6 +4,7 @@ Note:
     -https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
   -A normal transaction is never committed when there is an outstanding statement transaction. 
     -Noted @ https://dev.mysql.com/doc/internals/en/transactions-life-cycle.html
+  -Will get "Error 1422: Explicit or implicit commit is not allowed in stored function or trigger." error if an explicit commit is run within a user defined function. 
 Main Success Scenario:
   1. "Cause Statement Commit"
   2. End
