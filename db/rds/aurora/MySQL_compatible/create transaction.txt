@@ -8,9 +8,37 @@ Note:
   -See current open transactions with 
       SELECT * FROM information_schema.innodb_trx
   -The TRX_ID column in information_schema.innodb_trx only has values if the transaction is read-only and non-locking.
+  -consistent read defined @ https://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_consistent_read
+    -Consistent read is the default mode in which InnoDB processes SELECT statements in READ COMMITTED and REPEATABLE READ isolation levels
+    -Because a consistent read does not set any locks on the tables it accesses, other sessions are free to modify those tables while a consistent read is being performed on the table.
   -Default isolation level is "repeatable read"
   -When using the default REPEATABLE READ isolation level, the first UPDATE acquires an x-lock on each row that it reads and does not release any of them.
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html#isolevel_repeatable-read
+  -isolation level pros & cons
+    -READ COMMITTED: 
+      -pro
+        -xxx
+      -con
+        -xxx
+      -con or pro?
+        -With READ COMMITTED isolation level, the snapshot is reset to the time of each consistent read operation.
+    -READ UNCOMMITTED: 
+      -pro
+        -xxx
+      -con
+        -xxx
+    -REPEATABLE READ
+      -pro
+        -xxx
+      -con
+        -xxx    
+      -con or pro?
+        -With REPEATABLE READ isolation level, the snapshot is based on the time when the first read operation is performed.
+    -SERIALIZABLE
+      -pro
+        -xxx
+      -con
+        -xxx
   -By default, MySQL runs with autocommit mode enabled. 
   -Statements that trigger an implicit commit @ https://dev.mysql.com/doc/refman/5.7/en/implicit-commit.html
   -Guidance @ https://www.oreilly.com/library/view/mysql-in-a/9780596514334/re72.html
