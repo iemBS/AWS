@@ -8,6 +8,7 @@ Note:
       -https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-transactions.html
   -"innodb_lock_wait_timeout" system variable determine how a table waits to get a table lock. 
     -ref @ https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout
+  -Cannot handle a 1205 lock error within a function. Ref @ https://stackoverflow.com/questions/46509858/how-to-use-exit-or-continue-handler-in-mysql-function-not-stored-procedure 
 Main Success Scenario:
   1. See tables that have or requested a lock
     SHOW OPEN TABLES Where In_Use > 0;
