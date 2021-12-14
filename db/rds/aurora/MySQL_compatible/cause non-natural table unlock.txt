@@ -6,6 +6,7 @@ Note:
     -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
     -https://dev.mysql.com/doc/internals/en/user-level-locks.html
     -https://dev.mysql.com/doc/refman/5.7/en/locking-functions.html#function_release-lock
+    -https://dev.mysql.com/doc/refman/5.7/en/lock-tables.html
 Main Success Scenario:
   1. UNLOCK TABLES;
   2. All tables locked by the current thread are unlocked
