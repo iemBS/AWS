@@ -1,0 +1,6 @@
+Get Current Transaction Isolation Level
+Note:
+  -guidance @ 
+    -https://www.tutorialspoint.com/How-can-we-check-the-current-MySQL-transaction-isolation-level
+Main Success Scenario:
+  1. SELECT @@TX_ISOLATION
