@@ -1,0 +1,15 @@
+Implicitly Unlock Table
+Note:
+  -guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/lock-tables.html
+    -https://dev.mysql.com/doc/refman/5.7/en/commit.html
+  -The BEGIN at the start of a stored program (procedure, function, trigger, or event) does not mean the start of a transaction. You need to have "START TRANSACTION" at the start of a stored program to have a transaction in one.
+Main Success Scenario:
+  1. A session runs "LOCK TABLES", while already holding locks.
+  2. End 
+Alternatives:
+  1a. Run "START TRANSACTION"
+    1a1. "UNLOCK TABLES" is run implicitly
+    1a2. Go to step 2
+  
+  
