@@ -4,8 +4,9 @@ Note:
   -Guidance @ 
     -https://forums.aws.amazon.com/thread.jspa?threadID=234301
     -https://dba.stackexchange.com/questions/189804/how-to-avoid-lock-wait-timeout-exceed-and-improve-mysql-innodb-write-speed
-    -Use the following link to see table locks and the transactions associated to them
-      -https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-transactions.html
+    -https://dba.stackexchange.com/questions/139597/mysql-timeouts-waiting-for-table-lock-no-apparent-deadlocks
+  -Use the following link to see table locks and the transactions associated to them
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-transactions.html
   -"innodb_lock_wait_timeout" system variable determine how a table waits to get a table lock. 
     -ref @ https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout
   -Cannot handle a 1205 lock error within a function. Ref @ https://stackoverflow.com/questions/46509858/how-to-use-exit-or-continue-handler-in-mysql-function-not-stored-procedure 
