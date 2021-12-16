@@ -1,0 +1,6 @@
+Avoid Table Deadlock
+Note:
+  -guidance @
+    -https://www.percona.com/blog/2014/10/28/how-to-deal-with-mysql-deadlocks/
+Main Success Scenario:
+  1. xxx:fill in 
