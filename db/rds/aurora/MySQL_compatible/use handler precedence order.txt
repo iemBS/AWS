@@ -1,0 +1,6 @@
+Use Handler Precedence Order
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.6/en/handler-scope.html
+Main Success Scenario:
+  1. xxx:fill in 
