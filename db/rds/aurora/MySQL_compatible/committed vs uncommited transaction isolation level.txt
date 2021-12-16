@@ -1,0 +1,1 @@
+https://www.sqlshack.com/dirty-reads-and-the-read-uncommitted-isolation-level/
