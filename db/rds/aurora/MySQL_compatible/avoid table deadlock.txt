@@ -2,5 +2,7 @@ Avoid Table Deadlock
 Note:
   -guidance @
     -https://www.percona.com/blog/2014/10/28/how-to-deal-with-mysql-deadlocks/
+    -https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#:~:text=InnoDB%20performs%20row-level%20locking,are%20actually%20index-record%20locks.
+  -Row level locking in a table is also index row level locking
 Main Success Scenario:
   1. xxx:fill in 
