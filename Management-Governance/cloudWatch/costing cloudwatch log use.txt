@@ -1,0 +1,95 @@
+info from: 
+  -https://aws.amazon.com/cloudwatch/pricing/
+  -https://aws.amazon.com/premiumsupport/knowledge-center/cloudwatch-understand-and-reduce-charges/
+  -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
+  -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SearchDataFilterPattern.html
+  -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Monitoring-CloudWatch-Metrics.html
+  
+CloudWatch Action Cost
+-----------------------------------------
+-Access Log
+  -xxx
+-Read from Log
+  -Free Tier
+    -Default Metrics at 5 m freq
+    -3 custom Dashboards for up to 50 metrics/mth
+    -10 custom Alarms (not applicable to high-res alarms)
+    -default events
+  -Paid Tier
+    -Run Log Insights queries @ 0.05 cents/GB of data scanned
+-Write to Log
+  -Free Tier
+    -xxx
+  -Paid Tier
+    -@ 50 cents/GB
+-Tag log
+  -Free Tier
+    -50 tags per log group
+  -Paid Tier
+    -xxx
+
+
+CloudWatch Storage Cost
+-----------------------
+-Store Log
+  -Free Tier
+    -5 GB
+  -Paid Tier
+    -3 cents/GB
+
+
+Monitor CloudWatch Action Cost
+-----------------------------------------
+-Read from Log
+  -Watch # of 3rd Party tool reads
+  -stay aware of log quotas, ref @ https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html
+  -Use default CloudWatch Logs metrics (see "AWS/Logs" namespace) 
+    -Look for too many reads, few reads, and none. 
+      -Too many reads could indicate a process that needs to be change to less frequent or on-demand
+      -Too few reads could mean a log group that could be dropped or the need of a retention policy to remove older log streams within a log group
+-Write to Log
+  -default IncomingBytes metric
+  -stay aware of log quotas, ref @ https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html
+  -Use default CloudWatch Logs metrics (see "AWS/Logs" namespace) 
+    -Look for too many writes, few writes, and none. 
+      -Too many could mean a service needs to remove types of logging or reduce logging resolution 
+      -Too few could mean valuable performance info is not being used or a log group is not needed 
+
+
+Reduce CloudWatch Action Cost
+-----------------------------------------
+-Access Log
+  -Do not access the log from the AWS CloudWatch GUI if you do not need to look at it, because a read will occur
+-Read from Log
+  -Using shorter time windows, reduces the amount of data scanned
+  -Reduce number of Log Insights query runs
+  -Remove uneeded alarms
+  -read from specific log streams instead of all log streams in a log group
+-Write to Log
+  -Reduce number of writes to log
+  -Batch multiple PutMetricData requests into one API call
+  -Pre-aggregate metric data into a StatisticSet
+  -Reduce log resolution (time between writes)
+  -Write specific start and end entries rather than regular writes for a specific resolution
+
+
+Monitor CloudWatch Storage Cost
+-----------------------
+-Store Log
+  -Watch log group size with 
+    -the describe-log-group CLI command, ref @ https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html
+    -"Stored bytes" values on the CloudWatch > Log groups > [log group name] page in AWS CloudWatch GUI
+  -Watch age of entries 
+  -stay aware of log quotas, ref @ https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html
+    -creatng dashboards comparing log usage numbers to quotes is monitoring on your monitoring and ideally avoided 
+
+
+Reduce CloudWatch Storage Cost
+-----------------------
+-Store Log
+  -implement a retention policy
+  -aggregate entries to large time intervals and doing so after specified # of iterations of the time window occur (combine with retention policy)
+    -all entries to hour entries @ end of week
+    -all hour entries to day entries @ end of week
+    -all day entries to week entries @ end of week
+    -all week entries to month entries @ end of month
