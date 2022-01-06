@@ -1,0 +1,6 @@
+Troubleshoot Workspaces
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-troubleshooting.html
+Main Success Scenario:
+  1. xxx:fill in 
