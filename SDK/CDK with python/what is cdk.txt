@@ -1,0 +1,4 @@
+https://www.youtube.com/watch?v=XVHGq2uJu9s
+https://stackoverflow.com/questions/67378945/amazon-cdk-and-boto3-difference
+https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html
+https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-python.html
