@@ -1,0 +1,2 @@
+https://www.youtube.com/watch?v=XVHGq2uJu9s
+https://stackoverflow.com/questions/67378945/amazon-cdk-and-boto3-difference
