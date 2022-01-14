@@ -18,4 +18,9 @@ Main Success Scenario:
   1. Run code that will show in the log
     Select 'ACTION_START:ckentAction'
 Alternatives:
-  1a. xxx:fill in
+  1a. Write to log with dynamic content
+    1a1. See below 
+      SET @qry = concat("DO '","my text here","'");
+      PREPARE stmt FROM @qry;
+      EXECUTE stmt;
+      deallocate prepare stmt;
