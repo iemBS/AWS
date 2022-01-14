@@ -1,0 +1,9 @@
+Get IAM Role Assoc to All Jobs
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-output.html
+    -https://docs.aws.amazon.com/cli/latest/reference/glue/get-jobs.html
+    -https://docs.aws.amazon.com/cli/latest/reference/glue/index.html
+Main Success Scenario:
+  1. See code below 
+    aws glue get-jobs --query 'Jobs[*].Role'
