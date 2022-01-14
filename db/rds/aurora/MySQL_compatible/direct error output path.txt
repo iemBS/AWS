@@ -11,12 +11,23 @@ Main Success Scenario:
   1. "Error from Server"
   2. "Bubble error up in SQL code"
   3. "Send Error to Error Log"
+  4. End
 Alternatives:
   1a. Error from Client Program instead
     1a1. "Error from Client Program"
+    1a2. Go to step 4
   3a. Send Error to Client Program instead
-    3a1. "Send Error to Client Program"
-    
+    3a1. "Send Error to Client Program"'
+    3a2. Go to step 4
+  3b. Send Error to Audit Log
+    3b1. In a continue or exit handler use a GET DIAGNOSTICS statment to put MESSAGE_TEXT value into a variable
+    3b2. See code below
+      SET @qry = concat("DO '",myVariable,"'");
+      PREPARE stmt FROM @qry;
+      EXECUTE stmt; # MESSAGE_TEXT contents readable in Aurora Audit log
+      deallocate prepare stmt;
+    3b3. Go to step 4
+     
   
 Error from Client Program
 Note:
