@@ -1,10 +1,17 @@
 See Execution Plan with Explain
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/explain.html
-  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/using-explain.html
-  -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.6/en/explain.html
+    -https://dev.mysql.com/doc/refman/5.6/en/using-explain.html
+    -https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
   -Explain needs to be on the same line as "Select" and precede it. 
   -The query can go to the next line if you do not want it all on the first line.
   -Explain will not work with variables in the query. 
+  -"Rows" is the estimate of rows in the table that will be examined.
+  -"Filtered" column shows the percent of the "Rows" that will be joined to the next table 
+  -"select_type" helps you understand how the query is interpreted. See @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_select_type. 
+  -"ref" indicates what columns or constants have values that are searched for in the table. See @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_ref
+  -"key" is the index on the table searched that is actually used. See @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_key
+  -"key_len" shows you how much of a multi-part key MySQL uses to search the table. See @ https://dev.mysql.com/doc/refman/5.7/en/explain-output.html#explain_key_len
 Main Success Scenario:
   1. Explain Select * From myTable
