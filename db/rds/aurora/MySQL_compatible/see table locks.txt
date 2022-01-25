@@ -14,12 +14,17 @@ Note:
 Main Success Scenario:
   1. See tables that have or requested a lock
     SHOW OPEN TABLES Where In_Use > 0;
-         
+  2. End 
  Alternatives:
    1a. See meta data locks, which are related to DDL
      1a1. See code below
         show engine innodb status;
-     1a2. Look into the TRANSACTION section which will show all waiting thread block by other.
+     1a2. See table results
+     1a3. Right click on value in "Status" column of table results
+     1a4. Choose "Open Value in Viewer" option on pop-up menu
+     1a5. Look into the TRANSACTION section which will show all waiting thread block by other.
+     1a6. Look at rollbacks that occurred because of locks
+     1a7. Go to step 2
    1b. See current queries, if they have transaction, if the
    
     # See where all the locks are. Guidance @ https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html
