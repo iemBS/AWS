@@ -1,0 +1,17 @@
+Hint Index
+Note:
+  -guidance @ 
+    -https://dba.stackexchange.com/questions/153293/update-does-not-use-index-but-select-does
+    -https://dev.mysql.com/doc/refman/5.7/en/index-hints.html
+    -https://www.mysqltutorial.org/mysql-index/mysql-use-index/
+  -SELECTs use an index, but UPDATEs do not
+Main Success Scenario:
+  1. Select * From MyTbl
+     Use Index(idx_MyTbl)
+     Where Col2 = 3
+  2. End
+Alternatives:
+  1a. Hint more than one index
+    1a1. xxx:fill in 
+  1b. Force an index to be used
+    1b1. xxx:fill in 
