@@ -4,7 +4,11 @@ Note:
     -https://dba.stackexchange.com/questions/153293/update-does-not-use-index-but-select-does
     -https://dev.mysql.com/doc/refman/5.7/en/index-hints.html
     -https://www.mysqltutorial.org/mysql-index/mysql-use-index/
+    -https://dba.stackexchange.com/questions/278800/is-it-a-good-practice-to-use-index-hints-in-production-code
   -SELECTs use an index, but UPDATEs do not
+  -Using a composite index where you are filtering on the first two columns, but not the third column, may still provide query optimization
+    -Adding a simple filter like Col3 > 0, Length(Col3) > 0, or Col3 Is Not Null may cause MySQL to use the composite index
+  -Use the EXPLAIN command to see if a index is used
 Main Success Scenario:
   1. Select * From MyTbl
      Use Index(idx_MyTbl)
@@ -15,3 +19,9 @@ Alternatives:
     1a1. xxx:fill in 
   1b. Force an index to be used
     1b1. xxx:fill in 
+  1c. Use more columns of an index in the where clause to encourage the use of of an index, instead of using an index hint
+    1c1. Index is a composite index of Col1, Col2, and Col3 and in that order
+    1c2. Already filtering on Col1 and Col2 in query, but index not used by MySQL
+    1c3. Add a simple filter on Col3 to encourage the index to be used
+    1c4. Select * From MyTbl Where Col1 = 27 And Col2 = 3 And Col3 > 0
+    1c5. Go to step 2
