@@ -1,0 +1,6 @@
+Compare Python Shell Type Glue job to Python Lambda Function
+Note:
+  -guidance @ 
+    -https://medium.com/slido-dev-blog/aws-glue-python-shell-jobs-first-impressions-d26582123829
+Main Success Scenario:
+  1. xxx
