@@ -1,0 +1,7 @@
+Get Last Glue Job Run
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-output.html
+Main Success Scenario:
+  1. Replace "MyGlueJobName" in the command below with a real glue job name
+  2. aws glue get-job-runs --job-name "MyGlueJobName" --query 'JobRuns[0].[StartedOn,ExecutionTime,MaxCapacity,JobRunState]'
