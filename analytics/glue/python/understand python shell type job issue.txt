@@ -1,0 +1,24 @@
+Undrstand Python Shell Type Job Issue
+Note:
+  -guidance @
+    -https://medium.com/slido-dev-blog/aws-glue-python-shell-jobs-first-impressions-d26582123829
+    -https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html
+    -https://setuptools.pypa.io/en/latest/pkg_resources.html
+    -https://docs.aws.amazon.com/glue/latest/dg/monitor-debug-capacity.html
+    -https://docs.aws.amazon.com/glue/latest/dg/glue-known-issues.html
+    -https://docs.aws.amazon.com/glue/latest/dg/troubleshooting-glue.html
+    -https://docs.aws.amazon.com/glue/latest/dg/troubleshooting-contact-support.html
+    -https://docs.aws.amazon.com/glue/latest/dg/troubleshooting-connection.html
+    -https://docs.aws.amazon.com/glue/latest/dg/glue-troubleshooting-errors.html
+    -https://docs.aws.amazon.com/glue/latest/dg/exceptions-machine-learning.html
+    -https://docs.aws.amazon.com/glue/latest/dg/troubleshooting-service-limits.html
+    -https://docs.aws.amazon.com/glue/latest/dg/doc-history.html
+    -https://docs.aws.amazon.com/glue/latest/dg/reduced-start-times-spark-etl-jobs.html
+  -AWS docs do not tell you what version of pre-installed libraries is installed in glue.
+    -Use the pkg_resources Python module to check the version. Ref @ https://setuptools.pypa.io/en/latest/pkg_resources.html
+Main Success Scenario:
+  1. Version of pre-installed Python library is too old
+  2. xxx:fill in 
+Alternatives:
+  1a. xxx:fill in 
+  
