@@ -1,0 +1,15 @@
+Specify Account Name
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/account-names.html
+    -https://dev.mysql.com/doc/refman/5.7/en/reserved-accounts.html
+Main Success Scenario:
+  1. Account Name consists of a user name and host name
+    USER_NAME@HOST_NAME
+  2. Host name is optional
+  3. Do not use a reserved account name
+    root@localhost
+    mysql.sys@localhost
+    mysql.session@localhost
+  4. Avoid unallowed characters in the user name
+    xxx:fill in 
