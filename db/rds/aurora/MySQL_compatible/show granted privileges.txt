@@ -1,0 +1,15 @@
+Show Granted Privileges
+Note:
+  -guidance:
+    -https://dev.mysql.com/doc/refman/5.7/en/creating-accounts.html#checking-account-privileges
+Main Success Scenario:
+  1. Show granted privileges for current user
+    SHOW GRANTS 
+  2. Column name of results is "Grants for USER_NAME@%"
+  3. End 
+Alternatives:
+  1a. Show granted privileges for a specified user
+    1a1. Replace "USER_NAME" in the below script with your user name
+    1a2. SHOW GRANTS FOR 'USER_NAME'@'%';
+    1a3. Column name of results is "Grants for USER_NAME@%"
+    1a4. Go to step 3
