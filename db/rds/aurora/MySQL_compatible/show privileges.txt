@@ -3,9 +3,6 @@ Note:
   -Guidance @
     -https://dev.mysql.com/doc/refman/5.7/en/show-privileges.html
     -https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html
+  -These are all the privileges possible on the server
 Main Success Scenario:
-  1. Show privileges for current user 
     SHOW PRIVILEGES
-Alternatives:
-  1a. Show privilages for a specified user
-    1a1. xxx:fill in 
