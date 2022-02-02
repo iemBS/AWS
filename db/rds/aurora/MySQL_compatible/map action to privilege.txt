@@ -1,0 +1,8 @@
+Map Action to Privilege
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/show-privileges.html
+Main Success Scenario:
+  1. See possible privileges, their context, and a brief description
+    SHOW PRIVILEGES
+  2. xxx:fill in 
