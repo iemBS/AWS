@@ -86,6 +86,7 @@ Note:
   -Thread pool system variables not available from client for aurora. Ref @ https://dev.mysql.com/doc/refman/5.7/en/thread-pool-operation.html
   -In MySQL,the thread pool separates connections and threads, so there is no fixed relationship between connections and the threads that execute statements received from those connections. 
     -Aurora does not use the MySQL thread pooling. 
+    -Aurora separates threads from connections. Ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Tuning.concepts.html#AuroraMySQL.Managing.Tuning.concepts.processes.pool
 Main Succes Scenario:
   1. "Transition from 'cleaning up' to 'cleaned up'"
 Alternatives:
