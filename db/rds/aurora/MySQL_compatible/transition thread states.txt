@@ -12,7 +12,12 @@ Note:
     -https://stackoverflow.com/questions/2766785/fixing-lock-wait-timeout-exceeded-try-restarting-transaction-for-a-stuck-my/16861630#16861630
     -https://dev.mysql.com/doc/refman/5.7/en/performance-schema-threads-table.html
     -https://dev.mysql.com/doc/internals/en/sleep.html
+    -https://dev.mysql.com/blog-archive/mysql-connection-handling-and-scaling/
+    -https://dev.mysql.com/doc/dev/mysql-server/latest/page_protocol_connection_phase.html
+    -https://dev.mysql.com/doc/dev/mysql-server/latest/page_protocol_command_phase.html
   -threads may also be called connections or processes here
+  -the connection phase precedes the command phase
+  -all the threads we are looking at are in the command phase
   -only foreground threads visible in Information_Schema.ProcessList table
   -foreground and background threads visible in performance_schema.threads table
     -Performance needs to be enabled in Aurora to see the performance_schema.threads table
