@@ -9,7 +9,11 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/thread-information.html
     -https://dev.mysql.com/doc/refman/5.7/en/thread-commands.html
     -https://stackoverflow.com/questions/2766785/fixing-lock-wait-timeout-exceeded-try-restarting-transaction-for-a-stuck-my/16861630#16861630
+    -https://dev.mysql.com/doc/refman/5.7/en/performance-schema-threads-table.html
   -threads may also be called connections or processes here
+  -only foreground threads visible in Information_Schema.ProcessList table
+  -foreground and background threads visible in performance_schema.threads table
+    -Performance needs to be enabled in Aurora to see the performance_schema.threads table
   -thread types
     -general
     -query cache: associated with the query cache
@@ -20,7 +24,7 @@ Note:
   -background threads
     -xxx
   -"starting" is the first state at the beginning of statement execution.
-  -thread command
+  -thread command 
     -Binlog Dump: This is a thread on a replication source for sending binary log contents to a replica.
     -Change user: The thread is executing a change user operation.
     -Close stmt: The thread is closing a prepared statement.
@@ -50,6 +54,35 @@ Note:
     -Shutdown: The thread is shutting down the server.
     -Sleep: The thread is waiting for the client to send a new statement to it.
     -Statistics: The thread is producing server status information.
+  -Possible thread command and type combos
+    -Connect, login
+    -Query, NULL
+    -Query	checking permissions
+    -Query	checking query cache for query
+    -Query, closing tables
+    -Query, creating table
+    -Query	delayed commit ok initiated
+    -Query	deleting from reference tables
+    -Query, delayed send ok intiated
+    -Query, end
+    -Query	executing
+    -Query	freeing items
+    -Query	init
+    -Query, Opening tables
+    -Query	optimizing
+    -Query	removing tmp table
+    -Query, Sending data
+    -Query	Sending to client
+    -Query, starting
+    -Query, statistics
+    -Query	System lock
+    -Query	update
+    -Query, updating
+    -Query	updating reference tables
+    -Sleep, NULL
+    -Sleep, cleaned up
+    -Sleep, cleaning up
+    -What other combos are possible?
 Main Succes Scenario:
   1. "Transition from 'cleaning up' to 'cleaned up'"
 Alternatives:
