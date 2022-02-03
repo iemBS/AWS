@@ -15,6 +15,7 @@ Note:
     -https://dev.mysql.com/blog-archive/mysql-connection-handling-and-scaling/
     -https://dev.mysql.com/doc/dev/mysql-server/latest/page_protocol_connection_phase.html
     -https://dev.mysql.com/doc/dev/mysql-server/latest/page_protocol_command_phase.html
+    -https://dev.mysql.com/doc/extending-mysql/5.7/en/mysql-threads.html
   -threads may also be called connections or processes here
   -the connection phase precedes the command phase
   -all the threads we are looking at are in the command phase
