@@ -1,0 +1,85 @@
+Transition Thread States
+Note:
+  -guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html
+    -https://dev.mysql.com/doc/refman/5.7/en/query-cache-thread-states.html
+    -https://dev.mysql.com/doc/refman/5.7/en/source-thread-states.html
+    -https://dev.mysql.com/doc/refman/5.7/en/event-scheduler-thread-states.html
+    -https://dev.mysql.com/doc/refman/5.7/en/mysql-cluster-thread-states.html
+    -https://dev.mysql.com/doc/refman/5.7/en/thread-information.html
+    -https://dev.mysql.com/doc/refman/5.7/en/thread-commands.html
+    -https://stackoverflow.com/questions/2766785/fixing-lock-wait-timeout-exceeded-try-restarting-transaction-for-a-stuck-my/16861630#16861630
+  -threads may also be called connections or processes here
+  -thread types
+    -general
+    -query cache: associated with the query cache
+    -Binlog Dump: On the replication source. If you see no Binlog Dump threads on a source, this means that replication is not running; that is, that no replicas are currently connected.
+    -Event Scheduler: Threads that are created to execute scheduled events, or threads that terminate the scheduler.
+  -foreground threads
+    -xxx
+  -background threads
+    -xxx
+  -"starting" is the first state at the beginning of statement execution.
+  -thread command
+    -Binlog Dump: This is a thread on a replication source for sending binary log contents to a replica.
+    -Change user: The thread is executing a change user operation.
+    -Close stmt: The thread is closing a prepared statement.
+    -Connect: A replica is connected to its source.
+    -Connect Out: A replica is connecting to its source.
+    -Create DB: The thread is executing a create database operation.
+    -Daemon: This thread is internal to the server, not a thread that services a client connection.
+    -Debug: The thread is generating debugging information.
+    -Delayed insert: The thread is a delayed insert handler.
+    -Drop DB: The thread is executing a drop database operation.
+    -Error
+    -Execute: The thread is executing a prepared statement.
+    -Fetch: The thread is fetching the results from executing a prepared statement.
+    -Field List: The thread is retrieving information for table columns.
+    -Init DB: The thread is selecting a default database.
+    -Kill: The thread is killing another thread.
+    -Long Data: The thread is retrieving long data in the result of executing a prepared statement.
+    -Ping: The thread is handling a server ping request.
+    -Prepare: The thread is preparing a prepared statement.
+    -Processlist: The thread is producing information about server threads.
+    -Query: The thread is executing a statement.
+    -Quit: The thread is terminating.
+    -Refresh: The thread is flushing table, logs, or caches, or resetting status variable or replication server information.
+    -Register Slave: The thread is registering a replica server.
+    -Reset stmt: The thread is resetting a prepared statement.
+    -Set option: The thread is setting or resetting a client statement execution option.
+    -Shutdown: The thread is shutting down the server.
+    -Sleep: The thread is waiting for the client to send a new statement to it.
+    -Statistics: The thread is producing server status information.
+Main Succes Scenario:
+  1. "Transition from 'cleaning up' to 'cleaned up'"
+Alternatives:
+  1a. "Transition from 'cleaned up' to 'xxx'"
+  1b. "Transition from 'freeing items' to 'cleaning up'"
+  1c. "Transition from 'query end' to 'freeing items'"
+  
+  
+Transition from 'cleaning up' to 'cleaned up'
+Main Success Scenario:
+  1. Show "cleaning up" state for XXX seconds
+  2. Show "cleaned up" state 
+  
+  
+Transition from 'query end' to 'freeing items'
+Note:
+  -"query end" state occurs after processing a query 
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Transition from 'cleaned up' to 'xxx'
+Note:
+  -
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Transition from 'freeing items' to 'cleaning up'
+Note:
+  -Some freeing of items done during the "freeing items" state involves the query cache
+Main Success Scenario:
+  1.
