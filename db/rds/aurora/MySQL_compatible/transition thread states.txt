@@ -62,15 +62,17 @@ Note:
     -Shutdown: The thread is shutting down the server.
     -Sleep: The thread is waiting for the client to send a new statement to it.
     -Statistics: The thread is producing server status information.
-  -Possible thread command and type combos
+  -Possible thread command and state combos
     -Connect, login
     -Query, NULL
     -Query, checking permissions
     -Query, checking query cache for query
+    -Query, cleaning up
     -Query, closing tables
     -Query, creating table
     -Query, delayed commit ok initiated
     -Query, deleting from reference tables
+    -Query, delayed send ok done
     -Query, delayed send ok intiated
     -Query, end
     -Query, executing
@@ -79,6 +81,7 @@ Note:
     -Query, Opening tables
     -Query, optimizing
     -Query, removing tmp table
+    -Query, Searching rows for update
     -Query, Sending data
     -Query, Sending to client
     -Query, starting
@@ -88,9 +91,12 @@ Note:
     -Query, updating
     -Query, updating reference tables
     -Query, user sleep
-    -Sleep, NULL
-    -Sleep, cleaned up
+    -Sleep, NULL  
+      -only occur in Information_Schema.ProcessList table
+    -Sleep, cleaned up 
+      -only occur in MySQL Workbench Client Connections window
     -Sleep, cleaning up
+    -Sleep, starting
     -What other combos are possible?
   -Thread pool system variables not available from client for aurora. Ref @ https://dev.mysql.com/doc/refman/5.7/en/thread-pool-operation.html
   -In MySQL,the thread pool separates connections and threads, so there is no fixed relationship between connections and the threads that execute statements received from those connections. 
