@@ -1,3 +1,17 @@
 Assess Fiscal Cost
+Note:
+  -guidance @ 
+    -https://aws.amazon.com/s3/pricing/
 Main Success Scenario:
-  1. xxx:fill in 
+  1. "Assess Storage Fiscal Cost"
+  2. "Assess Request & Retrieval Fiscal Cost"
+  3. "Assess Data Transfer Fiscal Cost"
+  4. "Assess Management & Analytics Cost"
+  5. "Assess Replication Cost"
+  6. "Assess S3 Object Lambda Cost"
+  
+  
+  
+  
+  
+  
