@@ -2,6 +2,8 @@ Assess Fiscal Cost
 Note:
   -guidance @ 
     -https://aws.amazon.com/s3/pricing/
+    -https://aws.amazon.com/kms/pricing/
+    -https://www.infoq.com/news/2022/02/aws-s3-batch-replication/?topicPageSponsorship=ca6b05f6-a109-4285-ad4d-da36fbc1fd88
 Main Success Scenario:
   1. "Assess Storage Fiscal Cost"
   2. "Assess Request & Retrieval Fiscal Cost"
