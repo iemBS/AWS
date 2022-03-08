@@ -2,13 +2,16 @@ Invoke Lambda Function
 Note:
   -Guidance @ 
     -https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html
 Main Success Scenario:
   1. "Invoke From GUI"
+  2. "Invoke Synchronously"
 Alternatives:
   1a. "Invoke From Lambda API"
   1b. "Invoke From AWS SDK"
   1c. "Invoke From AWS CLI"
   1d. "Invoke From AWS toolkits"
+  2a. "Invoke Asynchronously"
   
   
 Invoke From GUI
@@ -22,14 +25,14 @@ Main Success Scenario:
 Invoke Synchronously
 Note:
   -Guidance @ 
-    -https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html
-Note:
-  -Guidance @ 
     -https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html
 Main Success Scenario:
   1. xxx:fill in
   
   
 Invoke Asynchronously
+Note:
+  -Guidance @ 
+    -https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html
 Main Success Scenario:
   1. xxx:fill in
