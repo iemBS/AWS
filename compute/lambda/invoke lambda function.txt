@@ -3,6 +3,7 @@ Note:
   -Guidance @ 
     -https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
     -https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html
 Main Success Scenario:
   1. "Invoke From GUI"
   2. "Invoke Synchronously"
