@@ -58,8 +58,17 @@ Main Success Scenario:
 Get anything that is not a non-empty contiguous string of digits
 Main Success Scenario: 
   1. Select * From MyTbl Where MyCol NOT RegExp '^[0-9]+$'
+  
+Get Column Values with Invalid Characters
+Main Success Scenario:
+  1. Return Col1 values that have a character other than dash, a letter, period, space, apostrophe, and comma
+      Select
+        *
+      From
+        TableA
+      Where
+        Col1 regexp "^.*[^\-a-zA-Z\. ',]+.*$"
 
-    
 Have values that start with "a"
 Main Success Scenario:
   1. Select * From MyTbl Where MyCol RegExp '^a'
