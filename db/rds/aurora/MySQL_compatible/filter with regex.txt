@@ -25,6 +25,17 @@ Have at least one Letter in value
 Main Success Scenario:
   1. Select * From MyTbl Where MyCol RegExp '[A-Za-z]+'
   
+Find term at start, middle, or end of string
+Main Success Scenario:
+  1. Get TERM to search for
+  2. Return Col1 values where a term is at the start, middle, or end of a string and term is separated from the rest of the string by at least one space
+    Select
+      *
+    From
+      TableA
+    Where
+      Col1 regexp "^TERM .+|.+ TERM .+|.+ TERM$";
+  
 Have at least one number in value 
 Main Success Scenario:
   1. Select * From MyTbl Where MyCol RegExp '[0-9]+'
