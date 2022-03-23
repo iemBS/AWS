@@ -1,0 +1,8 @@
+Change Mode
+Main Success Scenario:
+  1. Change to JavaScript mode
+    \js
+  2. Change to Python mode
+    \py
+  3. Change to SQL mode
+    \sql
