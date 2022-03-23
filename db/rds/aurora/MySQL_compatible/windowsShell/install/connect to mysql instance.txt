@@ -2,5 +2,7 @@ Connect to MySQL Instance
 Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/8.0/en/connecting.html
+    -https://dev.mysql.com/doc/refman/8.0/en/connection-options.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. Find "mysqlsh.exe" in the MySQL install folder
+  2. xxx:fill in 
