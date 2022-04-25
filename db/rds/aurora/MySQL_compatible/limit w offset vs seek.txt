@@ -1,0 +1,6 @@
+Limit with Offset vs Seek
+Note:
+  -guidance @
+    -https://www.eversql.com/faster-pagination-in-mysql-why-order-by-with-limit-and-offset-is-slow/
+Main Success Scenario:
+  1. xxx:fill in 
