@@ -1,0 +1,6 @@
+Compare Strings with Greater Than or Less Than Operators
+Note:
+  -guidance:
+    -https://dev.mysql.com/doc/refman/5.7/en/comparison-operators.html
+Main Success Scenario:
+  1. xxx:fill in 
