@@ -1,0 +1,6 @@
+Config Glue for Python Script
+Note:
+  -guidance @ 
+    -https://stackoverflow.com/questions/46329561/use-aws-glue-python-with-numpy-and-pandas-python-packages
+Main Success Scenario:
+  1. xxx:fill in 
