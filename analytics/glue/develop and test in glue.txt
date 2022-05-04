@@ -1,6 +1,0 @@
-Develop and Test in Glue
-Note:
-  -guidance @
-    -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-libraries.html
-Main Success Scenario:
-  1. xxx:fill in 

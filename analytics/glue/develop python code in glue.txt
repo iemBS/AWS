@@ -1,0 +1,8 @@
+Develop Python Code in Glue
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-libraries.html
+    -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python.html
+    -https://docs.aws.amazon.com/glue/latest/dg/add-job-python.html
+Main Success Scenario:
+  1. xxx:fill in 
