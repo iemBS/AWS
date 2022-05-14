@@ -1,0 +1,10 @@
+Reset Identity Position
+Note:
+  -Guidance @ 
+    -https://stackoverflow.com/questions/8923114/how-to-reset-auto-increment-in-mysql
+Pre-Conditions:
+  -There is no data in the table
+Main Success Scenario:
+  1. See code below 
+  
+    ALTER TABLE tblA AUTO_INCREMENT = 1;
