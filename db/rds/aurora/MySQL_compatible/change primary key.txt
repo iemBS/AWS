@@ -1,0 +1,8 @@
+Change Priamry Key
+Pre-Conditions:
+  -Primary key already exists in the table 
+Main Success Scenario:
+  1. See code below
+    ALTER TABLE TblA DROP PRIMARY KEY; 
+    ALTER TABLE TblA ADD COLUMN Col1 BIGINT(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT;
+  
