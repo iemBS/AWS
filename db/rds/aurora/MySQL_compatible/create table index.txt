@@ -3,7 +3,9 @@ Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/innodb-index-types.html
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/create-index.html
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/multiple-column-indexes.html
-  -Guidance @ https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch05s02.html
+  -Guidance @ 
+    -https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch05s02.html
+    -https://www.tutorialspoint.com/mysql/mysql-indexes.htm
   -When you specify a primary key an index is automatically created. Guidance @ https://dev.mysql.com/doc/refman/5.6/en/primary-key-optimization.html
   -For a multi-column index, put the column with the fewest value first. 
     -Guidance @ https://stackoverflow.com/questions/24315151/does-order-of-fields-of-multi-column-index-in-mysql-matter
