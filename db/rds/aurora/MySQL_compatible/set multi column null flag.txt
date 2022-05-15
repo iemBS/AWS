@@ -1,0 +1,26 @@
+Set Multi Column Null Flag
+Note:
+  -This allows for conditions later in the select statement that are based on what is null or not null
+Main Success Scenario:
+  1. See code below 
+
+    Select
+      case multiColNullFlag
+        when '010011' then 0
+        when '011101' then 1
+        when '001001' then 2
+      end 
+    From
+      (
+        Select Distinct 
+          Concat(
+            IF(Col1 is null,1,0),
+            IF(Col2 is null,1,0),
+            IF(Col3 is null,1,0),
+            IF(Col4 is null,1,0),
+            IF(Col5 is null,1,0),
+            IF(Col6 is null,1,0)
+          ) as multiColNullFlag
+        From
+          TblA
+        ) t
