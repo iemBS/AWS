@@ -1,0 +1,21 @@
+Find Dupe Key
+Main Success Scenario:
+  1. JSON is JSON data type
+  2. MySQL auto chooses the first pair with the dupe key and all others and their values are lost. See code below.
+  
+    Set @json = Cast('{
+                    "name" : "Good Dog",
+                    "name" : "Fetch", 
+                    "color" : "brown"
+          }' as JSON);
+    select @json;
+    select cast(@json as char);
+
+Alternatives:
+  1a. JSON is varchar data type
+    1a1. See code below 
+    
+    Set @j = '{"key1":"val1","key1":"val2","key3":"val3"}';
+		IF if(length(SUBSTRING_INDEX(@j,'key1',1)) < length(@j),if(length(SUBSTRING_INDEX(@j,'key1',2)) < length(@j),1,0),0) = 1 THEN 
+			Select 'Has dupe key';
+		END IF;
