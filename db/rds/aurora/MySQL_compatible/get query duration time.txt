@@ -1,6 +1,13 @@
 Get Query Duration Time
+Notes:
+  -guidance @
+    -https://stackoverflow.com/questions/9425134/mysql-duration-and-fetch-time
+  -Duration time is how long it takes your query to execute. Query optimization can make the duration time shorter. 
+  -Duration time is differetn from Fetch time.
 Main Success Scenario:
   1. Get Query Duration Time in MySQL Workbench
   
 Get Query Duration Time in MySQL Workbench
 Main Success Scenario:
+  1. Go to Output window > Action Output tab > Duration/Fetch column 
+  2. See time left of slash for the result row corresponding with your query 
