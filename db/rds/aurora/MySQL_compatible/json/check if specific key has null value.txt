@@ -1,0 +1,7 @@
+Check if Specific Key has Null Value
+Main Success Scenario:
+  1. See code below 
+
+		IF (Select JSON_EXTRACT(myJSON,'$.myKey') = CAST('null' AS JSON)) THEN 
+			Select '"myKey" has a NULL value';
+		END IF;
