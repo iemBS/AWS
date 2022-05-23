@@ -1,0 +1,6 @@
+Get Query Duration Time
+Main Success Scenario:
+  1. Get Query Duration Time in MySQL Workbench
+  
+Get Query Duration Time in MySQL Workbench
+Main Success Scenario:
