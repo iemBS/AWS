@@ -3,5 +3,6 @@ Note:
   -Guidance @ https://stackoverflow.com/questions/5528854/usage-of-mysqls-if-exists
   -Control structures like IF or WHILE are only allowed in stored procedures or functions.
   -Guidance on Exists function @ https://dev.mysql.com/doc/refman/5.6/en/exists-and-not-exists-subqueries.html
+  -SELECT EXISTS(select NULL) will return a value of 1. 
 Main Success Scenario:
   1. xxx:fill in
