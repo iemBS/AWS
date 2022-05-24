@@ -32,6 +32,9 @@ Alternatives:
     1d1. xxx:fill in
   1e. Do a change that causes a natural error to occur
     1e1. "Cause Natural Error using Non-Natural Means"
+  1f. Set max_allowed_packet system variable to a value less than the size of the IN operator can handle 
+    1f1. Set @@session.max_allowed_packet = 1024
+    1f2. Returns a MESSAGE_TEXT and MySQL Error # of xxx 
     
 
 Cause Natural Error using Non-Natural Means
