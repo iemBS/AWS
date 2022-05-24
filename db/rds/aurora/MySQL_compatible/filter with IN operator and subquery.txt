@@ -1,4 +1,4 @@
-Filter with IN and Subqeury
+Filter with IN operator and Subqeury
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/comparison-operators.html#operator_in
   -Guidance @ https://stackoverflow.com/questions/1532366/mysql-number-of-items-within-in-clause
