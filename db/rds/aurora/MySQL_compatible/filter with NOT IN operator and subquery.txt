@@ -1,4 +1,4 @@
-Filter with NOT IN and subquery
+Filter with NOT IN operator and subquery
 Note:
   -https://dev.mysql.com/doc/refman/5.7/en/any-in-some-subqueries.html
 Main Success Scenario:
