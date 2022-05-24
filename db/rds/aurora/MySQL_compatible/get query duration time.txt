@@ -5,9 +5,18 @@ Notes:
   -Duration time is how long it takes your query to execute. Query optimization can make the duration time shorter. 
   -Duration time is differetn from Fetch time.
 Main Success Scenario:
-  1. Get Query Duration Time in MySQL Workbench
+  1. "Get Query Duration Time in MySQL Workbench"
+Alternatives:
+  1a. "Get Query Duration Time in Background Run"
   
 Get Query Duration Time in MySQL Workbench
 Main Success Scenario:
   1. Go to Output window > Action Output tab > Duration/Fetch column 
   2. See time left of slash for the result row corresponding with your query 
+  
+  
+Get Query Duration Time in Background Run
+Main Success Scenario:
+  1. Run "Set profiling = 1;"
+  2. Run query
+  3. Run "SHOW PROFILES;"
