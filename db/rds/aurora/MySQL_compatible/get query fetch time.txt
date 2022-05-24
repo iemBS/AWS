@@ -6,11 +6,20 @@ Note:
   -Fetch time depends on network connection. 
   -Fetch time is different from Duration time. Where Duration is the amount of time it takes for a query to execute. Query optimization can make the duration time shorter. 
 Main Success Scenario:
-  1. Get Query Execution Time in MySQL Workbench
+  1. "Get Query Execution Time in MySQL Workbench"
+  2. End
+Alternatives:
+  1a. Get from Audit Log instead
+    1a1. "Get Query Execution Time in Audit Log"
+    1a2. Go to step 2
   
 
 Get Query Fetch Time in MySQL Workbench
-Note:
 Main Success Scenario: 
   1. Go to Output window > Action Output tab > Duration/Fetch column 
   2. See time right of slash for the result row corresponding with your query 
+  
+  
+Get Query Execution Time in Audit Log
+Main Success Scenario: 
+  1. xxx:Fill in 
