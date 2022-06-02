@@ -1,0 +1,25 @@
+Test Procedure Input Boolean Params
+Main Success:
+  1. see code below 
+
+    Drop Procedure If Exists tst_bool_input_param;
+    DELIMITER $$
+    CREATE PROCEDURE tst_bool_input_param(IN bool_input_param BOOLEAN) 
+    BEGIN
+    /*
+    can take following values successfully:
+    -true/false
+    -1/0
+    -'true'/'false'
+    -'t'/'f'
+    */
+    Set @msg = '';
+    IF bool_input_param in (0,1) THEN
+      Set @msg = 'Sees integer boolean. ';
+    END IF;
+    IF bool_input_param in (true,false) THEN
+      set @msg = concat(ifnull(@msg,''),'Sees word boolean. ');
+    END IF;
+    select @msg;
+    END$$
+    DELIMITER ;
