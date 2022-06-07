@@ -1,0 +1,148 @@
+
+Retry Query within Procedure
+Main Success Scenario:
+  1. Create procedure below 
+
+    Drop Procedure If Exists qry_retry_w_handler;
+    DELIMITER $$
+
+    CREATE DEFINER=`ckent`@`%` PROCEDURE `qry_retry_w_handler`()
+        SQL SECURITY INVOKER
+    RETRY_PROC:BEGIN
+
+    /*
+       guidance:
+         -https://dev.mysql.com/doc/refman/5.7/en/declare-handler.html
+         -https://dev.mysql.com/doc/refman/5.7/en/statement-labels.html
+         -https://dev.mysql.com/doc/refman/5.7/en/begin-end.html
+         -https://dev.mysql.com/doc/refman/5.7/en/condition-handling.html
+
+         note:
+         -Handler can be for...
+           -a specific MYSQL_ERRNO
+             -https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+             -references to these values often leave off the preceding zeros
+           -a specific SQLSTATE
+             -https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html
+           -a specific class of SQLSTATE, class defined by the the first 2 characters of a SQLSTATE, 1 or more of these 2 character values can make up a class of SQLSTATE
+             -SQLEXCEPTION
+               -SQLSTATE does not begin with 00, 01, or 02
+               -common MYSQL_ERRNO values to watch for in this 
+           -easy to trigger
+              -1292, ref @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html#error_er_truncated_wrong_value
+                    -xxx
+                 -NOT easy to trigger
+                   -1213, ref @ https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html#error_er_lock_deadlock
+                   -xxx
+             -NOT FOUND
+               -SQLSTATE begins with 02
+               -common MYSQL_ERRNO values to watch for in this 
+                 -xxx
+             -SQLWARNING
+               -SQLSTATE begins with 01
+               -common MYSQL_ERRNO values to watch for in this 
+                 -xxx
+       -Statement label can be used before 
+           -the "BEGIN" in ...
+             -LOOP, ref @ https://dev.mysql.com/doc/refman/5.7/en/loop.html
+             -REPEAT, ref @ https://dev.mysql.com/doc/refman/5.7/en/repeat.html
+             -WHILE, ref @ https://dev.mysql.com/doc/refman/5.7/en/while.html
+         -the "BEGIN" in the BEGIN ... END compound statements within ... 
+             -procedure
+             -function
+             -trigger
+             -event
+         -A statement label can be referenced by ...
+         -ITERATE, ref @ https://dev.mysql.com/doc/refman/5.7/en/iterate.html
+             -Will start at the begining of the block again that is preceded with the referenced statement label.
+         -LEAVE, ref @ https://dev.mysql.com/doc/refman/5.7/en/leave.html
+             -Will exit the block that is preceded with the referenced statement label.
+       -Cannot 
+           -Reference statement label from handler block when statement label proceeds ...
+             -"BEGIN" in the BEGIN ... END compound statements within ...
+               -procedure 
+               -xxx
+         -Have ITERATE statement reference a statement label that proceeds a "BEGIN" in the BEGIN ... END compound statements within a procedure 
+           -Use just a continue handler 
+           -Use just a continue handler and a statement label proceeding the "BEGIN" of a procedure
+           -Use error symbol as handler condition, like "ER_LOCK_DEADLOCK" for MYSQL_ERRNO 1213
+           -Use try catch to retry, because those statements do not exist in MySQL
+           -Set handler condition to a variable that contains a valid value
+       -Can
+           -See hardcoded text of a select statement run within the continue handler in the client results
+           -See updated vRetryCnt value within procedure body after incrementing the value in the continue handler once
+         -See updated vSQLSTATE value within procedure body after going through continue handler once
+           -Use a continue handler, statement label proceeding the "BEGIN" of a procedure, and xxx
+       -Exit procedure 
+         -wo error 
+             -Set vRetryEnabled to false to exit WHILE or REPEAT statement 
+             -Compare vRetryCnt to vRetryCntMax in IF condition within LOOP statement and use LEAVE statement to exit loop
+           -w error 
+             -within handler
+               -xxx
+             -within proc body
+               -Where you would set vRetryEnabled or use LEAVE in the non-error scenario, use SIGNAL statement to throw an error 
+        -Set static variables only during declaration
+            -vRetryCntMax
+            -vRetryWaitDuration
+        -Order of operations
+            -The order of the handlers run starts with the top and ends with the bottom. If a handler condition is not met, then it will go to to the next one down. Only one handler will be entered for each exception thrown.
+            -Do not try to use variables in the proc body that you expected to be set in a handler if the handler condition is not specified to let in the exception
+    */
+
+      # Declare variables for diagnostics area info
+      DECLARE vSQLSTATE CHAR(5) DEFAULT '00000';
+      DECLARE vMESSAGE_TEXT TEXT;
+        DECLARE vMYSQL_ERRNO INT;
+
+        # Declare variables that can be used inside the handler and the body of the proc
+        DECLARE vRetryCnt INT DEFAULT 0;
+        DECLARE vRetryCntMax INT DEFAULT 3;
+        DECLARE vRetryEnabled boolean DEFAULT true;
+        DECLARE vRetryWaitDuration INT DEFAULT 3; # in seconds
+
+        DECLARE CONTINUE HANDLER FOR 1292
+        BEGIN
+        select 'in handler' as msg;
+
+            # Increment to count the retry attempts. This will always go one higher than the specified max number of retries. 
+            Set vRetryCnt = vRetryCnt + 1;
+
+            # Exit proc with an error if retries exceeded
+        IF vRetryCnt > vRetryCntMax THEN 
+          Set @sMsg = concat(vRetryCntMax,' retries exceeded.');
+          SIGNAL SQLSTATE '45000' # MYSQL_ERRNO is 1644
+            SET MESSAGE_TEXT = @sMsg; 
+        END IF;
+      END;
+
+        WHILE vRetryEnabled DO 
+
+            /*
+            ** OTHER TRIGGERS TO ENTER CONTINUE HANDLER **
+
+            # cause MYSQL_ERRNO: 1213
+
+            xxx
+
+            */
+
+        # cause MYSQL_ERRNO: 1292
+        set @@SESSION.wait_timeout = -1;
+
+            # disable retries after retry limit reached
+        IF vRetryCnt > vRetryCntMax THEN 
+          select concat('leave after ',vRetryCnt-1,' retries ') as msg;
+                Set vRetryEnabled = false;
+        ELSEIF vRetryCnt > 0 THEN 
+          select concat('retry ',vRetryCnt) as msg;
+        END IF;
+
+        END WHILE;
+
+    END$$
+    DELIMITER ;
+
+  2. Run below procedure 
+  
+    call qry_retry_w_handler();
