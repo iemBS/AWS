@@ -11,12 +11,14 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/deallocate-prepare.html
     -https://mariadb.com/kb/en/prepare-statement/
     -https://dev.mysql.com/doc/refman/5.7/en/statement-caching.html
+  -In MySQL, dynamic sql is called a prepared statement. 
   -USE statement CANNOT be used inside a procedure. See @ https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html
   -Local variables and procedure parameters cannot be used within a prepared statement that is created within a procedure accoring to these two links:  
     -https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/stored-program-restrictions.html
     -https://dev.mysql.com/doc/refman/5.7/en/prepare.html
   -MySQL wants to put prepared statements in the Query Cache. That will not happen if the query resulting from the prepare statement breaks one of the rules @ https://dev.mysql.com/doc/refman/5.7/en/query-cache-operation.html
   -A semi-colon is not needed at the end of string that holds the query for a prepared statement. The PREPARE or EXECUTE command will add a query terimnator.
+  -A prepared statement is in the same session as the sql that called it. Ref @ https://dev.mysql.com/doc/refman/5.7/en/sql-prepared-statements.html
 Main Success Scenario:
   1. xxx:fill in
 Alternatives:
