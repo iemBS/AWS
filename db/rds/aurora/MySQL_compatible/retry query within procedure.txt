@@ -104,6 +104,9 @@ Main Success Scenario:
         DECLARE CONTINUE HANDLER FOR 1292
         BEGIN
         select 'in handler' as msg;
+        
+  		      # seconds to wait before trying again
+            DO SLEEP(vRetryWaitDuration);
 
             # Increment to count the retry attempts. This will always go one higher than the specified max number of retries. 
             Set vRetryCnt = vRetryCnt + 1;
