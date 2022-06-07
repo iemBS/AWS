@@ -73,6 +73,7 @@ Main Success Scenario:
            -See updated vRetryCnt value within procedure body after incrementing the value in the continue handler once
          -See updated vSQLSTATE value within procedure body after going through continue handler once
            -Use a continue handler, statement label proceeding the "BEGIN" of a procedure, and xxx
+           -Declare own condition so you can specify your own name for a condition. Unfortunately, only sqlstates can be used in a condition definition. It seems a condition declaration can only reference one sqlstate at a time. ref @ https://dev.mysql.com/doc/refman/5.7/en/declare-condition.html
        -Exit procedure 
          -wo error 
              -Set vRetryEnabled to false to exit WHILE or REPEAT statement 
