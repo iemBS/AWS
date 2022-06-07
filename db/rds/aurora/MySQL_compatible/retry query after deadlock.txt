@@ -1,0 +1,10 @@
+Retry Query after Deadlock
+Note:
+  -guidance @
+    -https://www.codeproject.com/Articles/42547/SQL-SERVER-How-To-Handle-Deadlock
+    -https://www.mysqltutorial.org/mysql-error-handling-in-stored-procedures/
+  -Using a continue handler in a procedure to handle a deadlock is not sufficient, because it will not retry the code that threw the deadlock error. It will just continue executing the code after where the deadlock occurred. 
+  -You need to catch the deadlock error in a catch of a try catch or in a continue handler. Where you catch it, you need to record the error occurred, wait for a time, possibly check other attributes, and then retry the query. 
+  -To prevent an infinite loop, you need to have a check when the error is caught to see if a retry should be done. 
+Main Success Scenario: 
+  1. xxx:fill in 
