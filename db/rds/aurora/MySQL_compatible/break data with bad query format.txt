@@ -1,0 +1,45 @@
+Break Data with Bad Query Format
+Pre-Conditions:
+  -All these bad query formats will not throw a default mysql error when implementing or running
+  -All these bad query formats will make the data incorrect
+Main Success Format
+  1. Missing comma in IN statement causes that filter value and others after it to be ignored. 
+  
+    select
+      *
+    from
+      information_schema.tables
+    where
+      table_schema = 'information_schema'
+        and
+        table_name in 
+        (
+        'columns',
+            'tables'
+            'files'
+        );
+        
+   2. End
+ Alternatives:
+   1a. Missing comma in select statement causes all columns after the columns with the missing comma to be ignored (so each new column associates to the comma that precedes it)
+     1a1. see below 
+     
+       select
+        table_name
+          table_type
+      from
+        information_schema.tables
+      where
+        table_schema = 'information_schema'
+          and
+          table_name in 
+          (
+          'columns',
+              'tables',
+              'files'
+          )
+   
+   1b. xxx:fill in 
+ 
+ 
+     1a2. Go to step 2
