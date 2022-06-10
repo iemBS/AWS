@@ -1,0 +1,7 @@
+Use Performance Monitor
+Note:
+  -guidance 
+    -https://docs.reltio.com/reltioconsole/performancemonitoring.html?hl=performance%2Cmonitoring
+  -
+Main Success Scenario:
+  1. xxx:fill in 
