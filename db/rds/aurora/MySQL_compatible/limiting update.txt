@@ -1,0 +1,22 @@
+Limiting Update
+Main Success Scenario:
+  1. see query below 
+  
+    drop table if exists TstLimitedUpdateTbl;
+    create temporary table TstLimitedUpdateTbl
+    (
+      Col1 tinyint(1)
+    );
+
+    insert into TstLimitedUpdateTbl
+    values (0), (0), (0), (0), (0), (0);
+
+    Update
+      TstLimitedUpdateTbl
+    Set
+      Col1 = 1
+    limit 1;
+
+    select * from TstLimitedUpdateTbl
+    
+  2. See only the top row with a value of 1, while the rest have a value of 0. 
