@@ -1,0 +1,22 @@
+Merge JSON
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/json-modification-functions.html#function_json-merge-patch
+  -json_merge function is deprecated in MySQL 5.7.22. json_merge_preserve and json_merge_patch replace it. 
+Main Success Scenario:
+  1. Merge JSON docs
+    select JSON_MERGE('{"key1":"val1"}','{"key2":"val2"}');
+  2. returns
+    {"key1": "val1", "key2": "val2"}
+  3. End
+Alternatives:
+  1a. Merge comma delimited values 
+    1a1. select JSON_MERGE('"val1"','"val2"');
+    1a2. returns 
+      ["val1", "val2"]
+    1a3. Go to step 3
+  1b. Merge array values
+    1b1. select JSON_MERGE('["val1","val2"]','["val3","val4"]');
+    1b2. returns 
+      ["val1", "val2", "val3", "val4"]
+    1b3. Go to step 3
