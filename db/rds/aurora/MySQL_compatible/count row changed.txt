@@ -1,0 +1,49 @@
+Count Rows Changed
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_row-count
+Main success scenario:
+  1. see code below 
+
+    drop table if exists TstLimitedUpdateTbl;
+    create temporary table TstLimitedUpdateTbl
+    (
+	  ID int(11),
+      Col1 tinyint(1)
+    );
+
+    insert into TstLimitedUpdateTbl
+    values (1,0), (2,0), (3,0), (4,0), (5,0), (6,0);
+    
+	SELECT ROW_COUNT();
+
+    Update
+      TstLimitedUpdateTbl
+    Set
+      Col1 = 1
+    limit 2;
+    
+    SELECT ROW_COUNT();
+    
+    Update
+      TstLimitedUpdateTbl
+    Set
+      Col1 = 2
+    where
+		ID = 12;
+    
+    SELECT ROW_COUNT();
+    
+    delete from
+		TstLimitedUpdateTbl
+	where
+		ID in (3,4,5);
+        
+	SELECT ROW_COUNT();
+    
+    delete from
+		TstLimitedUpdateTbl
+	where
+		ID = 10;
+        
+	SELECT ROW_COUNT();
