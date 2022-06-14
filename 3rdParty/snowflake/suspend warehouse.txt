@@ -1,0 +1,19 @@
+Suspend Warehouse
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/user-guide/warehouses-overview.html#auto-suspension-and-auto-resumption
+Main Success scenario:
+  1. "Manually Suspend Warehouse"
+  2. end 
+Alternatives:
+  1a. auto suspend warehouse
+    1a1. "Auto Suspend Warehouse"
+    
+    
+Manually Suspend Warehouse
+xxx:fill in 
+
+
+
+Auto Suspend Warehouse
+xxx:fill in 
