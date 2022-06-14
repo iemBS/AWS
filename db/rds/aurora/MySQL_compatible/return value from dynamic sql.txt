@@ -1,0 +1,6 @@
+return value from dynamic sql
+note:
+  -guidance @
+    -https://www.tutorialspoint.com/how-to-select-return-value-from-mysql-prepared-statement
+main success scenario:
+  1. xxx:fill in 
