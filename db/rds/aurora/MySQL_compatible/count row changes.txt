@@ -1,4 +1,4 @@
-Count Rows Changed
+Count Rows Changes
 Note:
   -guidance @ 
     -https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_row-count
@@ -47,3 +47,12 @@ Main success scenario:
 		ID = 10;
         
 	SELECT ROW_COUNT();
+	
+    Set @val = null;
+    Set @qry = 'delete from TstLimitedUpdateTbl where ID = 1;';
+	PREPARE qry FROM @qry;
+    EXECUTE qry;
+    SELECT ROW_COUNT(); # must be executed before DEALLOCATE
+    DEALLOCATE PREPARE qry;	
+    
+    select * from TstLimitedUpdateTbl;
