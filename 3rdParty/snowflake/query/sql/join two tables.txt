@@ -1,0 +1,16 @@
+Join Two Tables
+Main Success Scenario:
+  1. see code below 
+
+    set var = 'myVALUE';
+
+    use myDB;
+
+    SELECT
+        count(a."myCol1")
+    from 
+        mySchema."myTblA" a
+        Join mySchema."myTblB" b On 
+            a."myCol1" = b."myCol1"
+    where 
+        a."myCol2" = $var;
