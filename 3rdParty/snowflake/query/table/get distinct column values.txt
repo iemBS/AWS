@@ -1,0 +1,8 @@
+Get Distinct Column Values
+Main Success Scenario:
+  1. see query below 
+  
+    select
+        distinct "MyColumns"
+    from
+        MySchema."MyTable"
