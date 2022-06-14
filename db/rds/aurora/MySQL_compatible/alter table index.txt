@@ -1,10 +1,18 @@
 Alter Table Index
 Note:
+  -guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/create-index.html
+    -https://dev.mysql.com/doc/refman/5.7/en/drop-index.html
   -There is no way to alter an index on a table. You need to drop it and then recreate it
   -The alter statements keeps you from dropping the table during the change though
   -See "Drop Table Index" and "Create Table Index" in other files in this code repo
 Main Success Scenario:
   1. Drop Table Index
-    "Drop Table Index"
+    Drop Index indexName on tableName;
   2. Create Table Index
-    "Create Table Index"
+    Create Index indexName on tableName (col1,col2,col3)
+    
+    
+    
+
+
