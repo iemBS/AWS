@@ -1,0 +1,14 @@
+Repeat Update Till No Update
+Note:
+  -Good for 
+    -appending
+    -several updates
+    -retries
+    -updates until no updates can be done
+    -update triggers the next update
+Main Success Scenario:
+  1. see code below 
+    REPEAT
+    Update TblA Set Col1 = 1;
+    UNTIL ROW_COUNT() = 0
+    END REPEAT;
