@@ -1,3 +1,9 @@
 Delete Hard
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/delete.html
 Main Success scenario:
-  1. Delete data in the archive
+  1. Delete from table 
+  2. Delete from archive of table 
+  
+
