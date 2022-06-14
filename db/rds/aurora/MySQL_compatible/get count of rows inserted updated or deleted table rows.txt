@@ -1,4 +1,4 @@
-get count of rows inserted updated or deleted in a table
+get count of rows inserted updated or deleted table rows 
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/information-functions.html#function_row-count
   -ROW_COUNT() is specific to a session. So, having multiple connections to the DB will not hurt the values coming from ROW_COUNT(). 
