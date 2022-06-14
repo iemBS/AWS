@@ -1,0 +1,28 @@
+Comment
+Main Succcess Scenario:
+  1. "Associate Comment with DB Object"
+Alternatives:
+  1a. "Comment in SQL Worksheet"
+
+
+Associate Comment with DB Object
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/comment.html
+Main Succcess Scenario:
+  1. xxx:fill in 
+  
+  
+Comment in SQL Worksheet
+Note:
+  -guidance @
+    -https://community.snowflake.com/s/article/how-to-comment-or-uncomment-multiple-lines-in-the-sql-worksheet
+Main Succcess Scenario:
+  1. Comment single line 
+    // my commented text on one line 
+Alternatives:
+  1a. Comment multiple lines 
+    1a1. see below 
+      // line 1
+      // line 2
+      // line 3
