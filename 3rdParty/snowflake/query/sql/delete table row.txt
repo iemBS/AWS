@@ -1,0 +1,22 @@
+Delete Table Row
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/delete.html
+Main Success scenario:
+  1. Delete all rows from table 
+      delete from MySchema."MyTable";
+      
+  2. Delete from archive of table 
+     xxx:fill in 
+     
+Alternatives:
+  1a. Delete using a join
+    1a1. see code bellow
+  
+      delete from leased_bicycles 
+          using returned_bicycles
+          where leased_bicycles.bicycle_id = returned_bicycles.bicycle_id;
+          
+   1a2. xxx:fill in 
+  
+
