@@ -4,6 +4,7 @@ Note:
     -https://stackoverflow.com/questions/8923114/how-to-reset-auto-increment-in-mysql
 Pre-Conditions:
   -There is no data in the table
+  -The previous identity values are not used anywhere
 Main Success Scenario:
   1. See code below 
   
