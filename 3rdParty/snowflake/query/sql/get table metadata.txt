@@ -1,0 +1,10 @@
+Get Table Metadata
+Main success scenario:
+  1. see code below
+    
+    use myDB;
+
+    select
+        *
+    from
+        INFORMATION_SCHEMA."TABLES"
