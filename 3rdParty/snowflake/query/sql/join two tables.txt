@@ -1,6 +1,6 @@
 Join Two Tables
 Main Success Scenario:
-  1. see code below 
+  1. Join between two tables in same database and same schema
 
     set var = 'myVALUE';
 
@@ -14,3 +14,17 @@ Main Success Scenario:
             a."myCol1" = b."myCol1"
     where 
         a."myCol2" = $var;
+        
+  2. end 
+        
+Alternatives:
+  1a. Join between two tables in two different databases but same schema
+    1a1. see code below
+
+      select count(a1."myCol1") 
+      from 
+          dbX.schemaA."myTbl1" a1
+          join dbY.schemaA."myTbl1" a2 On 
+              a1."myCol1" = a2."myCol1"
+              
+   1a2. Go to step 2
