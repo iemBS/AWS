@@ -1,0 +1,104 @@
+Reduce Internal Queue Event Duration
+Note:
+  -guidance @ 
+    -https://docs.reltio.com/tenantmanagement/awsqueues.html
+    -https://docs.reltio.com/events/messagestreamingcrud.html
+  -
+Pre-Condition:
+  -Task is my term for doing something in Reltio
+Main success scenario:
+  1. Run more tasks in serial rather than in parallel
+  2. "Reduce Internal Queue Event Duration for Inserts/Creations"
+  3. end
+Alternatives:
+  1a. Cannot use more time and run the tasks in serial
+    1a1. Scale the tentant up so more events can be processed per minute
+    1a2. go to step 2
+  2a. focus on deletions instead 
+    2a1. "Reduce Internal Queue Event Duration for Deletions"
+    2a2. go to step 3
+  2b. focus on updates instead 
+    2a1. "Reduce Internal Queue Event Duration for Updates"
+    2a2. go to step 3
+
+    
+Reduce Internal Queue Event Duration for Inserts/Creates
+Main success scenario:
+  1. "Disable Match and Merge during Bulk Task"
+  2. "Disable Auto Indexing during Bulk Task"
+  3. "Disable Access during Bulk Task"
+    
+    
+Reduce Internal Queue Event Duration for Deletes
+Note:
+  -Deletes are less intense than an insert or update
+Question:
+  -Does disabling auto re-indexing during bulk deletion cause incorrect data to be returned to consumers?
+  -Does disabling match and merge during bulk deletion cause incorrect data to be returned to consumers?
+Main success scenario:
+  1. If possible, do a higher percentage of deletes when there is a higher count of tasks 
+  2. "Disable Match and Merge during Bulk Task"
+  3. "Disable Auto Indexing during Bulk Task"
+  4. "Disable Access during Bulk Task"
+  
+  
+Reduce Internal Queue Event Duration for Updates
+Main success scenario:
+  1. "Disable Match and Merge during Bulk Task"
+  2. "Disable Auto Indexing during Bulk Task"
+  3. "Disable Access during Bulk Task"
+  
+  
+Disable Match and Merge during Bulk Task
+Note:
+  -Having Match and Merge disabled when data is pulled from Reltio can result in data that is missing updates for the consumer
+Pre-Condition:
+  -Less problematic performance improvements are not good enough
+  -Duration of bulk task is acceptable
+  -Schedule for bulk task is acceptable 
+  -Consumers ok with seeing matched and merged results later
+Main success scenario:
+  1. Only inserts are done during bulk task
+  2. xxx:fill in 
+Alternatives:
+  1a. Only deletes are done during bulk task
+    1a1. xxx:fill in 
+  1b. Only updates are done during bulk task
+    1b1. xxx:fill in 
+  
+  
+Disable Auto Indexing during Bulk Task
+Note:
+  -Having Auto Indexing disabled when data is pulled from Reltio can result in bad data for the consumer
+Pre-Condition:
+  -Less problematic performance improvements are not good enough
+  -Duration of bulk task is acceptable
+  -Schedule for bulk task is acceptable 
+Main success scenario:
+  1. Only inserts are done during bulk task
+  2. xxx:fill in 
+Alternatives:
+  1a. Only deletes are done during bulk task
+    1a1. xxx:fill in 
+  1b. Only updates are done during bulk task
+    1b1. xxx:fill in 
+  
+  
+Disable Access during Bulk Task
+Pre-Condition:
+  -schedule for disabled access is acceptable 
+  -disabling access prevents incorrect data for consumers when ...
+    -auto indexing is disabled
+    -auto match and merge is disabled 
+Main success scenario:
+  1. Only inserts are done during bulk task
+  2. xxx:fill in 
+Alternatives:
+  1a. Only deletes are done during bulk task
+    1a1. xxx:fill in 
+  1b. Only updates are done during bulk task
+    1b1. xxx:fill in 
+
+
+
+  
