@@ -1,4 +1,6 @@
 Limiting Update
+Note:
+  -Cannot use limit if joining two or more tables 
 Main Success Scenario:
   1. see query below 
   
