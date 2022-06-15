@@ -1,0 +1,6 @@
+Count Column Values
+Note:
+  -guidance @
+     -https://docs.snowflake.com/en/sql-reference/functions/count.html
+Main Success Scenario:
+  1. xxx:fill in 
