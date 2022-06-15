@@ -15,7 +15,7 @@ Alternatives:
     1a1. Scale the tentant up so more events can be processed per minute
     1a2. go to step 2
   2a. focus on deletions instead 
-    2a1. "Reduce Internal Queue Event Duration for Deletions"
+    2a1. "Reduce Internal Queue Event Duration for Deletes"
     2a2. go to step 3
   2b. focus on updates instead 
     2a1. "Reduce Internal Queue Event Duration for Updates"
@@ -37,9 +37,27 @@ Question:
   -Does disabling match and merge during bulk deletion cause incorrect data to be returned to consumers?
 Main success scenario:
   1. If possible, do a higher percentage of deletes when there is a higher count of tasks 
-  2. "Disable Match and Merge during Bulk Task"
-  3. "Disable Auto Indexing during Bulk Task"
-  4. "Disable Access during Bulk Task"
+  2. "Delete via Reltio API"
+  3. "Disable Match and Merge during Bulk Task"
+  4. "Disable Auto Indexing during Bulk Task"
+  5. "Disable Access during Bulk Task"
+Alternatives:
+  1a. Use Reltio Search GUI instead
+    1a1. "Delete via Reltio Search GUI"
+    1a2. go to step 2
+    
+ 
+Delete via Reltio API
+Main success scenario:
+  1. xxx:fill in 
+
+
+Delete via Reltio Search GUI
+Note:
+  -Bulk deleting in the Search GUI causes a higher percent of match events to contribute to the internal queue size than the CRUD events. The contributions to the internal queue size by CRUD and Match events when using the Reltio API directly for deletes, causes an even contribution from CRUD and Match events
+  -Internal queue size can be monitored in the "Tenant Management" console for a Reltio tenant. 
+Main success scenario:
+  1. xxx:fill in 
   
   
 Reduce Internal Queue Event Duration for Updates
@@ -51,6 +69,8 @@ Main success scenario:
   
 Disable Match and Merge during Bulk Task
 Note:
+  -guidance @
+    -https://docs.reltio.com/events/messagestreamingmatch.html
   -Having Match and Merge disabled when data is pulled from Reltio can result in data that is missing updates for the consumer
 Pre-Condition:
   -Less problematic performance improvements are not good enough
