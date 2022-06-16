@@ -1,4 +1,4 @@
-check if queue is empty
+see if queue is empty
 note:
   -guidance @
     -https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/confirm-queue-is-empty.html
