@@ -1,0 +1,6 @@
+check if queue is empty
+note:
+  -guidance @
+    -https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/confirm-queue-is-empty.html
+main success scenario:
+  1. xxx:fill in 
