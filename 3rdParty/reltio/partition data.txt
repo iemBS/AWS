@@ -1,6 +1,0 @@
-Partition Data
-Note:
-  -guidance @
-    -https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions.html
-Main Success scenario:
-  1. xxx:fill in 
