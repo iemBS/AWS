@@ -1,0 +1,17 @@
+Optimize SQL Query
+Note:
+  -Only columns referenced by a query are scanned. Ref @ https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions.html
+  -Deleting data from a table is a metadata-only operation. Ref @ https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions.html
+Main success scenario:
+  1. Only reference the columns needed
+  2. "Assisting Micro Partitioning"
+  3. xxx:fill in 
+  
+  
+Assisting Micro Partitioning
+Note:
+  -query pruning
+    -Not all predicate expressions can be used to prune, ref @ https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions.html
+    -Snowflake does not prune micro-partitions based on a predicate with a subquery, even if the subquery results in a constant. ref @ https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions.html
+Main success scenario:
+  1. xxx:fill in 
