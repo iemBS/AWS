@@ -1,0 +1,10 @@
+See DeadLetter Queue
+Note:
+  -guidance @
+    -https://docs.reltio.com/tenantmanagement/awsqueues.html
+    -https://docs.reltio.com/tenantstoragemgmt/monitoringfailedevents.html
+  -messages must fail 200 times before they are put into the deadletter queue 
+  -messages in the deadletter queue are not tried again
+  -The deadletter queue is likely an aws deadletter queue. ref @ https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html
+Main Success Scenario:
+  1. xxx:fill in 
