@@ -27,6 +27,7 @@ Main success scenario:
   1. "Disable Match and Merge during Bulk Task"
   2. "Disable Auto Indexing during Bulk Task"
   3. "Disable Access during Bulk Task"
+  4. "Disable Reltio Data Cleanser during Bulk Task"
     
     
 Reduce Internal Queue Event Duration for Deletes
@@ -35,6 +36,7 @@ Note:
 Question:
   -Does disabling auto re-indexing during bulk deletion cause incorrect data to be returned to consumers?
   -Does disabling match and merge during bulk deletion cause incorrect data to be returned to consumers?
+  -Is the data cleanser run on a profile when only some of the records in the consolidated profile are deleted?
 Main success scenario:
   1. If possible, do a higher percentage of deletes when there is a higher count of tasks 
   2. "Delete via Reltio API"
@@ -65,6 +67,7 @@ Main success scenario:
   1. "Disable Match and Merge during Bulk Task"
   2. "Disable Auto Indexing during Bulk Task"
   3. "Disable Access during Bulk Task"
+  3. "Disable Reltio Data Cleanser during Bulk Task"
   
   
 Disable Match and Merge during Bulk Task
@@ -118,6 +121,12 @@ Alternatives:
     1a1. xxx:fill in 
   1b. Only updates are done during bulk task
     1b1. xxx:fill in 
+    
+    
+Disable Reltio Data Cleanser during Bulk Task
+Main success scenario:
+  1. xxx:fill in 
+
 
 
 
