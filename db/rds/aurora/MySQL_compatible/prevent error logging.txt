@@ -1,0 +1,21 @@
+Prevent Error Logging
+Note:
+ -This is important to understand if are expecting an error to show in Aurora's audit or error log and it does not. 
+ -The source of the default deadlock monitor for rds is the audit or error log for aurora. 
+Main Success Scenario:
+  1. "Prevent Error Logging with Exit Handler"
+  2. End 
+Alternatives:
+  1. Use continue handler instead 
+    1a1. "Prevent Error Logging with Continue Handler"
+    1a2. go to step 2
+    
+
+Prevent Error Logging with Exit Handler
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Prevent Error Logging with Continue Handler
+Main Success Scenario:
+  1. xxx:fill in 
