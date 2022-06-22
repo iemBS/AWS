@@ -1,0 +1,26 @@
+Return No Non-Null Rows with Select
+Main Success Scenario:
+  1. Return all null column values in a single row
+        Select
+            null as col1,
+            null as col2
+  2. Run query
+  3. end 
+Alternatives:
+  1a. Return no row at all
+    1a1. 
+      select
+        *
+      from
+        (
+          Select
+            null as col1,
+            null as col2
+        ) t
+      where
+        col1 is not null
+    1a2. Go to step 2
+  1b. Use a view instead
+    1b1. Put the contents of step 1 or 1a into a view
+    1b2. Go to step 2
+  
