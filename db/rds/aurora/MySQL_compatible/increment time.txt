@@ -13,7 +13,8 @@ Main Success Scenario:
         DATE_ADD(Tm, INTERVAL 1 HOUR) As TmPlus1Hour,
         DATE_ADD(Tm, INTERVAL 1 DAY) As TmPlus1Day,
         DtTm,
-        DATE_ADD(DtTm, INTERVAL -1 DAY) As DtTmMinus1Day
+        DATE_ADD(DtTm, INTERVAL -1 DAY) As DtTmMinus1Day,
+        DATE_ADD(DtTm, INTERVAL -0 DAY) As DtTmMinus0Day
 	From
 		(
 			Select
