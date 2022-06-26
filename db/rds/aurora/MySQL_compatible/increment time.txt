@@ -11,9 +11,12 @@ Main Success Scenario:
         DATE_ADD(Tm, INTERVAL 1 SECOND) As TmPlus1Second,
         DATE_ADD(Tm, INTERVAL 1 MINUTE) As TmPlus1Minute,
         DATE_ADD(Tm, INTERVAL 1 HOUR) As TmPlus1Hour,
-        DATE_ADD(Tm, INTERVAL 1 DAY) As TmPlus1Day
+        DATE_ADD(Tm, INTERVAL 1 DAY) As TmPlus1Day,
+        DtTm,
+        DATE_ADD(DtTm, INTERVAL -1 DAY) As DtTmMinus1Day
 	From
 		(
 			Select
-				CurTime() As Tm
+				CurTime() As Tm,
+                Now() as DtTm
         ) t
