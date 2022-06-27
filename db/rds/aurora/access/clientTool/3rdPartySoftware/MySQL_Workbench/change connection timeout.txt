@@ -1,4 +1,9 @@
 Change Connection Timeout
+Note:
+  -guidance @
+    -https://dev.mysql.com/blog-archive/mysql-connection-handling-and-scaling/
+    -https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-methods-standard.html
+    -https://stackoverflow.com/questions/14726789/how-can-i-change-the-default-mysql-connection-timeout-when-connecting-through-py
 Main Success Scenario:
   1. Go to ...
     "Edit" menu > "Preferences..." option > "Workbench Preferences" window > "SQL Editor" tab > "MySQL Session" section
