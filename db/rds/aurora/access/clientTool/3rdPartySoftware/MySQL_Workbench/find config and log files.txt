@@ -1,0 +1,6 @@
+Find Config and Log Files
+Note:
+  -guidance @
+    -https://dev.mysql.com/doc/workbench/en/wb-configuring-files.html
+Main Success Scenario:
+  1. xxx:fill in 
