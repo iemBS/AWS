@@ -1,4 +1,4 @@
-Specify Survivorship Rule
+Define Survivorship Rule
 Note:
   -guidance @
     -https://community.reltio.com/reltio-product-master-data-management-faqs1/reltio-match-merge
