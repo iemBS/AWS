@@ -3,6 +3,14 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html
   -All timeout system variables have units in seconds. 
+  -connection timeout systsem variables
+    -connect_timeout: No. of seconds mysqld waits to connect back after a bad handshake from the client. You can keep this value high if clients frequently encounter errors of the form Lost connection to MySQL server
+    -interactive_timeout: 	The number of seconds the server waits for activity on an interactive connection before closing it. Setting this value same as wait_timeout helps because in several cases aggressive interactive_timeout creates unpleasant connection management experiences as some applications by design demands higher intervals between query execution.
+    -wait_timeout: The number of seconds the server waits for activity on a non-interactive connection before closing it. Every application demands unique thread / connection management requirements so sizing wait_timeout optimally does good if you have long intervals between SQL executions originating from same thread.
+    -lock_Wait_timeout: The timeout in seconds for attempts to acquire metadata locks. If you are performing MySQL backup on a Master instance in replication, setting this value high helps because it defines defines the amount of time statement ( LOCK INSTANCE FOR BACKUP) waits for a lock before giving up.
+    -net_read_timeout: No. of seconds to wait before aborting the read from the client.
+    -net_write_timeout: No. of seconds to wait before aborting the write to the client.
+    -net_retry_count: Number of retry attempts before giving up If a read or write on a communication port is interrupted, Please set this value high on FreeBSD because internal interrupts are sent to all threads.
 Main Success Scenario:
   1. "See Timeout Settings"
   2. Set X Timeout
