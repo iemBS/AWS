@@ -1,0 +1,6 @@
+Match Records
+Note:
+  -guidance @
+    -https://community.reltio.com/reltio-product-master-data-management-faqs1/reltio-match-merge
+Main success scenario:
+  1. xxx
