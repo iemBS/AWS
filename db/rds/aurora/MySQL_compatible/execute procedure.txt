@@ -4,3 +4,8 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/stored-procedures-parameters.aspx
 Main Success Scenario:
   1. CALL stored_procedure_name(argument_list);
+  
+  
+Execute Procedure wo Write Permission
+Main Success Scenario:
+  1. xxx:fill in 
