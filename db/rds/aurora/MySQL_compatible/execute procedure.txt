@@ -10,5 +10,11 @@ Execute Procedure wo Write Permission
 Note:
   -guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/grant.html#grant-routine-privileges
+  -Granting privileges to execute a procedure that does not insert, update, or delete data is a ...
+    -great way to store reused queries for those that do not need data write privilges
+    -have stored queries that can take parameters that will
+      -change the rows or columns returned
+      -change the tables pulled from
+      -change the logic
 Main Success Scenario:
   1. xxx:fill in 
