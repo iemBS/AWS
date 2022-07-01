@@ -7,5 +7,8 @@ Main Success Scenario:
   
   
 Execute Procedure wo Write Permission
+Note:
+  -guidance @ 
+    -https://dev.mysql.com/doc/refman/5.7/en/grant.html#grant-routine-privileges
 Main Success Scenario:
   1. xxx:fill in 
