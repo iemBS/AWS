@@ -1,16 +1,28 @@
 Compare Identity Value Count to Range
+Note:
+  -See max value for signed and unsigned INT data type @ https://dev.mysql.com/doc/refman/5.7/en/integer-types.html
 Main Success Scenario:
   1. See code below
   
-    Select
-      MyColIdCnt,
-      (MyColIdCnt / ((MyColIdMax - MyColIdMin) + 1)) * 100 As PctMyColIdValRetained
-    From
-      (
-        Select
-          Count(MyColId) As MyColIdCnt,
-          Max(MyColId) As MyColIdMax,
-          Min(MyColId) As MyColIdMMin
-        From
-          MyTable
-        ) t
+Select
+	MyColIdCnt,
+	case 
+		when MyColIdMax = MyColIdMin then 0
+        else (MyColIdCnt / (MyColIdMax - MyColIdMin)) * 100
+	end As PctColIdCurrRangeUsed,
+	case 
+		when MyColIdMax = MyColIdMin then 0
+        else (MyColIdCnt / MyColIdMaxDataTypeVal) * 100 
+	end As PctColIdPossibleRangeUsed, 
+    (AUTO_INCREMENT / MyColIdMaxDataTypeVal) * 100 as PctMyColIdAdvanced4DataType
+From
+	(
+		Select
+		  Count(MyColId) As MyColIdCnt,
+		  Max(MyColId) As MyColIdMax,
+		  Min(MyColId) As MyColIdMin,
+          (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'MyDatabase' AND TABLE_NAME = 'MyTable' LIMIT 1) As AUTO_INCREMENT,
+          4294967295 As MyColIdMaxDataTypeVal /* https://dev.mysql.com/doc/refman/5.7/en/integer-types.html */
+		From
+		  MyDatabase.MyTable
+	) t;
