@@ -1,0 +1,6 @@
+Create Case Statement
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/functions/case.html
+Main Success Scenario:
+  1. xxx:fill in 
