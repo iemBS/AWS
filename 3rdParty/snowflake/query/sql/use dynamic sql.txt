@@ -1,0 +1,6 @@
+Use Dynamic SQL
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/developer-guide/snowflake-scripting/running-examples.html
+Main Success Scenario:
+  1. xxx:fill in
