@@ -1,0 +1,6 @@
+Limit Result Row Count
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/constructs/limit.html
+Main Success Scenario:
+  1. xxx:fill in 
