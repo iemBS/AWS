@@ -1,3 +1,7 @@
 Create Procedure
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/create-procedure.html
+    -https://docs.snowflake.com/en/sql-reference/data-types.html
 Main Success Scenario:
   1. xxx
