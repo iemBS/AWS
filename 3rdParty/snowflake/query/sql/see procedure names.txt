@@ -1,0 +1,14 @@
+See Procedure Names
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/show-procedures.html
+Main Success Scenario:
+  1. SHOW PROCEDURES;
+  2. End 
+Alternatives:
+  1a. Show all procedures for the "MyDB" database
+    1a1. SHOW PROCEDURES in DATABASE MyDB;
+    1a2. Go to step 2
+  1b. Show all procedures for the "MySchema" schema
+    1b1. SHOW PROCEDURES in SCHEMA MySchema;
+    1b2. go to step 2
