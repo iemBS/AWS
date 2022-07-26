@@ -49,4 +49,24 @@ Main Success:
     $$;
     CALL TST_PRC();
     
-    
+  
+Dynamic SQL in Procedure getting row count
+Main Success:
+  1. see code below
+  
+    DROP PROCEDURE IF EXISTS TST_PRC();
+    CREATE PROCEDURE TST_PRC ()
+      RETURNS varchar
+      LANGUAGE SQL
+    AS 
+    $$
+    declare
+       cnt integer default 0;
+    begin
+        cnt := (select count(*) from MyDB."MyTable");
+        RETURN cnt;
+    end;
+    $$;
+    CALL TST_PRC();
+
+
