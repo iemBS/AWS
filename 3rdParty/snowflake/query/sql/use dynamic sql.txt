@@ -4,3 +4,49 @@ Note:
     -https://docs.snowflake.com/en/developer-guide/snowflake-scripting/running-examples.html
 Main Success Scenario:
   1. xxx:fill in
+  
+Dynamice SQL in Procedure using value of internal variable
+Main Success Scenario:
+  1. see code below
+  
+    DROP PROCEDURE IF EXISTS TST_PRC();
+    CREATE PROCEDURE TST_PRC ()
+      RETURNS STRING
+      LANGUAGE SQL
+    AS 
+    $$
+    declare
+       QRY STRING;
+       OUTPUT STRING DEFAULT '';
+       MY_VAR STRING;
+    begin
+        MY_VAR := 'chese';
+        QRY := 'SELECT ' || MY_VAR;
+        RETURN :QRY;
+    end;
+    $$;
+    CALL TST_PRC();
+
+  
+Dynamic SQL in Procedure using default of internal variable
+Main Success:
+  1. see code below
+  
+    DROP PROCEDURE IF EXISTS TST_PRC();
+    CREATE PROCEDURE TST_PRC ()
+      RETURNS STRING
+      LANGUAGE SQL
+    AS 
+    $$
+    declare
+       QRY STRING;
+       OUTPUT STRING DEFAULT '';
+       MY_VAR STRING DEFAULT 'CHEESE';
+    begin
+        QRY := 'SELECT ' || MY_VAR;
+        RETURN :QRY;
+    end;
+    $$;
+    CALL TST_PRC();
+    
+    
