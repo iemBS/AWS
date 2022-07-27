@@ -5,4 +5,71 @@ Note:
     -https://docs.snowflake.com/en/sql-reference/data-types.html
     -https://docs.snowflake.com/en/sql-reference/stored-procedures-snowflake-scripting.html
 Main Success Scenario:
-  1. xxx
+  1. Return calculated on-the-fly default value of session variable 
+ 
+    DROP PROCEDURE IF EXISTS TST_PRC();
+    CREATE PROCEDURE TST_PRC ()
+      RETURNS varchar
+      LANGUAGE SQL
+    AS 
+    $$
+    declare
+        sess_var VARCHAR default cast(1 as VARCHAR);
+    begin
+        return sess_var;
+    end;
+    $$;
+    CALL TST_PRC();
+    
+Alternatives:
+  1a. Return calculated on-the-fly default value of session variable that is based on procedure parameter 
+
+    create or replace procedure TST_PRC (proc_param INTEGER)
+      RETURNS varchar
+      LANGUAGE SQL
+    AS 
+    $$
+    declare
+        sess_var VARCHAR default cast(proc_param as VARCHAR);
+    begin
+        return sess_var;
+    end;
+    $$;
+    CALL TST_PRC(2);
+    
+   1b. Return calculated on-the-fly default value of session variable that is based on a procedure parameter within a case statement
+   
+      create or replace procedure TST_PRC (proc_param INTEGER)
+        RETURNS varchar
+        LANGUAGE SQL
+      AS 
+      $$
+      declare
+          sess_var VARCHAR default case proc_param when 1 then 'a' when 2 then 'b' else 'c' end;
+      begin
+          return sess_var;
+      end;
+      $$;
+      CALL TST_PRC(3);
+      
+    1c. Return calculated on-the-fly default value of session variable that is based on the count aggregation function on a table in the db
+    
+      create or replace procedure TST_PRC ()
+        RETURNS varchar
+        LANGUAGE SQL
+      AS 
+      $$
+      declare
+          sess_var VARCHAR default (SELECT COUNT(*) from MyDB.MySchema."MyTable");
+      begin
+          return sess_var;
+      end;
+      $$;
+      CALL TST_PRC();
+      
+     1d. xxx
+     
+     
+     
+    
+   
