@@ -1,0 +1,8 @@
+Use Binding Variable
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/developer-guide/snowflake-scripting/variables.html
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
