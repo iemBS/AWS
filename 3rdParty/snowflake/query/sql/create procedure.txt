@@ -5,6 +5,7 @@ Note:
     -https://docs.snowflake.com/en/sql-reference/data-types.html
     -https://docs.snowflake.com/en/sql-reference/stored-procedures-snowflake-scripting.html
     -https://stackoverflow.com/questions/71052574/dynamic-sql-in-a-snowflake-sql-stored-procedure
+    -https://stackoverflow.com/questions/71658109/snowflake-execute-immediate-into-variable
 Main Success Scenario:
   1. Return calculated on-the-fly default value of session variable 
  
