@@ -1,0 +1,12 @@
+Filter with Like
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/functions/like.html
+    -https://community.snowflake.com/s/article/Ways-to-do-case-insensitive-string-comparison-in-Snowflake
+Main Success Scenario:
+  1. xxx:fill in 
+  2. end 
+Alternatives:
+  1a. Use case insensitive like filter
+    1a1. xxx:fill in 
+    1a2. go to step 2
