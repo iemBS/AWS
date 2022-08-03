@@ -3,4 +3,52 @@ Note:
   -guidance @
     -https://docs.snowflake.com/en/sql-reference/constructs/limit.html
 Main Success Scenario:
-  1. xxx:fill in 
+  1. Limit two 10 rows in the result
+
+    select 
+        * 
+    from 
+        information_schema.columns
+    where
+        table_schema = 'INFORMATION_SCHEMA'
+        and
+        table_name = 'TABLES'
+    order by
+        ordinal_position 
+    limit 10;
+
+  2. End
+Alternatives:
+  1a. Limit to top 10 rows in the result, but start at position 3 and return rows 3 to 12
+    1a1. see code below 
+    
+      select 
+          * 
+      from 
+          information_schema.columns
+      where
+          table_schema = 'INFORMATION_SCHEMA'
+          and
+          table_name = 'TABLES'
+      order by
+          ordinal_position 
+      limit 10
+      offset 2;
+      
+    1a2. Go to step 2 
+  1b. Use TOP notation instead of LIMIT notation (they are equivalent)
+    1b1. see code below 
+
+      select top 10
+          * 
+      from 
+          information_schema.columns
+      where
+          table_schema = 'INFORMATION_SCHEMA'
+          and
+          table_name = 'TABLES'
+      order by
+          ordinal_position 
+          
+    1b2. Go to step 2 
+ 
