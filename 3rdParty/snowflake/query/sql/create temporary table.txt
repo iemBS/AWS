@@ -1,0 +1,7 @@
+Create Temporary Table
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/user-guide/tables-temp-transient.html
+Main Success Scenario:
+  1. xxx:fill in 
+  
