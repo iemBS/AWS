@@ -1,0 +1,6 @@
+Concat String Values
+Note:
+  -guidance @ 
+    -https://docs.snowflake.com/en/sql-reference/functions/concat.html
+Main Success Scenario:
+  1. xxx:fill in 
