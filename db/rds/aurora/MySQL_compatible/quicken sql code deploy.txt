@@ -1,0 +1,13 @@
+Quicken SQL Code Deploy
+Main Succes Scenario:
+  1. "Quicken Index Deploy"
+Alternatives:
+  1a. xxx:fill in 
+  
+  
+Quicken Index Deploy
+Pre-Conditions:
+  -Can truncate table  
+Main Succes Scenario:
+  1. Truncate table
+  2. Deploy index
