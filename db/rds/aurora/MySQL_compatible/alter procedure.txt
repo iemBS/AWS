@@ -8,7 +8,6 @@ Main Success Scenario:
       Drop Procedure If Exists MyProcedure;
 
       DELIMITER $$
-      Use MyDB $$
 
       [create script here]
 
