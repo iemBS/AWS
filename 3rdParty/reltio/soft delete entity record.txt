@@ -1,0 +1,6 @@
+Soft Delete Entity Record
+Note:
+  -guidance @
+    -https://support.reltio.com/hc/en-us/articles/360028554211-What-is-the-meaning-of-a-soft-and-hard-deletes-in-Reltio-
+Main Success Scenario:
+  1. xxx:fill in 
