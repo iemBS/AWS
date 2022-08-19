@@ -1,1 +1,7 @@
-https://riptutorial.com/mysql/example/23210/update-with-order-by-and-limit
+Update with Limit
+Note:
+  -guidance @
+    -https://riptutorial.com/mysql/example/23210/update-with-order-by-and-limit
+Main Success Scenario:
+  1. xxx:fill in 
+
