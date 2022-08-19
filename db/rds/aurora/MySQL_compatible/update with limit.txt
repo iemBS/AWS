@@ -3,5 +3,60 @@ Note:
   -guidance @
     -https://riptutorial.com/mysql/example/23210/update-with-order-by-and-limit
 Main Success Scenario:
-  1. xxx:fill in 
+  1. see code below
+  
+drop table if exists tblA;
+create table tblA
+(
+	id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	val INT(11),
+    rowChgDt date
+);
+insert into
+	tblA 
+    (
+		val,
+        rowChgDt
+	)
+values 
+	 (0,'2022-08-01')
+    ,(0,'2022-08-02')
+    ,(0,'2022-08-03')
+    ,(0,'2022-08-04')
+    ,(0,'2022-08-05')
+    ,(0,'2022-08-06')
+    ,(0,'2022-08-07')
+    ,(0,'2022-08-08')
+    ,(0,'2022-08-09')
+    ,(0,'2022-08-10');
 
+drop table if exists tblB;
+create table tblB
+(
+	id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	val INT(11)
+);
+ALTER TABLE tblB AUTO_INCREMENT=5;
+insert into
+	tblB (val)
+values 
+	(15),(25),(35),(45),(5),(6),(7),(8),(9),(10);
+    
+select * from tblA;
+select * from tblB;
+    
+Update
+	tblA 
+Set
+	val = 1 
+Where
+	id not in (select id from tblB)
+Order By
+	rowChgDt /* update oldest rows first*/
+limit 2;
+
+select * from tblA;
+select * from tblB;
+
+drop table if exists tblA;
+drop table if exists tblB;
