@@ -1,3 +1,0 @@
-Use Anti Join
-Main Successs Scenario:
-  1. xxx:fill in 

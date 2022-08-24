@@ -1,0 +1,25 @@
+Anti Join Table
+Note:
+  -guidance @
+    -https://www.sqlshack.com/t-sql-commands-performance-comparison-not-vs-not-exists-vs-left-join-vs-except/
+Main Successs Scenario:
+  1. Use NOT IN filter
+    xxx:fill in 
+  2. End 
+Alternatives:
+  1a. Use Left Outer Join
+    1a1. xxx:fill in 
+    1a2. Go to step 2
+  1b. Use NOT EXISTS with correlated sub-query
+    1b1. xxx:fill in 
+    1b2. Go to step 2
+  1c. Flag a column
+    1c1. Join tableA to tableB and update tableB column to have a value of X
+    1c2. select all records from tableB where column is not X
+  1d. Use work table
+    1d1. Insert all IDs from tableB into id table
+    1d2. Join tableA to id table and delete rows in id table where the ids match
+    1d3. Join id table to tableB to get only the tableB rows you want
+  1e. Use correlated sub-query as updated value (only do if updating one column and tableA has few rows)
+    1e1. xxx:fill in 
+  
