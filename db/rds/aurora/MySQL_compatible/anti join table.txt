@@ -12,7 +12,11 @@ Note:
     -correlated sub-query as derived column value w 0 writes
     -Flag a column w count equal to tableA row count
     -work table w count equal to tableB row count + tableA row count
-  -method functional limit
+  -methods ordered by least to most drive space usage
+    -xxx:fill in 
+  -methods ordered by least to most RAM usage
+    -xxx:fill in 
+  -method functional limits
     -NOT IN filter
       -Null values in tableA
     -xxx:fill in 
@@ -22,6 +26,10 @@ Note:
     -if tableB has an index on the joined column(s)
       -if tableB joined column index is unique 
     -if tableA joined column has null values 
+    -allowed to do table insert with every run
+    -allowed to do column value update
+    -allowed to do delete table rows 
+    -allowed to one time create a table
 Main Successs Scenario:
   1. NOT IN filter
     select * from tableA where tableAId Not In (select tableBId from tableB)
