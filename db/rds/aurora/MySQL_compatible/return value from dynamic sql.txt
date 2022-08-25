@@ -3,4 +3,12 @@ note:
   -guidance @
     -https://www.tutorialspoint.com/how-to-select-return-value-from-mysql-prepared-statement
 main success scenario:
-  1. xxx:fill in 
+  1. see code below
+
+    Set @qry = 'select 1 into @myDynamicSqlVar';
+
+    PREPARE stmt FROM @qry;
+    EXECUTE stmt;
+    deallocate prepare stmt; 
+
+    select @myDynamicSqlVar
