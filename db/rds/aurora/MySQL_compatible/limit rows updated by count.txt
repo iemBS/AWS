@@ -1,4 +1,4 @@
-Limiting Update
+Limit Rows Updated by Count
 Note:
   -Cannot use limit if joining two or more tables 
 Main Success Scenario:
