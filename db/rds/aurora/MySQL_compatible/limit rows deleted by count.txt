@@ -1,0 +1,23 @@
+Limit Rows Deleted by Count
+Main Success Scenario:
+  1. see code below
+
+    drop table if exists tableA;
+
+    create temporary table tableA
+    (
+      primary_id int(11) NOT NULL AUTO_INCREMENT,
+      secondary_id int(11),
+        val varchar(10),
+        PRIMARY KEY (`primary_id`)
+    );
+
+    insert into tableA (secondary_id) values (10),(20),(30),(40),(50),(60);
+
+    select * from tableA;
+
+    delete from 
+      tableA
+    limit 2;
+
+    select * from tableA;
