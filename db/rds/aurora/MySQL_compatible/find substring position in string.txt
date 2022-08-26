@@ -1,0 +1,6 @@
+Find Substring Position in String
+Note:
+  -guidance @
+    -https://www.w3schools.com/mysql/func_mysql_position.asp
+Main Success Scenario:
+  1. xxx:fill in 
