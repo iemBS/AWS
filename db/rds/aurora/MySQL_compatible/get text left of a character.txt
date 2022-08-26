@@ -1,0 +1,7 @@
+Get Text Left of a Character
+Main Success Scenario:
+  1. see code 
+
+    set @str = 'a|b';
+    set @chr = '|';
+    select left(@str,position(@chr in @str)-1);
