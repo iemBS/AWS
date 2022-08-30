@@ -1,0 +1,12 @@
+Increment Time
+Note:
+  -guidance @
+    -https://www.geeksforgeeks.org/date_sub-function-in-mysql/
+Main Success Scenario:
+  1. Subtract time
+    select DATE_SUB(curdate(), INTERVAL 1 DAY);
+  2. Go to step 2
+Alternatives:
+  1a. Add time
+    1a1. select DATE_SUB(curdate(), INTERVAL -1 DAY);
+    1a2. go to step 2
