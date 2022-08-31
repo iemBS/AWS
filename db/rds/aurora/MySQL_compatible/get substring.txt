@@ -5,3 +5,12 @@ Note:
   -Guidance @ https://www.w3schools.com/sql/func_mysql_substring.asp
 Main Success Scenario:
   1. SELECT SUBSTR("SQL Tutorial", 5, 3) AS ExtractString;
+  2. end
+Alternatives:
+  1a. Get string after last delimmiter
+    1a1. select SUBSTRING_INDEX('a|b|c','|', -1)
+    1a2. go to step 2
+  1b. Get string before 1st delimiter
+    1b1. select SUBSTRING_INDEX('a|b|c','|', 1)
+    1b2. go to step 2
+ 
