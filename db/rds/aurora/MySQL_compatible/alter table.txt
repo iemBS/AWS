@@ -28,7 +28,27 @@ Alternatives:
     1h1. ALTER TABLE tablename MODIFY columnname INTEGER NOT NULL;
   1i. Add column
     li1. "Add Column"
-    
+  1j. Drop column
+    li1. "Drop Column"
+  
+  
+Drop Column
+Main Success Scenario:
+  1. ALTER TABLE table_name DROP COLUMN columnname;
+  2. end
+Alternatives:
+  1a. drop column conditionally
+    1a1. see code below
+      drop table if exists myTab;
+      create table myTab(aCol INTEGER,myCol INTEGER);
+
+      set @sSQL = if(exists(select * from information_schema.columns where column_name = 'myCol' and table_name = 'myTab' and table_schema = 'PRVSN_CM'),'ALTER TABLE myTab DROP COLUMN myCol;','select "column not exist"');
+
+      PREPARE stmt FROM @sSQL;
+      EXECUTE stmt;
+      deallocate prepare stmt; 
+
+
     
 Add Column
 Main Success Scenario:
@@ -47,4 +67,6 @@ Alternatives:
       deallocate prepare stmt; 
       
     1a2. Go to step 2
+    
+
   
