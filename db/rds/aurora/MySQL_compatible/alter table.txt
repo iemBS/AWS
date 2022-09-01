@@ -42,11 +42,12 @@ Alternatives:
       drop table if exists myTab;
       create table myTab(aCol INTEGER,myCol INTEGER);
 
-      set @sSQL = if(exists(select * from information_schema.columns where column_name = 'myCol' and table_name = 'myTab' and table_schema = 'PRVSN_CM'),'ALTER TABLE myTab DROP COLUMN myCol;','select "column not exist"');
+      set @sSQL = if(exists(select * from information_schema.columns where column_name = 'myCol' and table_name = 'myTab' and table_schema = 'myDb'),'ALTER TABLE myTab DROP COLUMN myCol;','select "column not exist"');
 
       PREPARE stmt FROM @sSQL;
       EXECUTE stmt;
       deallocate prepare stmt; 
+
 
 
     
