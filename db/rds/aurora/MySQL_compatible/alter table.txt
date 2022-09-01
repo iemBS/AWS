@@ -40,7 +40,7 @@ Alternatives:
       drop table if exists myTab;
       create table myTab(aCol INTEGER);
 
-      set @sSQL = if(exists(select * from information_schema.columns where column_name = 'myCol'),'select "column already exists"','ALTER TABLE myTab ADD myCol INTEGER NOT NULL;');
+      set @sSQL = if(exists(select * from information_schema.columns where column_name = 'myCol' and table_name = 'myTab' and table_schema = 'myDb'),'select "column already exists"','ALTER TABLE myTab ADD myCol INTEGER NOT NULL;');
 
       PREPARE stmt FROM @sSQL;
       EXECUTE stmt;
