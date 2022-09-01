@@ -1,6 +1,8 @@
 Alter Table
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/alter-table.html
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.6/en/alter-table.html
+    -https://dev.mysql.com/doc/refman/5.7/en/alter-table.html
   -Guidance @ https://www.w3schools.com/sql/sql_alter.asp
   -Guidance @ https://dev.mysql.com/doc/refman/5.7/en/data-types.html
   -If only the nulability for a column is changed, the data type needs to be stated before the nullability. 
@@ -24,3 +26,25 @@ Alternatives:
     1g1. ALTER TABLE tablename MODIFY columnnaMe INTEGER NOT NULL;
   1h.  Remove column default (just don't mention it)
     1h1. ALTER TABLE tablename MODIFY columnname INTEGER NOT NULL;
+  1i. Add column
+    li1. "Add Column"
+    
+    
+Add Column
+Main Success Scenario:
+  1. ALTER TABLE table_name ADD columnname INTEGER NOT NULL;
+  2. end
+Alternatives:
+  1a. Add column conditionally
+    1a1. see code below
+      drop table if exists myTab;
+      create table myTab(aCol INTEGER);
+
+      set @sSQL = if(exists(select * from information_schema.columns where column_name = 'myCol'),'select "column already exists"','ALTER TABLE myTab ADD myCol INTEGER NOT NULL;');
+
+      PREPARE stmt FROM @sSQL;
+      EXECUTE stmt;
+      deallocate prepare stmt; 
+      
+    1a2. Go to step 2
+  
