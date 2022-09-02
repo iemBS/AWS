@@ -2,5 +2,11 @@ Stop Process
 Note:
   -guidance @
     -https://stackoverflow.com/questions/44192418/how-to-find-mysql-process-list-and-to-kill-those-processes
+    -https://stackoverflow.com/questions/26476400/how-do-i-kill-a-transaction-in-mysql-as-root
 Main Success Scenario:
-  1. xxx:fill in 
+  1. kill 78
+  2. done
+Alternatives:
+  1a. kill function in AWS RDS
+    1a1. CALL mysql.rds_kill(78);
+    1a2. go to step 2
