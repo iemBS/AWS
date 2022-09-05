@@ -1,4 +1,4 @@
-Hint Index
+Hint Index Use
 Note:
   -guidance @ 
     -https://dba.stackexchange.com/questions/153293/update-does-not-use-index-but-select-does
