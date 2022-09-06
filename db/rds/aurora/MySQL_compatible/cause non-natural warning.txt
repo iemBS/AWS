@@ -1,0 +1,9 @@
+Cause Non-Natural Warning
+Note:
+  -
+Main Success Scenario:
+  1. Throw custom unhandled error
+    SIGNAL SQLSTATE '45000'
+       SET MESSAGE_TEXT = 'my custom message',
+           MYSQL_ERRNO = xxx:fill in
+  2. End
