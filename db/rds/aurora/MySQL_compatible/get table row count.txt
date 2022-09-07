@@ -18,8 +18,9 @@ Main Success Scenario:
 Alternatives:
   1a. If using InnoDB storage engine do not rely on table_rows column in Information_Schema.tables
     1a1. Generate a query for each table that calls count(*)
-
           
     1a2. xxx
+  1b. Get row count of all tables in database 
+    1b1. https://www.mysqltutorial.org/mysql-row-count/
     
     
