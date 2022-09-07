@@ -9,3 +9,5 @@ Alternatives:
     1a1. xxx:fill in
   1b. Use ":=" to assign a value
     1b1. xxx:fill in
+  1c. Use SELECT INTO
+    1c1. xxx:fill in 
