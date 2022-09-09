@@ -4,6 +4,7 @@ Note:
   -Guidance @ https://www.mysqltutorial.org/mysql-insert-statement.aspx#:~:text=INSERT%20INTO%20table(c1%2Cc2,parentheses%20following%20the%20VALUES%20keyword.
   -Same as done in SQL Server
   -If specifying columns to insert into, then table name needs to touch the open parenthesis
+  -When the source of part of the data inserted into a table is another table, the number of rows from the source table drives how many rows will be inserted into the destination table. So, if there are zero rows in the source table, no rows will be inserted into the destination table. 
 Main Success Scenario:
   1. See query below
 
@@ -17,3 +18,37 @@ Main Success Scenario:
 
       insert into tmp (c)
       values (1), (2), (3);
+Alternatives:
+  1a. Also has values from source table
+    1a1. see code below
+
+      drop table if exists tbl1;
+      create temporary table tbl1
+      (
+        col1 varchar(15),
+          col2 varchar(15),
+          col3 varchar(15),
+          col4 varchar(15)
+      );
+
+      drop table if exists tbl2;
+      create temporary table tbl2
+      (
+          col2 varchar(15),
+          col4 varchar(15)
+      );
+
+      select * from tbl1;
+      select * from tbl2;
+
+      insert into
+        tbl1
+      select
+        'a',
+          col2,
+          'c',
+          col4
+      from
+        tbl2;
+
+      select * from tbl1;
