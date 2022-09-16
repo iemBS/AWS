@@ -1,0 +1,17 @@
+Escape Character
+Note:
+  -guidance @
+    -https://stackoverflow.com/questions/58464092/handling-single-quote-in-aws-cloudwatch-logs-insights
+Main Success Scenario:
+  1. escape single quote
+    fields @message,@timestamp,@log
+    | filter @message like  /,\'select colA,colB*/ 
+    | display @message
+  2. End
+Alternatives:
+  1a. Escape single quote preceded by a back slash (added by log)
+    1a1. see code below 
+      fields @message,@timestamp,@log
+      | filter @message like  /,\'select \\'myVal\\',colB*/ 
+      | display @message
+    1a2. Go to step 2
