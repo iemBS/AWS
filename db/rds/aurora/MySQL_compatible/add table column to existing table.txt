@@ -1,0 +1,12 @@
+Add Table Column to existing table
+Main Success Scenario:
+  1. Using Dynamic SQL
+  
+    Use myDb;
+
+    set @sqlStr = if(exists(select * from information_schema.columns where column_name = 'myCol' and table_name = 'myTable' and table_schema = 'myDb'),'select "column already exists"','ALTER TABLE myTable ADD myCol integer DEFAULT NULL;');
+
+    PREPARE stmt FROM @sqlStr;
+    EXECUTE stmt;
+    deallocate prepare stmt; 
+
