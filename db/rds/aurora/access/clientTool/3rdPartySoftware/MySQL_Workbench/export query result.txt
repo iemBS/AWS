@@ -1,0 +1,6 @@
+Export Query Result
+Note:
+  -regular export ref @ https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-results.html
+  -advanced export ref @ https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html
+Main Success Scenario:
+  1. xxx:fill in 
