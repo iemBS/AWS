@@ -1,0 +1,8 @@
+Direct Query Result to File
+Note:
+  -guidance @
+    -https://stackoverflow.com/questions/18656001/how-export-csv-from-mysql-utf8
+  -Controlling how the query result is output to csv allows you to control the character used for the data in the file
+Main Success Scenario:
+  1. Direct query result to CSV file
+    xxx:fill in 
