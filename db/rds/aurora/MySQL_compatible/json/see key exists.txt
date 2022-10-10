@@ -1,0 +1,24 @@
+See Key Exists
+Main Success Scenario:
+  1. Get JSON 
+    set @jsonObj = '{
+      "key1":"val1",
+        "key2":{"key2_1":"val2_1","key2_2":"val2_2"}
+    }';
+  2. See key exists at top level
+  
+    select
+      JSON_CONTAINS_PATH(@jsonObj, 'one','$.key1') as key1,
+      JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2') as key2,
+      JSON_CONTAINS_PATH(@jsonObj, 'one','$.key3') as key3
+  
+    3. End
+  Alternatives:
+    2a. See key exists at 2nd level
+      2a1. see code below
+
+      select
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2.key2_2') as key2_2,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2.key2_3') as key2_3
+          
+      2a2. Go to step 3
