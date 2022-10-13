@@ -46,4 +46,12 @@ Main Success Scenario:
           JSON_CONTAINS_PATH(@jsonObj, 'one','$.key3[*].key3_3_2') as key3_3_2
           
       2c2. go to step 3
+    2d. See if key exists in array position defined by a variable
+      2d1. see code below
+      
+        set @idx = 2;
+
+        select
+            JSON_CONTAINS_PATH(@jsonObj, 'one',concat('$.key3[',@idx,'].key3_3_1')) as key3_3_1
+    
       
