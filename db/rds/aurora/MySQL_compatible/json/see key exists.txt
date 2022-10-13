@@ -3,14 +3,15 @@ Main Success Scenario:
   1. Get JSON 
     set @jsonObj = '{
       "key1":"val1",
-        "key2":{"key2_1":"val2_1","key2_2":"val2_2"}
+        "key2":{"key2_1":"val2_1","key2_2":"val2_2"},
+        "key3":[{"key3_1_1":"val3_1_1","key3_1_2":"val3_1_2"},{"key3_2_1":"val3_2_1","key3_2_2":"val3_2_2"},{"key3_3_1":"val3_3_1","key3_3_2":"val3_3_2"}]
     }';
   2. See key exists at top level
   
     select
       JSON_CONTAINS_PATH(@jsonObj, 'one','$.key1') as key1,
       JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2') as key2,
-      JSON_CONTAINS_PATH(@jsonObj, 'one','$.key3') as key3
+      JSON_CONTAINS_PATH(@jsonObj, 'one','$.key56') as key56
   
     3. End
   Alternatives:
@@ -22,3 +23,27 @@ Main Success Scenario:
           JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2.key2_3') as key2_3
           
       2a2. Go to step 3
+    2b. See if key exists within a specific array elemnet
+      2b1. see code below
+ 
+       select
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key1') as key1,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2') as key2,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2.key2_2') as key2_2,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2.key2_3') as key2_3,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key3[1].key3_2_1') as key3_2_1
+      
+      2b2. go to step 3
+    2c. See if key exists within any array elemnent of a 2nd level value
+      2c1. see code below
+      
+       select
+        JSON_CONTAINS_PATH(@jsonObj, 'one','$.key1') as key1,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2') as key2,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2.key2_2') as key2_2,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key2.key2_3') as key2_3,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key3[1].key3_2_1') as key3_2_1,
+          JSON_CONTAINS_PATH(@jsonObj, 'one','$.key3[*].key3_3_2') as key3_3_2
+          
+      2c2. go to step 3
+      
