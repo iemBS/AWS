@@ -1,0 +1,46 @@
+See Where Current User is not Invoker
+Note:
+  -guidance @
+    -https://dev.mysql.com/doc/refman/5.7/en/create-view.html
+  -The CURRENT_USER function returns the view's DEFINER value by default. For views defined with the SQL SECURITY INVOKER characteristic, CURRENT_USER returns the account for the view's invoker.
+  -The USER column in the information_schema.tables view works the same as the CURRENT_USER function. 
+  -Having the "SQL SECURITY INVOKER"  at the head of a proc, function, or view definition allows you to see who is really running that sql object. 
+Main Success Scenario:
+  1. See what views, procs, and functions have current user as definer instead of invoker
+  
+    select
+      *
+    from
+      (
+        select
+          ROUTINE_SCHEMA as db,
+          ROUTINE_TYPE as dbObjType,
+          ROUTINE_NAME as dbObjName,
+          SECURITY_TYPE as securityType
+        from
+          Information_Schema.routines
+ 
+        union all
+
+        select
+          TABLE_SCHEMA as db,
+          'VIEW' as dbObjType,
+          TABLE_NAME as dbObjName,
+          SECURITY_TYPE as securityType
+        from
+          Information_Schema.VIEWS 
+      ) t
+    where
+      securityType not like '%INVOKER%'
+        and
+        db not in 
+        (
+        'mysql',
+            'information_schema',
+            'performance_schema',
+            'sys'
+      )
+    Order By
+      db,
+        dbObjType,
+        dbObjName
