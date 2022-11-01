@@ -1,0 +1,6 @@
+Get Current Database Name
+Note:
+  -guidance @
+    -https://www.tutorialspoint.com/how-to-check-which-database-is-selected-in-mysql
+Main Success Scenario:
+  1. select database()
