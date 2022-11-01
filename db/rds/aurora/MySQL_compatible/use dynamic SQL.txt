@@ -49,4 +49,10 @@ Alternatives:
         Select * From Temp_MyTbl;
   1d. Create a prepared statement within a procedure and then use it outside of the procedure after the procedure has completed
     1d1. xxx:fill in & based on what is noted @ https://dev.mysql.com/doc/refman/5.7/en/prepare.html
+  1e. See database used in Dynamic SQL query
+    1e1. Connected to database on outside is used unless changed inside the dynamic sql
+      set @qry = 'select database()';
+      PREPARE stmt FROM @qry;
+      EXECUTE stmt;
+      deallocate prepare stmt; 
 
