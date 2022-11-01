@@ -9,6 +9,7 @@ Note:
   -If any part of a column definition is changed, the rest of the column attributes that are not changing need to be included in the alter table statement so they are not lost
 Main Success Scenario:
   1. xxx:fill in
+  2. End
 Alternatives:
   1a. Alter Column to set a default
     1a1. xxx:fill in
@@ -30,6 +31,9 @@ Alternatives:
     li1. "Add Column"
   1j. Drop column
     li1. "Drop Column"
+  1k. Alter table containing irreplacable data
+    1k1. "Alter Table w Irreplacable Data"
+    1k2. go to step 2
   
   
 Drop Column
@@ -68,6 +72,11 @@ Alternatives:
       deallocate prepare stmt; 
       
     1a2. Go to step 2
+    
+    
+ Alter Table w Irreplacable Data
+ Main Success Scenario:
+   1. xxx:fill in 
     
 
   
