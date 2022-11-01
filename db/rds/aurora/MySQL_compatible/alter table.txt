@@ -53,9 +53,9 @@ Alternatives:
       deallocate prepare stmt; 
 
 
-
-    
 Add Column
+Note:
+  -If altering the existing table instead of droping and recreating, the column can only be added to the end of the table.
 Main Success Scenario:
   1. ALTER TABLE table_name ADD columnname INTEGER NOT NULL;
   2. end
@@ -75,8 +75,23 @@ Alternatives:
     
     
  Alter Table w Irreplacable Data
+ Note:
+   -Alternative will take longer to implement
+   -Environment resource limitations may require the main scenario be performed. 
+   -Data owner may determine what method to follow.
+   -Length of change deployment may determine what method to follow. 
+   -The structure change may determine what method to follow. 
  Main Success Scenario:
-   1. xxx:fill in 
+   1. Backup table
+   2. rename table myTbl to myTbl2;
+   3. create new myTbl table that has the structure change
+   4. Select from myTbl2 and insert into myTbl
+   5. End
+Alternatives:
+  2a. Cannot change identity values in one of the columns
+    2a1. make a table structure change
+    2a2. Go to step 5
+    
     
 
   
