@@ -1,0 +1,3 @@
+Get Distinct Character Count per Column Value
+Main Success Scenario:
+  1. xxx:fill in 
