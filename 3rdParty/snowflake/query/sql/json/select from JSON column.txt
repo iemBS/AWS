@@ -1,0 +1,6 @@
+Select from JSON Column
+Note:
+  -ref 
+    -https://docs.snowflake.com/en/user-guide/json-basics-tutorial-query.html
+Main Success Scenario:
+  1. xxx:fill in 
