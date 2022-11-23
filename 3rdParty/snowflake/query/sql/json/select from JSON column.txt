@@ -2,5 +2,29 @@ Select from JSON Column
 Note:
   -ref 
     -https://docs.snowflake.com/en/user-guide/json-basics-tutorial-query.html
+    -https://docs.snowflake.com/en/sql-reference/functions/flatten.html
 Main Success Scenario:
-  1. xxx:fill in 
+  1. Select Key Value pair from 1st level of value in column of a JSON data type
+  
+    select 
+      COLUMN_NAME:1ST_LEVEL_JSON_KEY_NAME,
+    from
+      "MY_DB"."MY_SCHEMA"."MY_TABLE"
+  2. End 
+Alternatives:
+  1a. Select Key Value pair from 2nd level of value in column of a JSON data type
+    1a1. see below 
+      select 
+        COLUMN_NAME:1ST_LEVEL_JSON_KEY_NAME:2ND_LEVEL_JSON_KEY_NAME
+      from
+        "MY_DB"."MY_SCHEMA"."MY_TABLE"
+    1a2. go to step 2
+  1b. Get all values of key value pair that is in each element of a list 
+    1b1. see below
+      SELECT
+        value:2ND_LEVEL_JSON_KEY_NAME::DATA_TYPE
+      FROM
+        "MY_DB"."MY_SCHEMA"."MY_TABLE",
+        LATERAL FLATTEN(INPUT => COLUMN_NAME:1ST_LEVEL_JSON_KEY_NAME);
+    1b2. Go to step 2
+  X. xxx:fill in 
