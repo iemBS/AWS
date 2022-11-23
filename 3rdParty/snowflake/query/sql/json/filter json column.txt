@@ -1,0 +1,21 @@
+Filter JSON Column
+Main Success Scenario:
+  1. Not Null for 1st level key value pair
+    select 
+      COLUMN_NAME:1ST_LEVEL_JSON_KEY_NAME
+    from
+      "MY_DB"."MY_SCHEMA"."MY_TABLE"
+    where
+      COLUMN_NAME:1ST_LEVEL_JSON_KEY_NAME is not null
+  2. end
+Alternatives:
+  1a. Not Null for 1st level key value pair, where value is a list and filter is on 1st value in the list
+    1a1. 
+    select 
+      COLUMN_NAME:1ST_LEVEL_JSON_KEY_NAME
+    from
+      "MY_DB"."MY_SCHEMA"."MY_TABLE"
+    where
+      COLUMN_NAME:1ST_LEVEL_JSON_KEY_NAME[0] is not null
+    1a2. go to step 2
+  2. xxx:fill in 
