@@ -1,4 +1,4 @@
-Minimize Cost
+Minimize Fiscal Cost
 Notes:
   -Guidance @ https://aws.amazon.com/s3/faqs/?nc=sn&loc=7
   -Guidance @ https://aws.amazon.com/s3/pricing/
@@ -10,6 +10,7 @@ Notes:
   -S3 has no min fee
   -Use simple monthly calculator
   -Free Tier: https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc
+  -https://aws.amazon.com/s3/pricing/
 Main Success Scenario:
    1.Minimize amount of data hosted
    2.Make file access predictable
@@ -21,7 +22,22 @@ Main Success Scenario:
    8."Minimize S3 Features"
    9."Minimize use of other AWS services on your S3 objects"
    10.Avoid renaming folders
-
+   11."Avoid Data Changes within Min Duration"
+   
+   
+Avoid Data Changes within Min Duration
+Main Success Scenario:
+  1. Avoid deleting data within min duration
+  2. End
+Alternatives:
+  1a.Data overwritten
+    1a1. Avoid overwritting data within min duration
+    1a2. go to step 2
+  1b. Data transitioned out
+    1b1. Avoid transitioning data out within min duration
+    1b2. go to step 2
+  
+  
 
 Minimize distance between accessors and S3
 Main Success Scenario:
