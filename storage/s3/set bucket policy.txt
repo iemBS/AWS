@@ -1,5 +1,46 @@
 Set Bucket Policy
 Notes:
-  -Guidance @ https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html
+  -Guidance @ 
+    -https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html
+    -bucket policy examples @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html
+    -all principals @ https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-anonymous
+    -control bucket access w user policy @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/walkthrough1.html
+    -user policy examples @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html
+    -policy walkthrough @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access.html
+    -access policy guidelines @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-alternatives-guidelines.html
+    -condition key examples @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html
+    -amazon resource name (arn) format @ https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
+  -keys in bucket policy
+    -Action
+    -AWS
+    -Condition
+    -Effect
+    -Principal
+    -Resource
+    -Sid
+    -Statement
+    -Version
+  -meaning of keys:
+    -Action: A permission 
+    -AWS: xxx:fill in 
+    -Condition:xxx:fill in 
+    -Effect: Indicates if permission is allowed or denied.
+    -Principal: root user, IAM user, federated user, assumed role session, account, service, or other entity that is allowed or denied access to a resource. 
+    -Resource: Notes an s3 location for a statement.
+    -Sid: xxx:fill in 
+    -Statement: Contains the s3 policy that has one or more statements in it.
+    -Version: Always set to a specific date
+  -possible values per key
+    -Action:
+      -action values are s3:[ACTION]
+        -possible [ACTION] values at https://docs.aws.amazon.com/AmazonS3/latest/userguide/list_amazons3.html
+    -Effect: Allow, Deny
+    -Principal
+      -possible values at Ref @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-bucket-user-policy-specifying-principal-intro.html
+    -Resource:
+      -arn:[PARTITION_NAME]:s3:::[BUCKET_NAME]
+        -possible [PARTITION_NAME] values at https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
+        -[BUCKET_NAME] is the name of an s3 bucket
+      -possible resource types at https://docs.aws.amazon.com/AmazonS3/latest/userguide/list_amazons3.html#amazons3-resources-for-iam-policies
 Main Success Scenario:
   1. xxx:fill in
