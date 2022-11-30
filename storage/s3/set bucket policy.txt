@@ -10,6 +10,7 @@ Notes:
     -access policy guidelines @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-alternatives-guidelines.html
     -condition key examples @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html
     -amazon resource name (arn) format @ https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
+    -Controlling ownership of objects and disabling ACLs for your bucket @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html
   -keys in bucket policy
     -Action
     -AWS
