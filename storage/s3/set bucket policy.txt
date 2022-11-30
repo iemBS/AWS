@@ -1,6 +1,7 @@
 Set Bucket Policy
 Notes:
   -Guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
     -https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html
     -bucket policy examples @ https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html
     -all principals @ https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-anonymous
