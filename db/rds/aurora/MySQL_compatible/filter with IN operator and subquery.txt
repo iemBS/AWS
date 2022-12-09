@@ -12,5 +12,10 @@ Note:
   -MySQL will convert the values in an IN list to binary and sort them. 
   -Are values in the column looking in the list of IN values or is the list of IN values searched for in the column?
   -Guidance @ https://www.mysqltutorial.org/sql-in.aspx/
+  -examples of a simple query using IN operator and its results
+      select 1 in (1, 2, 3); # returns 1
+      select 4 in (1, 2, 3); # returns 0
+      select null in (1, 2, 3); # returns null
+      select null in (1, 2, null); # returns null
 Main Success Scenario:
   1. xxx:fill
