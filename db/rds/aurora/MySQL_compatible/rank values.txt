@@ -8,6 +8,66 @@ Main Success Scenario:
   1. Ranking in order to collapse the rows into fewer rows. Works if there are enough NULL cells to reduce row count.
     [take the max of the values in columns that are not being grouped on]
   2. Then get the distinct rows in those values
+  3. End
 Alternatives:
   1a. Do IFNULL then blank & Distinct 
     1a1. xxx:fill in
+  1b. Do simple rank of all rows in table/view with variables and compare current to previous
+    1b1. "Rank with Method 2"
+  1c. Do simple rank with a group by with variables and compare current to previous
+    1c2. "Rank with Method 3"
+    
+    
+Rank with Method 2
+Note:
+  -Simple rank of all rows in table/view
+Main Success Scenario:
+  1. See code below
+    SET @current_schema:=NULL;
+    SET @schema_rank:=0;
+
+    select
+      schema_name,
+        schema_rank
+    from
+      (
+        select 
+          schema_name,
+          @schema_rank := IF(@current_schema <> schema_name, @schema_rank + 1, 1) AS schema_rank,
+          @current_schema := schema_name 
+        from
+          information_schema.schemata
+        order by
+          schema_name # determines rank order
+        ) rank;
+  2. End
+  
+  
+Rank with Method 3
+Note:
+  -Simple rank for each group by
+Main Success Scenario:
+  1. See code below
+    SET @current_schema:=NULL;
+    SET @current_table:=NULL;
+    SET @table_rank:=0;
+
+    select
+      table_schema,
+        table_name,
+        table_rank
+    from
+      (
+        select 
+          table_schema,
+                table_name,
+          @table_rank := IF(@current_schema <> table_schema,1,IF(@current_table <> table_name, @table_rank + 1, 1)) AS table_rank,
+                @current_schema := table_schema,
+          @current_table := table_name 
+        from
+          information_schema.tables
+        order by
+          table_schema, # determines separate ranking
+                table_name # determines rank order
+        ) rank;
+  2. End
