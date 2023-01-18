@@ -71,3 +71,31 @@ Main Success Scenario:
                 table_name # determines rank order
         ) rank;
   2. End
+  
+  
+Rank with Method 4
+Note:
+  -Like a dense rank in MS SQL Server
+Main Success Scenario:
+  1. See code below
+
+    SET @current_schema:=NULL;
+    SET @table_dense_rank:=1;
+
+    select
+        table_schema,
+        table_name,
+        table_dense_rank
+    from
+        (
+            select 
+                table_schema,
+                table_name,
+                @table_dense_rank := IF(@current_schema <> table_schema,@table_dense_rank + 1, @table_dense_rank) AS table_dense_rank,
+                @current_schema := table_schema
+            from
+                information_schema.tables
+            order by
+                table_schema, # determines separate ranking and dense rank order
+                table_name
+        ) dense_rank;
