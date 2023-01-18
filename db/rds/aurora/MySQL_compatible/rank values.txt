@@ -21,6 +21,15 @@ Alternatives:
 Rank with Method 2
 Note:
   -Simple rank of all rows in table/view
+  -The order of the variable settings in the select statement determines what values will show 
+    -@current_schema will show the value from the current row
+      @schema_rank := IF(@current_schema <> schema_name, @schema_rank + 1, 1) AS schema_rank,
+      @current_schema := schema_name 
+    -@current_schema will show the value from the previous row
+      @current_schema := schema_name 
+      @schema_rank := IF(@current_schema <> schema_name, @schema_rank + 1, 1) AS schema_rank,
+      
+      
 Main Success Scenario:
   1. See code below
     SET @current_schema:=NULL;
