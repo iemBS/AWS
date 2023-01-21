@@ -1,0 +1,11 @@
+See Collation
+Main Success Scenario:
+  1. see code below
+  
+SHOW VARIABLES LIKE 'collation%';
+select distinct table_collation from information_schema.tables order by table_collation;
+select distinct collation_name from information_schema.columns order by collation_name;
+select distinct collation_connection from information_schema.views order by collation_connection; # inherited from connection, but does it change when the connection collation changes?
+  # when is the connection collation used?
+  # why would the connection collation change?
+select distinct database_collation from information_schema.routines order by database_collation; # inherited from database, but does it change when the database collation changes?
