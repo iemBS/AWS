@@ -1,4 +1,8 @@
 Create Event Subscription
+Note:
+  -When choosing the quick up event of an email topic cannot config the following
+    -subject
+    -body
 Main Success Scenario:
   1. "Specify Event Subscription Name"
   2. "Choose Target"
