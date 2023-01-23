@@ -1,0 +1,21 @@
+Receive Event Subscription Email
+Note:
+  -Email topic name 
+Main Success Scenario:
+  1. "Receive for Email Topic"
+  2. End
+Alternatives:
+  1a. For a non-email topic
+    1a1. "Receive for Non-Email Topic"
+  
+  
+Receive for Email Topic
+Note:
+  -Topic is in the unsubscribe link in the emails
+Main Success Scenario:
+  1.xxx
+  
+ 
+Receive for Non-Email Topic
+Main Success Scenario:
+  1.xxx
