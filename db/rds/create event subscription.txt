@@ -33,6 +33,12 @@ Alternatives:
 Choose Source
 Note:
   -Looking at the list of previous events can help choose a source type and event category
+  -messages per source type & event category combo
+    -Clusters & failure
+      -The DB cluster failed to scale from X capacity units to X capacity units for this reason: A scaling point wasn’t found.
+    -Clusters & serverless
+      -The DB cluster failed to scale from X capacity units to X capacity units for this reason: A scaling point wasn’t found.
+      -Scaling DB cluster from X capacity units to X capacity units for this reason: Autoscaling.
 Main Success Scenario:
   1. Choose source type
   2. Choose all clusters
