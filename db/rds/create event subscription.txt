@@ -22,6 +22,7 @@ Alternatives:
 Choose Target
 Note:
   -Choosing an email topic auto creates an SNS topic
+    -The email topic name becomes the SNS topic name
 Main Success Scenario:
   1. Choose email topic
   2. Write topic with only alphanumeric or hyphen characters
