@@ -1,0 +1,5 @@
+Delete Event Subscription
+Note:
+  -Deleting an event subscription based on an email topic does not delete the associated SNS topic that was auto created when the event subscription was created 
+Main Success Scenario:
+  1. xxx:fill in 
