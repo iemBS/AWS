@@ -3,6 +3,7 @@ Main Success Scenario:
   1. "Specify Event Subscription Name"
   2. "Choose Target"
   3. "Choose Source"
+  4. "Confirm Subscription"
 
 
 Specify Event Subscription Name
@@ -47,5 +48,12 @@ Alternatives:
 
 
 Choose Message within an Event Category
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Confirm Subscription
+Note:
+  -Done via email 
 Main Success Scenario:
   1. xxx:fill in 
