@@ -21,7 +21,7 @@ Alternatives:
 
 Choose Target
 Note:
-  -Choosing an email topic auto creates an SNS resource
+  -Choosing an email topic auto creates an SNS topic
 Main Success Scenario:
   1. Choose email topic
   2. Write topic with only alphanumeric or hyphen characters
