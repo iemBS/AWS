@@ -1,0 +1,51 @@
+Create Event Subscription
+Main Success Scenario:
+  1. "Specify Event Subscription Name"
+  2. "Choose Target"
+  3. "Choose Source"
+
+
+Specify Event Subscription Name
+Main Success Scenario:
+  1. Only alphanumeric or hyphen characters are used
+Alternatives:
+  1a. Character other than alphanumeric characters or hyphens are used
+    1a1. go to step 1
+ 
+
+Choose Target
+Note:
+  -Choosing an email topic auto creates an SNS resource
+Main Success Scenario:
+  1. Choose email topic
+  2. Write topic with only alphanumeric or hyphen characters
+  3. Note email receivers
+  4. End
+Alternatives:
+  1a. Choose ARN target
+    1a1. Choose ARN from the list
+    1a2. Go to step 4
+  2a. Write topic with characters other than alphanumeric or hyphen
+    2a1. go to step 2
+
+
+Choose Source
+Note:
+  -Looking at the list of previous events can help choose a source type and event category
+Main Success Scenario:
+  1. Choose source type
+  2. Choose all clusters
+  3. Choose all event categories
+  4. End
+Alternatives:
+  2a. Choose a specific cluster
+    2a1. choose a specific cluster from the list
+    2a2. go to step 3
+  3a. Choose event categories
+    3a1. choose one or more specific event categories 
+    3a2. go to step 4
+
+
+Choose Message within an Event Category
+Main Success Scenario:
+  1. xxx:fill in 
