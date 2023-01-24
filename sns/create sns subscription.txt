@@ -1,4 +1,4 @@
-Create Subscription
+Create SNS Subscription
 Notes:
   -
 Main Success Scenario:
