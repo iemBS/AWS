@@ -7,7 +7,7 @@ Notes:
     -define who can publish messages to the topic: only the topic owner, everyone, only the specified AWS accounts
     -define who can subscribe to the this topic: only the topic owner, everyone, only the specified AWS accounts, only the requestors with certain endpoints
 Main Success Scenario:
-  1. Specify name
+  1. Specify topic name
   2. Specify Encryption (optional)
   3. Specify Access policy (optional)
   4. Specify Delivery retry policy (HTTP/S) (optional)
