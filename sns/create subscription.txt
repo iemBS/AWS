@@ -1,0 +1,16 @@
+Create Subscription
+Notes:
+  -guidance@
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html
+Main Success Scenario:
+  1. "Choose Topic ARN"
+  2. "Choose Protocol"
+  3. "Specify Endpoint"
+  4. "Specify Subscription filter policy"
+  5. "Specify Redrive policy"
+  x. End
+
+
+Choose Protocol
+Main Success Scenario:
+  1. xxx:fill in 

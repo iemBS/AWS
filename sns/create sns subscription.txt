@@ -1,6 +1,0 @@
-Create SNS Subscription
-Notes:
-  -
-Main Success Scenario:
-  1. Specify Topic ARN
-  2. xxx:need to fill in
