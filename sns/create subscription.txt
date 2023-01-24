@@ -6,11 +6,115 @@ Main Success Scenario:
   1. "Choose Topic ARN"
   2. "Choose Protocol"
   3. "Specify Endpoint"
-  4. "Specify Subscription filter policy"
+  4. "Specify Subscription Filter Policy"
   5. "Specify Redrive policy"
   x. End
 
 
-Choose Protocol
+Choose Endpoint Protocol
+Main Success Scenario:
+  1. choose HTTPS
+  2. End
+Alternatives:
+  1a. choose HTTP
+    1a1. go to step 2
+  1b. choose Email
+    1b1. go to step 2
+  1c. choose Email-JSON
+    1c1. go to step 2
+  1d. Amazon Kinesis Data Firehose
+    1d1. go to step 2
+  1e. Amazon SQS
+    1e1. go to step 2
+  1f. AWS Lambda
+    1f1. go to step 2
+  1g. Platform application endpoint
+    1g1. go to step 2
+  1h. SMS
+    1h1. go to step 2
+    
+    
+Choose SMS
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-phone-number-as-subscriber.html
+Main Success Scenario:
+  1. xxx:fill in
+    
+    
+CHoose Platform Application Endpoint
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html
+Main Success Scenario:
+  1. xxx:fill in
+    
+    
+Choose Lambda
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-lambda-as-subscriber.html
 Main Success Scenario:
   1. xxx:fill in 
+  
+    
+CHoose SQS
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-sqs-as-subscriber.html
+Main Success Scenario:
+  1. xxx:fill in 
+    
+    
+Choose Kinesis Data Firehose
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html
+Main Success Scenario:
+  1. xxx:fill in 
+  
+    
+Choose Email-JSON
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-email-notifications.html
+Main Success Scenario:
+  1. xxx:fill in 
+  
+    
+CHoose Email
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-email-notifications.html
+Main Success Scenario:
+  1. xxx:fill in 
+    
+    
+Choose HTTP
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Choose HTTPS
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Specify Subscription Filter Policy
+Main Success Scenario:
+  1. xxx:fill in
+
+
+
+
+
+
+
+
+
