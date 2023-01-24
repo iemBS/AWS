@@ -1,0 +1,6 @@
+Maximize Performance
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/ses/latest/dg/troubleshoot-throughput-problems.html
+Main Success Scenario:
+  1. xxx:fill in 
