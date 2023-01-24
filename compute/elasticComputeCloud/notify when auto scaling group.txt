@@ -1,0 +1,6 @@
+Notify when Auto Scaling Group
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html
+Main Success Scenario:
+  1. xxx:fill in 
