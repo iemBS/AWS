@@ -61,7 +61,13 @@ Alternatives:
 
 Choose Message within an Event Category
 Main Success Scenario:
-  1. xxx:fill in 
+  1. Go to SNS topic associated to the event subscription
+  2. Edit the "subscription filter policy" for the SNS topic
+  3. Choose "Message attributes" filter policy scope
+  4. End
+Alternatives:
+  3a. Choose "Message body" filter policy scope
+    3a1. Go to step 4
   
   
 Confirm Subscription
