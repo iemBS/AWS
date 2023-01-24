@@ -3,6 +3,7 @@ Note:
   -guidance @ 
     -https://docs.aws.amazon.com/cli/latest/reference/rds/create-event-subscription.html
     -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.overview.html#rds-cloudwatch-events.db-instances
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Subscribing.html
   -When choosing the quick up event of an email topic CANNOT config the following
     -subject
     -body
