@@ -1,0 +1,12 @@
+Format Email
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/ses/latest/dg/send-email-formatted.html
+    -https://docs.aws.amazon.com/ses/latest/dg/send-an-email-using-sdk-programmatically.html#send-an-email-using-sdk-programmatically-examples
+    -https://docs.aws.amazon.com/ses/latest/dg/lists-and-subscriptions.html
+Main Success Scenario:
+  1. Define sender
+  2. Define receiver
+  3. Define subject
+  4. Define body
+  5. Define body type (text/html)
