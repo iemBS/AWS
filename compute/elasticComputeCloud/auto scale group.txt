@@ -1,0 +1,6 @@
+Auto Scale Group
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html
+Main Success Scenario:
+  1. xxx:fill in 
