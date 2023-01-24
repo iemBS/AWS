@@ -1,0 +1,10 @@
+What is the simple email service?
+-
+
+
+
+
+
+
+ref
+-https://aws.amazon.com/ses/
