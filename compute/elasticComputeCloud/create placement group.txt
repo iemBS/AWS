@@ -1,0 +1,6 @@
+Create Placement Group
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+Main Success Scenario:
+  1. xxx:fill in 
