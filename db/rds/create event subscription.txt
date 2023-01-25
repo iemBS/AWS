@@ -8,6 +8,7 @@ Note:
     -subject
     -body
     -send time
+  -Creating an event subsription in RDS auto creates an SNS subscription 
 Main Success Scenario:
   1. "Specify Event Subscription Name"
   2. "Choose Target"
