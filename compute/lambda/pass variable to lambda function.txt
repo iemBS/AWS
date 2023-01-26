@@ -1,0 +1,7 @@
+Pass Variable to Lambda Function
+Note:
+  -guidance @
+    -https://blog.kotlin-academy.com/programmer-dictionary-parameter-vs-argument-type-parameter-vs-type-argument-b965d2cc6929
+  -Parameter is variable defined in function declaration. Argument is the actual value of this variable that get passed to the function .
+Main Success Scenario:
+  1. xxx:fill in 
