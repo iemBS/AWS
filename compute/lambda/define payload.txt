@@ -2,5 +2,6 @@ Define Payload
 Note:
   -guidance @
     -https://docs.aws.amazon.com/lambda/latest/operatorguide/payload.html
+    -https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html
 Main Success Scenario:
   1. xxx:fill in 
