@@ -1,4 +1,6 @@
 Write to Log
+Note:
+  -If the condition for the IF condition is not true, the condition will NOT show in the audit log. 
 Main Success Scenario:
   1. "Write to Aurora Error log"
 Alternatives:
