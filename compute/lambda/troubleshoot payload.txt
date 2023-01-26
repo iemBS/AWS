@@ -1,0 +1,6 @@
+Troubleshoot Payload
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/operatorguide/payload.html
+Main Success Scenario:
+  1. xxx:fill in 
