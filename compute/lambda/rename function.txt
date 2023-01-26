@@ -1,0 +1,7 @@
+Rename Function
+Note:
+  -guidance @
+    -https://medium.com/@shimo164/move-aws-lambda-function-to-another-name-another-region-aa4d81932695
+  -There is NOT a simple way to rename an lambda function
+Main Success Scenario:
+  1. xxx:fill in 
