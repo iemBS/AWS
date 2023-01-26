@@ -1,0 +1,6 @@
+Invoke Function
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
+Main Success Scenario:
+  1. xxx:fill in 
