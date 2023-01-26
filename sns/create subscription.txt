@@ -1,7 +1,9 @@
 Create Subscription
 Notes:
-  -guidance@
+  -guidance @
     -https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html
+  -To receive messages published to a topic, you must subscribe an endpoint to the topic
+  -When you subscribe an endpoint to a topic, the endpoint begins to receive messages published to the associated topic.
 Main Success Scenario:
   1. "Choose Topic ARN"
   2. "Choose Protocol"
