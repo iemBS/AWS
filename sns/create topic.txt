@@ -1,5 +1,8 @@
 Create Topic
 Notes:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html
+  -An SNS topic is like a communication channel
   -Specify Access policy
     -choose method
       -Basic: Use simple criteria to define a basic access policy
@@ -7,8 +10,18 @@ Notes:
     -define who can publish messages to the topic: only the topic owner, everyone, only the specified AWS accounts
     -define who can subscribe to the this topic: only the topic owner, everyone, only the specified AWS accounts, only the requestors with certain endpoints
 Main Success Scenario:
-  1. Specify topic name
+  1. "Specify Topic Name"
   2. Specify Encryption (optional)
   3. Specify Access policy (optional)
   4. Specify Delivery retry policy (HTTP/S) (optional)
   5. Specify Delivery status logging (optional)
+
+
+Specify Topic Name
+Main Success Scenario:
+  1. Name reflects message destination
+  2. end
+Alternatives:
+  1a. Name reflects message source
+    1a1. go to step 2
+    
