@@ -1,0 +1,6 @@
+Order Message
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html
+Main Success Scenario:
+  1. xxx:fill in 
