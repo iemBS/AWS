@@ -1,4 +1,4 @@
-Troubleshoot Payload
+Define Payload
 Note:
   -guidance @
     -https://docs.aws.amazon.com/lambda/latest/operatorguide/payload.html
