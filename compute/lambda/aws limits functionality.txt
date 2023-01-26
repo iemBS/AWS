@@ -1,0 +1,1 @@
+-Max of 64 characters for funtion name, see ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
