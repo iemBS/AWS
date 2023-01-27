@@ -1,0 +1,8 @@
+Handle Job Timeout Run Status
+Note:
+  -guiddance @
+    -https://aws.amazon.com/about-aws/whats-new/2018/04/aws-glue-now-supports-timeout-values-for-etl-jobs/
+    -https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html
+  -job auto sends TIMEOUT notification to CloudWatch
+Main Success Scenario:
+  1. xxx:fill in 
