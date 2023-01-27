@@ -20,6 +20,7 @@ Note:
     -https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html
     -https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html
     -https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+    -https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
   -"event_var_2" elements can only be identified within the lambda function by their position. So, position changes can error. 
 Main Success Scenario:
   1. Collect event data for call (for event_var_1, event_var_2, event_var_3 keys)
