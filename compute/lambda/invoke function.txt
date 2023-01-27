@@ -2,5 +2,35 @@ Invoke Function
 Note:
   -guidance @
     -https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html
+    -https://www.tutorialspoint.com/aws_lambda/aws_lambda_executing_and_invoking_lambda_function.htm
 Main Success Scenario:
   1. xxx:fill in 
+  x. End
+Alternatives:
+  1a. Invoke function w handler
+    1a1. "Invoke Function w Handler"
+    1a2. go to last step
+  
+
+Invoke Function w Handler
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+    -https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html
+    -https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+  -"event_var_2" elements can only be identified within the lambda function by their position. So, position changes can error. 
+Main Success Scenario:
+  1. Collect event data for call (for event_var_1, event_var_2, event_var_3 keys)
+  2. Create Payload that is in JSON format
+    {"event_var_1":"val_1","event_var_2":"val_2","event_var_3":["val_3_1","val_3_2"]}
+  4.Call function
+    import boto3
+    lambda_svc = boto3.client('lambda', region_name='ca-central-1')
+    lambda_func_nm = 'my-func'
+    response = lambda_svc.invoke(
+        FunctionName=lambda_func_nm,
+        InvocationType='Event',
+        Payload='{"event_var_1":"val_1","event_var_2":"val_2","event_var_2":["val_3_1","val_3_2"]}'
+    )
