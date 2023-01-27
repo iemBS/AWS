@@ -1,0 +1,19 @@
+Parse Arguments Passed In
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html
+Main Success Scenario:
+  1. function handler exists (usually named "lambda_handler")
+  2. Lambda runtime passes in "event" and "context" objects as arguments
+  3. Get event data from "event" 
+  4. Parse each key in "event"
+       event['key']
+  5. Get environment data
+       os.environ['AWS_REGION']
+  x. End
+Alternatives:
+  4a. list value associated to key instead of a single value
+    4a1. event['key'][0]
+    4a2. go to step 5
