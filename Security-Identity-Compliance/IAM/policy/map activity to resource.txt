@@ -1,0 +1,5 @@
+Map Activity to Resource
+Main Success Scenario:
+  1. xxx:fill in 
+Alternatives:
+  1a.xxx:fill in 
