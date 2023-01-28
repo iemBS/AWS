@@ -1,3 +1,6 @@
 Find Action in Policy
+Note:
+  -guidance @
+    -https://stackoverflow.com/questions/38270609/can-i-search-existing-iam-policies-for-a-specific-action
 Main Success Scenario:
   1. xxx:fill in 
