@@ -1,13 +1,20 @@
 Associate Role to Resource
+Question: 
+  -How can each of the alt steps be handled to grant the needed permission?
 Note:
   -guidance @
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html
 Main Success Scenario:
   1. user associates IAM role to resource
   2. association successful
   3. End
 Alternatives:
-  1a. User not alloweed to associate the IAM role to the resource
+  1a. User's role NOT allowed to associate the IAM role to the resource
     1a1. See error message 
       User: [IAM ROLE ARN/FEDERATED USER EMAIL] is not authorized to perform: iam:PassRole on resource: [IAM ROLE ARN] because no identity-based policy allows the iam:PassRole action
     1a2. go to step 3
+  1b. User's role NOT allowed to create and associated a IAM role to the resouce
+    1b1. See error message
+      User: IAM ROLE ARN/FEDERATED USER EMAIL] is not authorized to perform: iam:CreateRole on resource: [NEW IAM ROLE ARN] because no identity-based policy allows the iam:CreateRole action
+    1b2. go to step 3
