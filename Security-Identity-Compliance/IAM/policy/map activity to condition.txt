@@ -1,0 +1,14 @@
+Map Activity to Condition
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html#awslambda-policy-keys
+  -A resource type can define which condition keys you can include in a policy
+Main Success Scenario:
+  1. "Map Lambda Activity to Condition"
+Alternatives:
+  1a. 
+  
+  
+Map Lambda Activity to Condition
+Main Success Scenario:
+  1. xxx:fill in 
