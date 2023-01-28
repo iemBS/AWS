@@ -1,5 +1,27 @@
 Map Activity to Resource
+Note:
+  -resource types are defined by the service and can be used in the Resource element of IAM permission policy statements
+  -Each action in the Actions table identifies the resource types that can be specified with that action
+  -A resource type can define which condition keys you can include in a policy
+  -Each resource type has an ARN
+Main Success Scenario:
+  1. "Map Lambda Activity to Resource"
+Alternatives:
+  1a."Map SNS Activity to Resource"
+  
+  
+Map SNS Activity to Resource
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsns.html#amazonsns-resources-for-iam-policies
 Main Success Scenario:
   1. xxx:fill in 
-Alternatives:
-  1a.xxx:fill in 
+  
+  
+Map Lambda Activity to Resource
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html#awslambda-resources-for-iam-policies
+    -https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html
+Main Success Scenario:
+  1. xxx:fill in 
