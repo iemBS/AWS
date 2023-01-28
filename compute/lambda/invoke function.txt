@@ -4,6 +4,8 @@ Note:
     -https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
     -https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html
     -https://www.tutorialspoint.com/aws_lambda/aws_lambda_executing_and_invoking_lambda_function.htm
+    -https://docs.aws.amazon.com/lambda/latest/dg/troubleshooting-invocation.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/troubleshooting-execution.html
 Main Success Scenario:
   1. xxx:fill in 
   x. End
