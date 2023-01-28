@@ -1,0 +1,6 @@
+Search IAM Console
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/console_search.html
+Main Success Scenario:
+  1. xxx:fill in 
