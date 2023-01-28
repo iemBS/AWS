@@ -1,0 +1,48 @@
+Map Activity to Action
+Note:
+  -guidance @
+    -https://aws.amazon.com/iam/features/manage-permissions/
+    -https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html#actions_table
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsns.html
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsglue.html
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonrds.html
+  -Not all API operations that are defined by a service can be used as an action in an IAM policy
+  -Some services include permission-only actions that don't directly correspond to an API operation
+  -These actions are indicated with [permission only]
+Main Success Scenario:
+  1. "Map s3 Activity to Action"
+  2. End
+Alternatives:
+  1a. "Map ec2 Activity to Action"
+  1b. "Map sns Activity to Action"
+  1c. "Map Lambda Activity to Action"
+  1d. "Map Glue Activity to Action"
+  
+  
+Map Glue Activity to Action
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Map Lambda Activity to Action
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Map s3 Activity to Action
+Main Success Scenario:
+  1. xxx:fill in 
+
+  
+
+Map sns Activity to Action
+Main Success Scenario:
+  1. xxx:fill in 
