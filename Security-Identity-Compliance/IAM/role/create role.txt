@@ -2,5 +2,10 @@ Create Role
 Question:
   -Why is a role associated to an entity?
   -What is the difference between an Identity Provider and an Identity?
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials.html
+  -system roles
+    -assumed-role
 Main Success Scenario:
   1. xxx:fill in
