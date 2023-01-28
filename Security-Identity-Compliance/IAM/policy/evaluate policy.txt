@@ -1,0 +1,6 @@
+Evaluate Policy
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
+Main Success Scenario:
+  1. xxx:fill in 
