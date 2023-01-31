@@ -1,0 +1,9 @@
+note
+-A policy is an object in AWS that, when associated with an identity or resource, defines their permissions
+-Permissions in the policies determine whether the request is allowed or denied
+-Use groups for easier permissions management
+-Users or groups can have multiple policies attached to them that grant different permissions. In that case, the permissions for the users are calculated based on the combination of policies. 
+-With all those attached policies, if the user has not been granted an explicit permission for an action and a resource, the user does not have those permissions.
+
+ref
+-https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html
