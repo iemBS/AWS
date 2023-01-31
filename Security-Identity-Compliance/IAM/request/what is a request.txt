@@ -1,1 +1,11 @@
-sdfsd
+note
+-When a principal tries to use the AWS Management Console, the AWS API, or the AWS CLI, that principal sends a request to AWS
+-The request includes: 
+  -Actions or operations
+  -Resources 
+  -Principal 
+  -Environment data 
+  -Resource data
+
+ref
+-https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request
