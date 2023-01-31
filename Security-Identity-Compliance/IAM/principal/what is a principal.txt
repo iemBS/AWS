@@ -1,0 +1,6 @@
+note
+-A person or application that uses the AWS account root user, an IAM user, or an IAM role to sign in and make requests to AWS 
+-Principals include federated users and assumed roles.
+
+ref
+-https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html
