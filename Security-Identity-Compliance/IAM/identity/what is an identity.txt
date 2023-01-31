@@ -1,0 +1,6 @@
+note
+-The IAM resource objects that are used to identify and group (user, group, role)
+-You can attach a policy to an IAM identity (user, group, role)
+
+ref
+-https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html
