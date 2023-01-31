@@ -1,0 +1,66 @@
+Create Trust Policy
+Note: 
+  -guidance @
+    -https://stackoverflow.com/questions/58725179/how-do-i-create-a-role-with-aws-managed-policy-using-aws-cli
+    -https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/
+  -The trust policy defines which principals can assume the role, and under which conditions
+  -A trust policy is a specific type of resource-based policy for IAM roles
+  -A trust policy needs to be associated with a role during role creation, becasue it defines the most basic usage of the role
+  -actions used in a trust policy
+    -sts:AssumeRole
+    -sts:AssumeRoleWithWebIdentity
+    -sts:AssumeRoleWithSAML
+    -sts:SetSourceIdentity
+    -sts:TagSession
+  -Condition elements of role trust policies behave identically to condition elements in identity-based policies and other resource policies on AWS.
+  -Services like AWS Lambda and Amazon Elastic Container Service (Amazon ECS) assume roles to deliver temporary credentials to your code that’s running in them.
+Main Success Scenario:
+  1. xxx:fill in 
+  2. End
+Alternatives:
+  1a. Limit role assumption w Principal
+    1a1. "Limit Role Assumption w Principal"
+    1a2. go to step 2
+    
+    
+"Limit Role Assumption w Condition"
+Main Success Scenario:
+  1. xxx:fill in 
+  2. end
+Alternatives:
+  1a. use SAML identity federation condition
+    1a1. xxx:fill in 
+    1a2. go to step 2
+  1b. use WebIdentity condition
+    1b1. xxx:fill in 
+    1b2. go to step 2
+  1c. use External ID condition
+    1c1. xxx:fill in 
+    1c2. go to step 2
+  1d. use IP address range condition
+    1d1. xxx:fill in 
+    1d2. go to step 2
+  1e. use tag condition
+    1e1. xxx:fill in 
+    1e2. go to step 2
+  1f. use principal within org
+    1f1. xxx:fill in 
+    1f2. go to step 2
+    
+    
+"Limit Role Assumption w Principal"
+Main Success Scenario:
+  1. see json below
+    
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": "arn:aws:iam::111122223333:role/ckent"
+            },
+            "Action": "sts:AssumeRole"
+          }
+        ]
+      }
