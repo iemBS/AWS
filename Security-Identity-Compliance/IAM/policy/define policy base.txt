@@ -1,0 +1,37 @@
+Define Policy Base
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html
+Main Success Scenario:
+  1. "Define Identify Based Policy"
+  2. End
+Alternatives:
+  1a. Use Resource based instead
+    1a1. "Define Resource Based Policy"
+    1a2. go to step 2
+  
+  
+Define Identity Based Policy
+Note:
+  -Identity-based policies can be managed or inline.
+  -policy is attached to an identity (role, user, or group)
+  -These policies let you specify what that identity can do (its permissions). 
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Define Resource Based Policy
+Note:
+  -Resource-based policies are inline only, not managed.
+  -policy is attached to a resoure
+  -resourced based policies also called bucket policies
+  -Resource-based policies differ from resource-level permissions 
+  -You can attach resource-based policies directly to a resource
+  -Resource-level permissions refer to the ability to use ARNs to specify individual resources in a policy 
+  -Resource-based policies are supported only by some AWS services
+  -list of which services support resource-based policies and resource-level permissions
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
