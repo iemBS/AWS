@@ -25,8 +25,11 @@ Note:
   -guidance @ 
     -https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html
 Main Success Scenario:
-  1. xxx:fill i
-  
+  1. Create trust policy
+  2. load trust policy to CloudShell
+  3. Run in CloudShell
+    aws iam create-role --role-name my-role-name --description 'my role description' --assume-role-policy-document file://trust-policy.json
+
   
 Create Role w AWS API
 Main Success Scenario:
