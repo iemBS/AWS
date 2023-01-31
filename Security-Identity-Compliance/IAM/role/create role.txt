@@ -29,6 +29,12 @@ Main Success Scenario:
   2. load trust policy to CloudShell
   3. Run in CloudShell
     aws iam create-role --role-name my-role-name --description 'my role description' --assume-role-policy-document file://trust-policy.json
+  4. Successful
+  5. End
+Alternatives:
+  3a. Not allowed to use the iam:CreateRole action
+    3a1. An error occurred (AccessDenied) when calling the CreateRole operation: User: [ROLE ARN]/[USER EMAIL] is not authorized to perform: iam:CreateRole on resource: [NEW ROLE ARN]/[NEW ROLE NAME] because no identity-based policy allows the iam:CreateRole action
+    3a2. go to step 5
 
   
 Create Role w AWS API
