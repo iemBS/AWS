@@ -1,0 +1,5 @@
+note
+-The IAM resource objects that AWS uses for authentication (user, role)
+
+ref
+-https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html
