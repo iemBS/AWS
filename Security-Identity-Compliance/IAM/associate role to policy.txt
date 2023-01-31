@@ -1,0 +1,7 @@
+Associate Role to Policy
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
+  -You can associate only one trust policy with a role
+Main Success Scenario:
+  1.  xxx:fill in 
