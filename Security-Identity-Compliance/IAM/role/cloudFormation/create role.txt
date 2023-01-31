@@ -1,0 +1,32 @@
+Create Role
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
+  -optional properties
+    -Description
+    -ManagedPolicyArns
+    -MaxSessionDuration
+    -Path
+    -PermissionsBoundary
+    -Policies
+    -RoleName
+    -Tags
+  -If you don't specify a role name, AWS CloudFormation generates a unique physical ID and uses that ID for the role name
+  -If you specify a role name, you must specify the CAPABILITY_NAMED_IAM value to acknowledge your template's capabilities
+Main Success Scenario:
+  1. see json below
+  
+    {
+      "Type" : "AWS::IAM::Role",
+      "Properties" : {
+          "AssumeRolePolicyDocument" : Json,
+          "Description" : "my role does such and such",
+          "ManagedPolicyArns" : [ String, ... ],
+          "MaxSessionDuration" : Integer,
+          "Path" : String,
+          "PermissionsBoundary" : String,
+          "Policies" : [ Policy, ... ],
+          "RoleName" : String,
+          "Tags" : [ Tag, ... ]
+        }
+    }
