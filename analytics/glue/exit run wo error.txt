@@ -1,0 +1,17 @@
+Exit Run wo Error
+Note:
+  -guidance @
+    -https://stackoverflow.com/questions/69281483/end-exit-a-glue-job-programmatically
+    -https://stackoverflow.com/questions/73663/how-do-i-terminate-a-script/76374#76374
+  -Using a "0" status in os._exit() notes exit was without error 
+  -way to block a glue job run from within the glue job
+Main Success Scenario:
+  1. see code below
+  
+    from pyspark.context import SparkContext
+    from awsglue.context import GlueContext
+    from awsglue.job import Job
+    import os
+
+    Job(GlueContext(SparkContext())).commit()
+    os._exit(0)
