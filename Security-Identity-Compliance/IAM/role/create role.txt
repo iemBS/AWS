@@ -5,7 +5,36 @@ Question:
 Note:
   -guidance @
     -https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html
   -system roles
     -assumed-role
 Main Success Scenario:
-  1. xxx:fill in
+  1. "Create Role w AWS CLI"
+  2. End
+Alternatives:
+  1a. use AWS API instead
+    1a1. "Create Role w AWS API"
+    1a2. go to step 2
+  1b. Use AWS CloudFormation
+    1b1. "Create Role w AWS CloudFormation"
+    1b2. go to step 2
+  
+  
+Create Role w AWS CLI
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html
+Main Success Scenario:
+  1. xxx:fill i
+  
+  
+Create Role w AWS API
+Main Success Scenario:
+  1. xxx:fill i
+  
+  
+Create Role w AWS CloudFormation
+Main Success Scenario:
+  1. xxx:fill i
+
+
