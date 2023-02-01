@@ -1,1 +1,6 @@
 -execute lambda function > AWSLambdaBasicExecutionRole
+-xxx > AWSLambdaExecute
+
+
+ref 
+-https://aws.permissions.cloud/managedpolicies/AWSLambdaExecute
