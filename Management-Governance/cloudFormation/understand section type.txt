@@ -1,0 +1,11 @@
+section type
+-a data type for the section
+-possible values
+  -AWS::Events::Rule
+  -AWS::IAM::Role
+  -AWS::Lambda::Function
+  -AWS::Lambda::Permission
+  -AWS::S3::Bucket
+  -AWS::SNS::Topic
+  -AWS::SNS::TopicPolicy
+-ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
