@@ -31,10 +31,23 @@ Main Success Scenario:
   
   
 Map Glue Activity to Action
+Note:
+  -guidance @
+    -https://aws.permissions.cloud/iam/glue#glue-GetJobs
 Main Success Scenario:
-  1. xxx:fill in 
-
-
+  1. see map below
+  
+     Retrieve an existing job definition > glue:GetJob
+       -ref @ https://docs.aws.amazon.com/glue/latest/webapi/API_GetJob.html
+     Retrieve all current job definitions > glue:GetJobs
+       -ref @ https://docs.aws.amazon.com/glue/latest/webapi/API_GetJobs.html
+		 Retrieve the metadata for a given job run > glue:GetJobRun
+       -ref @ https://docs.aws.amazon.com/glue/latest/webapi/API_GetJobRun.html
+     Retrieve metadata for all runs of a given job definition > glue:GetJobRuns
+       -ref @ https://docs.aws.amazon.com/glue/latest/webapi/API_GetJobRuns.html
+		 Retrieve the names of all job resources in this AWS account or the resources with the specified tag > glue:ListJobs
+       -ref @ https://docs.aws.amazon.com/glue/latest/webapi/API_ListJobs.html
+		 
 Map Lambda Activity to Action
 Note:
   -guidance @
