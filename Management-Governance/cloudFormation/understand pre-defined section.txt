@@ -1,0 +1,53 @@
+pre-defined section 
+-Conditions
+  -optional section
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+-Mappings
+  -optional section
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html
+-Output
+  -declares output values that you can import into other stacks (to create cross-stack references), return in response (to describe stack calls), or view on the AWS CloudFormation console
+  -optional section
+  -Info here is not redacted or obfuscated. So, avoid having sensitive info here. 
+  -pseudo template
+    -JSON
+			"Outputs" : {
+				"[LOGICAL ID]" : {
+					"Description" : "[OUTPUT DESCRIPTION]",
+					"Value" : "[RETURN VALUE]",
+					"Export" : {
+						"Name" : "[NAME OF RESOURCE TO EXPORT]"
+					}
+				}
+			}
+    -YAML
+			Outputs:
+				[LOGICAL ID]:
+					Description: [OUTPUT DESCRIPTION]
+					Value: [RETURN VALUE]
+					Export:
+						Name: [NAME OF RESOURCE TO EXPORT]
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
+-Resources
+  -declares the AWS resources that you want to include in the stack
+  -required section 
+  -pseudo template
+    -JSON
+			"Resources" : {
+					"[LOGICAL ID]" : {
+							"Type" : "[RESOURCE TYPE]",
+							"Properties" : {
+									[SET OF PROPERTIES]
+							}
+					}
+			}
+    -YAML
+			Resources:
+				[LOGICAL ID]:
+					Type: [RESOURCE TYPE]
+					Properties:
+						[SET OF PROPERTIES]
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
+-Transform
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
+
