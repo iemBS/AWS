@@ -2,8 +2,12 @@ Properties per Section Type
 -AWS::Events::Rule
   -Description
   -ScheduleExpression
+    -Triggers rule it self, based on a schedule
+    -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
   -State
   -EventPattern
+    -Triggers rule when a matching event is observed
+    -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
   -Targets (resources to be invoked when a rule is triggered)
     -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html
 -AWS::IAM::Role
