@@ -39,10 +39,13 @@ Properties per Section Type
   -Action
     -action that the principal can use on the function
   -FunctionName
+    -Name of lambda function name, version, or alias. For the name, it could be name, arn, or partial arn.
   -Principal
     -AWS service or AWS account that invokes the function
     -If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service
   -SourceAccount
+    -ID of the AWS account that owns the resource
+    -Use the ID with the SourceArn to ensure that the specified account owns the resource
   -SourceArn
     -ARN of the AWS resource that invokes the function
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
