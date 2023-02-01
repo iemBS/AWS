@@ -3,7 +3,7 @@ Note:
   -guidance @
     -https://stackoverflow.com/questions/69281483/end-exit-a-glue-job-programmatically
     -https://stackoverflow.com/questions/73663/how-do-i-terminate-a-script/76374#76374
-  -Using a "0" status in os._exit() notes exit was without error 
+  -Using a "0" status in os._exit() has exit was without error 
   -way to block a glue job run from within the glue job
 Main Success Scenario:
   1. see code below
@@ -15,3 +15,4 @@ Main Success Scenario:
 
     Job(GlueContext(SparkContext())).commit()
     os._exit(0)
+
