@@ -3,4 +3,5 @@ Note:
   -guidance @ 
     -https://docs.aws.amazon.com/cloudshell/latest/userguide/awscloudshell.pdf
 Main Success Scenario:
-  1. xxx
+  1. Use "Actions" menu, then on that menu use the "Upload file" option
+  
