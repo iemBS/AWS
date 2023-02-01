@@ -1,0 +1,15 @@
+Properties per Section Type
+-AWS::Events::Rule
+  -xxx
+-AWS::IAM::Role
+  -xxx
+-AWS::Lambda::Function
+  -xxx
+-AWS::Lambda::Permission
+  -xxx
+-AWS::S3::Bucket
+  -xxx
+-AWS::SNS::Topic
+  -xxx
+-AWS::SNS::TopicPolicy
+  -xxx
