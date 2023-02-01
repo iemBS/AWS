@@ -4,6 +4,7 @@ pre-defined section
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
 -Mappings
   -optional section
+  -matches a key to a corresponding set of named values
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html
 -Output
   -declares output values that you can import into other stacks (to create cross-stack references), return in response (to describe stack calls), or view on the AWS CloudFormation console
