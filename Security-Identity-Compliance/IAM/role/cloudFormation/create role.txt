@@ -26,7 +26,16 @@ Main Success Scenario:
           "Path" : String,
           "PermissionsBoundary" : String,
           "Policies" : [ Policy, ... ],
-          "RoleName" : String,
+          "RoleName" : "my-role-name",
           "Tags" : [ Tag, ... ]
         }
     }
+  2. End
+Alternatives:
+  1a. Use YAML instead of JSON
+    1a1. see code below
+      xxx
+    1a2. see YAML below
+      xxx
+    
+
