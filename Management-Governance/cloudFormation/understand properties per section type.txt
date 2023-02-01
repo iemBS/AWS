@@ -1,12 +1,51 @@
 Properties per Section Type
 -AWS::Events::Rule
-  -xxx
+  -Description
+  -ScheduleExpression
+  -State
+  -EventPattern
+  -Targets (resources to be invoked when a rule is triggered)
+    -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html
 -AWS::IAM::Role
-  -xxx
+  -ManagedPolicyArns (can have 1 or more managed policies)
+  -AssumeRolePolicyDocument (can have only 1 inline policy)
+  -Policies (can have 1 or more inline policies)
+    -PolicyDocument (can have only 1 inline policy)
+      -Version
+      -PolicyName
+      -Statement (Can have 1 or more statements. Each statement has Effect, Action, and Resource/NotResource)
+        -Effect
+        -Action (Can have one or more actions per Statement)
+        -Resource/NotResource (Can have 1 or more resources per Statement)
 -AWS::Lambda::Function
-  -xxx
+  -Handler
+    -The name of the method within your code that Lambda calls to run your function
+    -Handler is required if the deployment package is a .zip file archive
+  -Timeout
+    -amount of time (in seconds) that Lambda allows a function to run before stopping it
+    -default is 3 seconds
+    -max allowed value is 900 seconds
+  -Runtime
+    -identifier of the function's runtime
+    -Runtime is required if the deployment package is a .zip file archive
+  -Code
+    -code for the function
+  -Role
+    -ARN of the function's execution role
+  -Environment
+    -Environment variables that are accessible from function code during execution
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-properties
 -AWS::Lambda::Permission
-  -xxx
+  -Action
+    -action that the principal can use on the function
+  -FunctionName
+  -Principal
+    -AWS service or AWS account that invokes the function
+    -If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service
+  -SourceAccount
+  -SourceArn
+    -ARN of the AWS resource that invokes the function
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 -AWS::S3::Bucket
   -xxx
 -AWS::SNS::Topic
