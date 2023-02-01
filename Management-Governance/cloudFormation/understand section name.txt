@@ -1,7 +1,7 @@
 note
 -section name is the Logical ID in the CloudFormation console
 -the "Mappings" section name does not show in the Logical ID column of the Events tab in the CloudFormation console
--
+-the "Output" section name does not show in the Logical ID column of the Events tab in the CloudFormation console
 
 ref
 -
