@@ -3,5 +3,7 @@ note
 -the "Mappings" section name does not show in the Logical ID column of the Events tab in the CloudFormation console
 -the "Output" section name does not show in the Logical ID column of the Events tab in the CloudFormation console
 
+what about conditions, transforms, resources pre-defined sections ?
+
 ref
 -
