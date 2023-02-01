@@ -11,6 +11,7 @@ Note:
     -https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsglue.html
     -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html
     -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonrds.html
+    -https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncloudwatch.html
   -Not all API operations that are defined by a service can be used as an action in an IAM policy
   -Some services include permission-only actions that don't directly correspond to an API operation
   -These actions are indicated with [permission only]
@@ -22,6 +23,11 @@ Alternatives:
   1b. "Map sns Activity to Action"
   1c. "Map Lambda Activity to Action"
   1d. "Map Glue Activity to Action"
+  
+
+Map CloudWatch Activity to Action
+Main Success Scenario:
+  1. xxx:fill in 
   
   
 Map Glue Activity to Action
@@ -42,7 +48,6 @@ Main Success Scenario:
   1. xxx:fill in 
 
   
-
 Map sns Activity to Action
 Main Success Scenario:
   1. xxx:fill in 
