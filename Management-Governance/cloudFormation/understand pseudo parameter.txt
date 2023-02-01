@@ -1,0 +1,7 @@
+pseudo parameter
+-AWS::AccountId
+  -Returns the AWS account ID of the account in which the stack is being created, such as 123456789012.
+-AWS::Region
+  -Returns a string representing the Region in which the encompassing resource is being created, such as us-west-2.
+-xxx:fill in 
+-ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
