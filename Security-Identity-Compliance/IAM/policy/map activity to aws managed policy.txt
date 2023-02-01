@@ -4,3 +4,4 @@
 
 ref 
 -https://aws.permissions.cloud/managedpolicies/AWSLambdaExecute
+-https://aws.permissions.cloud/managedpolicies/AWSLambdaBasicExecutionRole
