@@ -64,3 +64,11 @@ Main Success Scenario:
 Map sns Activity to Action
 Main Success Scenario:
   1. xxx:fill in 
+  
+Map Security Token Service to Action
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/STS/latest/APIReference/API_Operations.html
+Main Success Scenario:
+  1. see map below
+    xxx > sts:AssumeRole
