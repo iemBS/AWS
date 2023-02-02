@@ -1,9 +1,12 @@
 Set Tag
 Notes:
-  -Guidance @ https://aws.amazon.com/answers/account-management/aws-tagging-strategies/
+  -Guidance @ 
+    -https://aws.amazon.com/answers/account-management/aws-tagging-strategies/
+    -https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html
   -Tag key and value are unicode characters
   -Tag key can hold up to 128 unicode characters
   -Tag value can hold up to 256 unicode characters
   -tag key and value are case sensitive
+  -tags can have spaces
 Main Success Scenario:
   1. xxx:fill in
