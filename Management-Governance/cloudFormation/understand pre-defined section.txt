@@ -2,6 +2,9 @@ pre-defined section
 -Conditions
   -optional section
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+-Globals
+  -Instead of duplicating info, you can declare them once in the Globals section and let your resources inherit them
+  -ref @ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html
 -Mappings
   -optional section
   -matches a key to a corresponding set of named values
