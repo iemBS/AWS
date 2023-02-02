@@ -1,0 +1,7 @@
+Use SAM Deploy Command
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-reference.html
+    -https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-deploy.html
+Main Success Scenario:
+  1. xxx:fill in 
