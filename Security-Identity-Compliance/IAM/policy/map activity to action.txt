@@ -55,6 +55,9 @@ Map Lambda Activity to Action
 Note:
   -guidance @
     -https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html
+  -Actions that DO NOT need to be specified from the Lambda side
+    -glue can invoke it
+    -xxx
 Main Success Scenario:
   1. xxx:fill in 
   
