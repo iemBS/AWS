@@ -1,0 +1,9 @@
+Map AWS Managed Policy to Service Role
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html#permissions-executionrole-features
+  -There are AWS Managed policies that define service role permissions
+    -The "AWSLambdaBasicExecutionRole" AWS managed policy is an example of that
+Main Success Scenario:
+  1. see map below
+    xxx:fill in 
