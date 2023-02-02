@@ -1,5 +1,7 @@
 -execute lambda function > AWSLambdaBasicExecutionRole
 -xxx > AWSLambdaExecute
+-xxx > AWSXRayDaemonWriteAccess
+-trace execution with X-Ray service > AWSXrayWriteOnlyAccess
 
 
 ref 
