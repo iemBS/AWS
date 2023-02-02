@@ -36,7 +36,7 @@ Properties per Section Type
     -code for the function
   -Role
     -ARN of the function's execution role
-  -Environment
+  -Environment/Variables
     -Environment variables that are accessible from function code during execution
   -TracingConfig
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-properties
