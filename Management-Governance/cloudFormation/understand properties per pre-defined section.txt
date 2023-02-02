@@ -1,1 +1,31 @@
-placeholder
+Properties per Pre-Defined Section
+-Conditions
+  -xxx:fill in 
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+-Globals
+  -properties are dependent on resource type (AWS::Serverless::Api, AWS::Serverless::Function, AWS::Serverless::HttpApi, AWS::Serverless::SimpleTable)
+  -AWS::Serverless::Api
+    -Creates a collection of Amazon API Gateway resources and methods that can be invoked through HTTPS endpoints.
+    -ref @ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html
+  -AWS::Serverless::Function
+    -Creates an AWS Lambda function, an AWS Identity and Access Management (IAM) execution role, and event source mappings that trigger the function.
+    -ref @ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
+  -AWS::Serverless::HttpApi
+    -Creates an Amazon API Gateway HTTP API, which enables you to create RESTful APIs with lower latency and lower costs than REST APIs.
+    -ref @ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-httpapi.html
+  -AWS::Serverless::SimpleTable
+    -Creates a DynamoDB table with a single attribute primary key. It is useful when data only needs to be accessed via a primary key
+    -ref @ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-simpletable.html
+  -ref @ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html
+-Mappings
+  -xxx:fill in 
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html
+-Output
+  -xxx:fill in 
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
+-Resources
+  -xxx:fill in 
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
+-Transform
+  -xxx:fill in 
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
