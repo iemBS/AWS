@@ -7,4 +7,12 @@ Note:
   -It may take 5 to 10 minutes for logs to show up after a function invocation.
   -no additional charge for using Lambda logs; however, standard CloudWatch Logs charges apply
 Main Success Scenario:
-  1. xxx:fill in 
+  1. see code below 
+
+    import os
+
+    def lambda_handler(event, context):
+        print('## ENVIRONMENT VARIABLES')
+        print(os.environ)
+        print('## EVENT')
+        print(event)
