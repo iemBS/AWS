@@ -50,6 +50,7 @@ Main Success Scenario:
        -ref @ https://docs.aws.amazon.com/glue/latest/webapi/API_GetJobRuns.html
      Retrieve the names of all job resources in this AWS account or the resources with the specified tag > glue:ListJobs
        -ref @ https://docs.aws.amazon.com/glue/latest/webapi/API_ListJobs.html
+     See glue job definition in Glue AWS console > xxx:fill in 
 		 
 Map Lambda Activity to Action
 Note:
