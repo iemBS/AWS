@@ -1,0 +1,6 @@
+Get Function Response
+Note:
+  -guidance @
+    -https://www.w3.org/Protocols/HTTP/HTRESP.html
+Main Success Scenario:
+  1. xxx:fill in 
