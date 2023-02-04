@@ -1,0 +1,7 @@
+Minimize Package Size
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/foundation-console.html
+  -Package size must be less than 3 MB for code to be visible in console
+Main Success Scenario:
+  1. xxx:fill in 
