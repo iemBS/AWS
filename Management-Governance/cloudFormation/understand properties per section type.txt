@@ -8,7 +8,8 @@ Properties per Section Type
   -EventPattern
     -Triggers rule when a matching event is observed
     -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
-  -Targets (resources to be invoked when a rule is triggered)
+  -Targets
+    -resources to be invoked when a rule is triggered
     -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html
 -AWS::IAM::Role
   -ManagedPolicyArns (can have 1 or more managed policies)
@@ -60,6 +61,17 @@ Properties per Section Type
   -ref @ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
 -AWS::S3::Bucket
   -xxx
+-AWS::SNS::Subscription
+  -You can set subscription attributes only on standalone Amazon SNS subscriptions (not on subscriptions nested in topics).
+  -DeliveryPolicy
+    -xxx
+  -EndPoint
+    -The subscription's endpoint. The endpoint value depends on the protocol that you specify. 
+  -SubscriptionRoleArn
+    -This property applies only to Amazon Kinesis Data Firehose delivery stream subscriptions.
+  -TopicArn
+    -The ARN of the topic to subscribe to.
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html
 -AWS::SNS::Topic
   -TopicName
     -The name of the topic you want to create. 
