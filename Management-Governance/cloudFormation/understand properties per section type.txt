@@ -67,6 +67,7 @@ Properties per Section Type
     -xxx
   -EndPoint
     -The subscription's endpoint. The endpoint value depends on the protocol that you specify. 
+    -ref @ https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html
   -SubscriptionRoleArn
     -This property applies only to Amazon Kinesis Data Firehose delivery stream subscriptions.
   -TopicArn
