@@ -4,6 +4,7 @@ note
 -the "Mappings" section name does not show in the Logical ID column of the Events tab in the CloudFormation console
 -the "Output" section name does not show in the Logical ID column of the Events tab in the CloudFormation console
 what about conditions, transforms, resources pre-defined sections ?
+-Rules
 
 ref
--
+-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/rules-section-structure.html
