@@ -1,0 +1,52 @@
+Format YAML File
+Main Success Scenario:
+  1. "Indent Text"
+  2. "Quoting Text"
+  3. "Hyphenating Text"
+  
+  
+Indent Text
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Quoting Text
+Main Success Scenario:
+  1. "Single Quoting Text"
+Alternatives:
+  1a. "Double Quoting Text"
+  
+  
+Single Quoting Text
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Double Quoting Text
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Hyphenating Text
+Note:
+  -properties that can hold more than one child element
+    -Action
+    -Statement
+    -Resource
+    -Subscription
+    -Targets
+    -there could be more
+Main Success Scenario:
+  1. Parent property can hold more than one child element 
+  2. Parent property has more than one child element 
+  3. Each child of parent property has ONLY ONE property in it
+  4. Place hyphen and a single space in front of the value
+  5. End
+Alternatives:
+  1a. Parent property CANNOT hold more than one element
+    1a1. go to step 5
+  2a. Parent property DOES NOT have more than one child element
+    2a1. go to step 5
+  3a. Each child of parent property has more than one property in it
+    3a1. Only place a hyphen and space in front of first property in each child element
+    3a2. go to step 5
