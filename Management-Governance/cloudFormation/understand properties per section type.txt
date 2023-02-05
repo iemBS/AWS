@@ -61,7 +61,17 @@ Properties per Section Type
 -AWS::S3::Bucket
   -xxx
 -AWS::SNS::Topic
-  -xxx
+  -TopicName
+    -The name of the topic you want to create. 
+    -Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. 
+    -FIFO topic names must end with .fifo.
+    -If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name.
+  -Subscription
+    -The SNS subscriptions (endpoints) for this topic
+  -Subscription/Endpoint
+    -xxx
+  -Subscription/Protocol
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html
 -AWS::SNS::TopicPolicy
   -PolicyDocument
     -A policy document that contains permissions to add to the specified SNS topics
