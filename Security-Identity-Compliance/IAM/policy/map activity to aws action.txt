@@ -1,4 +1,4 @@
-Map Activity to Action
+Map Activity to AWS Action
 Note:
   -guidance @
     -https://aws.amazon.com/iam/features/manage-permissions/
@@ -25,12 +25,12 @@ Alternatives:
   1d. "Map Glue Activity to Action"
   
 
-Map CloudWatch Activity to Action
+Map CloudWatch Activity to AWS Action
 Main Success Scenario:
   1. xxx:fill in 
   
   
-Map Glue Activity to Action
+Map Glue Activity to AWS Action
 Note:
   -guidance @
     -https://aws.permissions.cloud/iam/glue#glue-GetJobs
@@ -53,7 +53,7 @@ Main Success Scenario:
      See glue job code in Glue AWS console > xxx:fill in 
      See glue job runs in Glue AWS console > xxx:fill in 
 		 
-Map Lambda Activity to Action
+Map Lambda Activity to AWS Action
 Note:
   -guidance @
     -https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html
@@ -69,11 +69,21 @@ Main Success Scenario:
   1. xxx:fill in 
 
   
-Map sns Activity to Action
+Map sns Activity to AWS Action
+Note:
+  -guidance @
+    -https://aws.amazon.com/premiumsupport/knowledge-center/sns-publish-subscribe-troubleshooting/
+    -https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html
+    -https://docs.aws.amazon.com/sns/latest/api/API_Publish.html
 Main Success Scenario:
-  1. xxx:fill in 
+  1. see map below
   
-Map Security Token Service to Action
+    Publish to topic > sns:Publish
+    Subscribe to topic > sns:Subscribe
+  
+    
+  
+Map Security Token Service to AWS Action
 Note:
   -guidance @ 
     -https://docs.aws.amazon.com/STS/latest/APIReference/API_Operations.html
