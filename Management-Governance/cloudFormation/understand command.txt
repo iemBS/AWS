@@ -18,6 +18,7 @@ command
   -Reference other blocks already in the .YAML file without having to write it again
   -returns the value of the specified parameter or resource
   -!Ref returns only the default attribute for another resources, while !GetAtt can return any attribute for the other resource 
+  -May not always work with AWS::Serverless::Function type
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html
     -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
