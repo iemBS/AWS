@@ -2,4 +2,4 @@ note
 -Model and provision all your resources via code
 
 ref
--xxx:fill in 
+-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
