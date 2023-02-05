@@ -6,6 +6,9 @@ section type
   -AWS::Lambda::Function
   -AWS::Lambda::Permission
   -AWS::S3::Bucket
+  -AWS::SNS::Subscription
   -AWS::SNS::Topic
   -AWS::SNS::TopicPolicy
+    -limit who or what services can publish to an SNS topic
+      -ref @ https://stackoverflow.com/questions/45019769/aws-sns-topic-policy-cloudformation
 -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
