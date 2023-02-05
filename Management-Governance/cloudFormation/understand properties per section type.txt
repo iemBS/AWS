@@ -63,4 +63,8 @@ Properties per Section Type
 -AWS::SNS::Topic
   -xxx
 -AWS::SNS::TopicPolicy
-  -xxx
+  -PolicyDocument
+    -A policy document that contains permissions to add to the specified SNS topics
+  -Topics
+    -The ARN of the topics to which you want to add the policy. You can use the Ref function to specify an AWS::SNS::Topic
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
