@@ -1,0 +1,8 @@
+Choose Activity Destination
+Note:
+  -The destination of the actiivty is what the activity is acting upon
+  -The destination is also called the Resource
+  -The resource is another service 
+  -An activity can act upon one or more resources 
+Main Success Scenario:
+  1. xxx:fill in 
