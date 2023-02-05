@@ -4,7 +4,9 @@ command
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html
 -!GetAtt
   -returns the value of an attribute from a resource in the template
-  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html
+  -ref @ 
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html
+    -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
 -!ImportValue
   -returns the value of an output exported by another stack. You typically use this function to create cross-stack references
   -ref @ 
@@ -13,7 +15,10 @@ command
 -!Ref
   -Reference other blocks already in the .YAML file without having to write it again
   -returns the value of the specified parameter or resource
-  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html
+  -!Ref returns only the default attribute for another resources, while !GetAtt can return any attribute for the other resource 
+  -ref @ 
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html
+    -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
 -!Select
   -returns a single object from a list of objects by index
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-select.html
