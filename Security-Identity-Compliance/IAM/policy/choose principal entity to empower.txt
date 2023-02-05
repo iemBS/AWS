@@ -1,0 +1,14 @@
+Choose Principal Entity to Empower
+Note:
+  -Examples of a service are glue or lambda
+  -An entity that can perform an activity is a person or a service
+  -A principal entity can be granted the access to perform an activity
+Main Success Scenario:
+  1. Grant a service access to perform an activity (no matter what person, role, or other service runs this service it is allowed to do the activity)
+  2. end
+Alternatives:
+  1a. Grant a role that uses the service to perform an activity (only a specific role that uses the service can perform the activity)
+    1a1. go to step 2
+  1b. Grant a user that uses the service to perform an activity (only a specific user that uses the service can perform the activity)
+    1b2. go to step 2
+  
