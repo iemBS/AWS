@@ -1,0 +1,9 @@
+Choose Activity Source
+Note:
+  -Activity source does not need to align with the principal entity that was granted access to perform the activity
+  -A person or a role is a principal entity
+  -A service can be granted access to perform activity. 
+  -A role can be granted access to perform an activity. 
+  -A role can never be an activity source.
+Main Success Scenario:
+  1. A service performs can activity when one or more conditions are met
