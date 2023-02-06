@@ -3,29 +3,52 @@ Main Success Scenario:
   1. "Indent Text"
   2. "Quoting Text"
   3. "Hyphenating Text"
+  4. "Prevent Circular Reference"
+  5. End
   
   
 Indent Text
 Main Success Scenario:
-  1. xxx:fill in 
+  1. Index with space character
+  2. End 
+Alternatives:
+  1a. Indent with a tab character
+    1a1. Get error when used in cloudformation 
+    1a2. go to step 1
   
   
 Quoting Text
+Note:
+  -guidance @ 
+    -https://stackoverflow.com/questions/19109912/yaml-do-i-need-quotes-for-strings-in-yaml
+    -http://yaml.org/spec/1.2-old/spec.html#id2774228
+    -https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines/21699210#21699210
+    -https://blogs.perl.org/users/tinita/2018/03/strings-in-yaml---to-quote-or-not-to-quote.html
 Main Success Scenario:
-  1. "Single Quoting Text"
-Alternatives:
-  1a. "Double Quoting Text"
-  
-  
-Single Quoting Text
-Main Success Scenario:
-  1. xxx:fill in 
-  
-  
-Double Quoting Text
-Main Success Scenario:
-  1. xxx:fill in 
-  
+  1. Need to return number as a string 
+  2. Single quote value 
+  3. End
+Alternarives:
+  1a. Need to return a number as a number
+    1a1. DO NOT quote value
+    1a2. go to step 3
+  1b. value includes special characters (e.g. :, {, }, [, ], ,, &, *, #, ?, |, -, <, >, =, !, %, @, \)
+    1b1. go to step 2
+  1c. DO NOT want to parse escape code, like \n
+    1c1. go to step 2
+  1d. DO want to parse escape code, like \n converted to line feed character
+    1d1. Double quote value 
+  1e. Want to use a cloudformation command (starts with !)
+    1e1. DO NOT put command within single or double quotes
+  1f. Want to return Yes and No values as strings 
+    1f1. go to step 2
+  1g. Want to return Yes and No values as boolean
+    1g1. DO NOT quote value
+    1g2. go to step 3
+  1h. Want YAML reserved indicator at start of value
+    1h1. Single quote value to prevent error 
+    1h2. go to step 3
+   
   
 Hyphenating Text
 Note:
@@ -50,3 +73,22 @@ Alternatives:
   3a. Each child of parent property has more than one property in it
     3a1. Only place a hyphen and space in front of first property in each child element
     3a2. go to step 5
+    
+    
+Prevent Circular Reference
+Note:
+  -guidance @
+    -https://aws.amazon.com/blogs/infrastructure-and-automation/handling-circular-dependency-errors-in-aws-cloudformation/
+    -https://stackoverflow.com/questions/28129861/how-to-fix-circular-reference-error-on-yaml-file
+  -This typically happens when using the !Ref or !GetAtt commands to get the ARN for a resource or role
+Main Success Scenario:
+  1. Do not use !Ref or !GetAtt command
+  2. Attriute value is used in few places and can just be written
+  3. An auto generated unique identifier is NOT attached on-the-fly to the ARN during creation 
+  4. !Sub command can construct the attribute value 
+  5. Not alll the resources and roles are created in the same cloudformation template (so even attributes with auto generated values can be known during YAML construction)  
+  6. End
+Alternatives:
+  3a. An auto generated unique identifier IS attached on-the-fly to the ARN during creation
+    3a1. Use !Ref or !GetAtt command to get attribute value
+    3a2. go to step 6
