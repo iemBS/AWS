@@ -2,5 +2,22 @@ Handle Event
 Note:
   -guidance @
     -https://docs.aws.amazon.com/lambda/latest/dg/python-context.html
+    -https://stackoverflow.com/questions/50687152/how-to-have-more-than-one-handler-in-aws-lambda-function
 Main Success Scenario:
   1. xxx:fill in 
+  2. End 
+Alternatives:
+  1a. Handle more than one type of event 
+    1a1. see code below
+      def handler_name(event, context):
+        if event['EventType'] == 'helper1':
+          helper1(event, context)
+        elif event['EventType'] == 'helper2':
+          helper2(event, context)
+
+      def helper1(event, context):
+        pass
+
+      def helper2(event, context):
+        pass
+    1a2. Go to step 2
