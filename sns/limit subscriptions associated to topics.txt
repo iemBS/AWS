@@ -1,0 +1,7 @@
+Limit Subscriptions Associated to Topics
+Note:
+  -guidance @
+    -https://stackoverflow.com/questions/44941520/sns-handle-more-than-10-million-subscriptions-per-topic
+  -no limit to the number of subscriptions that can be associate to a topic
+Main Success Scenario:
+  1. xxx:fill in 
