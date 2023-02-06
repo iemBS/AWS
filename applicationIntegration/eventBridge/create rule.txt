@@ -1,0 +1,6 @@
+Create Rule
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html
+Main Success Scenario:
+  1. xxx:fill in 
