@@ -1,4 +1,4 @@
-Job Write Final Status to S3
+Job Send Final Status to S3
 Note:
   -guidance @
     -https://stackoverflow.com/questions/49034554/is-there-any-way-to-trigger-a-aws-lambda-function-at-the-end-of-an-aws-glue-job
