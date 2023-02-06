@@ -26,8 +26,16 @@ Alternatives:
   
 
 Map CloudWatch Activity to AWS Action
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/permissions-reference-cwl.html
 Main Success Scenario:
-  1. xxx:fill in 
+  1. see map below
+  
+    Create log group (when app first created) > logs:CreateLogGroup
+    Create Log stream (many log streams exist in each log group and created all the time) > logs:CreateLogStream
+    Write entries to log > logs:PutLogEvents
+    xxx > logs:DescribeLogStreams
   
   
 Map Glue Activity to AWS Action
