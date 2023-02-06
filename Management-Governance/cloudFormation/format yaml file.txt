@@ -1,4 +1,7 @@
 Format YAML File
+Note:
+  -guidance @
+    -https://yaml.org/spec/1.2.2/
 Main Success Scenario:
   1. "Indent Text"
   2. "Quoting Text"
