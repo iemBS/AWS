@@ -27,6 +27,7 @@ Note:
     -http://yaml.org/spec/1.2-old/spec.html#id2774228
     -https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines/21699210#21699210
     -https://blogs.perl.org/users/tinita/2018/03/strings-in-yaml---to-quote-or-not-to-quote.html
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
 Main Success Scenario:
   1. Need to return number as a string 
   2. Single quote value 
@@ -51,6 +52,9 @@ Alternarives:
   1h. Want YAML reserved indicator at start of value
     1h1. Single quote value to prevent error 
     1h2. go to step 3
+  1i. Want to use !Sub command with pseudo parameters and static text to auto construct attribute value
+    1i1. single quote value
+    1i2. go to step 3
    
   
 Hyphenating Text
