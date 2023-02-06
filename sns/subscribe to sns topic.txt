@@ -1,0 +1,5 @@
+Subscribe to SNS Topic
+Note:
+  -By default, only the topic owner can publish or subscribe to a topic
+Main Success Scenario:
+  1. xxx:fill in 
