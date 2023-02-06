@@ -1,0 +1,6 @@
+Invoke Function from Another Function
+Note:
+  -guidance @
+    -https://www.sqlshack.com/calling-an-aws-lambda-function-from-another-lambda-function/
+Main Success Scenario:
+  1. xxx:fill in 
