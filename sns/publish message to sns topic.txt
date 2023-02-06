@@ -2,6 +2,7 @@ Publish Message to SNS Topic
 Note:
   -guidance @
     -https://docs.aws.amazon.com/sns/latest/dg/sns-publishing.html
+    -https://docs.aws.amazon.com/sns/latest/api/API_Publish.html
   -By default, only the topic owner can publish or subscribe to a topic
 Main Success Scenario:
   1. xxx:fill in 
