@@ -3,4 +3,14 @@ Note:
   -guidance @
     -https://docs.aws.amazon.com/glue/latest/dg/automating-awsglue-with-cloudwatch-events.html
 Main Success Scenario:
+  1. "Trigger by Final Glue Job Run Status"
+Alternatives:
+  1a. xxx:fill in 
+  
+
+Trigger by Final Glue Job Run Status
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html
+Main Success Scenario:
   1. xxx:fill in 
