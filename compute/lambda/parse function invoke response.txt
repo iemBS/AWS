@@ -1,0 +1,6 @@
+Parse Function Invoke Response
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_ResponseElements
+Main Success Scenario:
+  1. xxx:fill in 
