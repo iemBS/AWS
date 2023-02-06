@@ -6,8 +6,14 @@ Note:
     -https://www.tutorialspoint.com/aws_lambda/aws_lambda_executing_and_invoking_lambda_function.htm
     -https://docs.aws.amazon.com/lambda/latest/dg/troubleshooting-invocation.html
     -https://docs.aws.amazon.com/lambda/latest/dg/troubleshooting-execution.html
+  -Payload must be in JSON format
 Main Success Scenario:
-  1. xxx:fill in 
+  1. Set ClientContext
+  2. Set FunctionName
+  3. Set InvocationType
+  4. Set Payload
+  5. DO NOT set LogType
+  6. DO NOT set Qualifier
   x. End
 Alternatives:
   1a. Invoke function w handler
