@@ -1,0 +1,7 @@
+Own Topic
+Note:
+  -guidance @ 
+    -https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html
+  -Topics can only be owned by the AWS Account associated with the role that created it
+Main Success Scenario:
+  1. xxx:fill in
