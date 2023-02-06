@@ -1,0 +1,6 @@
+Send SNS Message to MS Teams Chat
+Note:
+  -guidance @
+    -https://dev.to/aws-builders/how-to-send-aws-notifications-aws-sns-to-microsoft-teams-1d1l
+Main Success Scenario
+  1. xxx:fill in 
