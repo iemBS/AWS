@@ -1,0 +1,11 @@
+Run Service App with a Custom Role
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-sam.html
+Main Success Scenario:
+  1. Run lambda function with a custom role
+  2. End
+Alternatives:
+  1a. CANNOT run eventbridge rule with a custom role
+    1a. must grant actions to the event bridge service instead
+  1b. xxx:fill in 
