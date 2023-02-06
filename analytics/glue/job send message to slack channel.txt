@@ -1,0 +1,6 @@
+Job Send Message to Slack Channel
+Note:
+  -guidance @
+    -https://aarfahrayees.medium.com/easy-way-for-setting-up-notification-for-aws-glue-jobs-that-failed-using-sns-a002a52a1b72
+Main Success Scenario:
+  1. xxx:fill in 
