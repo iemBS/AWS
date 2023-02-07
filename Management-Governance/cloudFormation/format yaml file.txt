@@ -7,7 +7,19 @@ Main Success Scenario:
   2. "Quoting Text"
   3. "Hyphenating Text"
   4. "Prevent Circular Reference"
-  5. End
+  5. "Comment line"
+  6. End
+  
+  
+Comment line
+Main Success Scenario:
+  1. Comment text that is only meant as a description or help for the YAML it is next to
+  2. End
+Alternatives
+  1a. Comment a line of YAML code
+    1a1. Error is thrown
+    1a2. Remove the line or remove the comment indicator
+    1a3. go to step 2
   
   
 Indent Text
