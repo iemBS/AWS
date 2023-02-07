@@ -1,0 +1,7 @@
+Get Lambda Runtime Environment Variable
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime
+    -https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-retrieve
+Main Success Scenario:
+  1. xxx:fill in 
