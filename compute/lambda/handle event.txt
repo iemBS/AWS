@@ -4,11 +4,19 @@ Note:
     -https://docs.aws.amazon.com/lambda/latest/dg/python-context.html
     -https://stackoverflow.com/questions/50687152/how-to-have-more-than-one-handler-in-aws-lambda-function
 Main Success Scenario:
-  1. xxx:fill in 
+  1. "Handle One Event Type"
   2. End 
 Alternatives:
   1a. Handle more than one type of event 
-    1a1. see code below
+    1a1. "Handle More than One Event Type"
+    1a2. Go to step 2
+    
+
+Handle More than One Event Type
+Main Success Scenario:
+  1. "Understand Event Structure" 
+  2. "Determine Event Type"
+  3. "Parse Event"
       def handler_name(event, context):
         if event['EventType'] == 'helper1':
           helper1(event, context)
@@ -20,4 +28,55 @@ Alternatives:
 
       def helper2(event, context):
         pass
-    1a2. Go to step 2
+    
+    
+Handle One Event Type
+Main Success Scenario:
+  1. "Understand Event Structure" 
+  2. "Validate Event"
+  3. "Parse Event"
+  
+  
+Validate Event
+Main Success Scenario:
+  1. xxx:fill in 
+  2. End
+Alternatives:
+  1a. Workaround Invalid Event
+    1a1. Work around invalid event
+    1a2 go to step 2
+  1b. CANNOT workaround invalid event
+    1b1. xxx:fill in 
+  
+ 
+Parse Event
+Pre-Condition:
+  -"Understand Event Structure"
+Main Success Scenario:
+  1. "Determine Event Type"
+  2. xxx:fill in 
+  
+  
+Understand Event Structure
+Main Success Scenario:
+  1. "Understand EventBridge Event Structure"
+Alternatives:
+  1a. xxx:fill in 
+  
+  
+Understand EventBridge Event 
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonS3/latest/userguide/ev-events.html
+Main Success Scenario:
+  1. xxx:fill in 
+  
+
+Determine Event Type
+Note:
+  -Even if handling one type of event, you want to validate the event
+Main Success Scenario:
+  1. "Validate Event"
+  2. xxx:fill in 
+  
+  
