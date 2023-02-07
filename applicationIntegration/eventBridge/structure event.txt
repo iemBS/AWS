@@ -1,0 +1,24 @@
+Structure Event
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
+Main Success Scenario:
+  1. "Structure S3 Event"
+Alternatives:
+  1a. "Structure Glue Event"
+  
+  
+Structure Glue Event
+Note:
+  -guidance @
+    -xxx:fill in 
+Main Success Scenario:
+  1. xxx:fill in 
+  
+
+Structure S3 Event
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonS3/latest/userguide/ev-events.html
+Main Success Scenario:
+  1. xxx:fill in 
