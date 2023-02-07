@@ -3,6 +3,7 @@ Note:
   -guidance @
     -https://docs.aws.amazon.com/lambda/latest/dg/python-context.html
     -https://stackoverflow.com/questions/50687152/how-to-have-more-than-one-handler-in-aws-lambda-function
+    -https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html
 Main Success Scenario:
   1. "Handle One Event Type"
   2. End 
