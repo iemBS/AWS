@@ -10,6 +10,10 @@ Alternatives:
   1a. Handle more than one type of event 
     1a1. "Handle More than One Event Type"
     1a2. Go to step 2
+  1b. Handle same event sent directly and via EventBridge
+    1b1. Determine if event is needed from both perspectives
+    1b2. Block one of the perspectives if only one is needed
+    1b3. go to step 2
     
 
 Handle More than One Event Type
