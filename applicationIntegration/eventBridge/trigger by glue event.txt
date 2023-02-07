@@ -2,6 +2,8 @@ Trigger by Glue Event
 Note:
   -guidance @
     -https://docs.aws.amazon.com/glue/latest/dg/automating-awsglue-with-cloudwatch-events.html
+  -If a glue job is configured to re-try, it will do so if it achieves a failed status, but not a timeout status. 
+  -Do not send notifications for a glue job that is configured to retry, because it will duplicate notifications if it fails during each retry.
 Main Success Scenario:
   1. "Trigger by Final Glue Job Run Status"
 Alternatives:
