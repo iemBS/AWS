@@ -1,0 +1,3 @@
+Get AWS Account ID for Current Function
+Main Success Scenario:
+  1. context.invoked_function_arn.split(':')[4]
