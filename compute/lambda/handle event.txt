@@ -15,7 +15,17 @@ Alternatives:
     1b1. Determine if event is needed from both perspectives
     1b2. Block one of the perspectives if only one is needed
     1b3. go to step 2
-    
+  1c. Handle event sent directly and exit Glue job successfully to prevent the EventBridge error from being sent
+    1c1. see code below
+        from pyspark.context import SparkContext
+        from awsglue.context import GlueContext
+        from awsglue.job import Job
+        import os
+
+        Job(GlueContext(SparkContext())).commit()
+        os._exit(0)
+    1c2. go to step 2
+
 
 Handle More than One Event Type
 Main Success Scenario:
