@@ -4,8 +4,8 @@ command
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html
 -!GetAtt
   -returns the value of an attribute from a resource in the template
-  -Even if the attribute is auto created when the object is created in aws (like an ARN for a SNS Topic), the attribute needs to have been specified by you in the cloudformation template
   -Use !Ref command instead when you need to reference an attribute that is not specified by you in the cloudformation template and the attribute is the default attribute pulled by !Ref
+  -This command may not be able to pull all the attributes for a section type. Check the documentation for the section type. 
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html
     -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
@@ -19,6 +19,7 @@ command
   -returns the value of the specified parameter or resource
   -!Ref returns only the default attribute for another resources, while !GetAtt can return any attribute for the other resource 
   -May not always work with AWS::Serverless::Function type
+  -This command may be able to pull attributes that !GettAtt cannot
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html
     -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
