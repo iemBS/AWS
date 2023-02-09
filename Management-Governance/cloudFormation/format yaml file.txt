@@ -78,6 +78,9 @@ Note:
     -Subscription
     -Targets
     -there could be more
+  -properties where there is a single child element and each element can have more than one property
+    -mapped to key value pair in the Mappings section
+    -Evironment/Variables 
 Main Success Scenario:
   1. Parent property can hold more than one child element 
   2. Parent property has more than one child element 
