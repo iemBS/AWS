@@ -53,7 +53,9 @@ Properties per Section Type
     -Custom and pre-defined environment variables can be passed in
     -Custom environment variables can be set in the YAML file 
   -TracingConfig
-  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-properties
+  -ref @ 
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-properties
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
 -AWS::Lambda::Permission
   -Action
     -action that the principal can use on the function
