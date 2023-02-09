@@ -4,6 +4,7 @@ Note:
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
     -https://aws.amazon.com/cloudformation/resources/templates/
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-sample-templates.html
   -Can write template using JSON or YAML
   -Value in "AWSTemplateFormatVersion" is not the same as the API or WSDL version.
   -Values in "Resources" are logical resources. When the template is run it creates corresponding physical resources. 
