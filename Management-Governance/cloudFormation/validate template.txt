@@ -1,0 +1,9 @@
+Validate Template
+Note
+  -guidance @
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-validate-template.html
+  -The cloudformation validate-template command may not catch all validation issues
+Main Success Scenario:
+  1. Upload template.yaml file to CloudShell GUI
+  2. run the below command 
+    aws cloudformation validate-template --template-body file://template.yaml
