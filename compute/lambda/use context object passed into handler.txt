@@ -1,0 +1,9 @@
+Use Context Object Passed into Handler
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/python-context.html
+Main Success Scenario:
+  1. get current functions name
+       context.function_name
+Alternatives:
+  1a. xxx:fill in 
