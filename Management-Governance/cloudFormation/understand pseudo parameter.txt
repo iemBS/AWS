@@ -1,6 +1,9 @@
 pseudo parameter
 -AWS::AccountId
   -Returns the AWS account ID of the account in which the stack is being created, such as 123456789012.
+-AWS::NoValue
+  -Cannot be used in the pre-defined Mappings section of a cloudformation. It will remove the mapping.  
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html#cfn-pseudo-param-novalue
 -AWS::Region
   -Returns a string representing the Region in which the encompassing resource is being created, such as us-west-2.
 -xxx:fill in 
