@@ -1,0 +1,6 @@
+Troubleshoot Template Issue
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html
+Main Success scenario:
+  1. xxx:fill in 
