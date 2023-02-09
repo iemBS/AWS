@@ -54,4 +54,6 @@ pre-defined section
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
 -Transform
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
+-ref @
+  -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 
