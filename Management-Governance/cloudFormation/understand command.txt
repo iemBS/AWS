@@ -10,6 +10,7 @@ command
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html
     -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-return-values
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role-return-values
 -!ImportValue
   -returns the value of an output exported by another stack. You typically use this function to create cross-stack references
   -ref @ 
@@ -24,6 +25,8 @@ command
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html
     -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-return-values
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role-return-values
 -!Select
   -returns a single object from a list of objects by index
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-select.html
