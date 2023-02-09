@@ -9,6 +9,7 @@ command
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html
     -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-return-values
 -!ImportValue
   -returns the value of an output exported by another stack. You typically use this function to create cross-stack references
   -ref @ 
