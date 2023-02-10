@@ -2,5 +2,9 @@ Create Rule
 Note:
   -guidance @
     -https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html
+  -detail-type by source
+    -aws.glue
+      -Glue Job State Change
+    -xxx
 Main Success Scenario:
   1. xxx:fill in 
