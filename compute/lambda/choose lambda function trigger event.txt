@@ -1,4 +1,7 @@
 Choose Lambda Function Trigger Event
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html
 Main Success Scenario:
   x. Choose from "Lambda function can be triggered by these events" list below
   2. xxx:fill in
