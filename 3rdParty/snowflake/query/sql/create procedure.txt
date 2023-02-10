@@ -69,9 +69,32 @@ Alternatives:
       $$;
       CALL TST_PRC();
       
-     1d. xxx
+     1d. Set "Execute As"
+       1d1. "Set Execute As"
+       1d2. Go to last step
      
      
-     
+Set Execute As
+Note:
+  -guidance @ 
+    -https://medium.com/snowflake/difference-between-execute-as-a-caller-and-owner-in-snowflake-c1826033b782
+Main Success Scenario:
+  1. Execute As Owner
+      CREATE OR REPLACE PROCEDURE myProc()
+          RETURNS VARCHAR
+          LANGUAGE JAVASCRIPT
+          EXECUTE AS CALLER
+          AS
+          ...
+  2. End
+Alternatives:
+  1a. Execute As Caller
+    1a1. see code below
+        CREATE OR REPLACE PROCEDURE myProc()
+            RETURNS VARCHAR
+            LANGUAGE JAVASCRIPT
+            EXECUTE AS CALLER
+            AS
+            ...
     
    
