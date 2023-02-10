@@ -1,0 +1,3 @@
+Activity to Privilege Map
+-xxx:fill in 
+-ref @ https://docs.snowflake.com/en/user-guide/security-access-control-privileges.html
