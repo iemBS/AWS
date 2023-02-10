@@ -2,6 +2,10 @@ Configure Table Column
 Note:
   -guidance @
     -https://docs.snowflake.com/en/sql-reference/sql/create-table.html
+    -https://docs.snowflake.com/en/sql-reference/data-types-datetime.html
 Main Success Scenario:
   x. "Set Default Value"
+  x "Set Data Type"
+  x. "Configure Numeric Precision"
+  x. "Conigure Time Precision"
   x. xxx:fill in 
