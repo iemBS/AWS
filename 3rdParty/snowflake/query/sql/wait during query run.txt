@@ -1,0 +1,6 @@
+Wait During Query Run
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/functions/system_wait.html
+Main Success Scenario:
+  1. xxx:fill in 
