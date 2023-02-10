@@ -1,0 +1,7 @@
+Maximize Query Performance
+Note:
+  -guidance @
+    -https://dataforgeeks.com/snowflake-performance-tuning-and-best-practices/2338/
+    -https://community.snowflake.com/s/article/Tuning-Snowflake
+Main Success Scenario:
+  1. xxx:fill in 
