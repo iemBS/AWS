@@ -1,0 +1,6 @@
+Deduplicate Table
+Note:
+  -guidance @
+    -https://interworks.com/blog/2022/10/25/data-deduplication-methods-in-snowflake/
+Main Success Scenario:
+  1. xxx:fill in 
