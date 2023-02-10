@@ -1,0 +1,7 @@
+Configure Table Column
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/sql/create-table.html
+Main Success Scenario:
+  x. "Set Default Value"
+  x. xxx:fill in 
