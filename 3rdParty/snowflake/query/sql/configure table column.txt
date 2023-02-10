@@ -3,6 +3,7 @@ Note:
   -guidance @
     -https://docs.snowflake.com/en/sql-reference/sql/create-table.html
     -https://docs.snowflake.com/en/sql-reference/data-types-datetime.html
+    -https://docs.snowflake.com/en/sql-reference/data-types.html
 Main Success Scenario:
   x. "Set Default Value"
   x "Set Data Type"
