@@ -11,7 +11,7 @@ pre-defined section
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html
 -Parameters
-  -
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
 -Output
   -declares output values that you can import into other stacks (to create cross-stack references), return in response (to describe stack calls), or view on the AWS CloudFormation console
   -optional section
