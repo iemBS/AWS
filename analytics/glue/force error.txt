@@ -1,0 +1,10 @@
+Force Error 
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+Main Success Scenario:
+  1. see code below
+      import sys
+      from awsglue.utils import getResolvedOptions
+
+      raise Exception("Forced error for {} job to test".format(getResolvedOptions(sys.argv, ['JOB_NAME'])))
