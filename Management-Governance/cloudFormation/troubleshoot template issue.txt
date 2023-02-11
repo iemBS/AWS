@@ -2,5 +2,6 @@ Troubleshoot Template Issue
 Note:
   -guidance @
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html
+    -https://medium.com/tensoriot/10-solutions-to-common-cloudformation-errors-d822cf0567ae
 Main Success scenario:
   1. xxx:fill in 
