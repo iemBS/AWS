@@ -2,5 +2,27 @@ Run Lambda Function
 Note:
   -guidance @
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.html#AuroraMySQL.Integrating.LambdaAccess
+Main Success Scenario:
+  1. "Grant Aurora DB cluster Access to Lambda"
+  x. "Allow Aurora DB cluster Outbound Connections to Lambda"
+  x. xxx:fill in 
+  
+  
+Grant Aurora DB cluster Access to Lambda
 Main Success Scenario:
   1. xxx:fill in 
+  
+  
+Allow Aurora DB cluster Outbound Connections to Lambda
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.Network.html
+    -https://aws.amazon.com/premiumsupport/knowledge-center/aurora-private-public-endpoints/
+Main Success Scenario:
+  1. Aurora DB Cluster is public
+  2. Configure Aurora DB Cluster to connect to NAT
+  x. End
+Alternatives:
+  1a. Aurora DB Cluster is private
+    1a1. 
