@@ -1,0 +1,12 @@
+Get Arguments
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-pyspark-extensions-get-resolved-options.html
+    -https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+    -https://stackoverflow.com/questions/71559941/how-to-pass-environment-variables-to-aws-glue
+Main Success Scenario:
+  1. see code below
+    import sys
+    from awsglue.utils import getResolvedOptions
+
+    print(getResolvedOptions(sys.argv, ['JOB_NAME']))
