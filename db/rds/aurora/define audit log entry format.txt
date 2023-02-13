@@ -41,7 +41,7 @@ Main Success Scenario:
     TimeStamp: The Unix time stamp for the logged event with microsecond precision.
     UserName: Security context the object is running under
     UserHost: IP Address or server name that the object run request came from. If requests are coming from more than one IP address at a time, filtering on IP address can help you discern between the requests in the log. 
-    ConnectionId: The connection ID number for the logged operation.
+    ConnectionId: The connection ID number for the logged operation. This is the same as the ID column in the INFORMATION_SCHEMA.ProcessList table. 
     QueryId: The query ID number, which can be used for finding the relational table events and related queries. For TABLE events, multiple lines are added. Set to 0 if Operation is DISCONNECT.
     Operation: The recorded action type. Possible values are: DISCONNECT, CONNECT, QUERY, READ, WRITE, CREATE, ALTER, RENAME, and DROP. QUERY will be used for Non-DDL SQL queries and procedure calls. 
     Database: The active database, as set by the USE command.
