@@ -4,4 +4,5 @@ Note:
     -https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html
     -https://dev.mysql.com/doc/refman/5.7/en/access-control.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. In CloudShell Console
+    xxx:fill in
