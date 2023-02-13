@@ -1,4 +1,5 @@
 -execute lambda function > AWSLambdaBasicExecutionRole
+-invoke lambda function > AWSLambdaRole
 -xxx > AWSLambdaExecute
 -xxx > AWSXRayDaemonWriteAccess
 -trace execution with X-Ray service > AWSXrayWriteOnlyAccess
@@ -7,3 +8,4 @@
 ref 
 -https://aws.permissions.cloud/managedpolicies/AWSLambdaExecute
 -https://aws.permissions.cloud/managedpolicies/AWSLambdaBasicExecutionRole
+-https://docs.aws.amazon.com/lambda/latest/dg/access-control-identity-based.html
