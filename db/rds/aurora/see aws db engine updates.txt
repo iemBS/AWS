@@ -1,0 +1,7 @@
+See AWS DB Engine Updates
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/Welcome.html
+Main Success Scenario:
+  1. xxx:fill in 
