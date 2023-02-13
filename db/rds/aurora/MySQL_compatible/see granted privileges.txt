@@ -30,3 +30,6 @@ Alternatives:
   1e. See column specific grants via mysql.columns_priv table
     1e1. SELECT * FROM mysql.columns_priv
     1e2. go to last step
+  1f. See user specific grants via information_schema.user_privileges table
+    1f1. select * from information_schema.user_privileges
+    1f2. go to last step
