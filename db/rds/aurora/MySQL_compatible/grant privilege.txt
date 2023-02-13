@@ -3,6 +3,12 @@ Note:
   -Guidance @ 
     -https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html
     -https://dev.mysql.com/doc/refman/5.7/en/access-control.html
+    -https://dba.stackexchange.com/questions/23265/mysql-show-grants-for-all-users
 Main Success Scenario:
   1. In CloudShell Console
     xxx:fill in
+  2. End
+Alternatives:
+  1a. In SQL window
+    1a1. xxx:fill in 
+    1a2. go to step 2
