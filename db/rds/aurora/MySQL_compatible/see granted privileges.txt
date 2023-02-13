@@ -1,0 +1,31 @@
+See Granted Privileges
+Note:
+  -guidance:
+    -https://dev.mysql.com/doc/refman/5.7/en/creating-accounts.html#checking-account-privileges
+Question:
+  -How do discern between not having access to one of the tables below and not having any privileges?
+    -mysql.tables_priv
+    -ysql.columns_priv
+Main Success Scenario:
+  1. See granted privileges for current user with SHOW command
+    SHOW GRANTS 
+  2. Column name of results is "Grants for USER_NAME@%"
+  3. End 
+Alternatives:
+  1a. See granted privileges for a specified user with SHOW command
+    1a1. Replace "USER_NAME" in the below script with your user name
+    1a2. SHOW GRANTS FOR 'USER_NAME'@'%';
+    1a3. Column name of results is "Grants for USER_NAME@%"
+    1a4. Go to step 3
+  1b. See user specific grants via mysql.user table
+    1b1. SELECT * FROM mysql.user
+    1b2. go to last step
+  1c. See db specific grants via mysql.db table
+    1c1. SELECT * FROM mysql.db
+    1c2. go to last step
+  1d. See table specific grants via mysql.tables_priv table
+    1d1. SELECT * FROM mysql.tables_priv
+    1d2. go to last step
+  1e. See column specific grants via mysql.columns_priv table
+    1e1. SELECT * FROM mysql.columns_priv
+    1e2. go to last step
