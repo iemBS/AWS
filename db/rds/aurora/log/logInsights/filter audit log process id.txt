@@ -1,0 +1,10 @@
+Filter Audit Log Process ID
+Note:
+  -Process ID is same as Connection ID
+Main Success Scenario:
+  1. see code below
+
+fields @message
+| parse @message "*,*,*,*,*,*,*,*,'DO*',*" as timestamp,server_name,usr,ip,process_id,log_id,event_type,db,sql_query,completion_status
+| filter process_id = "123" 
+| display timestamp,server_name,usr,ip,process_id,log_id,event_type,db,sql_query,completion_status
