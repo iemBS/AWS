@@ -2,13 +2,23 @@ Get Query Duration Time
 Notes:
   -guidance @
     -https://stackoverflow.com/questions/9425134/mysql-duration-and-fetch-time
+    -https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html
   -Duration time is how long it takes your query to execute. Query optimization can make the duration time shorter. 
-  -Duration time is differetn from Fetch time.
+  -Duration time is different from Fetch time.
+  -Time column value units in information_schema.processlist table is seconds
 Main Success Scenario:
-  1. "Get Query Duration Time in MySQL Workbench"
+  1. Check after foreground query start and finished
+  2. "Get Query Duration Time in MySQL Workbench"
+  3. End
 Alternatives:
-  1a. "Get Query Duration Time in Background Run"
-  
+  1a. Check after foreground query start but not finished yet
+    1a1. select * from information_schema.process list # will be duration per state of query run
+    1a2. go to step 3
+  1b. Setup check before background query start
+    1b1. "Get Query Duration Time in Background Run"
+    1b2. go to step 3
+    
+
 Get Query Duration Time in MySQL Workbench
 Main Success Scenario:
   1. Go to Output window > Action Output tab > Duration/Fetch column 
