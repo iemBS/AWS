@@ -1,3 +1,24 @@
 Create Parameter Group
 Main Success Scenario:
-  1. xxx:fill in 
+  1. See family that your DB Instance or DB Cluster is in
+  2. "Create DB Parameter Group"
+  3. 
+Alternatives:
+  2a. Create DB Cluster Parameter Group instead 
+    2a1. "Create DB Cluster Parameter Group"
+    2a2. go to step 3
+    
+    
+Create DB Parameter Group
+Main Success Scenario:
+  x. use name of DB Instance this will be associated with
+  x. append a label that will indicate this is a db instance parameter group
+  x. end
+    -
+
+
+Create DB Cluster Parameter Group
+Main Success Scenario:
+  x. use name of DB Cluster this will be associated with
+  x. append a label that will indicate this is a db cluster parameter group
+  x. end
