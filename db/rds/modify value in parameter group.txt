@@ -15,6 +15,7 @@ Note:
   -If you create a Multi-AZ DB cluster without specifying a DB cluster parameter group, the DB cluster uses a default DB cluster parameter group. 
   -Each default parameter group contains database engine defaults and Amazon RDS system defaults based on the engine, compute class, and allocated storage of the instance.
   -You can't modify the parameter settings of a default parameter group
+  -SQL SET commands will note update values in these parameters
 Main Success Scenario:
   1. "Modify Value in DB Cluster Parameter Group"
 Alternatives:
