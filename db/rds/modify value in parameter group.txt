@@ -40,8 +40,7 @@ Alternatives:
     1a3. go to step 2
   2a. Parameter Value cannot be modified
     2a1. See error message when trying to save change
-    2a2. "custom-paramter-group" parameter group is auto created
-    2a3. go to step 3
+    2a2. go to step 3
   
 
 Modify Value in DB Parameter Group
