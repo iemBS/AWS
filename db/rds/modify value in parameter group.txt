@@ -4,6 +4,7 @@ Note:
     -https://aws.amazon.com/premiumsupport/knowledge-center/rds-modify-parameter-group-values/
     -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html#USER_WorkingWithParamGroups.Modifying
     -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/parameter-groups-overview.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.html#AuroraMySQL.Reference.Parameters.Inapplicable
   -scope
     -DB Parameter group
       -A container for engine configuration values that are applied to one or more DB instances.
