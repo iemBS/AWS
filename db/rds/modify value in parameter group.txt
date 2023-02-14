@@ -90,6 +90,8 @@ Note:
     -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html
     -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html#modify-multi-az-db-cluster-apply-immediately
   -This can also be done via CloudFormation
+  -DB Cluster must be moditifed to associate to parameter group
+  -DB CLuster must be running to modify it
 Pre-Conditions:
   -Done in RDS GUI
 Main Success Scenario:
