@@ -1,0 +1,6 @@
+Update CloudFormation Stack
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html
+Main Success Scenario:
+  1. xxx:fill in 
