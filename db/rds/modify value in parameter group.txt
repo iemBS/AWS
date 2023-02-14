@@ -1,0 +1,125 @@
+Modify Value in Parameter Group
+Note:
+  -guidance @
+    -https://aws.amazon.com/premiumsupport/knowledge-center/rds-modify-parameter-group-values/
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html#USER_WorkingWithParamGroups.Modifying
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/parameter-groups-overview.html
+  -scope
+    -DB Parameter group
+      -A container for engine configuration values that are applied to one or more DB instances.
+      -The default DB parameter group for the DB engine and DB engine version is used for each DB instance in the DB cluster.
+    -DB Cluster Parameter group
+      -Applies to Multi-AZ DB clusters only. 
+      -In a Multi-AZ DB cluster, the settings in the DB cluster parameter group apply to all of the DB instances in the cluster.
+  -If you create a DB instance without specifying a DB parameter group, the DB instance uses a default DB parameter group. 
+  -If you create a Multi-AZ DB cluster without specifying a DB cluster parameter group, the DB cluster uses a default DB cluster parameter group. 
+  -Each default parameter group contains database engine defaults and Amazon RDS system defaults based on the engine, compute class, and allocated storage of the instance.
+  -You can't modify the parameter settings of a default parameter group
+Main Success Scenario:
+  1. "Modify Value in DB Cluster Parameter Group"
+Alternatives:
+  1a. Modifying parameter only for a single DB
+    1a1. "Modify Value in DB Parameter Group"
+    
+    
+Modify Value in DB Cluster Parameter Group
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html#modify-multi-az-db-cluster-settings
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html#modify-multi-az-db-cluster-settings-not-applicable
+Pre-Conditions:
+  -Done in RDS GUI
+Main Success Scenario:
+  1. A custom DB Cluster Parameter Group exists
+  2. Modify Parameter Value in custom DB Cluster Parameter Group  
+  3. End
+Alternatives:
+  1a. A custom DB Cluster Parameter Group does NOT exist
+    1a1. "Create Custom DB Cluster Parameter Group"
+    1a2. "Associate Parameter Group to DB Cluster"
+    1a3. go to step 2
+  2a. Parameter Value cannot be modified
+    2a1. See error message when trying to save change
+    2a2. go to step 3
+  
+
+Modify Value in DB Parameter Group
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html#modify-multi-az-db-cluster-settings
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html#modify-multi-az-db-cluster-settings-not-applicable
+Pre-Conditions:
+  -Done in RDS GUI
+Main Success Scenario:
+  1. A custom DB Parameter Group exists
+  2. Modify Parameter Value in custom DB Parameter Group  
+  3. End
+Alternatives:
+  1a. A custom DB Parameter Group does NOT exist
+    1a1. "Create Custom DB Parameter Group"
+    1a2. "Associate Parameter Group to DB Instance"
+    1a3. go to step 2
+  2a. Parameter Value cannot be modified
+    2a1. See error message when trying to save change
+    2a2. go to step 3
+    
+    
+Create Custom DB Cluster Parameter Group
+Pre-Conditions:
+  -Done in RDS GUI
+Main Success Scenario:
+  1. Create DB Cluster Parameter Group
+  2. "Modify Value in DB Cluster Parameter Group"
+  3. End
+  
+
+Create Custom DB Parameter Group
+Pre-Conditions:
+  -Done in RDS GUI
+Main Success Scenario:
+  1. Create DB Parameter Group
+  2. "Modify Value in DB Parameter Group"
+  3. End
+
+
+Associate Parameter Group to DB Cluster
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html#modify-multi-az-db-cluster-apply-immediately
+  -This can also be done via CloudFormation
+Pre-Conditions:
+  -Done in RDS GUI
+Main Success Scenario:
+  1. Navigate to DB Cluster Parameter Group drop down 
+      Specific DB Cluster page > click Modify button > Additional configuration > DB options > DB cluster parameter group
+  2. Use Apply Immediately Option
+  3. End
+Alternatives:
+  2a. Do not use Apply Immediately Option
+    2a1. changes put into the pending modifications queue
+    2a2. pending changes in the queue are applied during the next maintenance window
+    2a3. go to step 3
+  
+  
+Associate Parameter Group to DB Instance
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html
+  -Both a DB Cluster and DB Instance Parameter group can be associated to a DB Instance at the same time
+Pre-Conditions:
+  -Done in RDS GUI
+Main Success Scenario:
+  1. Specific DB Instance page > click Modify button > Additional configuration > DB options > DB Instance parameter group
+  2. Use Apply Immediately Option
+  3. End
+Alternatives:
+  2a. Do not use Apply Immediately Option
+    2a1. changes put into the pending modifications queue
+    2a2. pending changes in the queue are applied during the next maintenance window
+    2a3. go to step 3
+
+
+
+
+
