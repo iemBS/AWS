@@ -1,0 +1,23 @@
+See Used Parameter Group Value 
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithDBInstanceParamGroups.html#USER_WorkingWithParamGroups.Viewing
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithDBClusterParamGroups.html#USER_WorkingWithParamGroups.ViewingCluster
+  -This viewing can be done in CLI and API too
+  -GUI will see what is in the parameter group regardless if the parameter group is associated with an aurora instance or not or if the aurora instance is enabled 
+  -CLI will see what is in the parameter group regardless if the parameter group is associated with an aurora instance or not or if the aurora instance is enabled 
+  -SQL will only show the parameter value if the parameter group is associated with aurora and aurora is enabled 
+Main Success Scenario:
+  1. Via GUI
+    Specific DB Cluster page > Configuration tab > DB cluster parameter group link
+  2. End
+Alternatives:
+  1a. Via CLI
+    1a1. see code below
+      aws rds describe-db-cluster-parameters --db-cluster-parameter-group-name mydbclusterparametergroup --query 'Parameters[].{ParameterName:ParameterName,ParameterValue:ParameterValue} | [?ParameterName == `myParameterName`]'
+    1a2. go to step 2
+  1b. Via SQL
+    1b1. see code below
+      select @@myParamName
+    1b2. go to step 2
+  
