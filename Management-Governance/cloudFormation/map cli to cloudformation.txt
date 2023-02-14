@@ -1,0 +1,6 @@
+Map CLI to CloudFormation
+-rds
+  -dd-role-to-db-cluster > AWS::RDS::DBCluster DBClusterRole
+    -ref @
+      -https://docs.aws.amazon.com/cli/latest/reference/rds/add-role-to-db-cluster.html
+      -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html
