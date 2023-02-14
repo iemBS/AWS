@@ -74,6 +74,10 @@ Properties per Section Type
   -CodeUri
     -The function code's Amazon S3 URI, path to local folder, or FunctionCode object. This property only applies if the PackageType property is set to Zip, otherwise it is ignored.
   -ref @ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
+-AWS::RDS::DBCluster
+  -ref @ 
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html
 -AWS::S3::Bucket
   -xxx
 -AWS::SNS::Subscription
