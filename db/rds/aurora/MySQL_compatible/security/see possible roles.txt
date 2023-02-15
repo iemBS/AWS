@@ -1,0 +1,17 @@
+See All Roles
+Note:
+  -role is saved in the same place as a user
+  -role has no password
+  -role host is always "%"
+Main Success Scenario:
+  1. see code below
+
+    SELECT 
+      user AS role_name
+    FROM 
+      mysql.user
+    WHERE 
+      host = '%'
+      AND 
+      NOT LENGTH(authentication_string);
+
