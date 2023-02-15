@@ -3,6 +3,8 @@ Note:
   -guidance:
     -https://dev.mysql.com/doc/refman/5.7/en/creating-accounts.html#checking-account-privileges
     -https://dba.stackexchange.com/questions/23265/mysql-show-grants-for-all-users
+  -Invoke_lambda_priv column not shown in mysql.user table in non-serverless aurora if xxx not enabled
+  -Invoke_lambda_priv column always shows in mysql.user table in serverless aurora, even though lambda functions cannot be called from serverless aurora
 Question:
   -How do discern between not having access to one of the tables below and not having any privileges?
     -mysql.tables_priv
