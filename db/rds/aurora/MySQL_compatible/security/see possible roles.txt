@@ -1,8 +1,12 @@
 See All Roles
 Note:
+  -guidance @
+    -https://dev.mysql.com/doc/refman/8.0/en/roles.html
   -role is saved in the same place as a user
   -role has no password
   -role host is always "%"
+  -roles were added to MySQL after version 5.7
+    -the below query returns nothing in version 5.7
 Main Success Scenario:
   1. see code below
 
