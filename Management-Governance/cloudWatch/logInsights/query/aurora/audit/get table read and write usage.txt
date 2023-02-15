@@ -1,0 +1,8 @@
+Get Table Read and Write Usage
+Main Success Scenario:
+  1. Input DB_NM and TBL_NM below
+
+    fields @timestamp,@message
+    | filter @message like /(?i),(WRITE|READ),DB_NM,/    
+    | filter @message like /(?i)TBL_NM/ 
+    | display @timestamp,@message
