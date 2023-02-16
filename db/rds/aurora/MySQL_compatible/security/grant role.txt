@@ -1,0 +1,10 @@
+Grant Role
+Note:
+  -guidance @
+     -https://dev.mysql.com/doc/refman/8.0/en/account-names.html
+     -https://dev.mysql.com/doc/refman/5.7/en/account-names.html
+     -https://dev.mysql.com/doc/refman/8.0/en/roles.html
+  -roles were added to mysql after version 5.7 
+Main Success Scenario:
+  1. Grant AWS_LAMBDA_ACCESS role to myUser user from any IP address
+    GRANT AWS_LAMBDA_ACCESS TO 'myUser'@'%'
