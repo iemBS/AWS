@@ -1,0 +1,9 @@
+See Roles Associated to User
+Note:
+  -guidance @
+    -https://dev.mysql.com/doc/refman/8.0/en/roles.html
+  -roles were added to MySQL after version 5.7
+Main Success Scenario:
+  1. select CURRENT_ROLE()
+  
+  
