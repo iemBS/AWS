@@ -1,0 +1,10 @@
+Create Empty File per Proc
+Main Success Scenario:
+  1. see code below
+
+    select
+      concat('echo.>',routine_schema,'.',routine_name,'.sql') as winShellCmd
+    from
+      information_schema.routines 
+    where
+      routine_type = 'PROCEDURE'
