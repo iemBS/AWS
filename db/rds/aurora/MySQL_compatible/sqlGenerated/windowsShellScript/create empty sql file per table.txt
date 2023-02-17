@@ -1,0 +1,14 @@
+Create Empty SQL File per Table
+Main Success Scenario:
+  1. see code below
+
+    select
+      concat('echo.>',table_schema,'.',table_name,'.sql') as winShellCmd
+    from
+      information_schema.tables 
+    where
+      table_schema like 'myDB_%'
+        and
+        table_name like 'myTbl_%'
+        and
+        table_type = 'BASE TABLE'
