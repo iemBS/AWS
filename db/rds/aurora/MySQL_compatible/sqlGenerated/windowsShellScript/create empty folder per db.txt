@@ -1,3 +1,10 @@
 Create Empty Folder per DB
 Main Success Scenario:
-  1. xxx:fill in 
+  1. see code below
+
+    select distinct 
+      concat('mkdir ',table_schema) as winShellCmd
+    from
+      information_schema.tables 
+    where
+      table_schema like 'myDB_%'
