@@ -1,7 +1,15 @@
+These services are found in the following location in an IAM role declaration in a cloudformation template
+-Properties/AssumeRolePolicyDocument/Statement/Principal/Service
+
+This type of IAM role creation allows the service to use the role you have created
+
 service 
 -events.amazonaws.com
   -EventBridge
 -glue.amazonaws.com
 -lambda.amazonaws.com
   -Lambda function
+-rds.amazonaws.com
+  -xxx:fill in 
+  -ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAM.ServiceLinkedRoles.html
 -xxx:fill in 
