@@ -24,7 +24,10 @@ Properties per Section Type
     -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input
 -AWS::IAM::Role
   -ManagedPolicyArns (can have 1 or more managed policies)
-  -AssumeRolePolicyDocument (can have only 1 inline policy)
+  -AssumeRolePolicyDocument (can have only 1 inline policy, )
+    -allows the service noted in "Properties/AssumeRolePolicyDocument/Statement/Principal/Service" to assume the role this section creates
+      -if the service was "lambda.amazonaws.com" then a lambda function can run as the role this section creates
+    -ref @ https://devops.stackexchange.com/questions/5094/what-is-the-purpose-of-assumerolepolicydocument-in-iam
   -Policies (can have 1 or more inline policies)
     -PolicyDocument (can have only 1 inline policy)
       -Version
