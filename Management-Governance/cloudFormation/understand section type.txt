@@ -6,8 +6,9 @@ section type
   -AWS::IAM::Role
   -AWS::Lambda::Function
   -AWS::Lambda::Permission
-    -grants an AWS service or another account permission to use a function
-      -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
+    -grants an AWS service or another account permission to use a lambda function
+      -ref @ 
+        -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
   -AWS::S3::Bucket
   -AWS::SNS::Subscription
   -AWS::SNS::Topic
