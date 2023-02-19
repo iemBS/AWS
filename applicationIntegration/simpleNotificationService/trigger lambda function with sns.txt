@@ -1,0 +1,6 @@
+Trigger Lambda Function with SNS
+Note:
+  -guidance @
+    -https://aws.amazon.com/premiumsupport/knowledge-center/sns-not-invoking-lambda/
+Main Success Scenario:
+  1. xxx:fill in 
