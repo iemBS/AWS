@@ -1,5 +1,6 @@
 Subscribe to SNS Topic
 Note:
   -By default, only the topic owner can publish or subscribe to a topic
+  -When a subscription associates an sns topic to a lambda function, the sns topic becomes a trigger for the lambda function
 Main Success Scenario:
   1. xxx:fill in 
