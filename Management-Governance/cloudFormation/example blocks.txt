@@ -18,4 +18,13 @@ s3Permission:
       SourceArn: !Ref mySNSTopic
       Action: lambda:InvokeFunction
       FunctionName: !Ref function
+      
+# Enable EventBridge rule to invoke a lambda function
+  EventBridgeRulePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt myEventBridgeRule.Arn
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref function
 
