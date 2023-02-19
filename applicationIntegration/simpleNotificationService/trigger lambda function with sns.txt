@@ -2,5 +2,8 @@ Trigger Lambda Function with SNS
 Note:
   -guidance @
     -https://aws.amazon.com/premiumsupport/knowledge-center/sns-not-invoking-lambda/
+    -https://stackoverflow.com/questions/39689228/aws-sns-ought-to-trigger-my-lambda-but-does-not
+    -https://aws.amazon.com/premiumsupport/knowledge-center/lambda-subscribe-sns-topic-same-account/
+    -https://stackoverflow.com/questions/39689228/aws-sns-ought-to-trigger-my-lambda-but-does-not
 Main Success Scenario:
   1. xxx:fill in 
