@@ -1,0 +1,6 @@
+Publish to Topic
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/cli/latest/reference/sns/publish.html
+Main Success Scenario:
+  1. xxx:fill in 
