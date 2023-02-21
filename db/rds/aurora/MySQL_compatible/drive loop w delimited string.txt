@@ -10,11 +10,11 @@ Main Success Scenario:
     BEGIN
 
     set @position = 1;
-    WHILE @position <= 7 DO
+    WHILE @position <= 8 DO
       IF @position = 1 THEN
-        set @result = SUBSTRING_INDEX('1.2.3.4.5.6.7.8','.',@position);
+        set @result = SUBSTRING_INDEX('1.2.3.4.5.6.7.8.','.',@position);
       ELSE
-        set @result = SUBSTRING_INDEX(SUBSTRING_INDEX('1.2.3.4.5.6.7.8','.',@position),'.',-1);
+        set @result = SUBSTRING_INDEX(SUBSTRING_INDEX('1.2.3.4.5.6.7.8.','.',@position),'.',-1);
       END IF;
 
       select @result;
