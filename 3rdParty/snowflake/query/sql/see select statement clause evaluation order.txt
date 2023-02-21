@@ -1,0 +1,19 @@
+see select statement clause evaluation order
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/sql-reference/constructs/qualify
+    -https://docs.snowflake.com/en/sql-reference/constructs/where
+  -If a predicate in the WHERE clause references columns of a table participating in an outer join in the FROM clause, the filter operates on the rows returned from the join (which might be padded with NULLs).
+Main Success Scenario:
+  1. see below
+    -from
+    -where
+    -group by
+    -having
+    -window
+    -qualify
+    -distinct
+    -order by
+    -limit
+  2. See where clause predicate evaluation order
+    xxx:fill in 
