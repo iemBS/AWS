@@ -58,6 +58,10 @@ Note:
   -guidance @
     -https://www.mysqltutorial.org/mysql-add-column/
   -If altering the existing table instead of droping and recreating, the column can only be added to the end of the table.
+  -Format of query
+    ALTER TABLE table
+    ADD [COLUMN] column_name_1 column_1_definition [FIRST|AFTER existing_column],
+    ADD [COLUMN] column_name_2 column_2_definition [FIRST|AFTER existing_column];
 Main Success Scenario:
   1. ALTER TABLE table_name ADD columnname INTEGER NOT NULL;
   2. end
