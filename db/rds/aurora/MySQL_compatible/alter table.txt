@@ -55,6 +55,8 @@ Alternatives:
 
 Add Column
 Note:
+  -guidance @
+    -https://www.mysqltutorial.org/mysql-add-column/
   -If altering the existing table instead of droping and recreating, the column can only be added to the end of the table.
 Main Success Scenario:
   1. ALTER TABLE table_name ADD columnname INTEGER NOT NULL;
