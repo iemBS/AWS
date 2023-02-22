@@ -1,0 +1,6 @@
+Create User
+Note:
+  -guidance @
+    -https://stackoverflow.com/questions/37487801/aurora-rds-grant-user-with-select-privileges
+Main Success Scenario:
+  1. xxx:fill in 
