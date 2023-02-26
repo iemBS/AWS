@@ -28,8 +28,6 @@ Note:
     -@current_schema will show the value from the previous row
       @current_schema := schema_name 
       @schema_rank := IF(@current_schema <> schema_name, @schema_rank + 1, 1) AS schema_rank,
-      
-      
 Main Success Scenario:
   1. See code below
     SET @current_schema:=NULL;
