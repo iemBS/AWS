@@ -1,10 +1,14 @@
 Filter with LIKE
 Note:
   -https://stackoverflow.com/questions/8537516/how-to-use-an-user-variables-in-mysql-like-clause
-  -Guidance @ https://stackoverflow.com/questions/22167132/mysql-like-query-with-underscore
+  -Guidance @ 
+    -https://stackoverflow.com/questions/22167132/mysql-like-query-with-underscore
+    -https://www.w3schools.com/sql/sql_wildcards.asp
   -Underscore characters need to be escaped if searched for in a value
   -When searching for partial strings in MySQL with LIKE you will match case-insensitive by default. If you want to match case-sensitive, you can cast the value as binary and then do a byte-by-byte comparision vs. a character-by-character comparision. The only thing you need to add to your query is BINARY.
     -https://stackoverflow.com/questions/5629111/how-can-i-make-sql-case-sensitive-string-comparison-on-mysql
+  -wildcard characters in mysql
+    -xxx:fill in 
 Main Success Scenario:
   1. Select * From MyTbl Where MyCol Like '%xx%'
 Alternatives:
