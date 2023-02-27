@@ -2,5 +2,13 @@ Create User
 Note:
   -guidance @
     -https://stackoverflow.com/questions/37487801/aurora-rds-grant-user-with-select-privileges
+    -https://dev.mysql.com/doc/refman/5.7/en/create-user.html
+    -https://stackoverflow.com/questions/20036547/mysql-how-to-grant-read-only-permissions-to-a-user
 Main Success Scenario:
-  1. xxx:fill in 
+  1. see code below
+    CREATE USER 'ckent'@'%' IDENTIFIED BY 'myPass';
+Alternatives
+  1a. Create new user and grant read only access to that user to all databases 
+    GRANT SELECT ON *.* TO 'ckent'@'%' IDENTIFIED BY 'myPass';
+  
+
