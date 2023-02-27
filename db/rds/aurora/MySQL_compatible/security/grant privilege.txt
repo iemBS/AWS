@@ -13,3 +13,11 @@ Alternatives:
   1a. In SQL window
     1a1. xxx:fill in 
     1a2. go to step 2
+    
+
+Grant Privilege w SQL query
+Main Success Scenario:
+  1. Grant read only access to all databases 
+   GRANT SELECT ON *.* TO 'ckent'@'%';    
+Alternatives:
+  1a. xxx:fill in 
