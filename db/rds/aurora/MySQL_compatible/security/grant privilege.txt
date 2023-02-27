@@ -16,6 +16,9 @@ Alternatives:
     
 
 Grant Privilege w SQL query
+Note:
+  -Step 1 throws the following 1287 warning
+    -Using GRANT for creating new user is deprecated and will be removed in future release. Create new user with CREATE USER statement.
 Main Success Scenario:
   1. Grant read only access to all databases 
    GRANT SELECT ON *.* TO 'ckent'@'%';    
