@@ -3,6 +3,7 @@ Note:
   -guidance @
     -https://dev.mysql.com/doc/refman/8.0/en/roles.html
   -roles were added to MySQL after version 5.7
+  -CURRENT_ROLE() returns a utf8 string containing the current active roles for the current session, separated by commas, or NONE if there are none
 Main Success Scenario:
   1. select CURRENT_ROLE()
   
