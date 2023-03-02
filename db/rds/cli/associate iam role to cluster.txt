@@ -1,0 +1,7 @@
+Associate IAM Role to Cluster
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.AddRoleToDBCluster.html
+Main Success Scenario:
+  1. see code below
+    aws rds add-role-to-db-cluster --db-cluster-identifier RDS_CLUSTER_IDENTIFIER --role-arn IAM_ROLE_ARN
