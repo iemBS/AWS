@@ -175,6 +175,7 @@ Define Resource
 Note:
   -guidance @ 
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html
+  -This is what the permissions are protecting 
   -Possible Values
     -*: applies to all resources
     -xxx:fill in
