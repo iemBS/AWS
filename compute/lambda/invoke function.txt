@@ -6,6 +6,7 @@ Note:
     -https://www.tutorialspoint.com/aws_lambda/aws_lambda_executing_and_invoking_lambda_function.htm
     -https://docs.aws.amazon.com/lambda/latest/dg/troubleshooting-invocation.html
     -https://docs.aws.amazon.com/lambda/latest/dg/troubleshooting-execution.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/troubleshooting-invocation.html
   -Payload must be in JSON format
 Main Success Scenario:
   1. Set ClientContext
