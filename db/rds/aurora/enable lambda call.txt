@@ -4,5 +4,6 @@ Note:
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.html
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.LambdaCreatePolicy.html
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.AddRoleToDBCluster.html
+    -https://www.ethanbray.com/aws/2019/07/14/intermittent-rds-errors-lambda-triggers.html
 Main Success Scenario:
   1. xxx:fill in 
