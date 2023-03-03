@@ -1,0 +1,6 @@
+Grant Permission to Service
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
+Main Success Scenario:
+  1. xxx:fill in 
