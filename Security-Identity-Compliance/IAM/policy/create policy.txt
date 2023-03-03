@@ -12,6 +12,9 @@ Note:
     -inline
   -managed type pros
     -reusability: A single managed policy can be attached to multiple principal entities (users, groups, and roles). In effect, you can create a library of policies that define permissions that are useful for your AWS account, and then attach these policies to principal entities as needed.
+      -Depends on the range of principals, resources, or both that the policy can apply to. 
+      -May reduce the total number of inline and managed policies
+      -May make less secure
     -central change management: When you change a managed policy, the change is applied to all principal entities that the policy is attached to. For example, if you want to add permission for a new AWS API, you can update the managed policy to add the permission. (If you're using an AWS managed policy, AWS updates to the policy.) When the policy is updated, the changes are applied to all principal entities that the policy is attached to. 
     -versioning and rolling back: When you change a customer managed policy, the changed policy doesn't overwrite the existing policy. Instead, IAM creates a new version of the managed policy. IAM stores up to five versions of your customer managed policies. You can use policy versions to revert a policy to an earlier version if you need to.
     -delegating permissions management: You can allow users in your AWS account to attach and detach policies while maintaining control over the permissions defined in those policies. In effect, you can designate some users as full administrators—that is, administrators that can create, update, and delete policies. You can then designate other users as limited administrators. That is, administrators that can attach policies to other principal entities, but only the policies that you have allowed them to attach.
@@ -42,8 +45,30 @@ Main Success Scenario:
 
 
 Create Custom Managed Policy
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.LambdaCreatePolicy.html
 Main Success Scenario:
-  1. xxx:fill in
+  1. Create policy JSON
+
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "UNQIUE_POLICY_NAME",
+                "Effect": "Allow",
+                "Action": "SERVICE:ACTION",
+                "Resource": "RESOURCE_ARN"
+            }
+        ]
+    }
+    
+  2. Associate policy with a role
+  3. End
+Alternatives:
+  2a. Associate policy with a service 
+    2a1. xxx:fill in 
+    2a2. go to step 3
 
   
 Create Policy for Glue
