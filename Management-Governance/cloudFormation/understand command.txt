@@ -23,6 +23,7 @@ command
   -!Ref returns only the default attribute for another resources, while !GetAtt can return any attribute for the other resource 
   -May not always work with AWS::Serverless::Function type
   -This command may be able to pull attributes that !GettAtt cannot
+  -For outputs of a stack, use this command with an export name and NOT key
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html
     -https://theburningmonk.com/cloudformation-ref-and-getatt-cheatsheet/
