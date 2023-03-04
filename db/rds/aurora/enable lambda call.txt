@@ -5,5 +5,7 @@ Note:
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.LambdaCreatePolicy.html
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.AddRoleToDBCluster.html
     -https://www.ethanbray.com/aws/2019/07/14/intermittent-rds-errors-lambda-triggers.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html
+    -https://repost.aws/questions/QUcTTrpOk-SRmUrZgsNYLJyw/silent-failure-in-cloud-formation-lambda-vpc-config
 Main Success Scenario:
   1. xxx:fill in 
