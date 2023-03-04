@@ -20,6 +20,9 @@ Intrinsic Function (! is short form, Fn:: is long form)
   -The ImportValue function can't include Ref or GetAtt functions that depend on a resource
   -You can't delete a stack if another stack references one of its outputs
   -You can't modify or remove an output value that is referenced by another stack
+  -You can't use the short form of !ImportValue when it contains a !Sub
+    -incorrect example: !ImportValue 'Fn::Sub': '${NetworkStack}-SubnetID' 
+    -correct example:   Fn::ImportValue: !Sub "${NetworkStack}-SubnetID"
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
