@@ -51,11 +51,10 @@ Properties per Section Type
     -FunctionName
     -Handler
     -Runtime
+      -identifier of the function's runtime
+      -Runtime is required if the deployment package is a .zip file archive
   -Role
     -ARN of the function's execution role
-  -Runtime
-    -identifier of the function's runtime
-    -Runtime is required if the deployment package is a .zip file archive
   -Timeout
     -amount of time (in seconds) that Lambda allows a function to run before stopping it
     -default is 3 seconds
