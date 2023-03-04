@@ -23,6 +23,15 @@ Intrinsic Function (! is short form, Fn:: is long form)
   -You can't use the short form of !ImportValue when it contains a !Sub
     -incorrect example: !ImportValue 'Fn::Sub': '${NetworkStack}-SubnetID' 
     -correct example:   Fn::ImportValue: !Sub "${NetworkStack}-SubnetID"
+  -can use the following functions in the Fn::ImportValue function, but the value of these functions can't depend on a resource
+    -Fn::Base64
+    -Fn::FindInMap
+    -Fn::If
+    -Fn::Join
+    -Fn::Select
+    -Fn::Split
+    -Fn::Sub
+    -Ref!
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
