@@ -66,6 +66,7 @@ Properties per Section Type
       -Needed when Lambda function needs to be in same security group as a service that will interact with it
     -SubnetIds
       -Needed when Lambda function needs to be in same subnet as a service that will interact with it
+    -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-properties
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
