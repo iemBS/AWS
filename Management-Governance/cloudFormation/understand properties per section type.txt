@@ -53,6 +53,14 @@ Properties per Section Type
     -Runtime
       -identifier of the function's runtime
       -Runtime is required if the deployment package is a .zip file archive
+    -VpcConfig
+      -SecurityGroupIds
+        -Needed when Lambda function needs to be in same security group as a service that will interact with it
+      -SubnetIds
+        -Needed when Lambda function needs to be in same subnet as a service that will interact with it
+      -ref @ 
+        -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
+        -https://github.com/aws-samples/reactive-refarch-cloudformation/blob/master/infrastructure/lambda.yaml
   -Role
     -ARN of the function's execution role
   -Timeout
@@ -60,12 +68,6 @@ Properties per Section Type
     -default is 3 seconds
     -max allowed value is 900 seconds
   -TracingConfig
-  -VpcConfig
-    -SecurityGroupIds
-      -Needed when Lambda function needs to be in same security group as a service that will interact with it
-    -SubnetIds
-      -Needed when Lambda function needs to be in same subnet as a service that will interact with it
-    -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#aws-resource-lambda-function-properties
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
