@@ -1,4 +1,4 @@
-command
+Intrinsic Function (! is short form, Fn:: is long form)
 -!FindInMap
   -returns the value corresponding to keys in a two-level map that's declared in the Mappings section
   -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html
@@ -14,9 +14,16 @@ command
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#aws-resource-sns-topic-return-values
 -!ImportValue
   -returns the value of an output exported by another stack. You typically use this function to create cross-stack references
+  -For each AWS account, Export names must be unique within a region
+  -You can't create cross-stack references across regions
+  -You can use the intrinsic function Fn::ImportValue to import only values that have been exported within the same region
+  -The ImportValue function can't include Ref or GetAtt functions that depend on a resource
+  -You can't delete a stack if another stack references one of its outputs
+  -You can't modify or remove an output value that is referenced by another stack
   -ref @ 
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.html
 -!Ref
   -Reference other blocks already in the .YAML file without having to write it again
   -returns the value of the specified parameter or resource
