@@ -1,0 +1,6 @@
+Import Resource
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html
+Main Success Scenario:
+  1. xxx:fill in
