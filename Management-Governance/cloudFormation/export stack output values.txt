@@ -2,5 +2,6 @@ Export Stack Output Values
 Note:
   -guidance @
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html
+    -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
 Main Success Scenario:
   1. xxx:fill in 
