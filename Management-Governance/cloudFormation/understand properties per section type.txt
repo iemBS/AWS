@@ -56,8 +56,10 @@ Properties per Section Type
     -VpcConfig
       -SecurityGroupIds
         -Needed when Lambda function needs to be in same security group as a service that will interact with it
+        -The values for this come from the security group ID. A security group ID exists for each security group. An EC2 instance will have one or more security groups associated to it.
       -SubnetIds
         -Needed when Lambda function needs to be in same subnet as a service that will interact with it
+        -The values for this come from the subnet ID. A subnet ID exists for each subnet. A VPC will have one or more subnets associated to it.
       -ref @ 
         -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
         -https://github.com/aws-samples/reactive-refarch-cloudformation/blob/master/infrastructure/lambda.yaml
