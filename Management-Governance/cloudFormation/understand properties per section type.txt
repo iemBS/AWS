@@ -26,6 +26,8 @@ Properties per Section Type
     -overwrite eventbridge default message with a custom message (in JSON format)
     -max size of 8192 KB
     -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input
+-AWS::EC2::SecurityGroup
+  -xxx:fill in 
 -AWS::IAM::Role
   -ManagedPolicyArns (can have 1 or more managed policies)
   -AssumeRolePolicyDocument (can have only 1 inline policy, )
