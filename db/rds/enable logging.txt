@@ -7,7 +7,7 @@ Note:
   -parameters in parameter group
     -server_audit_logging
       -possible value: 0, 1
-      -default value: xxx:fill in 
+      -default value: 0
       -Enables audit logging
       -No audit data appears in the logs unless you also define one or more types of events to audit using the server_audit_events parameter.
     -server_audit_events
@@ -27,15 +27,15 @@ Note:
       -Examples: CONNECT,QUERY_DDL 
     -server_audit_logs_upload
       -possible value: 0, 1
-      -default value: xxx:fill in 
+      -default value: 0
       -Enables audit log upload to CloudWatch Logs
     -slow_query_log
       -possible value: 0, 1
-      -default value: xxx:fill in 
+      -default value: 0
       -Enables slow query logging
     -general_log
       -possible value: 0, 1
-      -default value: xxx:fill in 
+      -default value: 0
       -Enables general logging
     -server_audit_incl_users
     -server_audit_excl_users
