@@ -27,7 +27,10 @@ Properties per Section Type
     -max size of 8192 KB
     -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input
 -AWS::EC2::SecurityGroup
-  -xxx:fill in 
+  -Properties
+    -VPCId
+-AWS::EC2:VPC
+  -ref @ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
 -AWS::IAM::Role
   -ManagedPolicyArns (can have 1 or more managed policies)
   -AssumeRolePolicyDocument (can have only 1 inline policy, )
@@ -103,6 +106,9 @@ Properties per Section Type
     -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html
 -AWS::S3::Bucket
   -xxx
+-AWS::ServiceDiscovery::PrivateDnsNamespace
+  -Properties
+    -Vpc
 -AWS::SNS::Subscription
   -You can set subscription attributes only on standalone Amazon SNS subscriptions (not on subscriptions nested in topics).
   -DeliveryPolicy
