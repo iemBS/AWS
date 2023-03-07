@@ -1,0 +1,162 @@
+Enable Logging
+Note:
+  -guidance @
+    -https://aws.amazon.com/premiumsupport/knowledge-center/advanced-audit-rds-mysql-cloudwatch/
+    -https://aws.amazon.com/premiumsupport/knowledge-center/advanced-audit-aurora-mysql-cloudwatch/
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Auditing.html#AuroraMySQL.Auditing.Enable
+  -parameters in parameter group
+    -server_audit_logging
+      -possible value: 0, 1
+      -default value: xxx:fill in 
+      -Enables audit logging
+      -No audit data appears in the logs unless you also define one or more types of events to audit using the server_audit_events parameter.
+    -server_audit_events
+      -possible value:
+        -CONNECT – Logs both successful and failed connections and also disconnections. This event includes user information.
+        -QUERY – Logs all queries in plain text, including queries that fail due to syntax or permission errors.
+          -With this event type turned on, the audit data includes information about the continuous monitoring and health-checking information that Aurora does automatically. 
+          -If you are only interested in particular kinds of operations, you can use the more specific kinds of events. 
+          -You can also use the CloudWatch interface to search in the logs for events related to specific databases, tables, or users.
+        -QUERY_DCL – Similar to the QUERY event, but returns only data control language (DCL) queries (GRANT, REVOKE, and so on).
+        -QUERY_DDL – Similar to the QUERY event, but returns only data definition language (DDL) queries (CREATE, ALTER, and so on).
+        -QUERY_DML – Similar to the QUERY event, but returns only data manipulation language (DML) queries (INSERT, UPDATE, and so on, and also SELECT).
+        -TABLE – Logs the tables that were affected by query execution.      
+      -default value: empty string
+      -comma-delimited list of events to log
+      -Events must be specified in all caps, and there should be no white space between the list elements
+      -Examples: CONNECT,QUERY_DDL 
+    -server_audit_logs_upload
+      -possible value: 0, 1
+      -default value: xxx:fill in 
+      -Enables audit log upload to CloudWatch Logs
+    -slow_query_log
+      -possible value: 0, 1
+      -default value: xxx:fill in 
+      -Enables slow query logging
+    -general_log
+      -possible value: 0, 1
+      -default value: xxx:fill in 
+      -Enables general logging
+    -server_audit_incl_users
+    -server_audit_excl_users
+Main Success Scenario:
+  1. "Enable Logging for Aurora Serverless V1"
+  x. End
+Alternatives:
+  1a. For provisioned instead
+    1a1. "Enable Logging for Aurora Provisioned"
+    
+    
+Enable Logging for Aurora Provisioned
+Note:
+  -guidance @
+    -xxx:fill in 
+Main Success Scenario:
+  1. "Enable Aurora Provisioned Logging via RDS Console"
+Alternatives:
+  1a. xxx:fill in 
+    1a1. "Enable Aurora Provisioned Logging via CLI"
+    
+    
+Enable Aurora Logging via RDS Console
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-parameter-group.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html#USER_WorkingWithParamGroups.ModifyingCluster
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_RebootCluster.html
+  -works for Aurora Provisioned or Serverless
+  -The updated parameters are dynamic, so no need to reboot rds cluster.
+Main Success Scenario:
+  1. Create a custom DB cluster parameter group.
+  2. Modify the parameters for Advanced Auditing.
+  3. Modify the cluster to associate the new custom DB parameter group with your Aurora MySQL-Compatible DB cluster.
+  4. Restart the rds instance to apply the custom parameter group
+  5. End
+Alternatives:
+  3a. The custom parameter group is already associated to the cluster
+    3a1. No need to reboot the rds instance
+    3a2. go to step 5
+  
+  
+Enable Aurora Provisioned Logging via RDS Console
+Main Success Scenario:
+  1. "Enable Aurora Logging via RDS Console"
+  2. End
+  
+
+Enable Aurora Provisioned Logging via CLI
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Enable Logging for Aurora Serverless V1
+Note:
+  -guidance @
+    -https://aws.amazon.com/premiumsupport/knowledge-center/aurora-serverless-logs-enable-view/
+Main Success Scenario:
+  1. "Enable Aurora Serverless V1 Logging via RDS Console"
+Alternatives:
+  1a. xxx:fill in 
+    1a1. "Enable Aurora Serverless V1 Logging via CLI"
+    
+    
+Enable Aurora Serverless V1 Logging via RDS Console
+Main Success Scenario:
+  1. "Enable Aurora Logging via RDS Console"
+  2. End
+
+
+Enable Aurora Serverless V1 Logging via CLI
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Publish Aurora Provisioned Log to CloudWatch via RDS Console
+Main Success Scenario:
+  1. "Publish Aurora Log to CloudWatch via RDS Console"
+  2. End
+    
+    
+Publish Aurora Log to CloudWatch via RDS Console
+Main Success Scenario:
+  1. open rds console
+  2. choose databases
+  3. select db instance you want to export log data to cloudwatch
+  4. choose modify
+  5. among the log exports, choose audit log
+  6. choose to modify the instance 
+  7. End
+Alternatives:
+  1a. for error log instead
+    1a1. xxx:fill in 
+  1b. for slow query log instead 
+    1b1. xxx:fill in 
+  1c. for general log instead
+    1c1. xxx:fill in 
+  2a. use parameter group instead
+    2a1. set server_audit_logs_upload = 1
+    2a2. go to step 7
+  
+  
+Publish Aurora Provisioned Log to CloudWatch via CLI
+Main Success Scenario:
+  1. Publish Audit log to CloudWatch
+    aws rds modify-db-instance --db-instance-identifier <mydbinstance> --cloudwatch-logs-export-configuration '{"EnableLogTypes":["audit"]}'
+
+  
+Publish Aurora Serverless V1 Log to CloudWatch via RDS Console
+Note:
+  -No need to configure logs to publish to CloudWatch, as Amazon Aurora Serverless v1 clusters automatically upload these types of logs. 
+Main Success Scenario:
+  1. End
+  
+  
+Publish Aurora Serverless V1 Log to CloudWatch via CLI
+Note:
+  -No need to configure logs to publish to CloudWatch, as Amazon Aurora Serverless v1 clusters automatically upload these types of logs. 
+Main Success Scenario:
+  1. End
+
+
+
+
