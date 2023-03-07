@@ -39,6 +39,11 @@ Note:
       -Enables general logging
     -server_audit_incl_users
     -server_audit_excl_users
+  -Modifying these parameters doesn't require a DB cluster restart when the parameter group is already associated with your cluster. When you associate the parameter group with the cluster for the first time, a cluster restart is required.
+    -server_audit_logging
+    -server_audit_events
+    -server_audit_incl_users
+    -server_audit_excl_users
 Main Success Scenario:
   1. "Enable Logging for Aurora Serverless V1"
   x. End
