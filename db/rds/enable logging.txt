@@ -123,6 +123,8 @@ Main Success Scenario:
     
     
 Publish Aurora Log to CloudWatch via RDS Console
+Note:
+  -Just setting server_audit_logs_upload parameter may not work. 
 Main Success Scenario:
   1. open rds console
   2. choose databases
