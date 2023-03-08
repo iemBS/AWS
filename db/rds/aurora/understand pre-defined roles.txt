@@ -6,6 +6,7 @@ rds_superuser_role
   -APPLICATION_PASSWORD_ADMIN
   -ALTER ROUTINE
   -CONNECTION_ADMIN *
+    -ref @ https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_connection-admin
   -CREATE
   -CREATE ROLE *
   -CREATE ROUTINE
@@ -26,11 +27,14 @@ rds_superuser_role
   -RELOAD
   -REPLICATION CLIENT
   -REPLICATION SLAVE
-  -ROLE_ADMIN *
+  -ROLE_ADMIN
+    -ref @ https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_role-admin
   -SET_USER_ID *
+    -ref @ https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_set-user-id
   -SELECT
   -SHOW DATABASES
   -SHOW VIEW
   -TRIGGER
   -UPDATE
-  -XA_RECOVER_ADMIN *
+  -XA_RECOVER_ADMIN
+    -ref @ https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_xa-recover-admin
