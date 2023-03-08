@@ -1,0 +1,8 @@
+Enable Outbound Connection to Other Service
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.Network.html
+  -Aurora returns the following error messages if it can't connect to a service endpoint
+    -xxx:fill in 
+Main Success Scenario:
+  1. xxx:fill in 
