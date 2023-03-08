@@ -5,6 +5,7 @@ Note:
   -guidance @
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html
 Main Success Scenario:
   1. user associates IAM role to resource
   2. association successful
