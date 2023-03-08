@@ -1,0 +1,6 @@
+Test Function
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/testing-functions.html
+Main Success Scenario:
+  1. xxx:fill in 
