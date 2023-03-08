@@ -1,0 +1,9 @@
+Get Aurora MySQL Version
+Note:
+  -Aurora MySQL version and MySQL version are not the same versioning
+Main Success Scenario:
+  1. xxx:fill in 
+  2. End
+Alternatives:
+  1a. Want MySQL Version instead
+    1a1. see MySQL_compatible folder in this code repo
