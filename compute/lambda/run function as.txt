@@ -1,0 +1,29 @@
+Run Function As
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html
+    -https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html#permissions-executionrole-source-function-arn
+  -Lambda functions are run as the execution role
+  -For Lambda platform to properly assume the execution role, the role's trust policy must specify the Lambda service principal (lambda.amazonaws.com) as a trusted service.
+  -Example way of setting up that trust
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "lambda.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
+    }
+Main Success Scenario:
+  1. Invoke function
+  2. Lambda platform automatically provides function with temp credentials by assuming the execution role.
+  3. Function is executed as the execution role
+  
+  
+ 
+  
+  L
