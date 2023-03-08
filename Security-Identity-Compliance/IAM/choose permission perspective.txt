@@ -1,0 +1,30 @@
+Choose Permission Perspective
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+  -Actor is what is doing the actions
+  -Actee is what is receiving the action
+Main Success Scenario:
+  1. "Set Permissions on the Actor"
+  2. End 
+Alternatives:
+  1a. Permissions will be fewer if we set on the Actee
+    1a1. "Set Permissions on the Actee"
+    1a2. Go to step 2
+  1b. Permissions will be easier to manage if we set on the Actee
+    1b1. "Set Permissions on the Actee"
+    1b2. Go to step 2
+  1c. All Actors will be accessing the Actee with the same permissions 
+    1c1. "Set Permissions on the Actee"
+    1c2. Go to step 2
+
+
+Set Permissions on the Actor
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Set Permissions on the Actee
+Main Success Scenario:
+  1. xxx:fill in 
