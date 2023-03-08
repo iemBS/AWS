@@ -1,0 +1,6 @@
+Create Event
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.html
+Main Success Scenario:
+  1. xxx:Fill in
