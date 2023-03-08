@@ -3,6 +3,17 @@ Note:
   -guidance @
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-deprecated.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_examples.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws-dates.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_iam-passrole-service.html
   -Actor is what is doing the actions
   -Actee is what is receiving the action
 Main Success Scenario:
