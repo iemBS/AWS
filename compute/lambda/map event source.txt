@@ -1,0 +1,31 @@
+Map Event Source
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html
+  -An event source mapping is a Lambda resource that reads from an event source and invokes a Lambda function
+  -You can use event source mappings to process items from a stream or queue in services that don't invoke Lambda functions directly
+  -services that Lambda platform provides event source mappings for:
+    -Amazon DynamoDB
+    -Amazon Kinesis
+    -Amazon MQ
+    -Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+    -Self-managed Apache Kafka
+    -Amazon Simple Queue Service (Amazon SQS)
+    -Amazon DocumentDB (with MongoDB compatibility) (Amazon DocumentDB)
+  -services that invoke lambda functions directly:
+    -xxx:fill in 
+  -An event source mapping uses permissions in the function's execution role to read and manage items in the event source. 
+  -Lambda event source mappings process events at least once due to the distributed nature of its pollers. 
+    -Lambda function may receive duplicate events in rare situations
+    -Follow Best practices for working with AWS Lambda functions and build idempotent functions to avoid issues related to duplicate events
+      -Idemppotent: denoting an element of a set which is unchanged in value when multiplied or otherwise operated on by itself.
+  -Event source mappings read items from a target event source
+  -Event source mapping batches records together into a single payload that Lambda sends to your function
+    -default behavior
+  -Batch window (MaximumBatchingWindowInSeconds) and a batch size (BatchSize) are configurable
+  -Batch window is the maximum amount of time to gather records into a single payload
+  -Batch size is the maximum number of records in a single batch
+  -Lambda invokes your function when one of the following three criteria is met
+    -xxx:Fill in 
+Main Success Scenario:
+  1. xxx:fill in 
