@@ -2,5 +2,6 @@ Relate Aurora Security to IAM
 Note:
   -guidance @
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/security_iam_service-with-iam.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
 Main Success Scenario:
   1. xxx:fill in 
