@@ -6,6 +6,8 @@ rds_superuser_role
   -APPLICATION_PASSWORD_ADMIN
   -ALTER ROUTINE
   -CONNECTION_ADMIN *
+    -privilege related to parameters 
+      -ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.html
     -ref @ https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_connection-admin
   -CREATE
   -CREATE ROLE *
