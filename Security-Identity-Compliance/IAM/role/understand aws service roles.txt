@@ -6,3 +6,4 @@ note
 ref
 -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
 -https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html
+-https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html
