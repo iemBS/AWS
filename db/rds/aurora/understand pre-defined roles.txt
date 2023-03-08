@@ -1,0 +1,3 @@
+
+rds_superuser_role
+-https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.Compare-80-v3.html
