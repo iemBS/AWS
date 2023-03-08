@@ -2,7 +2,7 @@ Get Aurora MySQL Version
 Note:
   -Aurora MySQL version and MySQL version are not the same versioning
 Main Success Scenario:
-  1. xxx:fill in 
+  1. Get engine version from rds cluster or instance 
   2. End
 Alternatives:
   1a. Want MySQL Version instead
