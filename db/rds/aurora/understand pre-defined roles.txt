@@ -1,6 +1,8 @@
 
 rds_superuser_role
--https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.Compare-80-v3.html
+-ref @ 
+  -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.Compare-80-v3.html
+  -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.30Updates.html
 -privilege
   -ALTER
   -APPLICATION_PASSWORD_ADMIN
@@ -8,6 +10,10 @@ rds_superuser_role
   -CONNECTION_ADMIN *
     -privilege related to parameters 
       -ref @ https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.html
+    -mysqld reserves an extra connection for users who have the CONNECTION_ADMIN or SUPER privilege, so that a MySQL root user can log in and check server activity even if all normal connections are in use.
+      -ref @ https://dev.mysql.com/doc/refman/8.0/en/security-against-attack.html
+    -The server does not execute init_connect system variable content when CONNECTION_ADMIN clients connect.
+      -only matters if init_connect has a value
     -ref @ https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_connection-admin
   -CREATE
   -CREATE ROLE *
@@ -32,6 +38,7 @@ rds_superuser_role
   -ROLE_ADMIN
     -ref @ https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_role-admin
   -SET_USER_ID *
+    -As of MySQL 8.0.22, SET_USER_ID also enables overriding security checks designed to prevent operations that (perhaps inadvertently) cause stored objects to become orphaned or that cause adoption of stored objects that are currently orphaned. 
     -ref @ https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_set-user-id
   -SELECT
   -SHOW DATABASES
