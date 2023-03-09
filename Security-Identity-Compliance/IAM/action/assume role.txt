@@ -3,5 +3,6 @@ Note:
   -guidance @
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-cli.html
 Main Success Scenario:
   1. xxx:fill in 
