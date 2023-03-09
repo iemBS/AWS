@@ -3,5 +3,16 @@ Note:
   -guidance @
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/security_iam_service-with-iam.html
     -https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+    -https://aws.amazon.com/premiumsupport/knowledge-center/users-connect-rds-iam/
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Map IAM Role to Aurora MySQL User
+Note:
+  -guidance @
+    -https://aws.amazon.com/premiumsupport/knowledge-center/users-connect-rds-iam/
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html
 Main Success Scenario:
   1. xxx:fill in 
