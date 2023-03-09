@@ -1,0 +1,11 @@
+Create Service-Linked Role
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.ServiceLinkedRoles.html
+  -You don't need to manually create a service-linked role. 
+  -When you create a DB instance, Amazon RDS creates the service-linked role for you.
+  -Amazon RDS uses the service-linked role named AWSServiceRoleForRDS to allow Amazon RDS to call AWS services on behalf of your DB instances.
+  -The AWSServiceRoleForRDS service-linked role trusts the following services to assume the role:
+    -rds.amazonaws.com
+  -AWSServiceRoleForRDS service-linked role has a permissions policy attached to it called AmazonRDSServiceRolePolicy. 
+    AmazonRDSServiceRolePolicy grants AWSServiceRoleForRDS permissions to operate in your account
