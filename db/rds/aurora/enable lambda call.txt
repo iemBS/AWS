@@ -7,5 +7,6 @@ Note:
     -https://www.ethanbray.com/aws/2019/07/14/intermittent-rds-errors-lambda-triggers.html
     -https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html
     -https://repost.aws/questions/QUcTTrpOk-SRmUrZgsNYLJyw/silent-failure-in-cloud-formation-lambda-vpc-config
+    -https://towardsaws.com/using-aws-lambda-with-amazon-aurora-mysql-b672e9378ab2
 Main Success Scenario:
   1. xxx:fill in 
