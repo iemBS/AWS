@@ -2,7 +2,27 @@ Enable Outbound Connection to Other Service
 Note:
   -guidance @
     -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.Network.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.Scenarios.html
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting
   -Aurora returns the following error messages if it can't connect to a service endpoint
-    -xxx:fill in 
+    -ERROR 1871 (HY000): S3 API returned error: Network Connection
+    -ERROR 1873 (HY000): Lambda API returned error: Network Connection. Unable to connect to endpoint
+    -ERROR 1815 (HY000): Internal error: Unable to initialize S3Stream
+  -For database activity streams using Aurora MySQL, the activity stream stops functioning if the DB cluster can't access the AWS KMS endpoint. 
+    -Aurora notifies you about this issue using RDS Events
+  -If you encounter these messages while using the corresponding AWS services, check if your Aurora DB cluster is public or private. 
+    -If your Aurora DB cluster is private, you must configure it to enable connections.
+  -When RDS Instance Connectivity Public Access is to "Publicly accessible", RDS assigns a public IP address to the database. Amazon EC2 instances and other resources outside of the VPC can connect to your database. Resources inside the VPC can also connect to the database. Choose one or more VPC security groups that specify which resources can connect to the database.
+Main Success Scenario:
+  1. Set RDS Instance Connectivity Public Access to "Publicly accessible"
+  2. xxx:fill in 
+  
+
+See if Cluster is Public
 Main Success Scenario:
   1. xxx:fill in 
+
+
+
+. 
