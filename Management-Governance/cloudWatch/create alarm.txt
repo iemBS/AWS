@@ -2,5 +2,6 @@ Create Alarm
 Note:
   guidance @
     -https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html
+    -https://catalog.us-east-1.prod.workshops.aws/workshops/464d6c17-9faa-4fef-ac9f-dd49610174d3/en-US/monitoring/alarms
 Main Success Scenario:
   1. xxx:fill in
