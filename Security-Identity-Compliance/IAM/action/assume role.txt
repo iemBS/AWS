@@ -1,0 +1,6 @@
+Assume Role
+Note:
+  -guidance @
+    -https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html
+Main Success Scenario:
+  1. xxx:fill in 
