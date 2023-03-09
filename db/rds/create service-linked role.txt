@@ -9,3 +9,6 @@ Note:
     -rds.amazonaws.com
   -AWSServiceRoleForRDS service-linked role has a permissions policy attached to it called AmazonRDSServiceRolePolicy. 
     AmazonRDSServiceRolePolicy grants AWSServiceRoleForRDS permissions to operate in your account
+  -If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the role in your account. When you create a DB instance, Amazon RDS creates the service-linked role for you again.
+Main Success Scenario:
+  1. xxx:fill in 
