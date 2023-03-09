@@ -8,5 +8,6 @@ Note:
     -https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html
     -https://repost.aws/questions/QUcTTrpOk-SRmUrZgsNYLJyw/silent-failure-in-cloud-formation-lambda-vpc-config
     -https://towardsaws.com/using-aws-lambda-with-amazon-aurora-mysql-b672e9378ab2
+    -https://aws.amazon.com/about-aws/whats-new/2023/02/aws-lambda-amazon-documentdb-change-streams-event-source/
 Main Success Scenario:
   1. xxx:fill in 
