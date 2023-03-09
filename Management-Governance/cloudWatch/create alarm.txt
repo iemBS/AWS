@@ -1,3 +1,6 @@
 Create Alarm
+Note:
+  guidance @
+    -https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html
 Main Success Scenario:
   1. xxx:fill in
