@@ -1,3 +1,5 @@
 
 
-ref @ https://aws.amazon.com/what-is/opensearch/
+ref @ 
+  -https://aws.amazon.com/what-is/opensearch/
+  -https://opensearch.org/docs/latest/search-plugins/knn/index/
