@@ -78,6 +78,32 @@ Main Success Scenario:
                 table_name # determines rank order
         ) rank;
   2. End
+Alternatives:
+  1a. Put all group by fields in a single field and genericize the references
+    1a1. see code below
+      SET @current_groupby:=NULL;
+      SET @current_member:=NULL;
+      SET @member_rank:=0;
+
+      select
+        groupby,
+        member,
+        member_rank
+      from
+        (
+          select 
+            concat(table_schema,'|',table_name) as groupby,
+            column_name as member,
+            @member_rank := IF(@current_groupby <> concat(table_schema,'|',table_name),1,IF(@current_member <> column_name, @member_rank + 1, 1)) AS member_rank,
+            @current_groupby := concat(table_schema,'|',table_name),
+            @current_member := column_name 
+          from
+            information_schema.columns
+              order by
+            concat(table_schema,'|',table_name), # determines separate ranking
+            column_name # determines rank order
+        ) rank;
+    1a2. go to step 2
   
   
 Rank with Method 4
