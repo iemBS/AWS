@@ -3,6 +3,10 @@ Note:
   -guidance @
     -https://docs.snowflake.com/en/sql-reference/sql/create-function
     -https://docs.snowflake.com/en/sql-reference/udf-overview
+Pre-Condition:
+  -Although the body of a UDF can contain a complete SELECT statement, it cannot contain DDL statements or any DML statement other than SELECT.
+  -See if built-in function already performs task
+    -https://docs.snowflake.com/sql-reference-functions
 Main Success Scenario:
   1. "Create SQL Function"
   2. end
@@ -22,13 +26,14 @@ Note:
   -guidance @
     -https://docs.snowflake.com/en/sql-reference/sql/create-function#required-parameters
     -https://docs.snowflake.com/en/sql-reference/sql/create-function#optional-parameters
+    -https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-scalar-functions#memoizable-udfs
+  -A scalar SQL UDF can be memoizable. A memoizable function caches the result of calling a scalar SQL UDF and then returns the cached result when the output is needed at a later time. The benefit of using a memoizable function is to improve performance for complex queries, such as multiple column lookups in mapping tables referenced within a row access policy or masking policy.
+Pre-Condition:
+  -Scalar functions (UDFs) have a limit of 500 input arguments.
 Main Success Scenario:
   1. xxx
   
 Define Function Output
-Note:
-  -guidance @
-    -https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-tabular-functions
 Main Success Scenario:
   1. "Define Scalar Function Output"
   2. End
@@ -37,11 +42,17 @@ Alternatives:
    1a1. "Define Table Function Output"
    1a2. go to step 2
    
-Define Scalar Function Output
+Define Scalar Function Output  -
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-scalar-functions
 Main Success Scenario:
   1. xxx
    
 Define Table Function Output
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-tabular-functions
 Main Success Scenario:
   1. xxx
 
