@@ -1,0 +1,21 @@
+Call Function
+Main Success Scenario:
+  1. "Call Scalar Function"
+  2. End
+Alternatives:
+  1a. xxx
+    1a1. "Call Tabular Function"
+    1a2. Go to end
+  
+  
+Call Scalar Function
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Call Tabular Function
+Note:
+  -guidance @
+    -https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-tabular-functions#calling-a-sql-udtf
+Main Success Scenario:
+  1. xxx:fill in 
