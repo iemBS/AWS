@@ -1,0 +1,35 @@
+Search 
+Main Success Scenario:
+  1. "GUI Search"
+  2. End
+Alternatives:
+  1a. Search with Reltio API
+    1a1. "API Search"
+    1a2. go to step 2
+    
+
+GUI Search
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/explore/get-your-bearings-in-reltio/hub/search/working-with-the-main-search-page
+Pre-Condition:
+  -Not all attributes allow the same filter options
+  -Operational values for an attribute are defined by the Survivorship Rules for the attribute
+    -ref @ https://docs.reltio.com/en/explore/get-your-bearings-in-reltio/hub/search/search-by-operational-value-only
+  -Only searching by OV value can ONLY be done at the top level of the search and not per attribute
+Main Success Scenario:
+  1. Choose entity to search in
+  2. Search on all values in an attribute (searches all crosswalks making up a profile)
+  3. 
+  x. profiles returned in search results
+Alternatives:
+  2a. Search on ONLY operational values in an attribute
+    2a1. limit to searching only by OV values
+    2a2. go to step 3
+
+
+API Search
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
