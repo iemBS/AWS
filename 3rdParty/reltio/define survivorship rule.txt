@@ -73,11 +73,88 @@ Alternatives:
   2a. Do not set a fallback strategy
     2a1. go to step 3
     
+    
+Set LUD Strategy
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rule-types#recency-last-update-date-also-known-as-lud-rule-0
+  -When used, it will use the "Get Last Updated Date" logic
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Get Last Updated Date
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rule-types#recency-last-update-date-also-known-as-lud-rule-0
+  -Crosswalk Update Date: this is updated at the crosswalk level and reflects the best information about when the source record was most recently updated.
+  -Crosswalk Source Publish Date: this is also updated at the crosswalk level but entirely under your control. It is an optional field you can write, to capture the business publish date of the data. E.g suppose you receive a quarterly data file. You might post the value of 3/31/2020 into this field.
+  -Single Attribute Upate Date: This is an internally managed timestamp associated with an actual value in the attribute’s array of values. It is updated separately from the crosswalk.updateDate if the value experiences a partial override operation in which case it will be more recent than the crosswalk.
+Main Success Scenario:
+  1. Get crosswalk update date (LastUpdateDate)
+  2. Get crosswalk source publish date (sourcePublishDate)
+  3. Get single attribute update date (SingleAttrUpdateDates)
+  4. Use the most recent of the dates to determine the crosswalk the value will come from
+  
+  
+Set SRC_SYS Strategy
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rule-types#source-system-rule-0
+  -If there are multiple crosswalks from the same source, then the OV will be sourced from the most recent crosswalk.
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Set Frequency Strategy
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rule-types#frequency-rule-0
+Main Success Scenario:
+  1. xxx
+  
+  
+Set Oldest Value Strategy
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rule-types#oldestvalue-rule-0
+  -The Oldest Value strategy finds the crosswalk with the oldest create date. 
+  -All values within the attribute that were provided by this crosswalk are selected as the OV.
+Main Success Scenario:
+  1. xxx
+  
+  
+Set Min Value Strategy
+Note
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rule-types#minvalue-rule-0
+  -This rule selects the minimum value held in the attribute. The minimum value is defined as follows for different data types:
+    Numeric: MinValue is the smallest numeric value.
+    Date: MinValue is the minimum timestamp value.
+    Boolean: False is the MinValue.
+    String: MinValue is based on the lexicographical sort order of the strings.
+Main Success Scenario:
+  1. xxx
+
+
+Set Max Value Strategy
+Note
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rule-types#maxvalue-rule-0
+  -This rule selects the maximum value held in the attribute. The maximum value is defined as follows for different data types:
+    Numeric: MaxValue is the largest numeric value.
+    Date: MaxValue is the maximum timestamp value.
+    Boolean: True is the MaxValue
+    String: MaxValue is based on the lexicographical sort order of the strings.
+Main Success Scenario:
+  1. xxx
+    
   
 Set OtherAttributeWinnerCrosswalk Strategy
 Note:
   -guidance @
     -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/advanced-survivorship-strategies
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rule-types#otherattributewinnercrosswalk-rule-0
   -Must use primaryAttributeUri property
   -Specify an attribute URI in the primaryAttributeUri property
   -All crosswalks associated to the URI in the primaryAttributeUri property are winners
