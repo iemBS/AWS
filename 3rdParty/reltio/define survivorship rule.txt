@@ -6,6 +6,14 @@ Note:
   -defines operational values (OV) for an attribute
   -because it defines OV for an attribute, it impacts GUI search on OVs for attributes
   -because it defines OV for an attribute, it impacts GUI bulk update on OVs for an attribute
+  -The survivorshipStrategies parameter must be placed at the same level as the entityTypes parameter in the configuration.
+  -Survivorship does not occur during merge
+    -This is unlike other MDM platforms
+    -Ref @ https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules
+  -Survivorship is a process that executes in real-time only when the entity is being retrieved during an API call. 
+  -Survivorship doesn’t care how the crosswalks and attributes came into the consolidated profile nor the order that they arrived.
+  -Survivorship processes each attribute according to the attribute’s defined survivorship rule, and produces an Operational Value (OV) for the attribute on the fly. 
+  -The role of the username making the API call also factors into the survivorship rule used. 
 Main success scenario:
   1. "Set Strategy"
   2. "Set Filter"
@@ -17,8 +25,12 @@ Main success scenario:
   8. Apply Default Strategy
   9. End
 Alternatives:
-  4a. DO NOT Restrict OV source
-    4a1. 
+  4a. DO NOT restrict OV source
+    4a1. DO NOT restrict OV source
+    4a2. go to step 5
+  5a. DO NOT PIN value
+    5a1. DO NOT PIN value
+    5a2. go to step 6
   
   
 Set Strategy
@@ -60,12 +72,43 @@ Alternatives:
     1j2. go to step 4
   2a. Do not set a fallback strategy
     2a1. go to step 3
+    
+  
+Set OtherAttributeWinnerCrosswalk Strategy
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/advanced-survivorship-strategies
+  -Must use primaryAttributeUri property
+  -Specify an attribute URI in the primaryAttributeUri property
+  -All crosswalks associated to the URI in the primaryAttributeUri property are winners
+  -All the values in the attribute within those winning crosswalks are winners for the attribute
+  -If the primary attribute does not have winner crosswalks, then the dependent attribute also does not have winner OV.
+  -primaryAttributeUri can be on the same level as a dependent (current) attribute or on a higher level
+Pre-Condition
+  -Not allowed to create a cyclic survivorship
+Main Success Scenario:
+  1. Find another attribute on the same level that will determine what crosswalk you will get your attribute value from 
+  2. Set primaryAttributeUri property with an attribute URI
+Alternatives:
+  1a. Find another attribute on a higher level that will determine what crosswalk you get your attribute value from
+    1a1. Find an attribute from a higher level
+    1a2. go to step 2
+  1b. Find another attribute on a lower level that will determine what crosswalk you get your attribute value from
+    1b1. xxx
+    1b2. go to step 2
+  
   
 Set Filter
 Note:
   -guidance @
     -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rules#filtering-0
   -Only supports equals expression
+  -For the specified value, all values of the attribute where the operational values are set to true or false are searched.
+  -Filtering settings split all values from an attribute to different sets of values using a filter.
+  -These sets of values can intersect with each other if the value meets the filter condition for different filters. 
+  -If a value is contained in multiple subsets, it can be a winner value in one of the subsets.
+  -If a value does not match any filter condition in the attribute mappings, it goes to the set which will be calculated by default strategy and also separately from other sets. 
+  -Separate mapping without filtering property must be specified for this strategy; otherwise, LUD is applied.
 Main Success Scenario:
   1. xxx:fill in 
   
@@ -74,9 +117,10 @@ Set Fallback Strategy
 Note
   -guidance @
     -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rules#fallback-strategies-t
+  -Fallback strategy chains use not only winner values but also winner crosswalks of those values. Therefore, if a value with multiple crosswalks becomes a winner on a calculation step with just a few winner crosswalks, only those winner crosswalks are used in the next calculation step.
 Pre-Condition:
-  -Cannot use "Set Filter" when using a Fallback Strategy
-  -If "Restrict OV Sources" specified, still applies here
+  -"Set Filter" not used in Fallback Strategy
+  -If "Restrict OV Source" specified, still applies here
 Main Success Scenario:
   1. "Set fallbackUsingCriteria Property"
   2. "Set fallbackStrategies Property"
@@ -149,3 +193,18 @@ Pre-Condition
     -crosswalk from a restricted source
 Main Success Scenario:
   1. Ignored values not included in OV calculation
+
+
+Set Source Precedence based on Attribute Value
+Note
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/dependent-survivorship-rule
+xxx
+
+
+Define Survivorship Group 
+Note
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-groups
+Main Success Scenario:
+  1. xxx:fill in 
