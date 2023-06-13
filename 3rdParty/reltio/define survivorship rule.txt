@@ -2,5 +2,76 @@ Define Survivorship Rule
 Note:
   -guidance @
     -https://community.reltio.com/reltio-product-master-data-management-faqs1/reltio-match-merge
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rules
+  -defines operational values (OV) for an attribute
+  -because it defines OV for an attribute, it impacts GUI search on OVs for attributes
+  -because it defines OV for an attribute, it impacts GUI bulk update on OVs for an attribute
 Main success scenario:
-  1. xxx
+  1. "Set Strategy"
+  2. "Set Filter"
+  3. Set Fallback Strategy
+  4. Restrict OV Sources
+  5. Pin Values
+  6. Ignore Values
+  7. Check Delete Date
+  8. Apply Default Strategy
+  9. End
+  
+  
+Set Strategy
+Main Success Scenario:
+  1. "Set LUD Strategy"
+  2. "Set Fallback Strategy"
+  3. Set strategy for next attribute
+  4. End
+Alternatives:
+  1a. 
+    1a1. "Set SRC_SYS Strategy"
+    1a2. go to step 4
+  1b. 
+    1b1. "Set Frequency Strategy"
+    1b2. go to step 4
+  1c. 
+    1c1. "Set Aggregation Strategy"
+    1c2. go to step 4
+  1d. 
+    1d1. "Set Record-values based source priority"
+    1d2. go to step 4
+  1e. 
+    1e1. "Set Custom Strategy"
+    1e2. go to step 4
+  1f. 
+    1f1. "Set Oldest Value Strategy"
+    1f2. go to step 4
+  1g. 
+    1g1. "Set Min Value Strategy"
+    1g2. go to step 4
+  1h.
+    1h1. "Set Max value Strategy"
+    1h2. go step 4
+  1i. 
+    1i1. "Set OtherAttributeWinnerCrosswalk Strategy"
+    1i2. go to step 4
+  1j. 
+    1j1. "Set WinnerEntityCrosswalk Strategy"
+    1j2. go to step 4
+  
+  
+Set Fallback Strategy
+Note
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rules#fallback-strategies-0
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Set Filter
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rules#filtering-0
+  -Only supports equals expression
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+  
