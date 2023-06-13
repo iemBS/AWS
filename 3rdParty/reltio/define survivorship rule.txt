@@ -9,13 +9,16 @@ Note:
 Main success scenario:
   1. "Set Strategy"
   2. "Set Filter"
-  3. Set Fallback Strategy
-  4. Restrict OV Sources
-  5. Pin Values
-  6. Ignore Values
-  7. Check Delete Date
+  3. "Set Fallback Strategy"
+  4. "Restrict OV Source"
+  5. "Pin Value"
+  6. "Ignore Value"
+  7. "Check Delete Date"
   8. Apply Default Strategy
   9. End
+Alternatives:
+  4a. DO NOT Restrict OV source
+    4a1. 
   
   
 Set Strategy
@@ -55,15 +58,8 @@ Alternatives:
   1j. 
     1j1. "Set WinnerEntityCrosswalk Strategy"
     1j2. go to step 4
-  
-  
-Set Fallback Strategy
-Note
-  -guidance @
-    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rules#fallback-strategies-0
-Main Success Scenario:
-  1. xxx:fill in 
-  
+  2a. Do not set a fallback strategy
+    2a1. go to step 3
   
 Set Filter
 Note:
@@ -74,4 +70,82 @@ Main Success Scenario:
   1. xxx:fill in 
   
   
+Set Fallback Strategy
+Note
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/survivorship-rules#fallback-strategies-t
+Pre-Condition:
+  -Cannot use "Set Filter" when using a Fallback Strategy
+  -If "Restrict OV Sources" specified, still applies here
+Main Success Scenario:
+  1. "Set fallbackUsingCriteria Property"
+  2. "Set fallbackStrategies Property"
+  3. End 
   
+ 
+Set fallbackUsingCriteria Property
+Note:
+  -MORE_THAN_ONE (default): If a strategy returns two or more winner values, its fallback strategy will use only the winner values and winner crosswalks from the strategy.
+  -ZERO_OR_MORE_THAN_ONE: If a strategy returns zero, two, or more winner values, the logic for determining values used by the fallback strategy is based on the retrieved number of winners. 
+Main Success Scenario:
+  1. Use MORE_THAN_ONE
+  2. end
+Alternatives:
+  1a. Use ZERO_OR_MORE_THAN_ONE
+    1a1. Use ZERO_OR_MORE_THAN_ONE
+    1a2. go to step 2
+
+
+Set fallbackStrategies Property
+Main Success Scenario:
+  1. "Set Strategy"
+  2. End
+
+
+Restrict OV Source
+Note:
+  -only crosswalks (and values linked to them) from permitted source-systems are used to determine winners, all other crosswalks and values are ignored. 
+  -Iff there are no values from permitted sources, there are no winner values
+Main Success Scenario:
+  1. List sources that may have OVs
+  2. End
+  
+  
+Pin Value
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/pinned-or-ignored-attributes-merges
+  -If sub-nested attribute is pinned but its parent has OV set as false, this sub-nested attribute also will have the OV set as false.
+Main Success Scenario:
+  1. Pin one or more values for an attribute 
+  2. Value(s) becomes OV
+  3. All other attribute survivorship rules are ignored
+  4. "Set pinIgnoredPriority Property"
+  5. End
+Alternatives:
+  4a. DO NOT set pinIgnoredPriority property
+    4a1. DO NOT set
+    4a2. go to step 5
+    
+  
+Set pinIgnoredPriority Property
+Note:
+  -guidance @
+    -https://docs.reltio.com/en/model/consolidate-data/design-survivorship-rules/pinned-or-ignored-attributes-merges#overview-0
+Main Success Scenario:
+  1. set pinIgnoredPriority property to ignored, pin, or neutral
+  2. End
+  
+  
+Check Delete Date
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Ignore Value
+Pre-Condition
+  -Values ignored by one of these ways
+    -Delete Date attribute is set at crosswalk level
+    -crosswalk from a restricted source
+Main Success Scenario:
+  1. Ignored values not included in OV calculation
