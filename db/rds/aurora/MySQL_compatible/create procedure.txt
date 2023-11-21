@@ -1,6 +1,8 @@
 Create Procedure
 Note:
-  -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/create-procedure.html
+  -The DEFINER clause specifies the MySQL account to be used when checking access privileges at routine execution time for routines that have the SQL SECURITY DEFINER characteristic.
+  -Guidance @ 
+    -https://dev.mysql.com/doc/refman/5.6/en/create-procedure.html
 Main Success Scenario:
   1. See query below
 
