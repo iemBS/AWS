@@ -2,5 +2,6 @@ Limit Resource
 Note:
   -ref@
    -https://docs.aws.amazon.com/general/latest/gr/glue.html
+  -built-in limits are called service quotas
 Main Success Scenario:
   1. xxx:fill in 
