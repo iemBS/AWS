@@ -10,6 +10,7 @@ section type
       -ref @ 
         -https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
   -AWS::S3::Bucket
+  -AWS::Serverless::Function
   -AWS::SNS::Subscription
   -AWS::SNS::Topic
   -AWS::SNS::TopicPolicy
