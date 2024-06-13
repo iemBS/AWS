@@ -1,0 +1,8 @@
+Run As
+Main Success Scenario:
+  1. Run proc/func as definer
+  2. xxx
+  3. End 
+Alternatives
+  1a. Run proc/func as invoker 
+    1a1. Set SQL SECURITY INVOKER in proc/func
