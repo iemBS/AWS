@@ -1,0 +1,5 @@
+Soft Delete Field Group in Profile
+Note:
+  -A profile is also called an entity
+Main Success Scenario:
+  1. xxx:fill in 
