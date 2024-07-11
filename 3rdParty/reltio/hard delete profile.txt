@@ -1,5 +1,7 @@
 Hard Delete Profile
 Note:
+  -ref
+    -https://docs.reltio.com/en/explore/get-going-with-apis-and-rocs-utilities/reltio-rest-apis/model-apis/entities-api/delete-entity
   -Profile is also called an entity. 
 Main Success Scenario:
   1. xxx:fill in 
