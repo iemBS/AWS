@@ -1,0 +1,5 @@
+Hard Delete Profile
+Note:
+  -Profile is also called an entity. 
+Main Success Scenario:
+  1. xxx:fill in 
