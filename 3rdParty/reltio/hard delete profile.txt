@@ -1,7 +1,61 @@
 Hard Delete Profile
 Note:
   -ref
-    -https://docs.reltio.com/en/explore/get-going-with-apis-and-rocs-utilities/reltio-rest-apis/model-apis/entities-api/delete-entity
+    -https://support.reltio.com/hc/en-us/articles/360028554211-What-is-the-meaning-of-a-soft-and-hard-deletes-in-Reltio
   -Profile is also called an entity. 
 Main Success Scenario:
+  1. "Hard Delete Profile by URI"
+  2. xxx:fill in 
+Alternatives:
+  1a. Deleting a list of profiles, but not a large amount
+    1a1. "Hard Delete Profile by URI list"
+    1a2. go to step 2
+  1b. Deleting a large number of profiles, but not all the profiles for an entity type
+    1b1. "Hard Delete Profile with Bulk Process"
+    1b2. go to step 2
+  1c. Deleting all profile of a specific entity type
+    1c1. "Hard Delete Profile by Entity Type"
+    1c2. go to step 2
+  1d. Deleting profiles due to GDPR
+    1d1. "Hard Delete Profile by GDPR"
+    1d2. go to step 2
+
+
+Hard Delete Profile by URI
+  -ref
+    -https://docs.reltio.com/en/explore/get-going-with-apis-and-rocs-utilities/reltio-rest-apis/model-apis/entities-api/delete-entity
+Main Success Scenario:
   1. xxx:fill in 
+
+
+Hard Delete Profile by URI list
+Note:
+  -ref
+    -https://docs.reltio.com/en/explore/get-going-with-apis-and-rocs-utilities/reltio-rest-apis/model-apis/entities-api/delete-entity/delete-specified-entities-list-by-uris
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Hard Delete Profile by Entity Type
+Note:
+  -ref
+    -https://docs.reltio.com/en/explore/get-going-with-apis-and-rocs-utilities/reltio-rest-apis/model-apis/entities-api/delete-entity/delete-entities-by-entity-type
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Hard Delete Profile with Bulk Process
+Note:
+  -ref
+    -https://docs.reltio.com/en/explore/get-going-with-apis-and-rocs-utilities/reltio-rest-apis/model-apis/entities-api/delete-entity/bulk-delete-entities
+Main Success Scenario:
+  1. xxx:fill in 
+
+
+Hard Delete Profile by GDPR
+Note:
+  -ref
+    -https://docs.reltio.com/en/explore/get-going-with-apis-and-rocs-utilities/reltio-rest-apis/model-apis/entities-api/delete-entity/delete-entities-by-gdpr
+Main Success Scenario:
+  1. xxx:fill in 
+
