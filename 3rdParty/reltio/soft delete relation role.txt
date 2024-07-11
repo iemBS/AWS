@@ -1,0 +1,4 @@
+Soft Delete Relation Role
+Main Success Scenario:
+  1. Set "delete date" on role crosswalk
+  2. xxx:fill in 
