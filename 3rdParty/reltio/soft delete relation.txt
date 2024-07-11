@@ -1,1 +1,4 @@
-xxx
+Soft Delete Relation
+Main Success Scenario:
+  1. Set "end date"
+  2. xxx:fill in 
