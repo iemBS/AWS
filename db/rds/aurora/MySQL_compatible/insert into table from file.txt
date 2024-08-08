@@ -1,0 +1,15 @@
+Insert Into Table from File
+Note:
+  -ref @
+    -https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.html
+    -https://dev.mysql.com/doc/refman/5.7/en/load-data.html
+Main Success Scenario:
+  1. Put file into s3 folder that is accessible by Aurora
+  2. Ensure permissions are granted to allow the use of the LOAD DATA SQL script
+  3. Run the following query, where TBL is your aurora table and S3_FILE is full path and file name of your file in S3
+    LOAD DATA FROM S3 'S3_FILE'
+    INTO TABLE TBL
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES;
+  4. End
