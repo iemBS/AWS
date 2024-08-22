@@ -2,6 +2,8 @@ See Character Set used by MySQL
 Note:
   -Guidance @ https://dev.mysql.com/doc/refman/5.6/en/charset-connection.html
   -Guidance @ https://downloads.mysql.com/docs/mysql-g11n-excerpt-8.0-en.pdf
+  -ref@
+    -https://dev.mysql.com/doc/refman/8.4/en/charset-column.html
 Main Success Scenario:
   1. USE MyDB; 
      SELECT @@character_set_database; # gives abbreviated name
@@ -53,3 +55,9 @@ Alternatives:
       ) 
     ORDER BY 
       VARIABLE_NAME;
+
+
+See column level character sets and collations used
+Main Success Scenario:
+  1. see query below
+      select CHARACTER_SET_NAME,COLLATION_NAME from INFORMATION_SCHEMA.COLUMNS
